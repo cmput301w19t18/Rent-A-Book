@@ -1,6 +1,12 @@
 oanderso line
-<<<<<<< HEAD
+
 jusong line
-=======
+
 rsander reporting a radical rendition of a line
->>>>>>> 8bf25feae1f0fdda21356f0010dfe810f5623bb6
+
+julieta dikova line
+
+rsander reporting a radical rendition of a line
+
+smnavid line
+
