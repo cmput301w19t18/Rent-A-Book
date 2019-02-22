@@ -13,7 +13,7 @@ public class BookFunctionTest {
         Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
         obj.setRequestedBy("Borrower");
 
-        
+
     }
 
     @Test
@@ -23,8 +23,8 @@ public class BookFunctionTest {
         String status = obj.getBstatus();
         String borrower = obj.getBorrowedBy();
 
-        assertEquals(status, "Borrowed");
-        assertEquals(borrower, "Borrower");
+        assertEquals("Borrowed", status );
+        assertEquals("Borrower", borrower );
     }
 
 }
