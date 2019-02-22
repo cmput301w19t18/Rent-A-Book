@@ -10,8 +10,12 @@ public class BookRequest {
         //code
     }
 
-    private void checkAvailableStatus (){
-        //code
+    public boolean checkAvailableStatus (){
+        if ( this.availableStatus == "Available" || this.availableStatus == "Requested"){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void sendRequestMessage () {

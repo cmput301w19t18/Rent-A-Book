@@ -26,7 +26,14 @@ public class Book {
     }
 
     public void setRequestedBy(String requestingUser) { //email of the user requesting it
-        this.requestedBy.add(requestingUser);
+        if (this.getBstatus() == "Accepted" || this.getBstatus() == "Borrowed") {
+            return;
+        } else if (this.getBstatus() == "Requested"){
+            this.requestedBy.add(requestingUser);
+        } else {
+            this.setBstatus("Requested");
+            this.requestedBy.add(requestingUser);
+        }
     }
 
     public void setBorrowedBy(String borrowingUser) { //email of the user borrowing it
