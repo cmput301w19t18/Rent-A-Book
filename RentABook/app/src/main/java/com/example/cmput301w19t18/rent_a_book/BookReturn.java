@@ -10,7 +10,7 @@ public class BookReturn {
     }
 
     private void checkReturn (String borrowerEmail, String ownerEmail) {
-        //make both users confirm the return
+        //make both users confirm the return. match entered emails with firebase
     }
     
     private void statusToAvailable (Boolean returnConfirmed) {
