@@ -10,11 +10,11 @@ public class BookRequest {
         //code
     }
 
-    public boolean checkAvailableStatus (){
-        if ( this.availableStatus == "Available" || this.availableStatus == "Requested"){
-            return true;
+    public void checkAvailableStatus (){
+        if ( this.book.bstatus == "Available" || this.book.bstatus == "Requested" ){
+            this.availableStatus = true;
         } else {
-            return false;
+            this.availableStatus = false;
         }
     }
 
