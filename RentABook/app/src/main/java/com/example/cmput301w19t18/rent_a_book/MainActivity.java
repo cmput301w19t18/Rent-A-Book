@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if (password.isEmpty()){
-            pass.setError("Email is required");
+            pass.setError("Pass is required");
             pass.requestFocus();
             return;
         }
