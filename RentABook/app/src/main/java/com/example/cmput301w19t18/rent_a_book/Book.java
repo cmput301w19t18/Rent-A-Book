@@ -8,7 +8,7 @@ public class Book {
     private String author;
     private String genre;
     private String ISBN;
-    private String bstatus;
+    public String bstatus;
     private String owner;
     private Integer rating;
 
