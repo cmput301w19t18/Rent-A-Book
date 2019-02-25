@@ -19,8 +19,13 @@ public class Recommendations extends AppCompatActivity {
     // get user ratings from firebase
     public int[] userRatings;
 
+    // TODO change to int
     // get user genre preferences from firebase database
     public String[] preferredGenres;
+
+
+    // column number should correspond to book id and row number should
+    // correspond to user id; matrix should be filled by user ratings
 
     // 2d array to hold each book and its user given ratings
     // data from firebase
@@ -80,6 +85,7 @@ public class Recommendations extends AppCompatActivity {
     // collaborative filtering method -> no new user and no new books added
     private Book[] collaborativeFiltering() {
         // calculating item-item cosine similarity
+        // TODO fix this; should be ratings lol
         // user similarities = cosine similarity of ratings
         double[] userSimilarities = cosSimilarity(userIDs, bookIDs);
         // item similarities = cosine similarity of transpose of ratings
