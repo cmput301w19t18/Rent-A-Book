@@ -28,6 +28,6 @@ public class GeoLocationTest {
 
     @Test
     public void setLocation() {
-        // i don't really know how to implement this part lol
+        // i don't really know how to implement this part yet ...
     }
 }
