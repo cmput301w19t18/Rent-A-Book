@@ -7,13 +7,13 @@ public class Book {
     private String btitle;
     private String author;
     private String genre;
-    private String ISBN;
+    private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private String owner;
     private Integer rating;
 
-    private ArrayList<String> requestedBy; //email of user who requested the book
-    private String borrowedBy; //email of user that borrowed the book
+    private ArrayList<String> requestedBy; //Emails of users that have placed requests for the book
+    private String borrowedBy; //Email of the user that borrowed the book
 
     //constructor (changed to public constructor)
     public Book (String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating){
@@ -78,7 +78,6 @@ public class Book {
 
     public Integer getRating() {
         return rating;
-
     }
 
     public void setRating(Integer rating) {
@@ -92,8 +91,6 @@ public class Book {
     public String getBorrowedBy() {
         return borrowedBy;
     }
-
-
 
     private void addPhoto (String fileName){
         //code
@@ -110,13 +107,15 @@ public class Book {
         }
     }
 
-    public void setBorrowedBy(String borrowingUser) { //email of the user borrowing it
-        this.setBstatus("Borrowed");
-        this.borrowedBy = borrowingUser;
+    public void setBorrowedBy(String borrowingUser) { //Set borrower and clear all current requests
+        this.setBstatus("Borrowed"); //Change status
+        this.borrowedBy = borrowingUser; //Set the borrowing user
+        this.initialRequestedBy(); //Clear all requests from the book
     }
 
+    //Create an initializer to set RequestedBy to an empty array to avoid having null pointer errors
     public void initialRequestedBy () {
-        ArrayList<String> initial = new ArrayList<String>();
+        ArrayList<String> initial = new ArrayList<>();
         this.requestedBy = initial;
         return;
     }

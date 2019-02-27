@@ -31,9 +31,11 @@ public class BookFunctionTest {
         obj.setBorrowedBy("Borrower");
         String status = obj.getBstatus();
         String borrower = obj.getBorrowedBy();
+        ArrayList<String> Expected = new ArrayList<>();
 
         assertEquals("Borrowed", status );
         assertEquals("Borrower", borrower );
+        assertEquals(Expected, obj.getRequestedBy());
     }
 
 }
