@@ -14,6 +14,7 @@ public class BookFunctionTest {
 
     @Test
     public void setRequestedBy() {
+        //First test on an available book
         Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
         obj.setRequestedBy("Requester");
         String Bstatus = obj.getBstatus();
@@ -24,6 +25,7 @@ public class BookFunctionTest {
         assertEquals("Requested", Bstatus);
         assertEquals(ExpectedArray, RequestingUsers);
 
+        //Second test on a requested book; check to ensure the status doesn't change
         Book obj2 = new Book("Title", "Author", "Genre", "1234567891", "Requested", "Owner", 5);
         obj2.setRequestedBy("Requester");
         String Bstatus2 = obj2.getBstatus();
@@ -31,9 +33,10 @@ public class BookFunctionTest {
         ArrayList<String> ExpectedArray2 = new ArrayList<>();
         ExpectedArray2.add("Requester");
 
-        assertEquals("Requested", Bstatus);
+        assertEquals("Requested", Bstatus2);
         assertEquals(ExpectedArray2, RequestingUsers2);
 
+        //Third test on an accepted(borrowed) book to ensure the function doesn't change anything
         Book obj3 = new Book("Title", "Author", "Genre", "1234567892", "Accepted", "Owner", 5);
         obj3.setRequestedBy("Requester");
         String Bstatus3 = obj3.getBstatus();
@@ -52,9 +55,9 @@ public class BookFunctionTest {
         String borrower = obj.getBorrowedBy();
         ArrayList<String> Expected = new ArrayList<>();
 
-        assertEquals("Borrowed", status );
-        assertEquals("Borrower", borrower );
-        assertEquals(Expected, obj.getRequestedBy());
+        assertEquals("Borrowed", status ); //Test that the status changes to "Borrowed"
+        assertEquals("Borrower", borrower ); //Test that the borrower is set to the proper value
+        assertEquals(Expected, obj.getRequestedBy()); //Test that the requests are actually cleared from the book
     }
 
 }
