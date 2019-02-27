@@ -4,6 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 
 public class BookFunctionTest {
@@ -11,9 +15,14 @@ public class BookFunctionTest {
     @Test
     public void setRequestedBy() {
         Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
-        obj.setRequestedBy("Borrower");
+        obj.setRequestedBy("Requester");
+        String Bstatus = obj.getBstatus();
+        ArrayList<String> Requesters = obj.getRequestedBy();
+        ArrayList<String> Expected = new ArrayList<>();
+        Expected.add("Requester");
 
-
+        assertEquals("Requested", Bstatus);
+        assertEquals(Expected, Requesters);
     }
 
     @Test
@@ -26,6 +35,5 @@ public class BookFunctionTest {
         assertEquals("Borrowed", status );
         assertEquals("Borrower", borrower );
     }
-
 
 }

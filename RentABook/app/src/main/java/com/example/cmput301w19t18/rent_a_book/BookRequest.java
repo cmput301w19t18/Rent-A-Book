@@ -11,7 +11,7 @@ public class BookRequest {
     }
 
     public void checkAvailableStatus (){
-        if ( this.book.bstatus == "Available" || this.book.bstatus == "Requested" ){
+        if ( this.book.getBstatus() == "Available" || this.book.getBstatus() == "Requested" ){
             this.availableStatus = true;
         } else {
             this.availableStatus = false;

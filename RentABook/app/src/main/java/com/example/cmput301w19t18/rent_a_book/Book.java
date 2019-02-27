@@ -8,7 +8,7 @@ public class Book {
     private String author;
     private String genre;
     private String ISBN;
-    public String bstatus;
+    private String bstatus;
     private String owner;
     private Integer rating;
 
@@ -16,7 +16,7 @@ public class Book {
     private String borrowedBy; //email of user that borrowed the book
 
     //constructor (changed to public constructor)
-    public Book (String btitle, String author, String genre, Integer ISBN, String bstatus, String owner, Integer rating){
+    public Book (String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
@@ -24,6 +24,8 @@ public class Book {
         this.bstatus = bstatus;
         this.owner = owner;
         this.rating = rating;
+        this.initialRequestedBy();
+        this.initialBorrowedBy();
     }
 
     public String getBtitle() {
@@ -50,11 +52,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public Integer getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(Integer ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
@@ -83,7 +85,7 @@ public class Book {
         this.rating = rating;
     }
 
-    public String getRequestedBy() {
+    public ArrayList<String> getRequestedBy() {
         return requestedBy;
     }
 
@@ -102,7 +104,7 @@ public class Book {
             return;
         } else if (this.getBstatus() == "Requested"){
             this.requestedBy.add(requestingUser);
-        } else {
+        } else if (this.getBstatus() == "Available") {
             this.setBstatus("Requested");
             this.requestedBy.add(requestingUser);
         }
@@ -113,15 +115,13 @@ public class Book {
         this.borrowedBy = borrowingUser;
     }
 
-    public void setBstatus(String newStatus){
-        this.bstatus = newStatus;
+    public void initialRequestedBy () {
+        ArrayList<String> initial = new ArrayList<String>();
+        this.requestedBy = initial;
+        return;
     }
 
-    public String getBstatus() {
-        return bstatus;
-    }
+    public void initialBorrowedBy () {
 
-    public String getBorrowedBy() {
-        return borrowedBy;
     }
 }

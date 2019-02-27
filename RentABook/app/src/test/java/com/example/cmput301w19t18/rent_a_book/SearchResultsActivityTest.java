@@ -16,16 +16,16 @@ public class SearchResultsActivityTest {
     @Test
     public void DisplayResults() {
 
-        // String btitle, String author, String genre, Integer ISBN, String bstatus, String owner, Integer rating
+        // String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating
         String search = "Brooklyn 99";
 
         // Book object has private access
-        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Available", "jakep@nypd.org", 5);
-        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", 2, "Available", "amys@nypd.org", 4);
-        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Requested", "rosad@nypd.org", 5);
-        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Accepted", "charlesb@nypd.org", 5);
-        Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Borrowed", "raymondh@nypd.org", 5);
-        Book book6 = new Book("Nothing Lasts Forever", "Roderick Thorp", "Thriller", 3, "Available", "jakep@nypd.org", 3);
+        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "jakep@nypd.org", 5);
+        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", "2", "Available", "amys@nypd.org", 4);
+        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1","Requested",  "rosad@nypd.org", 5);
+        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Accepted", "charlesb@nypd.org", 5);
+        Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Borrowed", "raymondh@nypd.org", 5);
+        Book book6 = new Book("Nothing Lasts Forever", "Roderick Thorp", "Thriller", "3", "Available", "jakep@nypd.org", 3);
 
         book4.setRequestedBy("jakep@nypd.org");
         book5.setBorrowedBy("amys@nypd.org");
@@ -67,9 +67,9 @@ public class SearchResultsActivityTest {
     @Test
     public void Refresh() {
 
-        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Available", "jakep@nypd.org", 5);
-        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", 2, "Available", "amys@nypd.org", 4);
-        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Requested", "rosad@nypd.org", 5);
+        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "jakep@nypd.org", 5);
+        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", "2", "Available", "amys@nypd.org", 4);
+        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Requested", "rosad@nypd.org", 5);
 
         ArrayList<Book> book_results = new ArrayList<Book>();
 
@@ -79,7 +79,7 @@ public class SearchResultsActivityTest {
 
         assertEquals(book_results.size(), 3);
 
-        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", 1, "Available", "ginal@nypd.org", 5);
+        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "ginal@nypd.org", 5);
 
         book_results.add(book4);
 
