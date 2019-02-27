@@ -18,11 +18,30 @@ public class BookFunctionTest {
         obj.setRequestedBy("Requester");
         String Bstatus = obj.getBstatus();
         ArrayList<String> RequestingUsers = obj.getRequestedBy();
-        ArrayList<String> Expected = new ArrayList<>();
-        Expected.add("Requester");
+        ArrayList<String> ExpectedArray = new ArrayList<>();
+        ExpectedArray.add("Requester");
 
         assertEquals("Requested", Bstatus);
-        assertEquals(Expected, RequestingUsers);
+        assertEquals(ExpectedArray, RequestingUsers);
+
+        Book obj2 = new Book("Title", "Author", "Genre", "1234567891", "Requested", "Owner", 5);
+        obj2.setRequestedBy("Requester");
+        String Bstatus2 = obj2.getBstatus();
+        ArrayList<String> RequestingUsers2 = obj2.getRequestedBy();
+        ArrayList<String> ExpectedArray2 = new ArrayList<>();
+        ExpectedArray2.add("Requester");
+
+        assertEquals("Requested", Bstatus);
+        assertEquals(ExpectedArray2, RequestingUsers2);
+
+        Book obj3 = new Book("Title", "Author", "Genre", "1234567892", "Accepted", "Owner", 5);
+        obj3.setRequestedBy("Requester");
+        String Bstatus3 = obj3.getBstatus();
+        ArrayList<String> RequestingUsers3 = obj3.getRequestedBy();
+        ArrayList<String> ExpectedArray3 = new ArrayList<>();
+
+        assertEquals("Accepted", Bstatus3);
+        assertEquals(ExpectedArray3, RequestingUsers3);
     }
 
     @Test
