@@ -17,12 +17,12 @@ public class BookFunctionTest {
         Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
         obj.setRequestedBy("Requester");
         String Bstatus = obj.getBstatus();
-        ArrayList<String> Requesters = obj.getRequestedBy();
+        ArrayList<String> RequestingUsers = obj.getRequestedBy();
         ArrayList<String> Expected = new ArrayList<>();
         Expected.add("Requester");
 
         assertEquals("Requested", Bstatus);
-        assertEquals(Expected, Requesters);
+        assertEquals(Expected, RequestingUsers);
     }
 
     @Test

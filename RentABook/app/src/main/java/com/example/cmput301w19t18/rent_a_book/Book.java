@@ -25,7 +25,7 @@ public class Book {
         this.owner = owner;
         this.rating = rating;
         this.initialRequestedBy();
-        this.initialBorrowedBy();
+        this.borrowedBy = null;
     }
 
     public String getBtitle() {
@@ -119,9 +119,5 @@ public class Book {
         ArrayList<String> initial = new ArrayList<String>();
         this.requestedBy = initial;
         return;
-    }
-
-    public void initialBorrowedBy () {
-
     }
 }
