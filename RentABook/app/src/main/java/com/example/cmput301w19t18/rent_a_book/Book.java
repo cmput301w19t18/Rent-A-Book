@@ -44,13 +44,9 @@ public class Book {
         this.author = author;
     }
 
-    public String getGenre() {
-        return genre;
-    }
+    public void getGenre() {this.genre = genre; }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+    public void setGenre(String genre) { this.genre = genre; }
 
     public String getISBN() {
         return ISBN;
