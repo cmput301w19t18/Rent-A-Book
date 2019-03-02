@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewBook">
+    tools:context=".NewBookActivity">
 
     <EditText
         android:id="@+id/DescriptionBox"
         android:layout_width="317dp"
-        android:layout_height="189dp"
+        android:layout_height="112dp"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:layout_marginBottom="249dp"
+        android:layout_marginBottom="252dp"
         android:ems="10"
         android:hint="@string/Description"
         android:inputType="textMultiLine"
@@ -22,44 +23,41 @@
         android:singleLine="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/TitleBox"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginLeft="216dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:ems="10"
         android:hint="@string/Title"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ISBNBox"
         app:layout_constraintVertical_chainStyle="spread" />
 
     <EditText
         android:id="@+id/AuthBox"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginStart="217dp"
-        android:layout_marginLeft="217dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:ems="10"
         android:hint="@string/Author"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/DescriptionBox"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TitleBox" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ScanButton"
@@ -78,22 +76,40 @@
         app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
     <EditText
-        android:id="@+id/boxISBN"
+        android:id="@+id/ISBNBox"
         android:layout_width="149dp"
         android:layout_height="38dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="206dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="217dp"
         android:layout_marginRight="217dp"
         android:layout_marginBottom="59dp"
         android:ems="10"
         android:hint="@string/ISBN"
         android:inputType="text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/DescriptionBox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/SubmitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginRight="141dp"
+        android:layout_marginBottom="166dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ScanButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
 </android.support.constraint.ConstraintLayout>
