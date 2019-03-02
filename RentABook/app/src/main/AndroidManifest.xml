@@ -21,7 +21,7 @@
         <activity android:name=".SearchResultsActivity"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".NewBook"></activity>
+        <activity android:name=".NewBookActivity"></activity>
     </application>
 
 </manifest>
