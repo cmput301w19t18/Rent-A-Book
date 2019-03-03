@@ -6,7 +6,7 @@ public class Book {
 
     private String btitle;
     private String author;
-    private String genre;
+    private String[] genre;
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private String owner;
@@ -16,7 +16,7 @@ public class Book {
     private String borrowedBy; //Email of the user that borrowed the book
 
     //constructor (changed to public constructor)
-    public Book (String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating){
+    public Book (String btitle, String author, String[] genre, String ISBN, String bstatus, String owner, Integer rating){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
@@ -26,6 +26,11 @@ public class Book {
         this.rating = rating;
         this.initialRequestedBy();
         this.borrowedBy = null;
+
+        //use of arrays:
+        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
+        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+
     }
 
     public String getBtitle() {
@@ -46,7 +51,7 @@ public class Book {
 
     public void getGenre() {this.genre = genre; }
 
-    public void setGenre(String genre) { this.genre = genre; }
+    public void setGenre(String genre[]) { this.genre = genre; }
 
     public String getISBN() {
         return ISBN;
@@ -93,6 +98,7 @@ public class Book {
     }
 
     public void setRequestedBy(String requestingUser) { //email of the user requesting it
+
         if (this.getBstatus() == "Accepted" || this.getBstatus() == "Borrowed") {
             return;
         } else if (this.getBstatus() == "Requested"){
