@@ -59,7 +59,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         String ISBN = ISBNF.getText().toString().trim();
         String title = TitleF.getText().toString().trim();
         String description = DescF.getText().toString().trim();
-        String genre = "test genre";
+        String[] genre = {"test genre"};
         String owner = "test owner";
         Integer rating = 4;
         String status = "available";
