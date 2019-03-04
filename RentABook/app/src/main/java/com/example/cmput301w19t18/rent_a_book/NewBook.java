@@ -20,7 +20,19 @@ import android.widget.Toast;
 public class NewBook extends AppCompatActivity implements OnClickListener {
 
     private Button scanButton;
-    private TextView bookTitle, bookAuthor, bookISBN;
+    private TextView bookTitle, bookAuthor;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_newbook);
+
+        scanButton = findViewById(R.id.ScanButton);
+        bookTitle = findViewById(R.id.TitleBox);
+        bookAuthor = findViewById(R.id.AuthBox);
+
+        scanButton.setOnClickListener(this);
+    }
 
     public void onClick(View v){
         if(v.getId()==R.id.ScanButton){
@@ -40,18 +52,4 @@ public class NewBook extends AppCompatActivity implements OnClickListener {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newbook);
-
-        scanButton = findViewById(R.id.ScanButton);
-        bookTitle = findViewById(R.id.TitleBox);
-        bookAuthor = findViewById(R.id.AuthBox);
-        bookISBN = findViewById(R.id.boxISBN);
-
-        scanButton.setOnClickListener(this);
-
-        bookISBN.setText("ISBN: " + scanContent);
-    }
 }
