@@ -7,60 +7,64 @@
     tools:context="com.example.cmput301w19t18.rent_a_book.RegisterActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <EditText
             android:id="@+id/fname"
-            android:layout_margin="15dp"
-            android:hint="Enter your Name"
-            android:inputType="text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/RegisterFirst"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/last"
-            android:layout_margin="15dp"
-            android:hint="Enter your Last name"
-            android:inputType="text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/RegisterLast"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/phone"
-            android:inputType="phone"
-            android:layout_margin="15dp"
-            android:hint="Enter your Phone"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/RegisterPhone"
+            android:inputType="phone" />
 
         <EditText
             android:id="@+id/email"
-            android:layout_margin="15dp"
-            android:inputType="textEmailAddress"
-            android:hint="Enter your Email"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:hint="@string/RegisterEmail"
+            android:inputType="textEmailAddress" />
+
         <EditText
             android:id="@+id/pass"
-            android:layout_margin="15dp"
-            android:inputType="textPassword"
-            android:hint="Enter your Password"
-
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <Button
+            android:layout_height="match_parent"
             android:layout_margin="15dp"
-            android:text="Sign Up"
+
+            android:hint="@string/RegisterPassword"
+            android:inputType="textPassword" />
+
+        <Button
             android:id="@+id/signup"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
+            android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Cancel"
+            android:text="@string/RegisterSignUp" />
+
+        <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/Cancel" />
 
 
     </LinearLayout>
