@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFireBaseD;
     private DatabaseReference DataR;
-    private int[] prefList;
+    private String prefList;
 
 
     @Override
