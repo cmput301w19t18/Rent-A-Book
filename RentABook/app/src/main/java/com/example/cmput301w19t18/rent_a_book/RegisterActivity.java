@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button next;
     private Button signup;
     private Button cancel;
     private EditText pass;
@@ -31,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         mAuth = FirebaseAuth.getInstance();
+        next = (Button) findViewById(R.id.next);
         signup = (Button) findViewById(R.id.signup);
         cancel = (Button) findViewById(R.id.cancel);
         pass = (EditText) findViewById(R.id.pass);
@@ -39,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         fname = (EditText) findViewById(R.id.fname);
         last = (EditText) findViewById(R.id.last);
 
+        next.setOnClickListener(this);
         signup.setOnClickListener(this);
         cancel.setOnClickListener(this);
 
@@ -96,7 +99,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        //checks what buttton the user clicked
+        //checks what button the user clicked
+        if (view == next){
+            startActivity(new Intent(this, PickGenrePreference.class));
+        }
+
         if (view == signup){
             signUp();
 
