@@ -8,6 +8,7 @@
     <string name="RegisterPassword">Enter a Password</string>
     <string name="RegisterSignUp">Sign Up</string>
     <string name="Cancel">Cancel</string>
+    <string name="Next">Next</string>
 
     <string name="scan">Scan</string>
     <string name="Description">Description</string>
@@ -15,9 +16,12 @@
     <string name="Title">Title</string>
     <string name="ISBN">ISBN</string>
 
+    <string name="ChooseGenre">Choose three genres</string>
     <string name="BookPhoto">Book Photo</string>
     <string name="BookOwner">Book Owner</string>
     <string name="BookStatus">Book Status</string>
+
     <string name="AddButton">+</string>
     <string name="CategoryTitle">Category</string>
+
 </resources>

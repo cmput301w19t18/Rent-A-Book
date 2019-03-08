@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Thu Mar 07 18:12:53 MST 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1
