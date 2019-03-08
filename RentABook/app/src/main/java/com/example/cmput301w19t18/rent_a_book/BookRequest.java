@@ -23,7 +23,9 @@ public class BookRequest {
     }
 
     private void statusToRequested () {
-        //code
+        //if book status not already requested, set it to.
+        //append this user name to list
+
     }
 
 }
