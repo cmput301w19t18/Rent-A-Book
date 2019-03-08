@@ -17,4 +17,8 @@
     <string name="ISBN">ISBN</string>
 
     <string name="ChooseGenre">Choose three genres</string>
+    <string name="BookPhoto">Book Photo</string>
+    <string name="BookOwner">Book Owner</string>
+    <string name="BookStatus">Book Status</string>
+
 </resources>
