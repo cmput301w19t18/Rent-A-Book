@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private Button next;
@@ -26,6 +28,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText phone;
     private EditText et_email;
     private FirebaseAuth mAuth;
+    private FirebaseDatabase mFireBaseD;
+    private DatabaseReference DataR;
+    private String prefList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +46,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         phone = (EditText) findViewById(R.id.phone);
         fname = (EditText) findViewById(R.id.fname);
         last = (EditText) findViewById(R.id.last);
+        mFireBaseD = FirebaseDatabase.getInstance();
+        //DataR = mFireBaseD.getReference();
 
         next.setOnClickListener(this);
         signup.setOnClickListener(this);
         cancel.setOnClickListener(this);
+        if (mAuth.getCurrentUser() != null ){
+            //user is already loged in
+
+
+        }
 
     }
     //signs the user up based on their info
     public void signUp(){
-        String user_email = et_email.getText().toString().trim();
+        final String user_email = et_email.getText().toString().trim();
         String password = pass.getText().toString().trim();
         String first_name = fname.getText().toString().trim();
         String last_name = last.getText().toString().trim();
@@ -82,7 +95,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    User user = new User(user_email,prefList);
+                    String user_id = mAuth.getCurrentUser().getUid();
+
+                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(RegisterActivity.this,"Registration Success",Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+
                     Toast.makeText(getApplicationContext(),"User Registered!",Toast.LENGTH_SHORT).show();
+
                     finish();
                 }
                 //check if email is already registered
@@ -93,6 +120,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
+
 
 
     }
