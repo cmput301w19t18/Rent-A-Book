@@ -18,4 +18,6 @@
     <string name="BookPhoto">Book Photo</string>
     <string name="BookOwner">Book Owner</string>
     <string name="BookStatus">Book Status</string>
+    <string name="AddButton">+</string>
+    <string name="CategoryTitle">Category</string>
 </resources>
