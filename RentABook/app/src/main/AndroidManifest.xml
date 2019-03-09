@@ -23,7 +23,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".NewBook"></activity>
-        <activity android:name=".PickGenrePreference"/>
+        <activity android:name=".PickGenrePreference"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
     </application>
 
 </manifest>
