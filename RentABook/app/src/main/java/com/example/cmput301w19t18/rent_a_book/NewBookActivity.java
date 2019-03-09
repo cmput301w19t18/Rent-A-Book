@@ -53,6 +53,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
 
+
+
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
             finish(); //close activity
@@ -112,13 +114,16 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         //Currently only is able to add values entered for a new book that is not already in the database
         String[] genre = {"test genre"}; //going to be set by external function
-        String[] ownedBy = {bAuth.getCurrentUser().getEmail()}; // sets as owner
+        ArrayList<String> requestedBy = null;
+        ArrayList<String> ownedBy = null;
+        ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
         Integer rating = null;
         Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
 
+
         //add the new book to firebase
-        Book newBook = new Book(title, author, genre, ISBN, status, ownedBy, rating, copyCount);
+        Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, copyCount);
         databaseReference.child("books").setValue(newBook); //should put the book in the db under books
         Toast.makeText(this, "Book uploaded.", Toast.LENGTH_LONG).show();
     }
