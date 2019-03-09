@@ -66,7 +66,7 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Comedy"
+            android:text="Nonfiction"
             android:textColor="@color/white" />
 
         <Button
@@ -83,7 +83,7 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Drama"
+            android:text="YA"
             android:textColor="@color/white" />
 
         <Button
@@ -99,7 +99,7 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Romance"
+            android:text="Thiller"
             android:textColor="@color/white" />
 
         <Button
@@ -115,7 +115,7 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Comic"
+            android:text="Tragedy"
             android:textColor="@color/white" />
 
         <Button
@@ -131,7 +131,7 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Fantasy"
+            android:text="Poetry"
             android:textColor="@color/white" />
 
         <Button
@@ -147,10 +147,10 @@
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Horror"
+            android:text="Children's"
             android:textColor="@color/white" />
 
 
     </GridLayout>
 
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
