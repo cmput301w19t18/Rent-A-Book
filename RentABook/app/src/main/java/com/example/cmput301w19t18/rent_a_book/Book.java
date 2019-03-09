@@ -11,27 +11,25 @@ public class Book extends AppCompatActivity{
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private Integer rating;
-    private String borrowedBy; //Email of the user that is currently borrowing the book
+    private String[] genre; //genre will be determined by an array
+    private ArrayList<String> requestedBy; //list of users that are requesting the book by email
+
     //private String description; //Description of the book entered by the user
     private Integer copyCount; //number of copies of the book that exist
 
-    private String[] genre; //genre will be determined by an array
-    private ArrayList<String> requestedBy; //list of users that are requesting the book by email
-    private ArrayList<String> ownedBy; //list of users that own this book by email
 
 
 
     //constructor (changed to public constructor)
-    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, String[] ownedBy, Integer rating, Integer copyCount){
+    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
         this.ISBN = ISBN;
         this.bstatus = bstatus;
-        this.ownedBy = this.ownedBy;
         this.rating = rating;
         this.initialRequestedBy();
-        this.borrowedBy = null;
+        this.requestedBy = this.requestedBy;
 
         //use of arrays:
         //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
@@ -69,9 +67,7 @@ public class Book extends AppCompatActivity{
         this.genre = genre;
     }
 
-    public void setGenre(
-            String genre[]) { this.genre = genre;
-    }
+    public void setGenre(String genre[]) { this.genre = genre; }
 
     public String getISBN() {
         return ISBN;
@@ -97,46 +93,8 @@ public class Book extends AppCompatActivity{
         this.rating = rating;
     }
 
-    public ArrayList<String> getRequestedBy() {
-        return requestedBy;
-    }
-
-    public String getBorrowedBy() {
-        return borrowedBy;
-    }
-
     private void addPhoto (String fileName){
         //code
-    }
-
-    public void setRequestedBy(ArrayList<String> requestedBy) {
-        this.requestedBy = requestedBy;
-    }
-
-    public ArrayList<String> getOwnedBy() {
-        return ownedBy;
-    }
-
-    public void setOwnedBy(ArrayList<String> ownedBy) {
-        this.ownedBy = ownedBy;
-    }
-
-    public void setRequestedBy(String requestingUser) { //email of the user requesting it
-
-        if (this.getBstatus() == "Accepted" || this.getBstatus() == "Borrowed") {
-            return;
-        } else if (this.getBstatus() == "Requested"){
-            this.requestedBy.add(requestingUser);
-        } else if (this.getBstatus() == "Available") {
-            this.setBstatus("Requested");
-            this.requestedBy.add(requestingUser);
-        }
-    }
-
-    public void setBorrowedBy(String borrowingUser) { //Set borrower and clear all current requests
-        this.setBstatus("Borrowed"); //Change status
-        this.borrowedBy = borrowingUser; //Set the borrowing user
-        this.initialRequestedBy(); //Clear all requests from the book
     }
 
     //Create an initializer to set RequestedBy to an empty array to avoid having null pointer errors
@@ -146,6 +104,14 @@ public class Book extends AppCompatActivity{
         return;
     }
 
+    public ArrayList<String> getRequestedBy() {
+        return requestedBy;
+    }
+
+    public void setRequestedBy(ArrayList<String> requestedBy, String requester_email) {
+        this.requestedBy = requestedBy;
+        requestedBy.add(requester_email); //appends the requester to the list of requests
+    }
 
 
 
