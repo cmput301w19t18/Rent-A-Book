@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String email;
     private int[] preferenceList;
     private int profilePicture;
+    private float[] location;
     private ArrayList<Book> ownedBooks; //stores list of books the user owns
     private ArrayList<Book> borrowedBooks; //stores list of books the user has borrowed
 
@@ -78,6 +79,14 @@ public class User implements Serializable {
 
     public void setProfilePicture(int profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public float[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(float[] location) {
+        this.location = location;
     }
 
     public ArrayList<Book> getOwnedBooks() {
