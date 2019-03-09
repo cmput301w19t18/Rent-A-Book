@@ -720,6 +720,7 @@ drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable genre_icon_pastel_pink_128dp
 drawable genre_icon_pastelpink_72dp
+drawable go1984
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable highlight_button
