@@ -36,23 +36,24 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            // change to put info into intents to send to main activity and other fragments
             case R.id.comedyButton:
-                startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 break;
             case R.id.dramaButton:
-                startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 break;
             case R.id.romanceButton:
-                startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                     break;
             case R.id.comicsButton:
-                startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 break;
             case R.id.fantasyButton:
-                startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 break;
             case R.id.horrorButton:
-                startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 break;
         }
     }
