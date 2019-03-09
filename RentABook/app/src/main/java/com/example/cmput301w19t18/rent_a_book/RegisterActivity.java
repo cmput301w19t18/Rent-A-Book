@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         signup.setOnClickListener(this);
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
-            //user is already loged in
+            //user is already logged in
 
 
         }
@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
 
         }
-        //makes sure password is atleast 6 letters long
+        //makes sure password is at least 6 letters long
         if (password.length() < 6){
             pass.setError("Password must be at least 6 letters long!");
             pass.requestFocus();
