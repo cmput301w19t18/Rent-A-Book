@@ -88,7 +88,7 @@
         android:ems="10"
         android:hint="@string/ISBN"
         android:inputType="text"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/DescriptionBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
