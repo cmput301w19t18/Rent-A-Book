@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class BookReturnTest {
 
-    Book obj = new Book("Title", "Author", "Genre", "1234567890", "Borrowed", "Owner", 5, copyCount);
+    Book obj = new Book("Title", "Author", "Genre", "1234567890", "Borrowed", "Owner", requestedBy, 5, copyCount);
 
     String borrowerEmail = "borrower@gmail.com";
     String ownerEmail = "owner@gmail.com";
