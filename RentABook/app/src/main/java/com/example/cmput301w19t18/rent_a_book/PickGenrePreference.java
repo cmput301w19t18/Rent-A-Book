@@ -1,12 +1,17 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class PickGenrePreference extends AppCompatActivity {
@@ -49,29 +54,51 @@ public class PickGenrePreference extends AppCompatActivity {
         // setting the first screen
         //viewPager.setCurrentItem(0);
 
-        //romance = (Button) findViewById(R.id.button2);
-        //romance.setText("Romance");
+    }
 /*
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_genre_pick_main, container, false);
+        romance = (Button) v.findViewById(R.id.romanceButton);
+        // romance.setOnClickListener(this);
+
         romance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //bvPager.setCurrentItem(0);
                 if (view == romance) {
-                    // test to see of button works
-                    startActivity(new Intent(PickGenrePreference.this, MainActivity.class));
-                    selectedNum += 1;
-                    if (selectedNum > 3) {
-                        // send out a toast
-                    } else {
-                        // highlight and track which has been selected
-                        // set genre reference to romance
-                        preferenceList[2] = 1;
+                // test to see of button works
+                startActivity(new Intent(PickGenrePreference.this, MainActivity.class));
+                //    selectedNum += 1;
+                //    if (selectedNum > 3) {
+                // send out a toast
+                //   } else {
+                // highlight and track which has been selected
+                // set genre reference to romance
+                //     preferenceList[2] = 1;
 
-                    }
-                }
+                //  }
+                //  }
             }
         });
-*/
+        return v;
     }
+*/
+    /*
+    public void onClick(View view) {
+        //bvPager.setCurrentItem(0);
+        if (view == romance) {
+            // test to see of button works
+            startActivity(new Intent(PickGenrePreference.this, MainActivity.class));
+            selectedNum += 1;
+            if (selectedNum > 3) {
+                // send out a toast
+            } else {
+                // highlight and track which has been selected
+                // set genre reference to romance
+                preferenceList[2] = 1;
 
+            }
+        }
+    }
+    */
 }
