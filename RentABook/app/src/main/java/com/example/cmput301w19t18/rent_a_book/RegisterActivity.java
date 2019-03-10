@@ -32,7 +32,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatabaseReference DataR;
     private String prefList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
             //user is already loged in
-
 
         }
 

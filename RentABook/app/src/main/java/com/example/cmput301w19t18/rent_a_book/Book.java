@@ -17,7 +17,7 @@ public class Book {
     private String borrowedBy; //Email of the user that borrowed the book
 
     //constructor (changed to public constructor)
-    public Book (String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating){
+    public Book (String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating, int bPhoto){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
@@ -25,6 +25,7 @@ public class Book {
         this.bstatus = bstatus;
         this.owner = owner;
         this.rating = rating;
+        this.bPhoto = bPhoto;
         this.initialRequestedBy();
         this.borrowedBy = null;
     }

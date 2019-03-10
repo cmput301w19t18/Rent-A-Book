@@ -40,6 +40,9 @@
         <activity
             android:name="com.example.cmput301w19t18.rent_a_book.SearchResultsActivity"
             android:exported="true" />
+        <activity
+            android:name="com.example.cmput301w19t18.rent_a_book.HomeActivity"
+            android:exported="true" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.RegisterActivity" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.ProfileActivity" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.NewBook" />

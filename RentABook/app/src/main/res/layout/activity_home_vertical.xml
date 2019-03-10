@@ -27,7 +27,7 @@
             tools:text="Category" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerHorizontalView"
             android:layout_width="match_parent"
             android:layout_height="187dp"
             android:layout_marginTop="8dp"
@@ -40,12 +40,14 @@
 
         <Button
             android:id="@+id/addButton"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/AddButton"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="+" />

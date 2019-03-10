@@ -26,7 +26,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             mOwnerPicture = itemView.findViewById(R.id.bookPhoto);
             mBookTitle = itemView.findViewById(R.id.bookTitle);
             mBookAuthor = itemView.findViewById(R.id.bookAuthor);
-            mOwnerPicture = itemView.findViewById(R.id.bookOwner);
+            mOwnerName = itemView.findViewById(R.id.bookOwner);
             mStatus = itemView.findViewById(R.id.bookStatus);
         }
     }
