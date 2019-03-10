@@ -1,4 +1,4 @@
-#Sat Mar 09 17:23:18 MST 2019
-base.0=C\:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+#Sat Mar 09 19:31:19 MST 2019
+base.0=/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/transforms/dexMerger/debug/10
 path.0=classes.dex
 renamed.0=classes.dex
