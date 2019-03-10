@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="genreText"/>
+        app:constraint_referenced_ids="genreText" />
 
     <!--
         <android.support.v4.view.ViewPager
@@ -156,4 +156,5 @@
 
     </GridLayout>
 
-    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

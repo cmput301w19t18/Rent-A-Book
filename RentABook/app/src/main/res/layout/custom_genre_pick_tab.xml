@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- TODO credit https://medium.com/@droidbyme/android-material-design-tabs-tab-layout-with-swipe-884085ae80ff-->
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,10 +20,7 @@
         android:text="@string/ChooseGenre"
         android:textSize="40sp"
         android:typeface="normal"
-        app:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:fontFamily="cursive" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/custPager"
@@ -31,13 +29,14 @@
 
     </android.support.v4.view.ViewPager>
 
+
     <android.support.design.widget.TabLayout
         android:id="@+id/custTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:minHeight="?actionBarSize"
-        app:tabBackground="@color/white"
+        app:tabBackground="@null"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorHeight="4dp"

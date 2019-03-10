@@ -1082,9 +1082,11 @@ int drawable notification_template_icon_bg 0x7f07008e
 int drawable notification_template_icon_low_bg 0x7f07008f
 int drawable notification_tile_bg 0x7f070090
 int drawable notify_panel_notification_icon_bg 0x7f070091
-int drawable tooltip_frame_dark 0x7f070092
-int drawable tooltip_frame_light 0x7f070093
-int drawable unselected_circle_light_gray_10dp 0x7f070094
+int drawable selected_circle_7dp 0x7f070092
+int drawable tooltip_frame_dark 0x7f070093
+int drawable tooltip_frame_light 0x7f070094
+int drawable unselected_circle_7dp 0x7f070095
+int drawable unselected_circle_light_gray_10dp 0x7f070096
 int id ALT 0x7f080000
 int id AuthBox 0x7f080001
 int id CTRL 0x7f080002
