@@ -39,6 +39,7 @@ public class Owner implements Serializable {
     private Location myLocation;
     private Book myBook;
 
+
     public int getImg() {
         return img;
     }

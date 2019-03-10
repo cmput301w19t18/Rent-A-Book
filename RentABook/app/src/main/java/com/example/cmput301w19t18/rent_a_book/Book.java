@@ -1,10 +1,11 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import android.support.v7.app.AppCompatActivity;
 
-public class Book extends AppCompatActivity{
+public class Book implements Serializable{
 
     private String btitle;
     private String author;
