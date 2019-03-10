@@ -110,7 +110,7 @@ public class Book implements Serializable{
         return requestedBy;
     }
 
-    public void setRequestedBy(ArrayList<String> requestedBy, String requester_email) {
+    public void setRequestedBy(String requester_email) {
         this.requestedBy = requestedBy;
         requestedBy.add(requester_email); //appends the requester to the list of requests
     }
