@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.cmput301w19t18.rent_a_book.ProfileActivity">
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="85dp"
@@ -87,4 +88,13 @@
         tools:layout_editor_absoluteY="409dp"
         tools:text="Owned" />
 
+=======
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD BOOK"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="138dp" />
+>>>>>>> f36c771b622d6bfc2350923f2cdcbbf376ca25e7
 </android.support.constraint.ConstraintLayout>

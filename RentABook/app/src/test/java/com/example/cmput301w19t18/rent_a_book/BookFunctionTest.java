@@ -1,13 +1,9 @@
 package com.example.cmput301w19t18.rent_a_book;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
 
 public class BookFunctionTest {
@@ -15,7 +11,7 @@ public class BookFunctionTest {
     @Test
     public void setRequestedBy() {
         //First test on an available book
-        Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
+        Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", requestedBy, 5, copyCount);
         obj.setRequestedBy("Requester");
         String Bstatus = obj.getBstatus();
         ArrayList<String> RequestingUsers = obj.getRequestedBy();
@@ -26,7 +22,7 @@ public class BookFunctionTest {
         assertEquals(ExpectedArray, RequestingUsers);
 
         //Second test on a requested book; check to ensure the status doesn't change
-        Book obj2 = new Book("Title", "Author", "Genre", "1234567891", "Requested", "Owner", 5);
+        Book obj2 = new Book("Title", "Author", "Genre", "1234567891", "Requested", "Owner", requestedBy, 5, copyCount);
         obj2.setRequestedBy("Requester");
         String Bstatus2 = obj2.getBstatus();
         ArrayList<String> RequestingUsers2 = obj2.getRequestedBy();
@@ -37,7 +33,7 @@ public class BookFunctionTest {
         assertEquals(ExpectedArray2, RequestingUsers2);
 
         //Third test on an accepted(borrowed) book to ensure the function doesn't change anything
-        Book obj3 = new Book("Title", "Author", "Genre", "1234567892", "Accepted", "Owner", 5);
+        Book obj3 = new Book("Title", "Author", "Genre", "1234567892", "Accepted", "Owner", requestedBy, 5, copyCount);
         obj3.setRequestedBy("Requester");
         String Bstatus3 = obj3.getBstatus();
         ArrayList<String> RequestingUsers3 = obj3.getRequestedBy();
@@ -49,7 +45,7 @@ public class BookFunctionTest {
 
     @Test
     public void setBorrowedBy() {
-        Book obj = new Book( "Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
+        Book obj = new Book( "Title", "Author", "Genre", "1234567890", "Available", "Owner", requestedBy, 5, copyCount);
         obj.setBorrowedBy("Borrower");
         String status = obj.getBstatus();
         String borrower = obj.getBorrowedBy();
