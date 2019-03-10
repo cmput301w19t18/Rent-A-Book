@@ -7,12 +7,20 @@ import java.util.List;
 
 /**
  * Created by ikramshire on 2019-03-04.
+ * Modified by jusong on 2019-03-09
  */
 
 public class User implements Serializable {
     public String email;
     public  String prefList;
     private int[] books_Owned;
+    private int[] books_borrowed;
+
+    public User(String email, String prefList ){
+        this.email = email;
+        this.prefList = prefList;
+
+    }
 
     public int[] getBooks_Owned() {
         return books_Owned;
@@ -30,25 +38,12 @@ public class User implements Serializable {
         this.books_borrowed = books_borrowed;
     }
 
-    private int[] books_borrowed;
-
     public String getPrefList() {
         return prefList;
     }
 
     public void setPrefList(String prefList) {
         this.prefList = prefList;
-    }
-
-
-
-
-
-
-    public User(String email, String prefList ){
-        this.email = email;
-        this.prefList = prefList;
-
     }
 
     public String getEmail() {

@@ -12,15 +12,13 @@ public class Book implements Serializable{
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private Integer rating;
+    private int bPhoto;
+    private int bCover;
     private String[] genre; //genre will be determined by an array
     private ArrayList<String> requestedBy; //list of users that are requesting the book by email
-    
 
     //private String description; //Description of the book entered by the user
     private Integer copyCount; //number of copies of the book that exist
-
-
-
 
     //constructor (changed to public constructor)
     public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount){
@@ -38,8 +36,6 @@ public class Book implements Serializable{
         //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
 
     }
-
-
 
     public Integer getCopyCount() {
         return copyCount;
@@ -106,6 +102,26 @@ public class Book implements Serializable{
         return;
     }
 
+    public int getbPhoto() {
+        return bPhoto;
+    }
+
+    public void setbPhoto(int bPhoto) {
+        this.bPhoto = bPhoto;
+    }
+
+    public int getbCover() {
+        return bCover;
+    }
+
+    public void setbCover(int bCover) {
+        this.bCover = bCover;
+    }
+
+    public void setRequestedBy(ArrayList<String> requestedBy) {
+        this.requestedBy = requestedBy;
+    }
+
     public ArrayList<String> getRequestedBy() {
         return requestedBy;
     }
@@ -114,31 +130,5 @@ public class Book implements Serializable{
         this.requestedBy = requestedBy;
         requestedBy.add(requester_email); //appends the requester to the list of requests
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

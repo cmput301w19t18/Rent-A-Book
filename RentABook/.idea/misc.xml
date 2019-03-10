@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
@@ -30,6 +36,11 @@
     </option>
   </component>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e39a134195ab5636ced8751579f12c99d0f78845
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -119,9 +130,13 @@
     </entry>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 2f8c758b8813aa2a18762c39197ac71fab7c4919
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
 >>>>>>> b5d5cef955a7cbf7d10260fcfcbc8c7ebbb3a147
+>>>>>>> e39a134195ab5636ced8751579f12c99d0f78845
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO credit color palette Autumn Spice https://duoparadigms.com/2013/10/11/10-color-palettes-perfect-autumnfall-season/-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/genreText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/ChooseGenre"
+        android:textSize="40sp"
+        android:typeface="normal"
+        android:fontFamily="cursive"
+        app:fontFamily="cursive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="genreText"/>
+
+    <!--
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/barrier">
+        </android.support.v4.view.ViewPager>
+-->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrier">
+
+
+        <Button
+            android:id="@+id/nonficButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button"
+            android:backgroundTint="@color/lightOrangeSpice"
+            android:shadowColor="#282a2b"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Nonfiction"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/yaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button"
+            android:backgroundTint="@color/tanSpice"
+            android:shadowColor="#282a2b"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="YA"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/thrillerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button"
+            android:backgroundTint="@color/lightOlive"
+            android:shadowColor="@color/mediumGray"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Thiller"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/tragedyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button"
+            android:backgroundTint="@color/mediumOrangeSpice"
+            android:shadowColor="@color/black"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Tragedy"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/poetryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button"
+            android:backgroundTint="@color/purpleSlate"
+            android:shadowColor="@color/black"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Poetry"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/childButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button"
+            android:backgroundTint="@color/lightGray"
+            android:shadowColor="@color/black"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Children's"
+            android:textColor="@color/white" />
+
+
+    </GridLayout>
+
+</android.support.constraint.ConstraintLayout>
