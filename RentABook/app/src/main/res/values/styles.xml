@@ -15,11 +15,11 @@
     </style>
 
     <style name="MyToolbarTheme"
-        parent="@style/ThemeOverlay.AppCompat.Dark">
+        parent="@style/ThemeOverlay.AppCompat.Light">
        <!-- parent="@style/Theme.AppCompat.Light.NoActionBar"-->
 
         <item name="colorControlNormal">@color/white</item>
-        <item name="titleTextColor">@color/white</item>
+        <item name="titleTextColor">@color/mediumGray</item>
     </style>
 
 </resources>

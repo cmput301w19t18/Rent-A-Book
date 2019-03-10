@@ -50,8 +50,8 @@ public class GenreAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int pos) {
-        return ftList.get(pos);
-        //return null;
+        //return ftList.get(pos);
+        return null;
     }
 
     @Override

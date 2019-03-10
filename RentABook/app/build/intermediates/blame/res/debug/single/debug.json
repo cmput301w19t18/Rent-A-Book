@@ -100,16 +100,16 @@
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/aeb00e2e950ea44b8acf958d11251781/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a5122036d7e811a18fa731cf9826f277/res/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/6d051092f68797e381018d5fa73d5fb6/res/drawable/notification_bg.xml"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/color_switch_thumb_material_dark.xml.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a5122036d7e811a18fa731cf9826f277/res/color/switch_thumb_material_dark.xml"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/6d051092f68797e381018d5fa73d5fb6/res/drawable/notification_bg.xml"
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a5122036d7e811a18fa731cf9826f277/res/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
@@ -366,6 +366,10 @@
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a5122036d7e811a18fa731cf9826f277/res/drawable-mdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_unselected_circle_light_gray_10dp.xml.flat",
+        "source": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/res/drawable/unselected_circle_light_gray_10dp.xml"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",

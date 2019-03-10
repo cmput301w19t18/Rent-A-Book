@@ -7,20 +7,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <TextView
         android:id="@+id/genreText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:fontFamily="cursive"
         android:gravity="center_horizontal"
         android:paddingTop="10dp"
-        android:layout_marginBottom="40dp"
         android:text="@string/ChooseGenre"
         android:textSize="40sp"
         android:typeface="normal"
-        android:fontFamily="cursive"
         app:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        -->
     <android.support.constraint.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
