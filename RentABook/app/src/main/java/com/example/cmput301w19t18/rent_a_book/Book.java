@@ -21,7 +21,7 @@ public class Book implements Serializable{
     private Integer copyCount; //number of copies of the book that exist
 
     //constructor (changed to public constructor)
-    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount, int bCover){
+    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
