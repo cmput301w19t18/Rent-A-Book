@@ -12,7 +12,7 @@ public class Book implements Serializable{
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private Integer rating;
-    private String[] genre; //genre will be determined by an array
+    private String genre; //genre will be determined by an array
     private ArrayList<String> requestedBy; //list of users that are requesting the book by email
     
 
@@ -23,7 +23,7 @@ public class Book implements Serializable{
 
 
     //constructor (changed to public constructor)
-    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount){
+    public Book(String btitle, String author, String genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
@@ -69,7 +69,7 @@ public class Book implements Serializable{
         this.genre = genre;
     }
 
-    public void setGenre(String genre[]) { this.genre = genre; }
+    public void setGenre(String genre) { this.genre = genre; }
 
     public String getISBN() {
         return ISBN;

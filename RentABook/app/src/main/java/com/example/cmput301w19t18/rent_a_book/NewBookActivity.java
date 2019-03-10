@@ -66,44 +66,15 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this, MainActivity.class)); //returns to login screen
         }
 
+        //get reference from firebase
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
+
+        //databaseReference = addListenerForSingleValueEvent(valueEventListener);
 
     }
 
     //////////////// Check if exists in the database //////////////// https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
 
-
-    /*
-    ValueEventListener responseListener  = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot snapshot) {
-
-            databaseReference.child("books").orderByChild("ISBN").equalTo(ISBNF.getText().toString().trim()).once
-
-            if (snapshot.getValue() != null) {
-                //user exists, do something
-            } else {
-                //user does not exist, do something else
-            }
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-
-
-    };
-
-    public static DatabaseReference getBaseRef() {
-        return FirebaseDatabase.getInstance().getReference();
-    }
-
-    public static DatabaseReference getResponsesRef() {
-        return getBaseRef().child("books");
-    }
-
-    */
 
 
     ////////////////////////////////////////////////////////////////
@@ -119,7 +90,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //some of these need to be changed every time a new book is added
 
         //Currently only is able to add values entered for a new book that is not already in the database
-        String[] genre = {"test genre"}; //going to be set by external function
+        String genre = "test genre"; //going to be set by external function
         ArrayList<String> requestedBy = new ArrayList<String>();
         ArrayList<String> ownedBy = null;
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
@@ -129,7 +100,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, genre, ISBN, status,requestedBy,  rating, copyCount);
+        Book newBook = new Book(title, author, genre, ISBN, status, requestedBy,  rating, copyCount);
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
