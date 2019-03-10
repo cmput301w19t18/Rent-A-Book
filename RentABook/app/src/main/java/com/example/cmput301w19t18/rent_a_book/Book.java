@@ -13,6 +13,7 @@ public class Book extends AppCompatActivity{
     private Integer rating;
     private String[] genre; //genre will be determined by an array
     private ArrayList<String> requestedBy; //list of users that are requesting the book by email
+    
 
     //private String description; //Description of the book entered by the user
     private Integer copyCount; //number of copies of the book that exist
