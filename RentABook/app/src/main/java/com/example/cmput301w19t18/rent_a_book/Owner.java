@@ -1,7 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.location.Location;
-import android.util.Pair;
 
 import java.io.Serializable;
 
@@ -20,11 +19,11 @@ public class Owner implements Serializable {
         this.user_id = user_id;
     }
 
-    public float[] getMyLocation() {
+    public Location getMyLocation() {
         return myLocation;
     }
 
-    public void setMyLocation(float[] myLocation) {
+    public void setMyLocation(Location myLocation) {
         this.myLocation = myLocation;
     }
 
@@ -37,7 +36,7 @@ public class Owner implements Serializable {
     }
 
     private String user_id;
-    private float[] myLocation;
+    private Location myLocation;
     private Book myBook;
 
 
@@ -50,7 +49,7 @@ public class Owner implements Serializable {
     }
 
     private int img;
-    public Owner(Book myBook, String user_id, float[] myLocation, int img){
+    public Owner(Book myBook, String user_id, Location myLocation, int img){
         this.myBook = myBook;
         this.user_id = user_id;
         this.myLocation = myLocation;
