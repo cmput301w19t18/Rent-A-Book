@@ -16,19 +16,24 @@ public class User implements Serializable {
     private String lastName;
     private int phoneNumber;
     private String email;
-    private int[] preferenceList;
+    private String prefList;
     private int profilePicture;
     private float[] location;
     private ArrayList<Book> ownedBooks; //stores list of books the user owns
     private ArrayList<Book> borrowedBooks; //stores list of books the user has borrowed
 
-    public User(String name, String lastName, int phoneNumber, String email, int[] preferenceList, int profilePicture) {
+    public User(String name, String lastName, int phoneNumber, String email, String prefList, int profilePicture) {
         this.name = name;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.preferenceList = preferenceList;
+        this.prefList = prefList;
         this.profilePicture = profilePicture;
+    }
+
+    public User(String email, String prefList) {
+        this.email = email;
+        this.prefList = prefList;
     }
 
     public User() {}
@@ -65,12 +70,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public int[] getPreferenceList() {
-        return preferenceList;
+    public String getPrefList() {
+        return prefList;
     }
 
-    public void setPreferenceList(int[] preferenceList) {
-        this.preferenceList = preferenceList;
+    public void setPrefList(String prefList) {
+        this.prefList = prefList;
     }
 
     public int getProfilePicture() {

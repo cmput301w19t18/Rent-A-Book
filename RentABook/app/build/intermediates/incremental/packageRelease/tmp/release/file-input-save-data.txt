@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat Mar 09 17:21:35 MST 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+0.path=classes.dex
+0.set=DEX
+count=1

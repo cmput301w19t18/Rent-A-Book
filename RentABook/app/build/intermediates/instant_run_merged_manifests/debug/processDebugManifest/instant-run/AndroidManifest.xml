@@ -39,13 +39,13 @@
         </activity>
         <activity
             android:name="com.example.cmput301w19t18.rent_a_book.SearchResultsActivity"
-            android:exported="true" >
->
-        </activity>
+            android:exported="true" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.RegisterActivity" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.ProfileActivity" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.NewBook" />
-        <activity android:name="com.example.cmput301w19t18.rent_a_book.PickGenrePreference" />
+        <activity
+            android:name="com.example.cmput301w19t18.rent_a_book.PickGenrePreference"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

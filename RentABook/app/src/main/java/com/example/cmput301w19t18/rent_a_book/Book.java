@@ -11,7 +11,8 @@ public class Book {
     private String bstatus;
     private String owner;
     private Integer rating;
-
+    private int bCover; //book cover
+    private int bPhoto; //picture taken by the owner
     private ArrayList<String> requestedBy; //Emails of users that have placed requests for the book
     private String borrowedBy; //Email of the user that borrowed the book
 
@@ -82,6 +83,26 @@ public class Book {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    public int getbCover() {
+        return bCover;
+    }
+
+    public void setbCover(int bCover) {
+        this.bCover = bCover;
+    }
+
+    public int getbPhoto() {
+        return bPhoto;
+    }
+
+    public void setbPhoto(int bPhoto) {
+        this.bPhoto = bPhoto;
+    }
+
+    public void setRequestedBy(ArrayList<String> requestedBy) {
+        this.requestedBy = requestedBy;
     }
 
     public ArrayList<String> getRequestedBy() {

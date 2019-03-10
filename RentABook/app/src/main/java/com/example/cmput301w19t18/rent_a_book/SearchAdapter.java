@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
-    private ArrayList<Owner> mOwnerList;
+    private ArrayList<Book> mSearchBookList;
 
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
 
@@ -31,8 +31,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         }
     }
 
-    public SearchAdapter(ArrayList<Owner> OwnerList) {
-        mOwnerList = OwnerList;
+    public SearchAdapter(ArrayList<Book> SearchBookList) {
+        mSearchBookList = SearchBookList;
     }
 
     @NonNull
@@ -45,17 +45,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
-         Owner currentItem = mOwnerList.get(i);
+         Book currentItem = mSearchBookList.get(i);
 
-         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getImg());
-         searchViewHolder.mBookTitle.setText(currentItem.getMyBook().getBtitle());
-         searchViewHolder.mBookAuthor.setText(currentItem.getMyBook().getAuthor());
-         searchViewHolder.mOwnerName.setText(currentItem.getUser_id());
-         searchViewHolder.mStatus.setText(currentItem.getMyBook().getBstatus());
+         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
+         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
+         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
+         searchViewHolder.mOwnerName.setText(currentItem.getOwner());
+         searchViewHolder.mStatus.setText(currentItem.getBstatus());
     }
 
     @Override
     public int getItemCount() {
-        return mOwnerList.size();
+        return mSearchBookList.size();
     }
 }

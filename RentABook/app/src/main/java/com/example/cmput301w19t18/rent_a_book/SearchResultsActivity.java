@@ -12,7 +12,7 @@ public class SearchResultsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private ArrayList<Owner> OwnerList;
+    private ArrayList<Book> BookSearchList;
 
     private String search;
 
@@ -28,25 +28,25 @@ public class SearchResultsActivity extends AppCompatActivity {
         Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Borrowed", "raymondh@nypd.org", 5);
         Book book6 = new Book("Nothing Lasts Forever", "Roderick Thorp", "Thriller", "3", "Available", "jakep@nypd.org", 3);
 
-        Owner owner1 = new Owner(book1, book1.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
-        Owner owner2 = new Owner(book2, book2.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
-        Owner owner3 = new Owner(book3, book3.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
-        Owner owner4 = new Owner(book4, book4.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
-        Owner owner5 = new Owner(book5, book5.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
-        Owner owner6 = new Owner(book6, book6.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
+//        Owner owner1 = new Owner(book1, book1.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
+//        Owner owner2 = new Owner(book2, book2.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
+//        Owner owner3 = new Owner(book3, book3.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
+//        Owner owner4 = new Owner(book4, book4.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
+//        Owner owner5 = new Owner(book5, book5.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
+//        Owner owner6 = new Owner(book6, book6.getOwner(), new float[]{1.0f, 1.0f}, R.drawable.go1984);
 
-        OwnerList = new ArrayList<>();
-        OwnerList.add(owner1);
-        OwnerList.add(owner2);
-        OwnerList.add(owner3);
-        OwnerList.add(owner4);
-        OwnerList.add(owner5);
-        OwnerList.add(owner6);
+        BookSearchList = new ArrayList<>();
+        BookSearchList.add(book1);
+        BookSearchList.add(book2);
+        BookSearchList.add(book3);
+        BookSearchList.add(book4);
+        BookSearchList.add(book5);
+        BookSearchList.add(book6);
 
         mRecyclerView = findViewById(R.id.bookResults);
         mRecyclerView.setHasFixedSize(true); //for not, it will change size
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new SearchAdapter(OwnerList);
+        mAdapter = new SearchAdapter(BookSearchList);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
