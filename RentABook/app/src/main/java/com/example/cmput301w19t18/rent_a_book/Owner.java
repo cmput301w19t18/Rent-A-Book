@@ -94,10 +94,10 @@ public class Owner implements Serializable {
     /**
      * Instantiates a new Owner.
      *
-     * @param myBook     the my book
-     * @param user_id    the user id
-     * @param myLocation the my location
-     * @param img        the img
+     * @param myBook     the list of books the user owns
+     * @param user_id    the user id from firebase
+     * @param myLocation the location from which the user will exchange the book with the borrower
+     * @param img        the image of the user
      */
     public Owner(Book myBook, String user_id, float[] myLocation, int img){
         this.myBook = myBook;
