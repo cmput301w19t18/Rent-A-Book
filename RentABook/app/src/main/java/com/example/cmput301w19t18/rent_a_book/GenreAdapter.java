@@ -24,9 +24,9 @@ import java.util.List;
 
 
 public class GenreAdapter extends FragmentStatePagerAdapter {
-    private String[] genres = {"Comedy", "Drama", "Romance", "Comics/Graphic Novel", "Fantasy",
-            "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction",
-            "Adventure", "Nonfiction", "YA", "Thriller", "Tragedy", "Poetry", "Scientific Writing"};
+    //private String[] genres = {"Comedy", "Drama", "Romance", "Comics/Graphic Novel", "Fantasy",
+    //        "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction",
+    //       "Adventure", "Nonfiction", "YA", "Thriller", "Tragedy", "Poetry", "Scientific Writing"};
 
     private final List<Fragment> fList = new ArrayList<>();
     private final List<String> ftList = new ArrayList<>();

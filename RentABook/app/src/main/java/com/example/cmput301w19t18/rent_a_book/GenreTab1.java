@@ -9,8 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class GenreTab1 extends Fragment implements View.OnClickListener {
+
+    private int[] preferenceList = new int [18];
+    private int selected = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,6 +27,13 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
         Button comic = (Button) v.findViewById(R.id.comicsButton);
         Button fantasy = (Button) v.findViewById(R.id.fantasyButton);
         Button horror = (Button) v.findViewById(R.id.horrorButton);
+
+        //ImageView comedyHL = (ImageView) v.findViewById(R.id.comedyHighlight);
+        //ImageView dramaHL = (ImageView) v.findViewById(R.id.dramaHighlight);
+        //ImageView romanceHL = (ImageView) v.findViewById(R.id.romanceHighlight);
+        //ImageView comicHL = (ImageView) v.findViewById(R.id.comicsHighlight);
+        //ImageView fantasyHL = (ImageView) v.findViewById(R.id.fantasyHighlight);
+        //ImageView horrorHL = (ImageView) v.findViewById(R.id.horrorHighlight);
 
         comedy.setOnClickListener(this);
         drama.setOnClickListener(this);
@@ -39,7 +50,18 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             // change to put info into intents to send to main activity and other fragments
             case R.id.comedyButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //ImageView comedyHL = (ImageView) v.findViewById(R.id.comedyHighlight);
+                if (preferenceList[0] == 0 && selected < 4) {
+                    //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                    // comedyHL.setBackgroundResource(R.drawable.circle_button_highlighted);
+                    preferenceList[0] = 1;
+                    selected++;
+                    }
+                else {
+                    //comedyHL.setBackgroundColor(getResources().getColor(R.color.white));
+                    preferenceList[0] = 0;
+                    selected--;
+                }
                 break;
             case R.id.dramaButton:
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));

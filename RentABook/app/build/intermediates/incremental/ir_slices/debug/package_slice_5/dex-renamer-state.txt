@@ -1,4 +1,4 @@
-#Sat Mar 09 21:00:51 MST 2019
+#Sun Mar 10 20:37:04 MDT 2019
 base.0=/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/transforms/dexMerger/debug/5
 path.0=classes.dex
 renamed.0=classes.dex
