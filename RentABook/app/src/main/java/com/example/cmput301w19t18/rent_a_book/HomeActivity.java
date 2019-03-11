@@ -23,17 +23,47 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+/**
+ * The type Home activity.
+ * Home activity consists of a nested recyclerviw and gets the reccomended category, books owned, and top books
+ * (still a work of progress and will change)
+ *
+ * Values are fetched using Firebase and querying them to get the correct information in each category
+ *
+ * https://firebase.google.com/docs/database/admin/retrieve-data
+ * https://github.com/mitchtabian/Firebase-Read-Database/blob/master/FirebaseReadData/app/src/main/java/com/tabian/firebasereaddata/ViewDatabase.java
+ * https://www.youtube.com/watch?v=NQI8XNFzZT4&t=5s
+ *
+ */
 public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth bAuth;
     private DatabaseReference databaseReference;
 
     private RecyclerView verticalRecyclerView;
+    /**
+     * The Adapter.
+     */
     HomeVerticalRecyclerView adapter;
+    /**
+     * The Array list vertical.
+     */
     ArrayList<Category> arrayListVertical;
+    /**
+     * The Update.
+     */
     public boolean update = false;
+    /**
+     * The constant ADDING.
+     */
     public static final int ADDING = 1;
-    Category category, category2;
+    /**
+     * The Category.
+     */
+    Category category, /**
+     * The Category 2.
+     */
+    category2;
     private ArrayList<HorizontalModel> arrayListHorizontal_myBooks;
 
     @Override
@@ -91,6 +121,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * The Value event listener 1.
+     */
     ValueEventListener valueEventListener1 = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -118,6 +151,9 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * The Value event listener 2.
+     */
     ValueEventListener valueEventListener2 = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

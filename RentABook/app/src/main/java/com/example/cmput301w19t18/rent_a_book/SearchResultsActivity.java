@@ -7,6 +7,11 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * The type Search results activity.
+ * The search results activity allows the user to type in the taskbar and see available books to request it
+ * (still a work in progress)
+ */
 public class SearchResultsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -44,11 +49,17 @@ public class SearchResultsActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    /**
+     * Display results.
+     */
     public void DisplayResults() {
         // code
 
     }
 
+    /**
+     * Refresh.
+     */
     public void Refresh() {
         // code
     }
