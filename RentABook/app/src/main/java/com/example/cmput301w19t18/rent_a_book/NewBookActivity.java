@@ -22,6 +22,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import java.util.ArrayList;
 
 
+/*
+ * View of the book input screen. Also determines how the book will be inputted to the database
+ *
+ */
+
+
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object

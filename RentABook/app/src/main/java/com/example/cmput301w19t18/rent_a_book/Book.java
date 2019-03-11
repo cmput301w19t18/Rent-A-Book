@@ -5,6 +5,20 @@ import java.util.ArrayList;
 
 import android.support.v7.app.AppCompatActivity;
 
+/*
+ * Holds all information pertaining to a certain book
+ * Books are distinguished based on the ISBN
+ *
+ * @param: btitle: title of the book as a string
+ * @param: author: name of the author as a string
+ * @param: ISBN: unique identifier of every book, as a string
+ * @param: bstatus: the status of the book. Requested, borrowed, available
+ * @param: genre: a string to be parsed as a list storing up to 3 genres that the book is classified by
+ * @param: requestedBy: a list of users by email requesting the book
+ * @param: copyCount: a count of the number of copies of the book that are currently contained in the database
+
+ */
+
 public class Book implements Serializable{
 
     private String btitle;

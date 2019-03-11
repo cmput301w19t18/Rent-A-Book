@@ -9,13 +9,13 @@ import static org.junit.Assert.*;
 public class BookFunctionTest {
 
     ArrayList<String> RequestedBy = new ArrayList<String>();
-    String[] GenreList = new String[]{"Genre"};
+    //String[] GenreList = new String[]{"Genre"};
 
 
     @Test
     public void setRequestedBy() {
         //First test on an available book
-        Book obj = new Book("Title", "Author", GenreList, "1234567891234", "Available", RequestedBy,  0, 5);
+        Book obj = new Book("Title", "Author", "Test Genre", "1234567891234", "Available", RequestedBy,  0, 5);
         obj.setRequestedBy("requester@gmail.com");
         String Bstatus = obj.getBstatus();
         ArrayList<String> RequestingUsers = obj.getRequestedBy();
@@ -26,7 +26,7 @@ public class BookFunctionTest {
         assertEquals(ExpectedArray, RequestingUsers);
 
         //Second test on a requested book; check to ensure the status doesn't change
-        Book obj2 = new Book("Title", "Author", GenreList, "1234567891234", "Requested", RequestedBy,  0, 5);
+        Book obj2 = new Book("Title", "Author", "Test Genre", "1234567891234", "Requested", RequestedBy,  0, 5);
         obj2.setRequestedBy("requester@gmail.com");
         String Bstatus2 = obj2.getBstatus();
         ArrayList<String> RequestingUsers2 = obj2.getRequestedBy();
@@ -37,7 +37,7 @@ public class BookFunctionTest {
         assertEquals(ExpectedArray2, RequestingUsers2);
 
         //Third test on an accepted(borrowed) book to ensure the function doesn't change anything
-        Book obj3 = new Book("Title", "Author", GenreList, "1234567891234", "Accepted", RequestedBy,  0, 5);
+        Book obj3 = new Book("Title", "Author", "Test Genre", "1234567891234", "Accepted", RequestedBy,  0, 5);
         obj3.setRequestedBy("requester@gmail.com");
         String Bstatus3 = obj3.getBstatus();
         ArrayList<String> RequestingUsers3 = obj3.getRequestedBy();
