@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="c39abf39-913f-4ca4-a903-94cba90858c0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+=======
     <list default="true" id="c39abf39-913f-4ca4-a903-94cba90858c0" name="Default Changelist" comment="" />
+>>>>>>> working_home_activity
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +40,25 @@
     <session id="-1779751226">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="gradle" value="2" />
+          <entry key="java" value="11" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Groovy" value="2" />
+          <entry key="JAVA" value="11" />
+=======
           <entry key="project.closed" value="1" />
+>>>>>>> working_home_activity
         </counts>
       </usages-collector>
     </session>
@@ -37,28 +66,52 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+=======
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
               <caret line="12" selection-start-line="12" selection-end-line="12" />
+>>>>>>> working_home_activity
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeVerticalRecyclerView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1305">
+              <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1340">
               <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+>>>>>>> working_home_activity
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HorizontalRecyclerViewAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+=======
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeVerticalRecyclerView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="397">
               <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
+>>>>>>> working_home_activity
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,6 +120,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+=======
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HorizontalRecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -82,25 +140,45 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
+>>>>>>> working_home_activity
               <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+=======
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
+>>>>>>> working_home_activity
               <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../build.gradle">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+=======
+>>>>>>> working_home_activity
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/Recommendations.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
+<<<<<<< HEAD
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+=======
               <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+>>>>>>> working_home_activity
             </state>
           </provider>
         </entry>
@@ -108,7 +186,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab2.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="150">
+=======
             <state relative-caret-position="-387">
+>>>>>>> working_home_activity
               <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
@@ -117,7 +199,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab3.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="75">
+=======
             <state relative-caret-position="144">
+>>>>>>> working_home_activity
               <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
@@ -2440,16 +2526,23 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
       <pane id="PackagesPane" />
+>>>>>>> working_home_activity
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+=======
               <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="e9137016:NonAndroidModuleNode" />
             </path>
             <path>
               <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+>>>>>>> working_home_activity
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -2457,6 +2550,7 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2486,9 +2580,14 @@
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
     </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+<<<<<<< HEAD
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+=======
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="false" />
+>>>>>>> working_home_activity
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
@@ -2565,7 +2664,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c6bbd0c5-152b-4897-ae1b-5b1e9ecd32ae" name="Default" comment="" />
+      <changelist id="c39abf39-913f-4ca4-a903-94cba90858c0" name="Default Changelist" comment="" />
       <created>1551404758236</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -2579,7 +2678,11 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+<<<<<<< HEAD
+      <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
+=======
       <window_info id="Captures" order="2" weight="0.25" />
+>>>>>>> working_home_activity
       <window_info id="Designer" order="3" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
@@ -2593,7 +2696,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.22446236" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+=======
       <window_info anchor="bottom" id="Android Profiler" order="8" />
+>>>>>>> working_home_activity
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Logcat" order="11" />
@@ -2633,12 +2740,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeVerticalRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HorizontalRecyclerViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="60">
+=======
         <state relative-caret-position="15">
+>>>>>>> working_home_activity
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/Recommendations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">

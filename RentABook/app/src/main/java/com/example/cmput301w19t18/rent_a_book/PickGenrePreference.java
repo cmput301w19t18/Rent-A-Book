@@ -15,16 +15,34 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class PickGenrePreference extends AppCompatActivity {
-    static final int numPages = 3;
-    private int[] preferenceList = new int [18];
-    private int selectedNum = 0;
-    private int tabIcon = R.drawable.circle_unselected_gray_5dp;
 
-   private int[] tabIcons = {
-            R.drawable.circle_unselected_gray_5dp,
-            R.drawable.circle_unselected_gray_5dp,
-            R.drawable.circle_unselected_gray_5dp,
-    };
+    /**
+     * PickGenrePreference
+     *
+     * This is the activity which holds the 3 fragments. It is connected
+     * to the RegisterActivity and will allow the user to select 3 genres
+     * they like and send this information to firebase.
+     *
+     * Currently it does not work yet as communication between fragments and
+     * activity are still being implemented.
+     *
+     * author: Julieta Dikova
+     *
+     * sources:
+     * https://medium.com/@droidbyme/android-material-design-tabs-tab-layout-with-swipe-884085ae80ff
+     *
+     */
+
+    //static final int numPages = 3;
+    //private int[] preferenceList = new int [18];
+    //private int selectedNum = 0;
+    //private int tabIcon = R.drawable.circle_unselected_gray_5dp;
+
+   //private int[] tabIcons = {
+   //         R.drawable.unselected_circle_light_gray_10dp,
+   //         R.drawable.unselected_circle_light_gray_10dp,
+   //         R.drawable.unselected_circle_light_gray_10dp,
+   // };
 
     private GenreAdapter genreAdapter;
     private ViewPager viewPager;
@@ -51,6 +69,12 @@ public class PickGenrePreference extends AppCompatActivity {
 
         viewPager.setAdapter(genreAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
+
+        //tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        //tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        //tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+
         // setting the first screen
         //viewPager.setCurrentItem(0);
 
