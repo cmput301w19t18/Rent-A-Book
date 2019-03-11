@@ -13,6 +13,23 @@ import android.widget.ImageView;
 
 public class GenreTab1 extends Fragment implements View.OnClickListener {
 
+    /**
+     * The GenreTab1
+     *
+     * This is the first tab for genres. It is a fragment containing 6
+     * of the available genres. It will send the selected data to firebase when the
+     * signup process is complete.
+     *
+     * Currently it is clickable, but does not send info to firebase
+     * or save it yet.
+     *
+     * author: Julieta Dikova
+     *
+     * sources:
+     * https://medium.com/@droidbyme/android-material-design-tabs-tab-layout-with-swipe-884085ae80ff
+     *
+     */
+
     private int[] preferenceList = new int [18];
     private int selected = 0;
 
@@ -21,6 +38,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_pick_genre_pref, container, false);
 
+        // setting up first 6 buttons representing genres
         Button comedy = (Button) v.findViewById(R.id.comedyButton);
         Button drama = (Button) v.findViewById(R.id.dramaButton);
         Button romance = (Button) v.findViewById(R.id.romanceButton);
@@ -50,7 +68,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             // change to put info into intents to send to main activity and other fragments
             case R.id.comedyButton:
-                //ImageView comedyHL = (ImageView) v.findViewById(R.id.comedyHighlight);
+                // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList[0] == 0 && selected < 4) {
                     //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                     // comedyHL.setBackgroundResource(R.drawable.circle_button_highlighted);

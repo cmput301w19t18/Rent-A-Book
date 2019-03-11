@@ -1030,6 +1030,8 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable baseline_add_white_18dp
+drawable brook99
 drawable circle_button
 drawable circle_button_highlighted
 drawable circle_unselected_gray_5dp
@@ -1096,10 +1098,13 @@ id CTRL
 id CategoryTitle
 id DescriptionBox
 id FUNCTION
+id ISBNBox
 id META
+id OwnedProfile
 id SHIFT
 id SYM
 id ScanButton
+id SubmitButton
 id TitleBox
 id action0
 id action_bar
@@ -1122,7 +1127,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addButton
+id addEntry_fab
+id addbutton
 id adjust_height
 id adjust_width
 id adventureButton
@@ -1146,7 +1152,6 @@ id bookResults
 id bookStatus
 id bookTitle
 id bottom
-id boxISBN
 id buttonPanel
 id cancel
 id cancel_action
@@ -1206,6 +1211,7 @@ id fixed
 id fname
 id forever
 id genreText
+id genresLabelProfile
 id ghost_view
 id gone
 id gridLayout
@@ -1215,6 +1221,7 @@ id historyButton
 id historyHighlight
 id home
 id homeAsUp
+id homeRecyclerView
 id horrorButton
 id horrorHighlight
 id icon
@@ -1272,7 +1279,7 @@ id poetryHighlight
 id progress_circular
 id progress_horizontal
 id radio
-id recyclerView
+id recyclerHorizontalView
 id right
 id right_icon
 id right_side
@@ -1335,11 +1342,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
-id textView3
-id textView4
-id textView5
-id textView6
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1366,6 +1368,9 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userEmailProfile
+id userFullNameProfile
+id userPhoneProfile
 id view_offset_helper
 id visible
 id westernButton
@@ -1797,6 +1802,7 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style RatingBar
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon

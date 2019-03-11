@@ -24,10 +24,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/BookPhoto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/go1984" />
 
         <TextView
             android:id="@+id/bookTitle"
@@ -43,7 +44,7 @@
             android:minLines="1"
             android:singleLine="false"
             android:text="@string/Title"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/bookPhoto"
@@ -70,10 +71,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="116dp"
             android:text="@string/BookOwner"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/bookPhoto"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="John A." />
+            tools:text="Amy Santiago" />
 
         <TextView
             android:id="@+id/bookStatus"
@@ -83,7 +84,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/BookStatus"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Status" />

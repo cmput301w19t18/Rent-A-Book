@@ -11,6 +11,23 @@ import android.widget.Button;
 
 public class GenreTab3 extends Fragment implements View.OnClickListener {
 
+    /**
+     * The GenreTab3
+     *
+     * This is the third tab for genres. It is a fragment containing the last 6
+     * of the available genres. It will send the selected data to firebase when the
+     * signup process is complete.
+     *
+     * Currently it is clickable, but does not send info to firebase
+     * or save it yet.
+     *
+     * author: Julieta Dikova
+     *
+     * sources:
+     * https://medium.com/@droidbyme/android-material-design-tabs-tab-layout-with-swipe-884085ae80ff
+     *
+     */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

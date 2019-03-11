@@ -24,6 +24,19 @@ import java.util.List;
 
 
 public class GenreAdapter extends FragmentStatePagerAdapter {
+    /**
+     * The GenreAdapter
+     *
+     * The GenreAdapter is a type of FragmentStatePagerAdapter that
+     * handles the fragments that make up genre selection
+     *
+     * author: Julieta Dikova
+     *
+     * sources:
+     * https://medium.com/@droidbyme/android-material-design-tabs-tab-layout-with-swipe-884085ae80ff
+     *
+     */
+
     //private String[] genres = {"Comedy", "Drama", "Romance", "Comics/Graphic Novel", "Fantasy",
     //        "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction",
     //       "Adventure", "Nonfiction", "YA", "Thriller", "Tragedy", "Poetry", "Scientific Writing"};

@@ -1,17 +1,18 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
+ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
 MERGED from [com.android.support:design:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/e05462f921e5fbc73b76ab7c7967cf22/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a5122036d7e811a18fa731cf9826f277/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/eb26378fc8fd0227f1a278da12377990/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/cf30fd7a8b14db43849fc4661af44e4f/AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.firebase:firebase-database:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.1.aar/3969f6fc2b6bf80a2cd93b3ad37d6127/AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/4c78f97bc76e86e97d2c26f8e34f2e9d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/7b606d9664e62062d52278d095c86f56/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:2:1-9:12
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.gms:play-services-flags:15.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/beca6c0e579e893dd5ce16a919131783/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/61d9b5f882502eb04054cb3607df48bf/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/03c7ccf811aa62b18e5a86c62c8dc526/AndroidManifest.xml:17:1-34:12
@@ -47,6 +48,7 @@ MERGED from [com.android.support:support-media-compat:26.1.0] /Users/julietadiko
 MERGED from [com.android.support:support-compat:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/6d051092f68797e381018d5fa73d5fb6/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/5cd0e4eae6623cc4dc2a6dbfc6fb2bee/AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/4a40f5cf3aefbea4693d3b60d8339b9b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:exifinterface:27.1.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/17734ecc7c9002225d24edc0e36bbc01/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b08ecfc9b900ccd75f1127b833dba720/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:documentfile:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/1a35181e550ea00ebe855492ab4024fc/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/6d8d28650ad7b11f12c215a040cf5e8a/AndroidManifest.xml:17:1-22:12
@@ -57,20 +59,20 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/julietadikova/.gradle
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/e154d7a1c82e94c6e320dcb283a1850a/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1e1375799beabdf8cbc48cda27b66d37/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/e46ec104bb567dafee9f6322f6e8fd62/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
-INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
+INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:3:5-53
 		INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
 		INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-31:12
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-34:12
 		INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:11-69
@@ -89,7 +91,7 @@ MERGED from [com.google.firebase:firebase-database-connection:16.0.1] /Users/jul
 	android:name
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:7:5-29:19
+ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:7:5-32:19
 MERGED from [com.android.support:design:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/e05462f921e5fbc73b76ab7c7967cf22/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/e05462f921e5fbc73b76ab7c7967cf22/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/eb26378fc8fd0227f1a278da12377990/AndroidManifest.xml:9:5-20
@@ -98,6 +100,8 @@ MERGED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gra
 MERGED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/cf30fd7a8b14db43849fc4661af44e4f/AndroidManifest.xml:22:5-36:19
 MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:7:5-20
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/61d9b5f882502eb04054cb3607df48bf/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/61d9b5f882502eb04054cb3607df48bf/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/03c7ccf811aa62b18e5a86c62c8dc526/AndroidManifest.xml:26:5-32:19
@@ -168,24 +172,32 @@ ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:22:13-36
 	android:name
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:21:19-56
+activity#com.example.cmput301w19t18.rent_a_book.HomeActivity
+ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:23:9-24:48
+	android:exported
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:24:13-36
+	android:name
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:23:19-47
 activity#com.example.cmput301w19t18.rent_a_book.RegisterActivity
-ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:23:9-54
-	android:name
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:23:19-51
-activity#com.example.cmput301w19t18.rent_a_book.ProfileActivity
-ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:24:9-53
-	android:name
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:24:19-50
-activity#com.example.cmput301w19t18.rent_a_book.NewBook
 ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:25:9-54
 	android:name
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:25:19-42
-activity#com.example.cmput301w19t18.rent_a_book.PickGenrePreference
-ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:26:9-27:71
-	android:theme
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:27:13-69
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:25:19-51
+activity#com.example.cmput301w19t18.rent_a_book.ProfileActivity
+ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:26:9-53
 	android:name
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:26:19-54
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:26:19-50
+activity#com.example.cmput301w19t18.rent_a_book.PickGenrePreference
+ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:27:9-28:71
+	android:theme
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:28:13-69
+	android:name
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:27:19-54
+activity#com.example.cmput301w19t18.rent_a_book.NewBookActivity
+ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:29:9-30:48
+	android:exported
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:29:19-50
 uses-sdk
 INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
@@ -200,12 +212,14 @@ MERGED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gra
 MERGED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/cf30fd7a8b14db43849fc4661af44e4f/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.1.aar/3969f6fc2b6bf80a2cd93b3ad37d6127/AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-database:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.1.aar/3969f6fc2b6bf80a2cd93b3ad37d6127/AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/4c78f97bc76e86e97d2c26f8e34f2e9d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/4c78f97bc76e86e97d2c26f8e34f2e9d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/7b606d9664e62062d52278d095c86f56/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/7b606d9664e62062d52278d095c86f56/AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-core:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.1.aar/b93beb585e32d64064b72c245c48e8dd/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-flags:15.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/beca6c0e579e893dd5ce16a919131783/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:15.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/beca6c0e579e893dd5ce16a919131783/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-interop-16.0.0.aar/61d9b5f882502eb04054cb3607df48bf/AndroidManifest.xml:5:5-44
@@ -276,6 +290,8 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/julietadikov
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/5cd0e4eae6623cc4dc2a6dbfc6fb2bee/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/4a40f5cf3aefbea4693d3b60d8339b9b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/4a40f5cf3aefbea4693d3b60d8339b9b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/17734ecc7c9002225d24edc0e36bbc01/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/17734ecc7c9002225d24edc0e36bbc01/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b08ecfc9b900ccd75f1127b833dba720/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b08ecfc9b900ccd75f1127b833dba720/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/1a35181e550ea00ebe855492ab4024fc/AndroidManifest.xml:20:5-44
@@ -336,6 +352,14 @@ ADDED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.grad
 		ADDED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/cf30fd7a8b14db43849fc4661af44e4f/AndroidManifest.xml:34:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.1.aar/cf30fd7a8b14db43849fc4661af44e4f/AndroidManifest.xml:33:17-109
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/picasso-2.71828.aar/857c96ba46fc83c8b19d9885732de792/AndroidManifest.xml:9:13-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/03c7ccf811aa62b18e5a86c62c8dc526/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-analytics:16.0.1] /Users/julietadikova/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/573fda130a6dd79b72bf6e13bf44f6b8/AndroidManifest.xml:24:5-79

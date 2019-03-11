@@ -27,7 +27,7 @@
             tools:text="Category" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerHorizontalView"
             android:layout_width="match_parent"
             android:layout_height="187dp"
             android:layout_marginTop="8dp"
@@ -38,17 +38,6 @@
             tools:layout_editor_absoluteX="0dp"
             tools:listitem="@layout/home_book_item" />
 
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="@string/AddButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="+" />
 
     </android.support.constraint.ConstraintLayout>
 

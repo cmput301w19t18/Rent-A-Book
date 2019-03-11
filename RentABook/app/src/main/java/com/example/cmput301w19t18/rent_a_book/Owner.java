@@ -40,6 +40,7 @@ public class Owner implements Serializable {
     private float[] myLocation;
     private Book myBook;
 
+
     public int getImg() {
         return img;
     }

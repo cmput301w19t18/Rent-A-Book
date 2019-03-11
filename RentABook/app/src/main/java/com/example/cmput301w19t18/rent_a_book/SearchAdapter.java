@@ -10,27 +10,59 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * The type Search adapter.
+ * Search adapter gets the arraylist to create the results inside the recyclerview in the search results activity
+ */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     private ArrayList<Book> mSearchBookList;
 
+    /**
+     * The type Search view holder.
+     */
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
 
+        /**
+         * The M owner picture.
+         */
         public ImageView mOwnerPicture;
+        /**
+         * The M book title.
+         */
         public TextView mBookTitle;
+        /**
+         * The M book author.
+         */
         public TextView mBookAuthor;
+        /**
+         * The M owner name.
+         */
         public TextView mOwnerName;
+        /**
+         * The M status.
+         */
         public TextView mStatus;
 
+        /**
+         * Instantiates a new Search view holder.
+         *
+         * @param itemView the item view
+         */
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
             mOwnerPicture = itemView.findViewById(R.id.bookPhoto);
             mBookTitle = itemView.findViewById(R.id.bookTitle);
             mBookAuthor = itemView.findViewById(R.id.bookAuthor);
-            mOwnerPicture = itemView.findViewById(R.id.bookOwner);
+            mOwnerName = itemView.findViewById(R.id.bookOwner);
             mStatus = itemView.findViewById(R.id.bookStatus);
         }
     }
 
+    /**
+     * Instantiates a new Search adapter.
+     *
+     * @param SearchBookList the search book list
+     */
     public SearchAdapter(ArrayList<Book> SearchBookList) {
         mSearchBookList = SearchBookList;
     }
@@ -47,11 +79,11 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
          Book currentItem = mSearchBookList.get(i);
 
-         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
-         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
-         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
-         searchViewHolder.mOwnerName.setText(currentItem.getOwner());
-         searchViewHolder.mStatus.setText(currentItem.getBstatus());
+//         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
+//         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
+//         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
+//         searchViewHolder.mOwnerName.setText(currentItem.getOwner());
+//         searchViewHolder.mStatus.setText(currentItem.getBstatus());
     }
 
     @Override

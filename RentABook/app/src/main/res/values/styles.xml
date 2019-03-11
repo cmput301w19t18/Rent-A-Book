@@ -22,4 +22,9 @@
         <item name="titleTextColor">@color/mediumGray</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/lightGray</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
 </resources>

@@ -1,143 +1,203 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Book {
+import android.support.v7.app.AppCompatActivity;
+
+/**
+ * The type Book.
+ * Creates Book Class
+ * Created by ishire, and modified by jusong
+ */
+public class Book implements Serializable{
 
     private String btitle;
     private String author;
-    private String genre;
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
-    private String owner;
     private Integer rating;
-    private int bCover; //book cover
-    private int bPhoto; //picture taken by the owner
-    private ArrayList<String> requestedBy; //Emails of users that have placed requests for the book
-    private String borrowedBy; //Email of the user that borrowed the book
+    private String bOwner;
+    private String genre; //genre will be determined by an array
+    private String requestedBy; //list of users that are requesting the book by email
 
-    //constructor (changed to public constructor)
-    public Book (String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating){
+    //private String description; //Description of the book entered by the user
+    //private Integer copyCount; //number of copies of the book that exist
+
+    /**
+     * Instantiates a new Book.
+     *
+     * @param btitle      the btitle
+     * @param author      the author
+     * @param ISBN        the isbn
+     * @param bstatus     the bstatus
+     * @param rating      the rating
+     * @param bOwner      the b owner
+     * @param genre       the genre
+     * @param requestedBy the requested by
+     */
+    public Book(String btitle, String author, String ISBN, String bstatus, Integer rating, String bOwner, String genre, String requestedBy) {
         this.btitle = btitle;
         this.author = author;
-        this.genre = genre;
         this.ISBN = ISBN;
         this.bstatus = bstatus;
-        this.owner = owner;
         this.rating = rating;
-        this.initialRequestedBy();
-        this.borrowedBy = null;
+        this.bOwner = bOwner;
+        this.genre = genre;
+        this.requestedBy = requestedBy;
+
+        //use of arrays:
+        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
+        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+
     }
 
+    /**
+     * Instantiates a new Book.
+     */
+    public Book() {};
+
+    /**
+     * Gets btitle.
+     *
+     * @return the btitle
+     */
     public String getBtitle() {
         return btitle;
     }
 
+    /**
+     * Sets btitle.
+     *
+     * @param btitle the btitle
+     */
     public void setBtitle(String btitle) {
         this.btitle = btitle;
     }
 
+    /**
+     * Gets author.
+     *
+     * @return the author
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     * Sets author.
+     *
+     * @param author the author
+     */
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
+    /**
+     * Gets isbn.
+     *
+     * @return the isbn
+     */
     public String getISBN() {
         return ISBN;
     }
 
+    /**
+     * Sets isbn.
+     *
+     * @param ISBN the isbn
+     */
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
+    /**
+     * Gets bstatus.
+     *
+     * @return the bstatus
+     */
     public String getBstatus() {
         return bstatus;
     }
 
+    /**
+     * Sets bstatus.
+     *
+     * @param bstatus the bstatus
+     */
     public void setBstatus(String bstatus) {
         this.bstatus = bstatus;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
+    /**
+     * Gets rating.
+     *
+     * @return the rating
+     */
     public Integer getRating() {
         return rating;
     }
 
+    /**
+     * Sets rating.
+     *
+     * @param rating the rating
+     */
     public void setRating(Integer rating) {
         this.rating = rating;
     }
 
-    public int getbCover() {
-        return bCover;
+    /**
+     * Gets owner.
+     *
+     * @return the owner
+     */
+    public String getbOwner() {
+        return bOwner;
     }
 
-    public void setbCover(int bCover) {
-        this.bCover = bCover;
+    /**
+     * Sets owner.
+     *
+     * @param bOwner the b owner
+     */
+    public void setbOwner(String bOwner) {
+        this.bOwner = bOwner;
     }
 
-    public int getbPhoto() {
-        return bPhoto;
+    /**
+     * Gets genre.
+     *
+     * @return the genre
+     */
+    public String getGenre() {
+        return genre;
     }
 
-    public void setbPhoto(int bPhoto) {
-        this.bPhoto = bPhoto;
+    /**
+     * Sets genre.
+     *
+     * @param genre the genre
+     */
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public void setRequestedBy(ArrayList<String> requestedBy) {
-        this.requestedBy = requestedBy;
-    }
-
-    public ArrayList<String> getRequestedBy() {
+    /**
+     * Gets requested by.
+     *
+     * @return the requested by
+     */
+    public String getRequestedBy() {
         return requestedBy;
     }
 
-    public String getBorrowedBy() {
-        return borrowedBy;
-    }
-
-    private void addPhoto (String fileName){
-        //code
-    }
-
-    public void setRequestedBy(String requestingUser) { //email of the user requesting it
-        if (this.getBstatus() == "Accepted" || this.getBstatus() == "Borrowed") {
-            return;
-        } else if (this.getBstatus() == "Requested"){
-            this.requestedBy.add(requestingUser);
-        } else if (this.getBstatus() == "Available") {
-            this.setBstatus("Requested");
-            this.requestedBy.add(requestingUser);
-        }
-    }
-
-    public void setBorrowedBy(String borrowingUser) { //Set borrower and clear all current requests
-        this.setBstatus("Borrowed"); //Change status
-        this.borrowedBy = borrowingUser; //Set the borrowing user
-        this.initialRequestedBy(); //Clear all requests from the book
-    }
-
-    //Create an initializer to set RequestedBy to an empty array to avoid having null pointer errors
-    public void initialRequestedBy () {
-        ArrayList<String> initial = new ArrayList<>();
-        this.requestedBy = initial;
-        return;
+    /**
+     * Sets requested by.
+     *
+     * @param requestedBy the requested by
+     */
+    public void setRequestedBy(String requestedBy) {
+        this.requestedBy = requestedBy;
     }
 }

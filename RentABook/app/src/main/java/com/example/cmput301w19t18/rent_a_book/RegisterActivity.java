@@ -32,7 +32,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatabaseReference DataR;
     private String prefList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +52,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         signup.setOnClickListener(this);
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
-            //user is already loged in
-
+            //user is already logged in
 
         }
 
@@ -84,18 +82,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
 
         }
-        //makes sure password is atleast 6 letters long
+        //makes sure password is at least 6 letters long
         if (password.length() < 6){
             pass.setError("Password must be at least 6 letters long!");
             pass.requestFocus();
             return;
         }
+
         //finally register user, got this code from firebase instructions,
         mAuth.createUserWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    User user = new User(user_email,prefList);
+                    User user = new User(user_email, prefList);
                     String user_id = mAuth.getCurrentUser().getUid();
 
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -120,7 +119,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
-
 
 
     }

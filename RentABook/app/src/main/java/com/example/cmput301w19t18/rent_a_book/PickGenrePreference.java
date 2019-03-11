@@ -15,6 +15,24 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class PickGenrePreference extends AppCompatActivity {
+
+    /**
+     * PickGenrePreference
+     *
+     * This is the activity which holds the 3 fragments. It is connected
+     * to the RegisterActivity and will allow the user to select 3 genres
+     * they like and send this information to firebase.
+     *
+     * Currently it does not work yet as communication between fragments and
+     * activity are still being implemented.
+     *
+     * author: Julieta Dikova
+     *
+     * sources:
+     * https://medium.com/@droidbyme/android-material-design-tabs-tab-layout-with-swipe-884085ae80ff
+     *
+     */
+
     //static final int numPages = 3;
     //private int[] preferenceList = new int [18];
     //private int selectedNum = 0;

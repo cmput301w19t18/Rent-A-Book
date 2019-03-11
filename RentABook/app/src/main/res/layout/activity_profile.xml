@@ -18,7 +18,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/userFullNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginTop="42dp"
@@ -31,7 +31,7 @@
         tools:text="Amy Santiago" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/userEmailProfile"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="16dp"
@@ -40,11 +40,11 @@
         android:text="TextView"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/userFullNameProfile"
         tools:text="amys@nypd.org" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/userPhoneProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -57,7 +57,7 @@
         tools:text="202-555-0132" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/genresLabelProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -69,11 +69,11 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/userPhoneProfile"
         tools:text="Genres" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/OwnedProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -86,5 +86,20 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="409dp"
         tools:text="Owned" />
+
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="ADD BOOK"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toEndOf="@+id/userPhoneProfile"
+        app:layout_constraintTop_toBottomOf="@+id/userEmailProfile" />
 
 </android.support.constraint.ConstraintLayout>
