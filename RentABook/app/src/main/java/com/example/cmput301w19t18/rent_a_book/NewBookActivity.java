@@ -36,6 +36,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private EditText AuthorF;
     private EditText TitleF;
     private EditText DescF;
+    private String email;
 
 
     //record of books added by ISBN
@@ -44,6 +45,10 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        Bundle b =  intent.getExtras();
+
         setContentView(R.layout.activity_newbook);
 
         //initializing firebase auth object
@@ -57,7 +62,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
         SubmitB.setOnClickListener(this);
-
+        //email = b.getString("user_email");
 
 
         //check if user is logged in. if not, returns null
@@ -119,17 +124,22 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //some of these need to be changed every time a new book is added
 
         //Currently only is able to add values entered for a new book that is not already in the database
-        String[] genre = {"test genre"}; //going to be set by external function
-        ArrayList<String> requestedBy = new ArrayList<String>();
+
+        String genre = "000001010"; //going to be set by external function
+        String requestedBy = "jakep@nypd.org";//new ArrayList<String>();
+        String email = bAuth.getCurrentUser().getEmail();
         ArrayList<String> ownedBy = null;
+
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
-        Integer rating = 0;
+        Integer rating = 4;
         Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
 
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, genre, ISBN, status,requestedBy,  rating, copyCount);
+        Book newBook = new Book(title, author, ISBN, status, rating, email, genre, requestedBy);
+        //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
+
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -150,11 +160,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         );
-        databaseReference.child("books").setValue(newBook); //should put the book in the db under books
+        //databaseReference.child("books").setValue(newBook); //should put the book in the db under books
         //finish();
     }
-
-
 
     @Override //when you press the submit button
     public void onClick(View view) {

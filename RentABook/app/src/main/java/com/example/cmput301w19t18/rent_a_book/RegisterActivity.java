@@ -88,12 +88,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             pass.requestFocus();
             return;
         }
+
         //finally register user, got this code from firebase instructions,
         mAuth.createUserWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    User user = new User(user_email,prefList);
+                    User user = new User(user_email, prefList);
                     String user_id = mAuth.getCurrentUser().getUid();
 
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -118,7 +119,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
-
 
 
     }

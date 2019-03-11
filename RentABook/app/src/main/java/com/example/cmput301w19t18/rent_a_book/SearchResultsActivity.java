@@ -19,22 +19,21 @@ public class SearchResultsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_results);
-
-        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "jakep@nypd.org", 5, R.drawable.brook99);
-        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", "2", "Available", "amys@nypd.org", 4, R.drawable.brook99);
-        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1","Requested",  "rosad@nypd.org", 5, R.drawable.brook99);
-        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Accepted", "charlesb@nypd.org", 5, R.drawable.brook99);
-        Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Borrowed", "raymondh@nypd.org", 5, R.drawable.brook99);
-        Book book6 = new Book("Nothing Lasts Forever", "Roderick Thorp", "Thriller", "3", "Available", "jakep@nypd.org", 3, R.drawable.brook99);
+//        setContentView(R.layout.activity_search_results);
+//        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "jakep@nypd.org", 5, 4);
+//        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", "2", "Available", "amys@nypd.org", 4, 4);
+//        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1","Requested",  "rosad@nypd.org", 5, 1);
+//        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Accepted", "charlesb@nypd.org", 5, 4);
+//        Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Borrowed", "raymondh@nypd.org", 5, 4);
+//        Book book6 = new Book("Nothing Lasts Forever", "Roderick Thorp", "Thriller", "3", "Available", "jakep@nypd.org", 3, 1);
 
         BookSearchList = new ArrayList<>();
-        BookSearchList.add(book1);
-        BookSearchList.add(book2);
-        BookSearchList.add(book3);
-        BookSearchList.add(book4);
-        BookSearchList.add(book5);
-        BookSearchList.add(book6);
+//        BookSearchList.add(book1);
+//        BookSearchList.add(book2);
+//        BookSearchList.add(book3);
+//        BookSearchList.add(book4);
+//        BookSearchList.add(book5);
+//        BookSearchList.add(book6);
 
         mRecyclerView = findViewById(R.id.bookResults);
         mRecyclerView.setHasFixedSize(true); //for not, it will change size

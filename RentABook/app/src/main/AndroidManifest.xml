@@ -24,14 +24,11 @@
             android:exported="true"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
-<<<<<<< HEAD
-        <activity android:name=".NewBook"></activity>
         <activity android:name=".PickGenrePreference"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".NewBookActivity"
+            android:exported="true"></activity>
 
-=======
-        <activity android:name=".NewBookActivity"></activity>
->>>>>>> f36c771b622d6bfc2350923f2cdcbbf376ca25e7
     </application>
 
 </manifest>

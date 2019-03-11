@@ -45,10 +45,12 @@
             android:exported="true" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.RegisterActivity" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.ProfileActivity" />
-        <activity android:name="com.example.cmput301w19t18.rent_a_book.NewBook" />
         <activity
             android:name="com.example.cmput301w19t18.rent_a_book.PickGenrePreference"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.example.cmput301w19t18.rent_a_book.NewBookActivity"
+            android:exported="true" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -68,6 +70,11 @@
                 android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
+
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.example.cmput301w19t18.rent_a_book.com.squareup.picasso"
+            android:exported="false" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"

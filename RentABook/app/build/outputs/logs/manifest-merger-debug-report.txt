@@ -1,17 +1,18 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\c0f0fbdbb66438fc78f653eb2d693e87\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\13cde75e901c94c3a43a51318ec38dbc\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f7796abc421a78396387c9ee174fc7b0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\25b84bcd013b6c88e0bcdd54e892ddf3\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.firebase:firebase-database:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.1.aar\82362ad6867fc1fb3a6a3620dc613d31\AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\49e3962c4910c7ad3007b819a58687f9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\790790ecbfbc98dbb45842156374b5a3\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:2:1-9:12
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\187e98b40b77799dbbec322cde5e7b70\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\1b2515a511606314ce030d891d7d0dac\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\1d2618841ba10cb89baed4f3a75e474d\AndroidManifest.xml:17:1-34:12
@@ -47,6 +48,7 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\JuSong\.g
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\4cc41a04908b157b889ee7dfa6946edd\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\dcacb1da952896cbe6ee98f36e4e290f\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9f3fe64bf11cb70a056dec7aabe9dbde\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\b40018a86845dbc04d11479d822244b8\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\08abb8d37b1cdfedf2afa15b4dc80b1e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\96350d389277190f6b7d2a8c75178a41\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\ab9c7129cab95aaddf5f3f13751c9078\AndroidManifest.xml:17:1-22:12
@@ -57,20 +59,20 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\JuSong\.gradle\cach
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\851e05267468d621181c76fd15118567\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\30a3acb5fd5702a7c5a7a6b2b38a5311\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.0.aar\d8bd896791206ab84a95ef2cef6b7d2b\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:3:5-53
 		INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
+		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
 		INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-33:12
+		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:1-34:12
 		INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:2:11-69
@@ -89,7 +91,7 @@ MERGED from [com.google.firebase:firebase-database-connection:16.0.1] C:\Users\J
 	android:name
 		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:7:5-31:19
+ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:7:5-32:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\c0f0fbdbb66438fc78f653eb2d693e87\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\c0f0fbdbb66438fc78f653eb2d693e87\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\f7796abc421a78396387c9ee174fc7b0\AndroidManifest.xml:9:5-20
@@ -98,6 +100,8 @@ MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\c
 MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\25b84bcd013b6c88e0bcdd54e892ddf3\AndroidManifest.xml:22:5-36:19
 MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:7:5-20
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\1b2515a511606314ce030d891d7d0dac\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\1b2515a511606314ce030d891d7d0dac\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\1d2618841ba10cb89baed4f3a75e474d\AndroidManifest.xml:26:5-32:19
@@ -182,16 +186,18 @@ activity#com.example.cmput301w19t18.rent_a_book.ProfileActivity
 ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:26:9-53
 	android:name
 		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:26:19-50
-activity#com.example.cmput301w19t18.rent_a_book.NewBook
-ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:27:9-54
-	android:name
-		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:27:19-42
 activity#com.example.cmput301w19t18.rent_a_book.PickGenrePreference
-ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:28:9-29:71
+ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:27:9-28:71
 	android:theme
-		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:29:13-69
+		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:28:13-69
 	android:name
-		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:28:19-54
+		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:27:19-54
+activity#com.example.cmput301w19t18.rent_a_book.NewBookActivity
+ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:29:9-30:48
+	android:exported
+		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml:29:19-50
 uses-sdk
 INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\JuSong\Desktop\project4\Rent-A-Book\RentABook\app\src\main\AndroidManifest.xml
@@ -206,12 +212,14 @@ MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\c
 MERGED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\25b84bcd013b6c88e0bcdd54e892ddf3\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.1.aar\82362ad6867fc1fb3a6a3620dc613d31\AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-database:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.1.aar\82362ad6867fc1fb3a6a3620dc613d31\AndroidManifest.xml:6:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\49e3962c4910c7ad3007b819a58687f9\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\49e3962c4910c7ad3007b819a58687f9\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\790790ecbfbc98dbb45842156374b5a3\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\790790ecbfbc98dbb45842156374b5a3\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-core:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.1.aar\55bf261d989cab0ea45b0532bf10f283\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\187e98b40b77799dbbec322cde5e7b70\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\187e98b40b77799dbbec322cde5e7b70\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.0.aar\1b2515a511606314ce030d891d7d0dac\AndroidManifest.xml:5:5-44
@@ -282,6 +290,8 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\JuSong\.gr
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\dcacb1da952896cbe6ee98f36e4e290f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9f3fe64bf11cb70a056dec7aabe9dbde\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9f3fe64bf11cb70a056dec7aabe9dbde\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\b40018a86845dbc04d11479d822244b8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\b40018a86845dbc04d11479d822244b8\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\08abb8d37b1cdfedf2afa15b4dc80b1e\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\08abb8d37b1cdfedf2afa15b4dc80b1e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\96350d389277190f6b7d2a8c75178a41\AndroidManifest.xml:20:5-44
@@ -342,6 +352,14 @@ ADDED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\ca
 		ADDED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\25b84bcd013b6c88e0bcdd54e892ddf3\AndroidManifest.xml:34:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.1.aar\25b84bcd013b6c88e0bcdd54e892ddf3\AndroidManifest.xml:33:17-109
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\cca0359bc54957483519ead2a9750e6f\AndroidManifest.xml:9:13-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-16.0.1.aar\1d2618841ba10cb89baed4f3a75e474d\AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-analytics:16.0.1] C:\Users\JuSong\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.1.aar\bd79ed8dca09a11d66acc0dd5efd85be\AndroidManifest.xml:24:5-79

@@ -12,24 +12,22 @@ public class Book implements Serializable{
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private Integer rating;
-    private int bPhoto;
-    private int bCover;
-    private String[] genre; //genre will be determined by an array
-    private ArrayList<String> requestedBy; //list of users that are requesting the book by email
+    private String bOwner;
+    private String genre; //genre will be determined by an array
+    private String requestedBy; //list of users that are requesting the book by email
 
     //private String description; //Description of the book entered by the user
-    private Integer copyCount; //number of copies of the book that exist
+    //private Integer copyCount; //number of copies of the book that exist
 
-    //constructor (changed to public constructor)
-    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount, int bCover){
+    public Book(String btitle, String author, String ISBN, String bstatus, Integer rating, String bOwner, String genre, String requestedBy) {
         this.btitle = btitle;
         this.author = author;
-        this.genre = genre;
         this.ISBN = ISBN;
         this.bstatus = bstatus;
         this.rating = rating;
-        this.initialRequestedBy();
-        this.requestedBy = this.requestedBy;
+        this.bOwner = bOwner;
+        this.genre = genre;
+        this.requestedBy = requestedBy;
 
         //use of arrays:
         //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
@@ -37,13 +35,7 @@ public class Book implements Serializable{
 
     }
 
-    public Integer getCopyCount() {
-        return copyCount;
-    }
-
-    public void setCopyCount(Integer copyCount) {
-        this.copyCount = copyCount;
-    }
+    public Book() {};
 
     public String getBtitle() {
         return btitle;
@@ -60,12 +52,6 @@ public class Book implements Serializable{
     public void setAuthor(String author) {
         this.author = author;
     }
-
-    public void getGenre() {
-        this.genre = genre;
-    }
-
-    public void setGenre(String genre[]) { this.genre = genre; }
 
     public String getISBN() {
         return ISBN;
@@ -91,44 +77,27 @@ public class Book implements Serializable{
         this.rating = rating;
     }
 
-    private void addPhoto (String fileName){
-        //code
+    public String getbOwner() {
+        return bOwner;
     }
 
-    //Create an initializer to set RequestedBy to an empty array to avoid having null pointer errors
-    public void initialRequestedBy () {
-        ArrayList<String> initial = new ArrayList<>();
-        this.requestedBy = initial;
-        return;
+    public void setbOwner(String bOwner) {
+        this.bOwner = bOwner;
     }
 
-    public int getbPhoto() {
-        return bPhoto;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setbPhoto(int bPhoto) {
-        this.bPhoto = bPhoto;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public int getbCover() {
-        return bCover;
-    }
-
-    public void setbCover(int bCover) {
-        this.bCover = bCover;
-    }
-
-    public void setRequestedBy(ArrayList<String> requestedBy) {
-        this.requestedBy = requestedBy;
-    }
-
-    public ArrayList<String> getRequestedBy() {
+    public String getRequestedBy() {
         return requestedBy;
     }
 
-    public void setRequestedBy(ArrayList<String> requestedBy, String requester_email) {
+    public void setRequestedBy(String requestedBy) {
         this.requestedBy = requestedBy;
-        requestedBy.add(requester_email); //appends the requester to the list of requests
     }
-
 }

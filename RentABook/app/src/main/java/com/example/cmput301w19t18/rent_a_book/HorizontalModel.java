@@ -9,16 +9,16 @@ public class HorizontalModel {
         this.bookRating = bookRating;
     }
 
-    public int getBookCover() {
+    public String getBookCover() {
         return bookCover;
     }
 
-    public void setBookCover(int bookCover) {
+    public void setBookCover(String bookCover) {
         this.bookCover = bookCover;
     }
 
     private int bookRating;
-    private int bookCover;
+    private String bookCover;
 
 
 }

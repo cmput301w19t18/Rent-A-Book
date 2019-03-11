@@ -140,12 +140,12 @@
         "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\c0f0fbdbb66438fc78f653eb2d693e87\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
-        "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_snackbar_background.xml.flat",
-        "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\c0f0fbdbb66438fc78f653eb2d693e87\\res\\drawable\\design_snackbar_background.xml"
-    },
-    {
         "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_brook99.jpg.flat",
         "source": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\src\\main\\res\\drawable\\brook99.jpg"
+    },
+    {
+        "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_snackbar_background.xml.flat",
+        "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\c0f0fbdbb66438fc78f653eb2d693e87\\res\\drawable\\design_snackbar_background.xml"
     },
     {
         "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
@@ -1326,6 +1326,10 @@
     {
         "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_seek_thumb.xml.flat",
         "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\13cde75e901c94c3a43a51318ec38dbc\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_add_white_18dp.png.flat",
+        "source": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\src\\main\\res\\drawable\\baseline_add_white_18dp.png"
     },
     {
         "merged": "C:\\Users\\JuSong\\Desktop\\project4\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",

@@ -1030,6 +1030,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable brook99
 drawable circle_button
 drawable circle_unselected_gray_5dp
 drawable common_full_open_on_phone
@@ -1091,10 +1092,12 @@ id CTRL
 id CategoryTitle
 id DescriptionBox
 id FUNCTION
+id ISBNBox
 id META
 id SHIFT
 id SYM
 id ScanButton
+id SubmitButton
 id TitleBox
 id action0
 id action_bar
@@ -1118,6 +1121,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addButton
+id addbutton
 id adjust_height
 id adjust_width
 id adventureButton
@@ -1139,7 +1143,6 @@ id bookResults
 id bookStatus
 id bookTitle
 id bottom
-id boxISBN
 id buttonPanel
 id cancel
 id cancel_action
@@ -1202,6 +1205,7 @@ id groups
 id historyButton
 id home
 id homeAsUp
+id homeRecyclerView
 id horrorButton
 id icon
 id icon_group
@@ -1255,7 +1259,7 @@ id poetryButton
 id progress_circular
 id progress_horizontal
 id radio
-id recyclerView
+id recyclerHorizontalView
 id right
 id right_icon
 id right_side
@@ -1774,6 +1778,7 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style RatingBar
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon

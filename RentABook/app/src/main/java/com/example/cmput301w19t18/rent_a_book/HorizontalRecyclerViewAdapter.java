@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
+import com.squareup.picasso.Picasso;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -33,7 +35,10 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
     public void onBindViewHolder(@NonNull HorizontalRVViewHolder horizontalRVViewHolder, int i) {
         final HorizontalModel horizontalModel = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(horizontalModel.getBookRating());
-        horizontalRVViewHolder.bookCover.setImageResource(horizontalModel.getBookCover());
+        Picasso.get().load(horizontalModel.getBookCover()).into(horizontalRVViewHolder.bookCover);
+
+        //horizontalRVViewHolder.bookCover.setImageResource(horizontalModel.getBookCover());
+        //Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView);
     }
 
     @Override

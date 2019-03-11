@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtsignup.setOnClickListener(this);
 
     }
+
     private void signIn(){
 
         String user_email = email.getText().toString().trim();
@@ -73,14 +74,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-
-
         mAuth.signInWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    intent.putExtras(new Bundle());
+                    Bundle bundle = intent.getExtras();
+                    bundle.putString("user_email", email.getText().toString().trim());
 
+                    intent.putExtras(bundle);
                     //CLOSE ALL OPEN ACTIVITES.
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);

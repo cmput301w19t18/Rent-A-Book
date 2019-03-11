@@ -54,13 +54,11 @@ public class HomeVerticalRecyclerView extends RecyclerView.Adapter<HomeVerticalR
     public class VerticalRVViewHolder extends RecyclerView.ViewHolder {
         RecyclerView recyclerView;
         TextView categoryTitle;
-        Button addButton;
 
         public VerticalRVViewHolder(View itemView) {
             super(itemView);
             recyclerView = (RecyclerView)itemView.findViewById(R.id.recyclerHorizontalView);
             categoryTitle = (TextView)itemView.findViewById(R.id.CategoryTitle);
-            addButton = (Button)itemView.findViewById(R.id.addButton);
         }
     }
 }
