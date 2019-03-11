@@ -19,17 +19,6 @@ public class Book implements Serializable{
     //private String description; //Description of the book entered by the user
     //private Integer copyCount; //number of copies of the book that exist
 
-    /**
-     * Stores all information of a book object. Uploaded to firebase for querying.
-     * @param btitle title of the book
-     * @param author name of the author
-     * @param ISBN unique ISBN
-     * @param bstatus status of the book
-     * @param rating overall rating of the book
-     * @param bOwner the user who owns the book, by email/firebase ID
-     * @param genre category of the book
-     * @param requestedBy user who has requested the book
-     */
     public Book(String btitle, String author, String ISBN, String bstatus, Integer rating, String bOwner, String genre, String requestedBy) {
         this.btitle = btitle;
         this.author = author;

@@ -22,11 +22,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import java.util.ArrayList;
 
 
-/**
- * The type New book activity. * The type Book request. Uploads the newly created book object to the firebase
- *  * Issues: Cannot get lists/arrays to upload. Currently does not have full functionality
- *  * TODO: Allow lists/arrays to be uploaded, or find a workaround
- */
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -80,11 +75,45 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    //////////////// Check if exists in the database ////////////////
-    // https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
+    //////////////// Check if exists in the database //////////////// https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
+
+
+    /*
+    ValueEventListener responseListener  = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot snapshot) {
+
+            databaseReference.child("books").orderByChild("ISBN").equalTo(ISBNF.getText().toString().trim()).once
+
+            if (snapshot.getValue() != null) {
+                //user exists, do something
+            } else {
+                //user does not exist, do something else
+            }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+
+
+    };
+
+    public static DatabaseReference getBaseRef() {
+        return FirebaseDatabase.getInstance().getReference();
+    }
+
+    public static DatabaseReference getResponsesRef() {
+        return getBaseRef().child("books");
+    }
+
+    */
+
+
     ////////////////////////////////////////////////////////////////
 
-    //saves the book object to the firebase
+
     private void saveBookInfo(){
 
         String author = AuthorF.getText().toString().trim();

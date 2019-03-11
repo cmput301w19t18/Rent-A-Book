@@ -10,43 +10,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * The type Search adapter.
- */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     private ArrayList<Book> mSearchBookList;
 
-    /**
-     * The type Search view holder.
-     */
     public static class SearchViewHolder extends RecyclerView.ViewHolder {
 
-        /**
-         * The M owner picture.
-         */
         public ImageView mOwnerPicture;
-        /**
-         * The M book title.
-         */
         public TextView mBookTitle;
-        /**
-         * The M book author.
-         */
         public TextView mBookAuthor;
-        /**
-         * The M owner name.
-         */
         public TextView mOwnerName;
-        /**
-         * The M status.
-         */
         public TextView mStatus;
 
-        /**
-         * Instantiates a new Search view holder.
-         *
-         * @param itemView the item view
-         */
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
             mOwnerPicture = itemView.findViewById(R.id.bookPhoto);
@@ -57,11 +31,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         }
     }
 
-    /**
-     * Instantiates a new Search adapter.
-     *
-     * @param SearchBookList the search book list
-     */
     public SearchAdapter(ArrayList<Book> SearchBookList) {
         mSearchBookList = SearchBookList;
     }

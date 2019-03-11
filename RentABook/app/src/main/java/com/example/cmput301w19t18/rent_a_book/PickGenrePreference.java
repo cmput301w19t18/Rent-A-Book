@@ -14,13 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-/**
- * The type Pick genre preference.
- */
 public class PickGenrePreference extends AppCompatActivity {
-    /**
-     * The Num pages.
-     */
     static final int numPages = 3;
     private int[] preferenceList = new int [18];
     private int selectedNum = 0;

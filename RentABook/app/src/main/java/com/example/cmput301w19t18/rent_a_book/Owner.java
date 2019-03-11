@@ -12,56 +12,26 @@ import java.io.Serializable;
 
 public class Owner implements Serializable {
 
-    /**
-     * Gets user id.
-     *
-     * @return the user id
-     */
     public String getUser_id() {
         return user_id;
     }
 
-    /**
-     * Sets user id.
-     *
-     * @param user_id the user id
-     */
     public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
-    /**
-     * Get my location float [ ].
-     *
-     * @return the float [ ]
-     */
     public float[] getMyLocation() {
         return myLocation;
     }
 
-    /**
-     * Sets my location.
-     *
-     * @param myLocation the my location
-     */
     public void setMyLocation(float[] myLocation) {
         this.myLocation = myLocation;
     }
 
-    /**
-     * Gets my book.
-     *
-     * @return the my book
-     */
     public Book getMyBook() {
         return myBook;
     }
 
-    /**
-     * Sets my book.
-     *
-     * @param myBook the my book
-     */
     public void setMyBook(Book myBook) {
         this.myBook = myBook;
     }
@@ -71,34 +41,15 @@ public class Owner implements Serializable {
     private Book myBook;
 
 
-    /**
-     * Gets img.
-     *
-     * @return the img
-     */
     public int getImg() {
         return img;
     }
 
-    /**
-     * Sets img.
-     *
-     * @param img the img
-     */
     public void setImg(int img) {
         this.img = img;
     }
 
     private int img;
-
-    /**
-     * Instantiates a new Owner.
-     *
-     * @param myBook     the list of books the user owns
-     * @param user_id    the user id from firebase
-     * @param myLocation the location from which the user will exchange the book with the borrower
-     * @param img        the image of the user
-     */
     public Owner(Book myBook, String user_id, float[] myLocation, int img){
         this.myBook = myBook;
         this.user_id = user_id;

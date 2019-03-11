@@ -15,26 +15,11 @@ import android.widget.TextView;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-/**
- * The type Home vertical recycler view.
- */
 public class HomeVerticalRecyclerView extends RecyclerView.Adapter<HomeVerticalRecyclerView.VerticalRVViewHolder> {
 
-    /**
-     * The Context.
-     */
     Context context;
-    /**
-     * The Array list.
-     */
     ArrayList<Category> arrayList;
 
-    /**
-     * Instantiates a new Home vertical recycler view.
-     *
-     * @param context   the context
-     * @param arrayList the array list
-     */
     public HomeVerticalRecyclerView(Context context, ArrayList<Category> arrayList) {
         this.arrayList = arrayList;
         this.context = context;
@@ -66,24 +51,10 @@ public class HomeVerticalRecyclerView extends RecyclerView.Adapter<HomeVerticalR
         return arrayList.size();
     }
 
-    /**
-     * The type Vertical rv view holder.
-     */
     public class VerticalRVViewHolder extends RecyclerView.ViewHolder {
-        /**
-         * The Recycler view.
-         */
         RecyclerView recyclerView;
-        /**
-         * The Category title.
-         */
         TextView categoryTitle;
 
-        /**
-         * Instantiates a new Vertical rv view holder.
-         *
-         * @param itemView the item view
-         */
         public VerticalRVViewHolder(View itemView) {
             super(itemView);
             recyclerView = (RecyclerView)itemView.findViewById(R.id.recyclerHorizontalView);

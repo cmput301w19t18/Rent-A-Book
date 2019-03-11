@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * The type Profile activity.
- */
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private Button addBook;
 
@@ -19,7 +16,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         addBook = (Button) findViewById(R.id.addbutton);
         addBook.setOnClickListener(this);
     }
-    //add book to buttons goes to newbook activity class
+
     @Override
     public void onClick(View v) {
         if (v == addBook){

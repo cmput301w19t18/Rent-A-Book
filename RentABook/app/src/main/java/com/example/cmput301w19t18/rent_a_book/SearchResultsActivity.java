@@ -7,9 +7,6 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-/**
- * The type Search results activity.
- */
 public class SearchResultsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -47,17 +44,11 @@ public class SearchResultsActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    /**
-     * Display results.
-     */
     public void DisplayResults() {
         // code
 
     }
 
-    /**
-     * Refresh.
-     */
     public void Refresh() {
         // code
     }
