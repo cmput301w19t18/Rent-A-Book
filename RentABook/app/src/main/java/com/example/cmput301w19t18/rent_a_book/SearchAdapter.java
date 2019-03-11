@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 /**
  * The type Search adapter.
+ * Search adapter gets the arraylist to create the results inside the recyclerview in the search results activity
  */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     private ArrayList<Book> mSearchBookList;

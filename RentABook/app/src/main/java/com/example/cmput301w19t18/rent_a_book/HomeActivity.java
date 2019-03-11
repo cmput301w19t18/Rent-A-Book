@@ -25,6 +25,15 @@ import java.util.ArrayList;
 
 /**
  * The type Home activity.
+ * Home activity consists of a nested recyclerviw and gets the reccomended category, books owned, and top books
+ * (still a work of progress and will change)
+ *
+ * Values are fetched using Firebase and querying them to get the correct information in each category
+ *
+ * https://firebase.google.com/docs/database/admin/retrieve-data
+ * https://github.com/mitchtabian/Firebase-Read-Database/blob/master/FirebaseReadData/app/src/main/java/com/tabian/firebasereaddata/ViewDatabase.java
+ * https://www.youtube.com/watch?v=NQI8XNFzZT4&t=5s
+ *
  */
 public class HomeActivity extends AppCompatActivity {
 
@@ -51,7 +60,10 @@ public class HomeActivity extends AppCompatActivity {
     /**
      * The Category.
      */
-    Category category;
+    Category category, /**
+     * The Category 2.
+     */
+    category2;
     private ArrayList<HorizontalModel> arrayListHorizontal_myBooks;
 
     @Override
@@ -94,28 +106,29 @@ public class HomeActivity extends AppCompatActivity {
                 .orderByChild("bOwner")
                 .equalTo(bAuth.getCurrentUser().getEmail());
 
-        query1.addListenerForSingleValueEvent(valueEventListener);
+        query1.addListenerForSingleValueEvent(valueEventListener1);
 
 
 // adding this one duplicates the entire list...
 
-//        category = new Category();
-//        category.setCategoryTitle("All Books");
+//        category2 = new Category();
+//        category2.setCategoryTitle("All Books");
 //
-//        Query query2 = FirebaseDatabase.getInstance().getReference("Books")
-//                .orderByChild("btitle");
+//        Query query2 = FirebaseDatabase.getInstance().getReference("Books");
+//                //.orderByChild("btitle");
 //
-//        query2.addListenerForSingleValueEvent(valueEventListener);
+//        query2.addListenerForSingleValueEvent(valueEventListener2);
 
     }
 
     /**
-     * The Value event listener.
+     * The Value event listener 1.
      */
-    ValueEventListener valueEventListener = new ValueEventListener() {
+    ValueEventListener valueEventListener1 = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             arrayListHorizontal_myBooks.clear();
+            //arrayListHorizontal_myBooks = new ArrayList<>();
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Book newBook = snapshot.getValue(Book.class);
@@ -128,6 +141,36 @@ public class HomeActivity extends AppCompatActivity {
                 }
                 category.setArrayList(arrayListHorizontal_myBooks);
                 arrayListVertical.add(category);
+            }
+            adapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
+
+    /**
+     * The Value event listener 2.
+     */
+    ValueEventListener valueEventListener2 = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            arrayListHorizontal_myBooks.clear();
+            //arrayListHorizontal_myBooks = new ArrayList<>();
+            if (dataSnapshot.exists()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Book newBook = snapshot.getValue(Book.class);
+                    HorizontalModel horizontalModel = new HorizontalModel();
+                    horizontalModel.setBookRating(newBook.getRating());
+                    String url1 = "http://covers.openlibrary.org/b/isbn/";
+                    String url2 = "-M.jpg";
+                    horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
+                    arrayListHorizontal_myBooks.add(horizontalModel);
+                }
+                category2.setArrayList(arrayListHorizontal_myBooks);
+                arrayListVertical.add(category2);
             }
             adapter.notifyDataSetChanged();
         }

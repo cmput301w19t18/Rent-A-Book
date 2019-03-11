@@ -23,9 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * The type Genre adapter.
- */
 public class GenreAdapter extends FragmentStatePagerAdapter {
     private String[] genres = {"Comedy", "Drama", "Romance", "Comics/Graphic Novel", "Fantasy",
             "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction",
@@ -36,11 +33,6 @@ public class GenreAdapter extends FragmentStatePagerAdapter {
     private Context context;
     //private LayoutInflater lInflater;
 
-    /**
-     * Instantiates a new Genre adapter.
-     *
-     * @param fm the fragment manager
-     */
     public GenreAdapter(FragmentManager fm) {
         super(fm);
         this.context = context;
@@ -50,12 +42,6 @@ public class GenreAdapter extends FragmentStatePagerAdapter {
         return fList.get(pos);
     }
 
-    /**
-     * Add fragment.
-     *
-     * @param fragment the fragment
-     * @param title    the title
-     */
     public void addFragment(Fragment fragment, String title) {
         fList.add(fragment);
         ftList.add(title);

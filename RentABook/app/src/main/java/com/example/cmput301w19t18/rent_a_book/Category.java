@@ -1,11 +1,10 @@
 package com.example.cmput301w19t18.rent_a_book;
 
-// Category is the vertical model
-
 import java.util.ArrayList;
 
 /**
  * The type Category.
+ * Creates Category object to fit in the nested recyclerview (the vertical component)
  */
 public class Category {
     /**

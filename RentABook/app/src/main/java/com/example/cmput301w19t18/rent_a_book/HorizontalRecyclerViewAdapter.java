@@ -16,6 +16,9 @@ import java.util.ArrayList;
 
 /**
  * The type Horizontal recycler view adapter.
+ * The view adapter is able to get the arraylist to create the horizontal recyclerview in the nestedrecyclerview in the home activity
+ *
+ * https://stackoverflow.com/questions/35548110/setimageresource-
  */
 public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<HorizontalRecyclerViewAdapter.HorizontalRVViewHolder> {
 

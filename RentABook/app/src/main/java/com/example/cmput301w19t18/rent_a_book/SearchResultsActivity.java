@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 /**
  * The type Search results activity.
+ * The search results activity allows the user to type in the taskbar and see available books to request it
+ * (still a work in progress)
  */
 public class SearchResultsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;

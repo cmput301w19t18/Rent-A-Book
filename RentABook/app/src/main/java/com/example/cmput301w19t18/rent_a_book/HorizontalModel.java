@@ -2,6 +2,7 @@ package com.example.cmput301w19t18.rent_a_book;
 
 /**
  * The type Horizontal model.
+ * The horizontal model is an object class that stores the individual book cover and rating in a specific category
  */
 public class HorizontalModel {
     /**

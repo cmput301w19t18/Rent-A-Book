@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * The type Profile activity.
- */
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private Button addBook;
 

@@ -16,7 +16,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * The type Home vertical recycler view.
+ * The type Home vertical recycler view.om
+ * The vertical recylcer view is in charge of putting the horizontal category objects to make the nested recyclerview in the home activity
  */
 public class HomeVerticalRecyclerView extends RecyclerView.Adapter<HomeVerticalRecyclerView.VerticalRVViewHolder> {
 
