@@ -14,11 +14,26 @@ import com.squareup.picasso.Picasso;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * The type Horizontal recycler view adapter.
+ */
 public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<HorizontalRecyclerViewAdapter.HorizontalRVViewHolder> {
 
+    /**
+     * The Context.
+     */
     Context context;
+    /**
+     * The Array list.
+     */
     ArrayList<HorizontalModel> arrayList;
 
+    /**
+     * Instantiates a new Horizontal recycler view adapter.
+     *
+     * @param context   the context
+     * @param arrayList the array list
+     */
     public HorizontalRecyclerViewAdapter(Context context, ArrayList<HorizontalModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
@@ -46,11 +61,25 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
         return arrayList.size();
     }
 
+    /**
+     * The type Horizontal rv view holder.
+     */
     public class HorizontalRVViewHolder extends RecyclerView.ViewHolder {
 
+        /**
+         * The Rating bar.
+         */
         RatingBar ratingBar;
+        /**
+         * The Book cover.
+         */
         ImageView bookCover;
 
+        /**
+         * Instantiates a new Horizontal rv view holder.
+         *
+         * @param itemView the item view
+         */
         public HorizontalRVViewHolder(View itemView) {
             super(itemView);
             ratingBar = (RatingBar)itemView.findViewById(R.id.bookRating);

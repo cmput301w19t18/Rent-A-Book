@@ -8,18 +8,36 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+/**
+ * The type Recommendations.
+ */
 public class Recommendations extends AppCompatActivity {
 
-    // get current user's id from firebase
+    /**
+     * The User id.
+     */
+// get current user's id from firebase
     public int userID;
-    // get user id's from firebase
+    /**
+     * The User i ds.
+     */
+// get user id's from firebase
     public int[] userIDs;
-    // get book id's from firebase
+    /**
+     * The Book i ds.
+     */
+// get book id's from firebase
     public int[] bookIDs;
-    // get user ratings from firebase
+    /**
+     * The User ratings.
+     */
+// get user ratings from firebase
     public int[] userRatings;
 
-    // TODO change to int
+    /**
+     * The Preferred genres.
+     */
+// TODO change to int
     // get user genre preferences from firebase database
     public String[] preferredGenres;
 
@@ -34,15 +52,27 @@ public class Recommendations extends AppCompatActivity {
     //  user A |
     //  user B |
 
-    // maybe should be an int instead?
+    /**
+     * The Ratings.
+     */
+// maybe should be an int instead?
     public int[][] ratings = new int[userIDs.length][bookIDs.length];
 
-    // list of books to recommend to user
+    /**
+     * The Recommended.
+     */
+// list of books to recommend to user
     public Book[] recommended;
 
-    // list of similarity scores b/w items
+    /**
+     * The Similarity score.
+     */
+// list of similarity scores b/w items
     public double[] similarityScore;
 
+    /**
+     * Instantiates a new Recommendations.
+     */
     public Recommendations() {
         super();
         // Read from database to get user genre preferences

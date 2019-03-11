@@ -23,16 +23,34 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+/**
+ * The type Home activity.
+ */
 public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth bAuth;
     private DatabaseReference databaseReference;
 
     private RecyclerView verticalRecyclerView;
+    /**
+     * The Adapter.
+     */
     HomeVerticalRecyclerView adapter;
+    /**
+     * The Array list vertical.
+     */
     ArrayList<Category> arrayListVertical;
+    /**
+     * The Update.
+     */
     public boolean update = false;
+    /**
+     * The constant ADDING.
+     */
     public static final int ADDING = 1;
+    /**
+     * The Category.
+     */
     Category category;
     private ArrayList<HorizontalModel> arrayListHorizontal_myBooks;
 
@@ -91,6 +109,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * The Value event listener.
+     */
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

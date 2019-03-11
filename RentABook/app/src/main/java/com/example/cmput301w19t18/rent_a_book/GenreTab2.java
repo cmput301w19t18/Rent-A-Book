@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+/**
+ * The type Genre tab 2.
+ */
 public class GenreTab2 extends Fragment implements View.OnClickListener {
 
     @Override

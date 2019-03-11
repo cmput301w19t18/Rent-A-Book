@@ -18,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * The type Register activity.
+ */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private Button next;
     private Button signup;
@@ -57,7 +60,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
     }
-    //signs the user up based on their info
+
+    /**
+     * Sign up.
+     */
+//signs the user up based on their info
     public void signUp(){
         final String user_email = et_email.getText().toString().trim();
         String password = pass.getText().toString().trim();
