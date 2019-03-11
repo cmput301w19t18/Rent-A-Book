@@ -18,14 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchResultsActivity"
-            android:exported="true"></activity>
+        <activity android:name=".SearchResultsActivity"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".NewBook"></activity>
-        <activity android:name=".PickGenrePreference"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-
+        <activity android:name=".NewBookActivity"></activity>
     </application>
 
 </manifest>

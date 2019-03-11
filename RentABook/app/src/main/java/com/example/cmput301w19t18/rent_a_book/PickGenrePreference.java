@@ -18,7 +18,7 @@ public class PickGenrePreference extends AppCompatActivity {
     static final int numPages = 3;
     private int[] preferenceList = new int [18];
     private int selectedNum = 0;
-    private int tabIcon = R.drawable.circle_unselected_gray_5dp;
+    //private int tabIcon = R.drawable.circle_unselected_gray_5dp;
 
    private int[] tabIcons = {
             R.drawable.unselected_circle_light_gray_10dp,

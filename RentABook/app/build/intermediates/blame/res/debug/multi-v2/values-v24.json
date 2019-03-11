@@ -4,7 +4,7 @@
             "outputFile": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a5122036d7e811a18fa731cf9826f277/res/values-v24/values-v24.xml",
+                    "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d8b58cf0dc494251c0063b1b0d951116/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/42b3799530b7617fb96208ff08048d91/res/values-v24/values-v24.xml",
+                    "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/834bfc99ab8fc4c2d40840110c973eeb/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
