@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             pass.requestFocus();
             return;
         }
-
+        //allows users to sign in with the email and pass and adds it to firebase auth
         mAuth.signInWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
