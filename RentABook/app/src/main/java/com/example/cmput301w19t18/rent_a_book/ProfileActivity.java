@@ -19,7 +19,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         addBook = (Button) findViewById(R.id.addbutton);
         addBook.setOnClickListener(this);
     }
-
+    //add book to buttons goes to newbook activity class
     @Override
     public void onClick(View v) {
         if (v == addBook){
