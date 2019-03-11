@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class User implements Serializable {
     /**
-     * The Email.
+     * The Email
      */
     public String email;
     /**
