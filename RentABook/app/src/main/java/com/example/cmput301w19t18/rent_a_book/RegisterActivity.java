@@ -129,6 +129,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     }
+    
+    //checks users actions 
 
     @Override
     public void onClick(View view) {
