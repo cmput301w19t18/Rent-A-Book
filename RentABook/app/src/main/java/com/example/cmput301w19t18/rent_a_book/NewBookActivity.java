@@ -20,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,6 +30,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     //firebase auth object
     private FirebaseAuth bAuth;
     private DatabaseReference databaseReference;
+    private DatabaseReference mdatabaseReference;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseApp firebaseApp;
 
@@ -67,6 +71,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
+        mdatabaseReference=  databaseReference.child("requested");
 
     }
 
@@ -115,12 +120,13 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         String ISBN = ISBNF.getText().toString().trim();
         String title = TitleF.getText().toString().trim();
         String id = databaseReference.push().getKey();
+        String user_id = bAuth.getCurrentUser().getUid();
 
         //some of these need to be changed every time a new book is added
 
         //Currently only is able to add values entered for a new book that is not already in the database
-        String[] genre = {"test genre"}; //going to be set by external function
-        ArrayList<String> requestedBy = new ArrayList<String>();
+        List<String> genre = new ArrayList<String>(); //going to be set by external function
+        List<String> requestedBy = new ArrayList<String>();
         ArrayList<String> ownedBy = null;
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
@@ -129,7 +135,10 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //add the new book to firebase
+        requestedBy.add(user_id);
+
         Book newBook = new Book(title, author, genre, ISBN, status,requestedBy,  rating, copyCount);
+
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -144,14 +153,18 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 else {
                     Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
+
                 }
 
             }
         }
 
         );
-        databaseReference.child("books").setValue(newBook); //should put the book in the db under books
-        //finish();
+        requestedBy.add(user_id);
+        databaseReference.child("books").setValue(newBook);//should put the book in the db under books
+        databaseReference.child("books").child("requested").setValue(requestedBy);
+
+
     }
 
 

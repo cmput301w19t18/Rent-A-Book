@@ -2,6 +2,8 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import android.support.v7.app.AppCompatActivity;
 
@@ -12,8 +14,8 @@ public class Book implements Serializable{
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private Integer rating;
-    private String[] genre; //genre will be determined by an array
-    private ArrayList<String> requestedBy; //list of users that are requesting the book by email
+    private List<String> genre; //genre will be determined by an array
+    private List<String> requestedBy; //list of users that are requesting the book by email
     
 
     //private String description; //Description of the book entered by the user
@@ -23,14 +25,14 @@ public class Book implements Serializable{
 
 
     //constructor (changed to public constructor)
-    public Book(String btitle, String author, String[] genre, String ISBN, String bstatus, ArrayList<String> requestedBy, Integer rating, Integer copyCount){
+    public Book(String btitle, String author, List<String> genre, String ISBN, String bstatus, List<String> requestedBy, Integer rating, Integer copyCount){
         this.btitle = btitle;
         this.author = author;
         this.genre = genre;
         this.ISBN = ISBN;
         this.bstatus = bstatus;
         this.rating = rating;
-        this.initialRequestedBy();
+        //this.initialRequestedBy();
         this.requestedBy = this.requestedBy;
 
         //use of arrays:
@@ -69,7 +71,7 @@ public class Book implements Serializable{
         this.genre = genre;
     }
 
-    public void setGenre(String genre[]) { this.genre = genre; }
+    public void setGenre(List<String> genre) { this.genre = genre; }
 
     public String getISBN() {
         return ISBN;
@@ -100,19 +102,20 @@ public class Book implements Serializable{
     }
 
     //Create an initializer to set RequestedBy to an empty array to avoid having null pointer errors
-    public void initialRequestedBy () {
-        ArrayList<String> initial = new ArrayList<>();
+    /*public void initialRequestedBy () {
+        List<String> initial = new List<String>() {
+        };
         this.requestedBy = initial;
         return;
     }
-
-    public ArrayList<String> getRequestedBy() {
+    */
+    public List<String> getRequestedBy() {
         return requestedBy;
     }
 
-    public void setRequestedBy(ArrayList<String> requestedBy, String requester_email) {
+    public void setRequestedBy(List<String> requestedBy) {
         this.requestedBy = requestedBy;
-        requestedBy.add(requester_email); //appends the requester to the list of requests
+         //appends the requester to the list of requests
     }
 
 

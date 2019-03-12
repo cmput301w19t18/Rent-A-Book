@@ -9,53 +9,12 @@ import java.io.Serializable;
  */
 //this class deals witht the functins that the owner specifically deals with.
 
-public class Owner implements Serializable {
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public Location getMyLocation() {
-        return myLocation;
-    }
-
-    public void setMyLocation(Location myLocation) {
-        this.myLocation = myLocation;
-    }
-
-    public Book getMyBook() {
-        return myBook;
-    }
-
-    public void setMyBook(Book myBook) {
-        this.myBook = myBook;
-    }
-
-    private String user_id;
-    private Location myLocation;
-    private Book myBook;
+interface Owner  {
 
 
-    public int getImg() {
-        return img;
-    }
+    public void setLocation(Location myLocation);
+    public  void addPhoto(String myPhoto);
 
-    public void setImg(int img) {
-        this.img = img;
-    }
-
-    private int img;
-    public Owner(Book myBook, String user_id, Location myLocation, int img){
-        this.myBook = myBook;
-        this.user_id = user_id;
-        this.myLocation = myLocation;
-        this.img = img;
-
-    }
 
 
 }

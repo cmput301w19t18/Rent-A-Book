@@ -3,6 +3,7 @@ package com.example.cmput301w19t18.rent_a_book;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -11,7 +12,8 @@ import java.util.List;
 
 public class User implements Serializable {
     public String email;
-    public  String prefList;
+    public  List<String>  prefList;
+    public HashMap<String,Integer> ratingsList;
     private int[] books_Owned;
 
     public int[] getBooks_Owned() {
@@ -32,11 +34,11 @@ public class User implements Serializable {
 
     private int[] books_borrowed;
 
-    public String getPrefList() {
+    public List<String> getPrefList() {
         return prefList;
     }
 
-    public void setPrefList(String prefList) {
+    public void setPrefList(List<String> prefList) {
         this.prefList = prefList;
     }
 
@@ -45,7 +47,7 @@ public class User implements Serializable {
 
 
 
-    public User(String email, String prefList ){
+    public User(String email, List<String> prefList ){
         this.email = email;
         this.prefList = prefList;
 
