@@ -2,34 +2,34 @@
 <instant-run
     abi="x86"
     api-level="28"
-    build-mode="COLD"
+    build-mode="HOT_WARM"
     density="560dpi"
     format="10"
     plugin-version="3.3.0"
-    timestamp="1552341178348"
+    timestamp="1552423891045"
     token="235735631583778556"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="21" />
+        duration="241" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="19" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="32" />
     <task
         name="verifier"
-        duration="0" />
+        duration="4" />
 
     <artifact
-        location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-        type="SPLIT_MAIN" />
+        location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
         build-mode="FULL"
-        timestamp="1552337950150"
+        timestamp="1552423244969"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
@@ -38,25 +38,25 @@
             location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
+            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
             location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
             location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
             location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
@@ -72,21 +72,12 @@
             type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1552339100660"
-        verifier="COLD_SWAP_REQUESTED" >
+        build-mode="HOT_WARM"
+        timestamp="1552423891045"
+        verifier="COMPATIBLE" >
         <artifact
-            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1552341178348"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
+            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
