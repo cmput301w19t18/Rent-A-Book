@@ -1033,6 +1033,7 @@ drawable avd_show_password
 drawable baseline_add_white_18dp
 drawable brook99
 drawable circle_button
+drawable circle_button_highlighted
 drawable circle_unselected_gray_5dp
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -1059,6 +1060,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable genre_button_states
 drawable genre_icon_pastel_pink_128dp
 drawable genre_icon_pastelpink_72dp
 drawable go1984
@@ -1085,8 +1087,11 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable selected_circle_7dp
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable unselected_circle_7dp
+drawable unselected_circle_light_gray_10dp
 id ALT
 id AuthBox
 id CTRL
@@ -1127,6 +1132,7 @@ id addbutton
 id adjust_height
 id adjust_width
 id adventureButton
+id adventureHighlight
 id alertTitle
 id all
 id always
@@ -1135,6 +1141,7 @@ id auto
 id barrier
 id beginning
 id bioButton
+id bioHighlight
 id blocking
 id bookAuthor
 id bookCover
@@ -1155,12 +1162,15 @@ id center_vertical
 id chains
 id checkbox
 id childButton
+id childHighlight
 id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
 id comedyButton
+id comedyHighlight
 id comicsButton
+id comicsHighlight
 id container
 id content
 id contentPanel
@@ -1181,6 +1191,7 @@ id dimensions
 id direct
 id disableHome
 id dramaButton
+id dramaHighlight
 id edit_query
 id email
 id end
@@ -1191,6 +1202,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fantasyButton
+id fantasyHighlight
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1206,10 +1218,12 @@ id gridLayout
 id group_divider
 id groups
 id historyButton
+id historyHighlight
 id home
 id homeAsUp
 id homeRecyclerView
 id horrorButton
+id horrorHighlight
 id icon
 id icon_group
 id icon_only
@@ -1238,11 +1252,13 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id mysteryButton
+id mysteryHighlight
 id navigation_header_container
 id never
 id next
 id none
 id nonficButton
+id nonficHighlight
 id normal
 id notification_background
 id notification_main_column
@@ -1259,6 +1275,7 @@ id percent
 id phone
 id pin
 id poetryButton
+id poetryHighlight
 id progress_circular
 id progress_horizontal
 id radio
@@ -1267,10 +1284,12 @@ id right
 id right_icon
 id right_side
 id romanceButton
+id romanceHighlight
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
 id scifiButton
+id scifiHighlight
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1329,6 +1348,7 @@ id textinput_error
 id textinput_helper_text
 id textsignup
 id thrillerButton
+id thrillerHighlight
 id time
 id title
 id titleDividerNoCustom
@@ -1338,6 +1358,7 @@ id top
 id topPanel
 id touch_outside
 id tragedyButton
+id tragedyHighlight
 id transition_current_scene
 id transition_layout_save
 id transition_position
@@ -1353,11 +1374,13 @@ id userPhoneProfile
 id view_offset_helper
 id visible
 id westernButton
+id westernHighlight
 id wide
 id withText
 id wrap
 id wrap_content
 id yaButton
+id yaHighlight
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration

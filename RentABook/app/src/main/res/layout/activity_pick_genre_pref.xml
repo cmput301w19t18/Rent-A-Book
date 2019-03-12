@@ -7,26 +7,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <TextView
         android:id="@+id/genreText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:fontFamily="cursive"
         android:gravity="center_horizontal"
         android:paddingTop="10dp"
-        android:layout_marginBottom="40dp"
         android:text="@string/ChooseGenre"
         android:textSize="40sp"
         android:typeface="normal"
-        android:fontFamily="cursive"
         app:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        -->
     <android.support.constraint.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="genreText"/>
+        app:constraint_referenced_ids="genreText" />
 
     <!--
         <android.support.v4.view.ViewPager
@@ -44,13 +47,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/barrier">
 
+
+        <ImageView
+            android:id="@+id/comedyHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/comedyButton"
@@ -69,6 +83,16 @@
             android:text="Comedy"
             android:textColor="@color/white" />
 
+        <ImageView
+            android:id="@+id/dramaHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button_highlighted" />
+
         <Button
             android:id="@+id/dramaButton"
             android:layout_width="wrap_content"
@@ -86,6 +110,15 @@
             android:text="Drama"
             android:textColor="@color/white" />
 
+        <ImageView
+            android:id="@+id/romanceHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button_highlighted" />
+
         <Button
             android:id="@+id/romanceButton"
             android:layout_width="wrap_content"
@@ -101,6 +134,15 @@
             android:shadowRadius="5"
             android:text="Romance"
             android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/comicsHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/comicsButton"
@@ -118,6 +160,15 @@
             android:text="Comic"
             android:textColor="@color/white" />
 
+        <ImageView
+            android:id="@+id/fantasyHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button_highlighted" />
+
         <Button
             android:id="@+id/fantasyButton"
             android:layout_width="wrap_content"
@@ -133,6 +184,15 @@
             android:shadowRadius="5"
             android:text="Fantasy"
             android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/horrorHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/horrorButton"
@@ -153,4 +213,5 @@
 
     </GridLayout>
 
-    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
