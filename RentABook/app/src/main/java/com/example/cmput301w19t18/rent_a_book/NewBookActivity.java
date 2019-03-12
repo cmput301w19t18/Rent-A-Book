@@ -160,7 +160,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         );
-        databaseReference.child("books").setValue(newBook); //should put the book in the db under books
+        //databaseReference.child("books").setValue(newBook); //should put the book in the db under books
         //finish();
     }
 
