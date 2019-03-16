@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The type Home activity.
@@ -64,7 +65,8 @@ public class HomeActivity extends AppCompatActivity {
      * The Category 2.
      */
     category2;
-    private ArrayList<HorizontalModel> arrayListHorizontal_myBooks;
+    private ArrayList<HorizontalModel> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2;
+    private ArrayList<Book> bookList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,86 +100,79 @@ public class HomeActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
         arrayListHorizontal_myBooks = new ArrayList<>();
+        arrayListHorizontal_myBooks2 = new ArrayList<>();
+
+        bookList = new ArrayList<>();
 
         category = new Category();
-        category.setCategoryTitle("My Books");
+        category.setCategoryTitle("All Books");
 
-        Query query1 = FirebaseDatabase.getInstance().getReference("Books")
-                .orderByChild("bOwner")
-                .equalTo(bAuth.getCurrentUser().getEmail());
-
-        query1.addListenerForSingleValueEvent(valueEventListener1);
-
-
-// adding this one duplicates the entire list...
-
-//        category2 = new Category();
-//        category2.setCategoryTitle("All Books");
-//
-//        Query query2 = FirebaseDatabase.getInstance().getReference("Books");
-//                //.orderByChild("btitle");
-//
-//        query2.addListenerForSingleValueEvent(valueEventListener2);
+        Query query = FirebaseDatabase.getInstance().getReference("Books");
+        doQuery(query, category);
 
     }
 
     /**
      * The Value event listener 1.
      */
-    ValueEventListener valueEventListener1 = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            arrayListHorizontal_myBooks.clear();
-            //arrayListHorizontal_myBooks = new ArrayList<>();
-            if (dataSnapshot.exists()) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Book newBook = snapshot.getValue(Book.class);
-                    HorizontalModel horizontalModel = new HorizontalModel();
-                    horizontalModel.setBookRating(newBook.getRating());
-                    String url1 = "http://covers.openlibrary.org/b/isbn/";
-                    String url2 = "-M.jpg";
-                    horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
-                    arrayListHorizontal_myBooks.add(horizontalModel);
+
+
+    private void doQuery(Query query, final Category category) {
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayListHorizontal_myBooks.clear();
+                bookList.clear();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        // add all books in a list
+                        Book newBook = snapshot.getValue(Book.class);
+
+                        HorizontalModel horizontalModel = new HorizontalModel();
+
+                        horizontalModel.setBookRating(newBook.getRating());
+                        String url1 = "http://covers.openlibrary.org/b/isbn/";
+                        String url2 = "-M.jpg";
+                        horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
+
+                        arrayListHorizontal_myBooks.add(horizontalModel);
+                        bookList.add(newBook);
+                    }
+                    // add the rest of the categories in here
+                    category.setArrayList(arrayListHorizontal_myBooks);
+                    arrayListVertical.add(category);
+
+                    category2 = new Category();
+                    category2.setCategoryTitle("My Books");
+
+                    for (int i=0; i<bookList.size(); i++) {
+                        Book currentBook = bookList.get(i);
+                        if (currentBook.getbOwner().contentEquals(bAuth.getCurrentUser().getEmail())) {
+                            HorizontalModel horizontalModel = new HorizontalModel();
+                            horizontalModel.setBookRating(currentBook.getRating());
+                            String url1 = "http://covers.openlibrary.org/b/isbn/";
+                            String url2 = "-M.jpg";
+                            horizontalModel.setBookCover(url1+currentBook.getISBN()+url2);
+                            arrayListHorizontal_myBooks2.add(horizontalModel);
+                        }
+                    }
+
+                    category2.setArrayList(arrayListHorizontal_myBooks2);
+                    arrayListVertical.add(category2);
+                    Collections.swap(arrayListVertical,0, 1);
                 }
-                category.setArrayList(arrayListHorizontal_myBooks);
-                arrayListVertical.add(category);
+                adapter.notifyDataSetChanged();
             }
-            adapter.notifyDataSetChanged();
-        }
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        }
-    };
-
-    /**
-     * The Value event listener 2.
-     */
-    ValueEventListener valueEventListener2 = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            arrayListHorizontal_myBooks.clear();
-            //arrayListHorizontal_myBooks = new ArrayList<>();
-            if (dataSnapshot.exists()) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Book newBook = snapshot.getValue(Book.class);
-                    HorizontalModel horizontalModel = new HorizontalModel();
-                    horizontalModel.setBookRating(newBook.getRating());
-                    String url1 = "http://covers.openlibrary.org/b/isbn/";
-                    String url2 = "-M.jpg";
-                    horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
-                    arrayListHorizontal_myBooks.add(horizontalModel);
-                }
-                category2.setArrayList(arrayListHorizontal_myBooks);
-                arrayListVertical.add(category2);
             }
-            adapter.notifyDataSetChanged();
-        }
+        };
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
+        query.addListenerForSingleValueEvent(valueEventListener);
 
-        }
-    };
+    }
+
 }
