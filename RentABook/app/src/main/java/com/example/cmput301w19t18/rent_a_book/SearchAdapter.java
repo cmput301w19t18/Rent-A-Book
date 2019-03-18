@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -79,11 +81,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
          Book currentItem = mSearchBookList.get(i);
 
+         String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
+         Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
 //         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
-//         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
-//         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
-//         searchViewHolder.mOwnerName.setText(currentItem.getOwner());
-//         searchViewHolder.mStatus.setText(currentItem.getBstatus());
+         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
+         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
+         searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
+         searchViewHolder.mStatus.setText(currentItem.getBstatus());
     }
 
     @Override

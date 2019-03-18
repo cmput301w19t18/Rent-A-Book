@@ -23,5 +23,6 @@
 
     <string name="AddButton">+</string>
     <string name="CategoryTitle">Category</string>
+    <string name="searchText">Search</string>
 
 </resources>
