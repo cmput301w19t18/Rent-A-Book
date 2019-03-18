@@ -20,6 +20,7 @@ public class GenreViewModel extends ViewModel {
     private MutableLiveData<List<Integer>> genres;
 
     private MutableLiveData<List<String>> currPickedGenres;
+
     private static List<String> pickedGenres = new ArrayList<String>();
 
     public void setCount(int i) {
@@ -97,8 +98,20 @@ public class GenreViewModel extends ViewModel {
     }
 
 
+    public List<String> getPickedGenres() {
+        return pickedGenres;
+    }
+
+    public void setPickedGenres(List<String> pickedGenres) {
+        this.pickedGenres = pickedGenres;
+    }
+
+
+
+
     public void setCurrPickedGenres(List<String> s) {
-        currPickedGenres.setValue(s);
+        pickedGenres = s;
+        currPickedGenres.setValue(pickedGenres);
     }
 
     public MutableLiveData<List<String>> getCurrPickedGenres() {

@@ -43,7 +43,8 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
 
     private List<Integer> preferenceList;
     private int selected;
-    private List<String> genreSelected = new ArrayList<>();
+    private List<String> genreList = new ArrayList<>();
+    private TextView genreText;
 
     public GenreTab1() {
         // constructor
@@ -60,6 +61,8 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
 
         // setting up the list of genres selected so the user can keep track of what
         // genres they have picked
+
+        genreText = (TextView) getActivity().findViewById(R.id.genresSelected);
 
         // setting up first 6 buttons representing genres
         Button comedy = (Button) v.findViewById(R.id.comedyButton);
@@ -90,6 +93,9 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         preferenceList = model.getGenresSelected();
         selected = model.getCount();
+        genreList = model.getPickedGenres();
+
+        genreText = (TextView) getActivity().findViewById(R.id.genresSelected);
 
         // setting up the viewmodel which allows each fragment communicate with each other
         //model = ViewModelProviders.of(this).get(GenreViewModel.class);
@@ -98,19 +104,23 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
             case R.id.comedyButton:
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(0) == 0 && selected < 3) {
-                    genreSelected.add("Comedy");
-                    addGenre(0, "Picked comedy!");
+                    //genreList.add("Comedy");
+                    addGenre(0, "Picked comedy!", "Comedy");
+
+                    //model.getCurrPickedGenres().setValue(genreList);
+                    //genreText.setText(genreList.toString());
                     // update preference list
                     //preferenceList.set(0,1);
                     //model.getCurrPickedGenres().postValue(genreSelected);
                     //Toast.makeText(this.getContext(),"Picked comedy!",Toast.LENGTH_SHORT).show();
                     }
                 else if (preferenceList.get(0) == 1){
-                    genreSelected.remove("Comedy");
-                    removeGenre(0,"Comedy unselected!");
+                    //genreList.remove("Comedy");
+                    removeGenre(0,"Comedy unselected!", "Comedy");
                     // update preference list
                     //preferenceList.set(0,0);
-
+                    model.getCurrPickedGenres().setValue(genreList);
+                    genreText.setText(genreList.toString());
                     //Toast.makeText(this.getContext(),"Comedy unselected!",Toast.LENGTH_SHORT).show();
                 }
                 else if (selected >= 3) {
@@ -124,10 +134,12 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(1) == 0 && selected < 3) {
-                    addGenre(1, "Picked drama!");
+                    //genreList.add("Drama");
+                    addGenre(1, "Picked drama!", "Drama");
                 }
                 else if (preferenceList.get(1) == 1){
-                    removeGenre(1, "Drama unselected!");
+                    //genreList.remove("Drama");
+                    removeGenre(1, "Drama unselected!", "Drama");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -137,10 +149,12 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(2) == 0 && selected < 3) {
-                    addGenre(2,"Picked romance!");
+                    //genreList.add("Romance");
+                    addGenre(2,"Picked romance!", "Romance");
                 }
                 else if (preferenceList.get(2) == 1){
-                    removeGenre(2, "Romance unselected!");
+                    //genreList.remove("Romance");
+                    removeGenre(2, "Romance unselected!", "Romance");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -150,10 +164,12 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(3) == 0 && selected < 3) {
-                    addGenre(3, "Picked comics!");
+                    //genreList.add("Comics");
+                    addGenre(3, "Picked comics!", "Comics");
                 }
                 else if (preferenceList.get(3) == 1){
-                    removeGenre(3, "Comics unselected!");
+                    //genreList.remove("Comics");
+                    removeGenre(3, "Comics unselected!", "Comics");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -163,10 +179,12 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(4) == 0 && selected < 3) {
-                    addGenre(4, "Picked fantasy!");
+                    //genreList.add("Fantasy");
+                    addGenre(4, "Picked fantasy!", "Fantasy");
                 }
                 else if (preferenceList.get(4) == 1){
-                    removeGenre(4, "Fantasy unselected!");
+                    //genreList.remove("Fantasy");
+                    removeGenre(4, "Fantasy unselected!", "Fantasy");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -176,10 +194,12 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(5) == 0 && selected < 3) {
-                    addGenre(5, "Picked horror!");
+                    //genreList.add("Horror");
+                    addGenre(5, "Picked horror!", "Horror");
                 }
                 else if (preferenceList.get(5) == 1){
-                    removeGenre(5, "Horror unselected!");
+                    //genreList.remove("Horror");
+                    removeGenre(5, "Horror unselected!", "Horror");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -190,32 +210,43 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
 
     }
 
-    public void addGenre(int pos, String s) {
+    public void addGenre(int pos, String s, String sGenre) {
         // update preference list
         preferenceList.set(pos,1);
         model.setGenresSelected(preferenceList);
-        Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
+        // update the MutableLiveData genres array
         model.getGenres().setValue(preferenceList);
-        model.getCurrPickedGenres().postValue(genreSelected);
+        //increment counter
         model.setCount(selected+1);
-        // set new list
-        //model.setGenres();
-        // update count
-        //model.incrementNumSelected();
-    }
-    public void removeGenre(int pos, String s) {
-        // update preference list
-        //preferenceList.set(pos,0);
-        // set new list
-        //model.setGenres(preferenceList);
-        // update count
-        //model.decrementNumSelected();
 
+        // update genre list
+        genreList.add(sGenre);
+        model.setPickedGenres(genreList);
+        // update the MutableLiveData genres string list to display
+        model.getCurrPickedGenres().setValue(genreList);
+        // display
+        genreText.setText(genreList.toString());
+
+        Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
+    }
+
+    public void removeGenre(int pos, String s, String sGenre) {
+        // update preference list
         preferenceList.set(pos,0);
         model.setGenresSelected(preferenceList);
+        // update the MutableLiveData genres array
         model.getGenres().setValue(preferenceList);
-        model.getCurrPickedGenres().postValue(genreSelected);
+        // decrement counter
         model.setCount(selected-1);
+
+        // update genre list
+        genreList.remove(sGenre);
+        model.setPickedGenres(genreList);
+        // update the MutableLiveData genres string list to display
+        model.getCurrPickedGenres().setValue(genreList);
+        // display
+        genreText.setText(genreList.toString());
+
 
         Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }

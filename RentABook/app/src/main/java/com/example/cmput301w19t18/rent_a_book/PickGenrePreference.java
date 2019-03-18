@@ -63,6 +63,7 @@ public class PickGenrePreference extends AppCompatActivity {
     private TabLayout tabLayout;
     private GenreViewModel model;
     private CustomGenrePickTabBinding binding;
+    private MutableLiveData<List<String>> mLD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,26 +99,20 @@ public class PickGenrePreference extends AppCompatActivity {
         viewPager.setAdapter(genreAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-
+        genres.setText(model.getGenresSelected().toString());
         final Observer<List<String>> genreObserver = new Observer<List<String>>() {
+        //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> s) {
                 // Updating UI to show the 3 selected genres
-                genres.setText(genreList.toString());
+                //genres.setText(model.getCurrPickedGenres().toString());
+                genres.setText(s.toString());
             }
         };
         //genres.setText(model.getGenresSelected().toString());
 
         model.getCurrPickedGenres().observe(this, genreObserver);
 
-
-
-        //tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        //tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        //tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-
-        // setting the first screen
-        //viewPager.setCurrentItem(0);
 
     }
 /*
