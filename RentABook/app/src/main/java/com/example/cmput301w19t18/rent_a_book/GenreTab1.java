@@ -129,7 +129,6 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
 
                 break;
 
-
             case R.id.dramaButton:
                 //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected

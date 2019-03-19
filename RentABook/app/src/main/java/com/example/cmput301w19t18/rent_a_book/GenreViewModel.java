@@ -11,8 +11,7 @@ import java.util.List;
 import java.util.logging.Handler;
 
 public class GenreViewModel extends ViewModel {
-    // list of genres
-    //private int[] genres = new int[18];
+    // keeps track of how many genres are selected (max 3)
     private static int count = 0;
     private MutableLiveData numSelected;
 
@@ -57,28 +56,6 @@ public class GenreViewModel extends ViewModel {
     // might not need
     public void setGenresSelected(List<Integer> genresSelected) {
         this.genresSelected = genresSelected;
-        /*
-        for (int i = 0; i < 18; i++) {
-            if (i == 0 && genresSelected.get(i) == 1) {
-                pickedGenres.add("Comedy");
-            }
-            else if (i == 1 && genresSelected.get(i) == 1) {
-                pickedGenres.add("Drama");
-            }
-            else if (i == 2 && genresSelected.get(i) == 1) {
-                pickedGenres.add("Romance");
-            }
-            else if (i == 3 && genresSelected.get(i) == 1) {
-                pickedGenres.add("Comics");
-            }
-            else if (i == 4 && genresSelected.get(i) == 1) {
-                pickedGenres.add("Fantasy");
-            }
-            else if (i == 5 && genresSelected.get(i) == 1) {
-                pickedGenres.add("Horror");
-            }
-        }
-        */
     }
 
     public List<Integer> getGenresSelected() {
@@ -122,8 +99,6 @@ public class GenreViewModel extends ViewModel {
         return currPickedGenres;
     }
 
-
-
     public void loadGenresSelected() {
         for (int i = 0; i < 18; i++) {
             genresSelected.add(0);
@@ -136,25 +111,6 @@ public class GenreViewModel extends ViewModel {
     // use this to print out the string. they match to the index of genres
     private void loadCurrPickedGenres() {
             List<String> pickedGenres = new ArrayList<>();
-            /*
-            pickedGenres.add("Comedy");
-            pickedGenres.add("Drama");
-            pickedGenres.add("Romance");
-            pickedGenres.add("Comics");
-            pickedGenres.add("Fantasy");
-            pickedGenres.add("Horror");
-            pickedGenres.add("Mystery");
-            pickedGenres.add("Scifi");
-            pickedGenres.add("Western");
-            pickedGenres.add("Biography");
-            pickedGenres.add("Historic Fiction");
-            pickedGenres.add("Adventure");
-            pickedGenres.add("Nonfiction");
-            pickedGenres.add("YA");
-            pickedGenres.add("Thriller");
-            pickedGenres.add("Poetry");
-            pickedGenres.add("Children's");
-            */
             currPickedGenres.setValue(pickedGenres);
     }
 
