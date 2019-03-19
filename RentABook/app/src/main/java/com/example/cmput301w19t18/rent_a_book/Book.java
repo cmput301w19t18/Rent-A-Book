@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * The type Book.
  * Creates Book Class
- * Created by ishire, and modified by jusong
+ * Created by oanderso, and modified by jusong, ishire
  */
 public class Book implements Serializable{
 

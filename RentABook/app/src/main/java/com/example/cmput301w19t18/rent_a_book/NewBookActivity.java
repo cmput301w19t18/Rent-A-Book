@@ -15,14 +15,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
-public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
     private FirebaseAuth bAuth;
@@ -38,9 +40,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private EditText DescF;
     private String email;
 
+    //latest book added:
+    private Book addedBook;
 
-    //record of books added by ISBN
-    private Integer[] booksList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,44 +77,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    //////////////// Check if exists in the database //////////////// https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
-
-
-    /*
-    ValueEventListener responseListener  = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot snapshot) {
-
-            databaseReference.child("books").orderByChild("ISBN").equalTo(ISBNF.getText().toString().trim()).once
-
-            if (snapshot.getValue() != null) {
-                //user exists, do something
-            } else {
-                //user does not exist, do something else
-            }
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-
-
-    };
-
-    public static DatabaseReference getBaseRef() {
-        return FirebaseDatabase.getInstance().getReference();
-    }
-
-    public static DatabaseReference getResponsesRef() {
-        return getBaseRef().child("books");
-    }
-
-    */
-
-
-    ////////////////////////////////////////////////////////////////
-
 
     private void saveBookInfo(){
 
@@ -126,19 +90,20 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //Currently only is able to add values entered for a new book that is not already in the database
 
         String genre = "000001010"; //going to be set by external function
-        String requestedBy = "jakep@nypd.org";//new ArrayList<String>();
-        String email = bAuth.getCurrentUser().getEmail();
+        String requestedBy = "none";
+        String owneremail = bAuth.getCurrentUser().getEmail();
         ArrayList<String> ownedBy = null;
 
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
         Integer rating = 4;
         Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
-
+        //REMOVE COPYCOUNT FROM INDIVIDUAL BOOK CLASS
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, ISBN, status, rating, email, genre, requestedBy);
-        //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
+        Book newBook = new Book(title, author, ISBN, status, rating, owneremail, genre, requestedBy);
+
+        addedBook = newBook; //sets the last added book to this new book
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -146,23 +111,88 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 if (task.isComplete()){
                     Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
                     finish();
-
                 }
                 if(!task.isSuccessful()){
                     Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
-
                 }
                 else {
                     Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+    }
+
+
+    ////////////////// Overall book monitor check //////////////////
+
+    //fetches a list of all unique books in the DB
+    Query query = FirebaseDatabase.getInstance().getReference("UniqueBooks");
+    ArrayList fetchedBookList = new ArrayList<>();
+
+    //query book column, retrieve all unique books
+    private void queryBooks(Query query) {
+        ValueEventListener valueEventListener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                fetchedBookList.clear();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Book fetchBook = snapshot.getValue(Book.class);
+
+                        fetchedBookList.add(fetchBook);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        };
+        query.addListenerForSingleValueEvent(valueEventListener);
+    }
+
+    //operations with the book monitor column in the database
+    private void bookMonitor(){
+        queryBooks(query);
+        Boolean wasIn = Boolean.FALSE; //if the book is already in the DB or not
+
+        for (int i=0; i<fetchedBookList.size(); i++) {
+            Book currentBook = (Book) fetchedBookList.get(i); //casted firebase object to book object
+            if (currentBook.getISBN() == addedBook.getISBN()){
+                //means the book is already in the database. increment the count, add to the genre array
+                wasIn = Boolean.TRUE;
+
 
             }
+
         }
 
-        );
-        //databaseReference.child("books").setValue(newBook); //should put the book in the db under books
-        //finish();
+        if (wasIn = Boolean.FALSE){
+            //means the book is not already in the DB. Adds a new unique book.
+            String uISBN = addedBook.getISBN();
+            String uGenre = addedBook.getGenre();
+
+            uniqueBook addedUniqueBook = new uniqueBook(uISBN, uGenre);
+
+            databaseReference.child("UniqueBooks").setValue(addedUniqueBook);
+        }
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
     @Override //when you press the submit button
     public void onClick(View view) {
