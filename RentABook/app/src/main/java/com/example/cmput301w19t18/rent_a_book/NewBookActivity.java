@@ -126,8 +126,8 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
 
     ////////////////// Overall book monitor check //////////////////
 
-    //fetches a list of all unique books in the DB
-    Query query = FirebaseDatabase.getInstance().getReference("UniqueBooks");
+    //fetches a list of all books in the DB
+    Query query = FirebaseDatabase.getInstance().getReference("uniqueBooks");
     ArrayList fetchedBookList = new ArrayList<>();
 
     //query book column, retrieve all unique books
@@ -158,36 +158,43 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
         queryBooks(query);
         Boolean wasIn = Boolean.FALSE; //if the book is already in the DB or not
 
+        //if the book is in there, then get all the info on it/
+        Integer uCopyCount = 0;
+        Integer uRating = 0;
+        String uISBN = addedBook.getISBN();
+        String uGenre = addedBook.getGenre();
+
         for (int i=0; i<fetchedBookList.size(); i++) {
-            Book currentBook = (Book) fetchedBookList.get(i); //casted firebase object to book object
+            uniqueBook currentBook = (uniqueBook) fetchedBookList.get(i); //casted firebase object to uniquebook object
             if (currentBook.getISBN() == addedBook.getISBN()){
                 //means the book is already in the database. increment the count, add to the genre array
                 wasIn = Boolean.TRUE;
 
+                uCopyCount = currentBook.getCopyCount();
+                uRating = currentBook.getRating();
 
+                break;
             }
-
         }
+
+
+        //references the uniqueBooks section of the database
+        DatabaseReference uniqueBookReference = FirebaseDatabase.getInstance().getReference("UniqueBooks");
+        String id = uniqueBookReference.push().getKey(); //// CHECK: supposed to get the key of this particular book ////
 
         if (wasIn = Boolean.FALSE){
             //means the book is not already in the DB. Adds a new unique book.
-            String uISBN = addedBook.getISBN();
-            String uGenre = addedBook.getGenre();
+            uniqueBook addedUniqueBook = new uniqueBook(uISBN, uGenre); //creates new uniqueBook object
+            uniqueBookReference.setValue(addedUniqueBook);
 
-            uniqueBook addedUniqueBook = new uniqueBook(uISBN, uGenre);
+        } else {
+            //means the book is already in the database. increment the count, add to the genre array
+            uniqueBook uniqueBookUpdate = new uniqueBook(uISBN, uGenre, uRating, uCopyCount);
+            uniqueBookReference.child(id).setValue(uniqueBookUpdate); //should update the book of that value (id)
 
-            databaseReference.child("UniqueBooks").setValue(addedUniqueBook);
         }
 
-
-
-
-
-
     }
-
-
-
 
 
 
