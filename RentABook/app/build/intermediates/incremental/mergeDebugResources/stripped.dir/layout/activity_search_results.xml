@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".SearchResultsActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bookResults"
+        android:layout_width="395dp"
+        android:layout_height="647dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchText"
+        tools:listitem="@layout/search_item" />
+
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/searchText"
+        android:inputType="text"
+        android:text="@string/searchText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Brooklynn Nine-Nine" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/searchButton"
+        android:layout_width="134dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/search_icon"
+        app:elevation="6dp"
+        app:fabCustomSize="0dp"
+        app:fabSize="auto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="20dp"
+        app:pressedTranslationZ="12dp" />
+
 </android.support.constraint.ConstraintLayout>
