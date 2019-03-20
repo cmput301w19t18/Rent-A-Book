@@ -1,8 +1,16 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.app.ActionBar;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProviders;
+import android.arch.lifecycle.ViewModelProvider;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +21,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.support.v4.view.ViewPager;
+
+import com.example.cmput301w19t18.rent_a_book.databinding.CustomGenrePickTabBinding;
+
+import java.util.List;
 
 public class PickGenrePreference extends AppCompatActivity {
 
@@ -47,11 +61,16 @@ public class PickGenrePreference extends AppCompatActivity {
     private GenreAdapter genreAdapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private GenreViewModel model;
+    private CustomGenrePickTabBinding binding;
+    private MutableLiveData<List<String>> mLD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -59,8 +78,18 @@ public class PickGenrePreference extends AppCompatActivity {
 
         setContentView(R.layout.custom_genre_pick_tab);
 
+        model = ViewModelProviders.of(this).get(GenreViewModel.class);
+        final MutableLiveData<List<String>> genreList = model.getCurrPickedGenres();
+
+        binding = DataBindingUtil.setContentView(this, R.layout.custom_genre_pick_tab);
+
+
+        binding.setLifecycleOwner(this); // <-- this enables MutableLiveData to be update on your UI
+        binding.setViewModel(model);
+
         viewPager = (ViewPager) findViewById(R.id.custPager);
         tabLayout = (TabLayout) findViewById(R.id.custTabLayout);
+        final TextView genres = (TextView) findViewById(R.id.genresSelected);
 
         genreAdapter = new GenreAdapter(getSupportFragmentManager());
         genreAdapter.addFragment(new GenreTab1(), "Page 1");
@@ -70,13 +99,20 @@ public class PickGenrePreference extends AppCompatActivity {
         viewPager.setAdapter(genreAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        genres.setText(model.getGenresSelected().toString());
+        final Observer<List<String>> genreObserver = new Observer<List<String>>() {
+        //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(@Nullable List<String> s) {
+                // Updating UI to show the 3 selected genres
+                //genres.setText(model.getCurrPickedGenres().toString());
+                genres.setText(s.toString());
+            }
+        };
+        //genres.setText(model.getGenresSelected().toString());
 
-        //tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        //tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        //tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        model.getCurrPickedGenres().observe(this, genreObserver);
 
-        // setting the first screen
-        //viewPager.setCurrentItem(0);
 
     }
 /*
