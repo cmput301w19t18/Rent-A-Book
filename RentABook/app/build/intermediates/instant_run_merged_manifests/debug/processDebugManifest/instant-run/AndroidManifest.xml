@@ -32,7 +32,7 @@
         android:theme="@style/AppThemeNoBar"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing" >
-        <activity android:name="com.example.cmput301w19t18.rent_a_book.MainActivity" >
+        <activity android:name="com.example.cmput301w19t18.rent_a_book.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

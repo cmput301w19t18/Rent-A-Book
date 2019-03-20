@@ -12,12 +12,12 @@
         "source": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/res/mipmap-xhdpi/ic_pastel_pink_image_round.png"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/871bf41e79c20436bf705c67c527af0e/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/animator_mtrl_fab_show_motion_spec.xml.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/d7a7a45ae4df7dacac2f8dcc84d2a47c/res/animator/mtrl_fab_show_motion_spec.xml"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/871bf41e79c20436bf705c67c527af0e/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_design_password_eye.xml.flat",
@@ -124,12 +124,12 @@
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/d7a7a45ae4df7dacac2f8dcc84d2a47c/res/layout/design_navigation_item.xml"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -168,12 +168,12 @@
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/layout_notification_template_media.xml.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/d75dee3b1cd490451c0d73ea4844161a/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-mdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -200,12 +200,12 @@
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light.xml.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c55368457f0c0bee88c48e7921762c24/res/drawable/common_google_signin_btn_text_light.xml"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-hdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_light.xml.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c55368457f0c0bee88c48e7921762c24/res/drawable/common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_layout.xml.flat",
@@ -220,20 +220,20 @@
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c55368457f0c0bee88c48e7921762c24/res/drawable-hdpi-v4/googleg_standard_color_18.png"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-v21_design_password_eye.xml.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/d7a7a45ae4df7dacac2f8dcc84d2a47c/res/drawable-v21/design_password_eye.xml"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-xxhdpi-v4/abc_list_focused_holo.9.png"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c55368457f0c0bee88c48e7921762c24/res/drawable-mdpi-v4/googleg_standard_color_18.png"
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-v21_design_password_eye.xml.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/d7a7a45ae4df7dacac2f8dcc84d2a47c/res/drawable-v21/design_password_eye.xml"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/color_abc_search_url_text.xml.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c55368457f0c0bee88c48e7921762c24/res/drawable-mdpi-v4/googleg_standard_color_18.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -268,12 +268,12 @@
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/c55368457f0c0bee88c48e7921762c24/res/drawable-xxhdpi-v4/googleg_disabled_color_18.png"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-xhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-xxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/color_mtrl_chip_text_color.xml.flat",
@@ -296,12 +296,12 @@
         "source": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/res/drawable/brook99.jpg"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_abc_ic_search_api_material.xml.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/color_common_google_signin_btn_text_light.xml.flat",
@@ -356,12 +356,12 @@
         "source": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/res/layout/activity_home_vertical.xml"
     },
     {
-        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/layout_design_navigation_item_header.xml.flat",
-        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/d7a7a45ae4df7dacac2f8dcc84d2a47c/res/layout/design_navigation_item_header.xml"
-    },
-    {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/6f432b906e34dff3cd30ee8f55ab18d7/res/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/layout_design_navigation_item_header.xml.flat",
+        "source": "/Users/julietadikova/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/d7a7a45ae4df7dacac2f8dcc84d2a47c/res/layout/design_navigation_item_header.xml"
     },
     {
         "merged": "/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",

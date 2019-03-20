@@ -79,7 +79,7 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             // change to put info into intents to send to main activity and other fragments
             case R.id.mysteryButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
 
                 if (preferenceList.get(6) == 0 && selected < 3) {
@@ -103,7 +103,7 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.scifiButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(7) == 0 && selected < 3) {
                     //genreList.add("Scifi");
                     addGenre(7,"Picked science fiction!", "Science Fiction");
@@ -117,7 +117,7 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.westernButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(8) == 0 && selected < 3) {
                     //genreList.add("Western");
                     addGenre(8,"Picked western!", "Western");
@@ -131,7 +131,7 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.bioButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(9) == 0 && selected < 3) {
                     //genreList.add("Biography");
                     addGenre(9,"Picked biography!", "Biography");
@@ -145,7 +145,7 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.historyButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(10) == 0 && selected < 3) {
                     //genreList.add("History");
                     addGenre(10,"Picked historical fiction!", "Historical Fiction");
@@ -159,7 +159,7 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.adventureButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(11) == 0 && selected < 3) {
                     //genreList.add("Adventure");
                     addGenre(11,"Picked adventure!", "Adventure");

@@ -143,7 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         }
         if (view == cancel){
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
 
         }
 

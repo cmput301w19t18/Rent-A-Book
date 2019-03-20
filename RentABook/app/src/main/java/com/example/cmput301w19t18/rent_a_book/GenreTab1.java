@@ -130,7 +130,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.dramaButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(1) == 0 && selected < 3) {
                     //genreList.add("Drama");
@@ -145,7 +145,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.romanceButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(2) == 0 && selected < 3) {
                     //genreList.add("Romance");
@@ -160,7 +160,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 }
                     break;
             case R.id.comicsButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(3) == 0 && selected < 3) {
                     //genreList.add("Comics");
@@ -175,7 +175,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.fantasyButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(4) == 0 && selected < 3) {
                     //genreList.add("Fantasy");
@@ -190,7 +190,7 @@ public class GenreTab1 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.horrorButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), MainActivity.class));
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(5) == 0 && selected < 3) {
                     //genreList.add("Horror");

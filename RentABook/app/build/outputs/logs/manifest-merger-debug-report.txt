@@ -161,10 +161,10 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /User
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:15:9-45
 	android:usesCleartextTraffic
 		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:13:9-44
-activity#com.example.cmput301w19t18.rent_a_book.MainActivity
+activity#com.example.cmput301w19t18.rent_a_book.LoginActivity
 ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:16:19-47
+		ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:16:19-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN

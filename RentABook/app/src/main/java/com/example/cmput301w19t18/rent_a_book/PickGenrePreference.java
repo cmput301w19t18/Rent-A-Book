@@ -127,7 +127,7 @@ public class PickGenrePreference extends AppCompatActivity {
                 //bvPager.setCurrentItem(0);
                 if (view == romance) {
                 // test to see of button works
-                startActivity(new Intent(PickGenrePreference.this, MainActivity.class));
+                startActivity(new Intent(PickGenrePreference.this, LoginActivity.class));
                 //    selectedNum += 1;
                 //    if (selectedNum > 3) {
                 // send out a toast
@@ -148,7 +148,7 @@ public class PickGenrePreference extends AppCompatActivity {
         //bvPager.setCurrentItem(0);
         if (view == romance) {
             // test to see of button works
-            startActivity(new Intent(PickGenrePreference.this, MainActivity.class));
+            startActivity(new Intent(PickGenrePreference.this, LoginActivity.class));
             selectedNum += 1;
             if (selectedNum > 3) {
                 // send out a toast
