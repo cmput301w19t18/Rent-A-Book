@@ -65,6 +65,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
     }
+    // TODO put this into seperate class and package info up in Next onClick
     //signs the user up based on their info
     public void signUp(){
         final String user_email = et_email.getText().toString().trim();
@@ -72,17 +73,28 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String first_name = fname.getText().toString().trim();
         String last_name = last.getText().toString().trim();
         String phone_num = phone.getText().toString().trim();
+
+        // check for first name
+        if (first_name.isEmpty()) {
+            fname.setError("First name is required");
+            fname.requestFocus();
+            return;
+        }
+
+        // check for last name
+        if (last_name.isEmpty()) {
+            last.setError("Last name is required");
+            last.requestFocus();
+            return;
+        }
+
         //checks if user email and password is empty and makes sure they are not.
         if (user_email.isEmpty()){
             et_email.setError("Email is required");
             et_email.requestFocus();
             return;
         }
-        if (password.isEmpty()){
-            pass.setError("Email is required");
-            pass.requestFocus();
-            return;
-        }
+
         //checks if it is a correct email format.
         if (!Patterns.EMAIL_ADDRESS.matcher(user_email).matches()){
             et_email.setError("Please enter a valid email!");
@@ -90,6 +102,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
 
         }
+
+        if (password.isEmpty()){
+            pass.setError("Email is required");
+            pass.requestFocus();
+            return;
+        }
+
         //makes sure password is at least 6 letters long
         if (password.length() < 6){
             pass.setError("Password must be at least 6 letters long!");
@@ -97,6 +116,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        // TODO add name, phone, put in intent, collect genres and then send to firebase
+        // maybe create an are you sure page displaying user info back to them before
+        // they confirm
         //finally register user, got this code from firebase instructions,
         mAuth.createUserWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -138,10 +160,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             startActivity(new Intent(this, PickGenrePreference.class));
         }
 
+        // TODO this should not be here -> implement sign up class and call this after genre stuff
         if (view == signup){
             signUp();
 
         }
+        // TODO cancel should clear everything
         if (view == cancel){
             startActivity(new Intent(this, LoginActivity.class));
 
