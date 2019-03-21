@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
@@ -46,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.register);
         mAuth = FirebaseAuth.getInstance();
         next = (Button) findViewById(R.id.next);
-        signup = (Button) findViewById(R.id.signup);
+        signup = (Button) findViewById(R.id.signupOld);
         cancel = (Button) findViewById(R.id.cancel);
         pass = (EditText) findViewById(R.id.pass);
         et_email = (EditText) findViewById(R.id.email);
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
     // TODO put this into seperate class and package info up in Next onClick
     //signs the user up based on their info
-    public void signUp(){
+    public void onNext(){
         final String user_email = et_email.getText().toString().trim();
         String password = pass.getText().toString().trim();
         String first_name = fname.getText().toString().trim();
@@ -87,6 +88,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             last.requestFocus();
             return;
         }
+
+        // check if its correct phone number
+        if (!PhoneNumberUtils.isGlobalPhoneNumber(phone_num) || phone_num.length() < 7) {
+            phone.setError("Please enter a valid phone number");
+            phone.requestFocus();
+            return;
+        }
+
 
         //checks if user email and password is empty and makes sure they are not.
         if (user_email.isEmpty()){
@@ -116,6 +125,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        // pack all info into an intent
+        Intent intent = new Intent(this, PickGenrePreference.class);
+        Bundle userInfo =  new Bundle();
+        userInfo.putString("firstName", first_name);
+        userInfo.putString("lastName", last_name);
+        userInfo.putString("phoneNum", phone_num);
+        userInfo.putString("email",user_email);
+        intent.putExtras(userInfo);
+        startActivity(intent);
+
+        /*
         // TODO add name, phone, put in intent, collect genres and then send to firebase
         // maybe create an are you sure page displaying user info back to them before
         // they confirm
@@ -149,7 +169,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
-
+*/
 
     }
 
@@ -157,13 +177,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         //checks what button the user clicked
         if (view == next){
-            startActivity(new Intent(this, PickGenrePreference.class));
+
+            onNext();
+            //startActivity(new Intent(this, PickGenrePreference.class));
         }
 
         // TODO this should not be here -> implement sign up class and call this after genre stuff
         if (view == signup){
-            signUp();
-
+            //signUp();
+            return;
         }
         // TODO cancel should clear everything
         if (view == cancel){

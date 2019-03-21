@@ -29,7 +29,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppThemeNoBar"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing" >
@@ -54,6 +53,7 @@
         <activity
             android:name="com.example.cmput301w19t18.rent_a_book.NewBookActivity"
             android:exported="true" />
+        <activity android:name="com.example.cmput301w19t18.rent_a_book.SuccessfulSignupActivity" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -148,11 +148,6 @@
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />
-
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.example.cmput301w19t18.rent_a_book.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

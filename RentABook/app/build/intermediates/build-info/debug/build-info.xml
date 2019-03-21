@@ -6,22 +6,26 @@
     density="560dpi"
     format="10"
     plugin-version="3.3.2"
-    timestamp="1553131008677"
+    timestamp="1553193934413"
     token="235735631583778556"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="METHOD_DELETED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1379" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="37" />
     <task
         name="verifier"
-        duration="0" />
+        duration="5" />
+
+    <artifact
+        location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
@@ -69,7 +73,11 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1553131008677"
-        verifier="COLD_SWAP_REQUESTED" />
+        timestamp="1553193934413"
+        verifier="METHOD_DELETED" >
+        <artifact
+            location="/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+    </build>
 
 </instant-run>

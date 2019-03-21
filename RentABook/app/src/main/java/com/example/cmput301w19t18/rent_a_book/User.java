@@ -11,6 +11,9 @@ import java.util.List;
  */
 
 public class User implements Serializable {
+    public String firstName;
+    public String lastName;
+    public String phoneNum;
     public String email;
     public  String prefList;
     private int[] books_Owned;

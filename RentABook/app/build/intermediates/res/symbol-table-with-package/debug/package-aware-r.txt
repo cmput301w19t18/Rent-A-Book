@@ -1172,6 +1172,7 @@ id comedyButton
 id comedyHighlight
 id comicsButton
 id comicsHighlight
+id congrats
 id container
 id content
 id contentPanel
@@ -1200,6 +1201,7 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id enteredEmail
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1212,6 +1214,9 @@ id filled
 id fixed
 id fname
 id forever
+id genre1
+id genre2
+id genre3
 id genreText
 id genresLabelProfile
 id genresSelected
@@ -1256,6 +1261,7 @@ id mtrl_internal_children_alpha_tag
 id multiply
 id mysteryButton
 id mysteryHighlight
+id name
 id navigation_header_container
 id never
 id next
@@ -1282,6 +1288,7 @@ id phone
 id pin
 id poetryButton
 id poetryHighlight
+id proceed
 id progress_circular
 id progress_horizontal
 id radio
@@ -1315,6 +1322,7 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id select_dialog_listview
+id select_genres
 id selected
 id shortcut
 id showCustom
@@ -1322,6 +1330,7 @@ id showHome
 id showTitle
 id signin
 id signup
+id signupOld
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1350,12 +1359,16 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView10
+id textView6
+id textView8
 id textWatcher
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
 id textinput_helper_text
 id textsignup
+id thank
 id three
 id thrillerButton
 id thrillerHighlight
@@ -1450,6 +1463,7 @@ layout activity_pick_genre_pref2
 layout activity_pick_genre_pref3
 layout activity_profile
 layout activity_search_results
+layout activity_sucess_signup
 layout app_bar
 layout custom_genre_pick_tab
 layout design_bottom_navigation_item

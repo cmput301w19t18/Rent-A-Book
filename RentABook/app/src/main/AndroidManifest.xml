@@ -30,6 +30,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".NewBookActivity"
             android:exported="true"></activity>
+        <activity android:name=".SuccessfulSignupActivity"/>
 
     </application>
 

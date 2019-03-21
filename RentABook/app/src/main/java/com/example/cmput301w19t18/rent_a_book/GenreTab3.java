@@ -58,6 +58,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         Button tragedy = (Button) v.findViewById(R.id.tragedyButton);
         Button poetry = (Button) v.findViewById(R.id.poetryButton);
         Button children = (Button) v.findViewById(R.id.childButton);
+        TextView signup = (TextView) v.findViewById(R.id.signup);
 
         nonfic.setOnClickListener(this);
         ya.setOnClickListener(this);
@@ -65,6 +66,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         tragedy.setOnClickListener(this);
         poetry.setOnClickListener(this);
         children.setOnClickListener(this);
+        signup.setOnClickListener(this);
         return v;
 
     }
@@ -149,7 +151,20 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case R.id.signup:
+                // check if three genres are selected;
+                // if not ask to pick three genres
+                if (selected < 3) {
+                    Toast.makeText(this.getContext(), "Please select 3 genres", Toast.LENGTH_SHORT).show();
+                }
+                // else continue to successful registration page
+                else {
+                    // do signup here
+                    signUp();
+                }
+                break;
         }
+
     }
 
     public void addGenre(int pos, String s, String sGenre) {
@@ -192,4 +207,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
 
         Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }
+
+    public void signUp() {}
 }
