@@ -195,10 +195,8 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
         }
 
     }
-
-
-
-
+     
+    ////////////////// Overall book monitor check //////////////////
 
 
     @Override //when you press the submit button
