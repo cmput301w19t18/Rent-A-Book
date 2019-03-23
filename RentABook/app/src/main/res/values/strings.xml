@@ -24,5 +24,9 @@
     <string name="AddButton">+</string>
     <string name="CategoryTitle">Category</string>
     <string name="title_activity_maps">Map</string>
+    <string name="terrain_map">terrain_map</string>
+    <string name="satellite_map">satellite_map</string>
+    <string name="hybrid_map">hybrid_map</string>
+    <string name="normal_map">normal_map</string>
 
 </resources>
