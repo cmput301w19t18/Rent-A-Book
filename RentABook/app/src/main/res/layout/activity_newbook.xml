@@ -18,6 +18,7 @@
             android:layout_height="207dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/text_input_layout"
@@ -31,7 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="301dp" />
+            app:layout_constraintTop_toBottomOf="@+id/AddPhotoButton" />
 
         <EditText
             android:id="@+id/TitleBox"
@@ -82,24 +83,31 @@
             android:layout_width="103dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/simple_button_layout"
             android:text="@string/GenreButton"
-            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox"
-            tools:layout_editor_absoluteX="292dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
         <EditText
             android:id="@+id/ISBNBox"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/text_input_layout"
             android:ems="10"
             android:hint="@string/ISBN"
             android:inputType="text"
             android:padding="10dp"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/AuthBox"
-            tools:layout_editor_absoluteX="188dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/AuthBox" />
 
         <Button
             android:id="@+id/SubmitButton"
@@ -165,10 +173,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/circle_button"
+            android:background="@drawable/genre_icon_pastel_pink_128dp"
+            android:text="Mystery"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox"
-            tools:text="Mystery" />
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
         <Button
             android:id="@+id/genre2"
@@ -177,10 +185,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/circle_button"
+            android:background="@drawable/genre_icon_pastel_pink_128dp"
+            android:text="YA"
             app:layout_constraintStart_toEndOf="@+id/genre1"
-            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox"
-            tools:text="YA" />
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
         <Button
             android:id="@+id/genre3"
@@ -189,7 +197,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/circle_button"
+            android:background="@drawable/genre_icon_pastel_pink_128dp"
             android:text="Fiction"
             app:layout_constraintStart_toEndOf="@+id/genre2"
             app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
