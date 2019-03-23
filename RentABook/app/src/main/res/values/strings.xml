@@ -7,6 +7,8 @@
     <string name="email">Email</string>
     <string name="pass">Password</string>
     <string name="signin">Log in</string>
+    <string name="GenreButton">Add Genre</string>
+    <string name="AddPhotoButton">Add Photo</string>
 
 
     <string name="RegisterFirst">Enter Your First Name</string>

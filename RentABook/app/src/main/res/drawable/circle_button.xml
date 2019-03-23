@@ -14,15 +14,4 @@
         </shape>
     </item>
     -->
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="@color/lightOrangeSpice"/>
-            <stroke
-                android:color="@color/lightOrangeSpice"
-                android:width="0dp"/>
-            <size
-                android:height="125dp"
-                android:width="125dp"/>
-        </shape>
-    </item>
 </selector>
