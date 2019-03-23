@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Rent-A-Book</string>
+    <string name="appTitle">Rent a Read</string>
+
+    <string name="noaccounttext">Don"'"t have an account?</string>
+    <string name="textsignup">Click here!</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="signin">Log in</string>
+
 
     <string name="RegisterFirst">Enter Your First Name</string>
     <string name="RegisterLast">Enter Your Last Name</string>
