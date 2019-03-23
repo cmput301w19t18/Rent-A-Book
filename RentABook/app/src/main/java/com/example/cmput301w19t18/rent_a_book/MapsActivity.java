@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,6 +26,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
+
+    ///////////////// Location of the marker/pin dropped /////////////////
+    public static Double locationLat;
+    public static Double locationLon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +119,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 .position(latLng)
                                 .title("Dropped Pin")
                                 .snippet(snippet));
+
+                        //return data from map marker position:
+                        MapsActivity.locationLat = latLng.latitude;
+                        MapsActivity.locationLon = latLng.longitude;
+
                     }
                 });
 
