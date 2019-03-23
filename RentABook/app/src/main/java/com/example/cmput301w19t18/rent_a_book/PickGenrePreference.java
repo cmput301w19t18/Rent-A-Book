@@ -65,6 +65,12 @@ public class PickGenrePreference extends AppCompatActivity {
     private CustomGenrePickTabBinding binding;
     private MutableLiveData<List<String>> mLD;
 
+    private String email;
+    private String password;
+    private String phone;
+    private String fName;
+    private String lName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,8 +119,50 @@ public class PickGenrePreference extends AppCompatActivity {
 
         model.getCurrPickedGenres().observe(this, genreObserver);
 
+        // unpack data from first activity
+        if (savedInstanceState == null) {
+            Bundle bundle = getIntent().getExtras();
+            if (bundle != null) {
+                email = bundle.getString("email");
+                password = bundle.getString("password");
+                phone = bundle.getString("phoneNum");
+                fName = bundle.getString("firstName");
+                lName = bundle.getString("lastName");
+            }
+        }
+        else {
+            email = (String) savedInstanceState.getSerializable("email");
+            password = (String) savedInstanceState.getSerializable("password");
+            phone = (String) savedInstanceState.getSerializable("phoneNum");
+            fName = (String) savedInstanceState.getSerializable("firstName");
+            lName = (String) savedInstanceState.getSerializable("lastName");
+        }
+
+        // repack to send to fragment
+        Bundle userInfo =  new Bundle();
+        userInfo.putString("firstName", fName);
+        userInfo.putString("lastName", lName);
+        userInfo.putString("phoneNum", phone);
+        userInfo.putString("email",email);
+        userInfo.putString("password", password);
+
+        GenreTab3 finalInfo = new GenreTab3();
+        finalInfo.setArguments(userInfo);
+
+
 
     }
+
+    /*
+    public void sendData() {
+        Bundle bundle = new Bundle();
+
+
+        GenreTab3 userInfo = new GenreTab3();
+        userInfo.setArguments(bundle);
+    }
+    */
+
 /*
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_genre_pick_main, container, false);

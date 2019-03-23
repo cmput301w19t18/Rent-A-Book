@@ -19,9 +19,12 @@ public class User implements Serializable {
     private int[] books_Owned;
     private int[] books_borrowed;
 
-    public User(String email, String prefList ){
+    public User(String email, String prefList, String firstName, String lastName, String phoneNum){
         this.email = email;
         this.prefList = prefList;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNum = phoneNum;
 
     }
 

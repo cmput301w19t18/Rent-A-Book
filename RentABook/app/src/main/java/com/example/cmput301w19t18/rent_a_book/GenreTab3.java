@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class GenreTab3 extends Fragment implements View.OnClickListener {
@@ -40,6 +42,13 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
     private List<String> genreList = new ArrayList<>();
     private TextView genreText;
 
+    private String fName;
+    private String lName;
+    private String phone;
+    private String email;
+    private String pass;
+
+
     public GenreTab3() {
         // constructor
     }
@@ -51,6 +60,25 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
 
         // setting up the viewmodel which allows each fragment communicate with each other
         model = ViewModelProviders.of(this).get(GenreViewModel.class);
+
+        // TODO credit https://mobikul.com/pass-data-activity-fragment-android/
+        // unpack data from activity
+       /*if (getArguments() != null) {
+            fName = getArguments().getString("firstName");
+            lName = getArguments().getString("lastName");
+            pass = getArguments().getString("password");
+            email = getArguments().getString("email");
+        }*/
+
+        // TODO credit https://www.codexpedia.com/android/passing-data-to-activity-and-fragment-in-android/
+        fName = getActivity().getIntent().getExtras().getString("firstName");
+        lName = getActivity().getIntent().getExtras().getString("lastName");
+        phone = getActivity().getIntent().getExtras().getString("phone");
+        pass = getActivity().getIntent().getExtras().getString("password");
+        email = getActivity().getIntent().getExtras().getString("email");
+
+        Toast.makeText(this.getContext(),fName,Toast.LENGTH_SHORT).show();
+
 
         Button nonfic = (Button) v.findViewById(R.id.nonficButton);
         Button ya = (Button) v.findViewById(R.id.yaButton);
@@ -160,7 +188,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 // else continue to successful registration page
                 else {
                     // do signup here
-                    signUp();
+                    signUp(email,preferenceList,fName,lName, pass, phone, genreList);
                 }
                 break;
         }
@@ -208,5 +236,43 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }
 
-    public void signUp() {}
+    public void signUp(String email, List<Integer> prefList, String firstName, String lastName, String password, String phone, List<String> genList) {
+        // string builder here to convert prefList to string
+        StringBuilder strBuild = new StringBuilder();
+        Iterator<Integer> i = prefList.iterator();
+        while(i.hasNext()) {
+            strBuild.append(i.next());
+            if(i.hasNext()) {
+                strBuild.append(" ");
+            }
+        }
+
+        StringBuilder strBuild2 = new StringBuilder();
+        Iterator<String> s = genList.iterator();
+        while(s.hasNext()) {
+            strBuild2.append(s.next());
+            if(s.hasNext()) {
+                strBuild2.append(" ");
+            }
+        }
+
+        //strBuild.toString();
+        // then pack in extras
+        Intent intent = new Intent(this.getContext(), SuccessfulSignupActivity.class);
+        //Intent intent = new Intent(this.getContext(), PickGenrePreference.class);
+        Bundle userInfo =  new Bundle();
+        userInfo.putString("firstName", firstName);
+        userInfo.putString("lastName", lastName);
+        userInfo.putString("phoneNum", phone);
+        userInfo.putString("email", email);
+        userInfo.putString("password", password);
+        userInfo.putString("genres",strBuild.toString());
+        userInfo.putString("genresString", strBuild2.toString());
+        intent.putExtras(userInfo);
+
+        startActivity(intent);
+
+        // send to next activity
+
+    }
 }

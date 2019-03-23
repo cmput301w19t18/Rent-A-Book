@@ -132,7 +132,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         userInfo.putString("lastName", last_name);
         userInfo.putString("phoneNum", phone_num);
         userInfo.putString("email",user_email);
+        userInfo.putString("password", password);
+
+        //GenreTab3 finalInfo = new GenreTab3();
+        //finalInfo.setArguments(userInfo);
+
+
         intent.putExtras(userInfo);
+
         startActivity(intent);
 
         /*
