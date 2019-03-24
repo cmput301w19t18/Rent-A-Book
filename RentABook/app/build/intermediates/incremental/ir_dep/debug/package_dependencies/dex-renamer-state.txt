@@ -1,0 +1,4 @@
+#Thu Mar 21 17:31:06 MDT 2019
+base.0=/Users/ikramshire/Rent-A-Read/Rent-A-Book/RentABook/app/build/intermediates/transforms/dexMerger/debug/10
+path.0=classes.dex
+renamed.0=classes.dex

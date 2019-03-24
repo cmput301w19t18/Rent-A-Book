@@ -32,6 +32,7 @@ public class HorizontalModel {
         return bookCover;
     }
 
+
     /**
      * Sets book cover.
      *
@@ -43,6 +44,16 @@ public class HorizontalModel {
 
     private int bookRating;
     private String bookCover;
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public  String bookTitle;
 
 
 }

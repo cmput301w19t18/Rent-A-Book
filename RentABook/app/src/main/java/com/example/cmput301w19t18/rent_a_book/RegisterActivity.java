@@ -39,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mAuth = FirebaseAuth.getInstance();
         next = (Button) findViewById(R.id.next);
         signup = (Button) findViewById(R.id.signup);
+
         cancel = (Button) findViewById(R.id.cancel);
         pass = (EditText) findViewById(R.id.pass);
         et_email = (EditText) findViewById(R.id.email);
@@ -50,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         next.setOnClickListener(this);
         signup.setOnClickListener(this);
+
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
             //user is already logged in
