@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SearchResultsActivity">
 
+<<<<<<< HEAD
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bookResults"
         android:layout_width="395dp"
@@ -52,4 +53,6 @@
         app:maxImageSize="20dp"
         app:pressedTranslationZ="12dp" />
 
+=======
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 </android.support.constraint.ConstraintLayout>

@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<<<<<<< HEAD
     <style name="AppThemeNoBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -27,4 +28,6 @@
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
+=======
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 </resources>

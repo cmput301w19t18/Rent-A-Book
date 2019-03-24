@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".SearchResultsActivity"
             android:exported="true" />
@@ -35,6 +36,12 @@
             android:name=".NewBookActivity"
             android:exported="true" />
         <activity android:name=".BookDetails"></activity>
+=======
+        <activity android:name=".SearchResultsActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".NewBookActivity"></activity>
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
     </application>
 
 </manifest>

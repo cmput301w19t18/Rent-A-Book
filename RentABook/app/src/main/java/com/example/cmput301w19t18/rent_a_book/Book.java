@@ -2,6 +2,8 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import android.support.v7.app.AppCompatActivity;
 
@@ -17,6 +19,7 @@ public class Book implements Serializable{
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
     private Integer rating;
+<<<<<<< HEAD
     private String bOwner;
     private String genre; //genre will be determined by an array
     private String requestedBy; //list of users that are requesting the book by email
@@ -37,14 +40,33 @@ public class Book implements Serializable{
      * @param requestedBy the requested by
      */
     public Book(String btitle, String author, String ISBN, String bstatus, Integer rating, String bOwner, String genre, String requestedBy) {
+=======
+    private List<String> genre; //genre will be determined by an array
+    private List<String> requestedBy; //list of users that are requesting the book by email
+    
+
+    //private String description; //Description of the book entered by the user
+    private Integer copyCount; //number of copies of the book that exist
+
+
+
+
+    //constructor (changed to public constructor)
+    public Book(String btitle, String author, List<String> genre, String ISBN, String bstatus, List<String> requestedBy, Integer rating, Integer copyCount){
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
         this.bstatus = bstatus;
         this.rating = rating;
+<<<<<<< HEAD
         this.bOwner = bOwner;
         this.genre = genre;
         this.requestedBy = requestedBy;
+=======
+        //this.initialRequestedBy();
+        this.requestedBy = this.requestedBy;
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 
         //use of arrays:
         //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
@@ -52,10 +74,22 @@ public class Book implements Serializable{
 
     }
 
+<<<<<<< HEAD
     /**
      * Instantiates a new Book.
      */
     public Book() {};
+=======
+
+
+    public Integer getCopyCount() {
+        return copyCount;
+    }
+
+    public void setCopyCount(Integer copyCount) {
+        this.copyCount = copyCount;
+    }
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 
     /**
      * Gets btitle.
@@ -93,11 +127,20 @@ public class Book implements Serializable{
         this.author = author;
     }
 
+<<<<<<< HEAD
     /**
      * Gets isbn.
      *
      * @return the isbn
      */
+=======
+    public void getGenre() {
+        this.genre = genre;
+    }
+
+    public void setGenre(List<String> genre) { this.genre = genre; }
+
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
     public String getISBN() {
         return ISBN;
     }
@@ -147,6 +190,7 @@ public class Book implements Serializable{
         this.rating = rating;
     }
 
+<<<<<<< HEAD
     /**
      * Gets owner.
      *
@@ -200,4 +244,53 @@ public class Book implements Serializable{
     public void setRequestedBy(String requestedBy) {
         this.requestedBy = requestedBy;
     }
+=======
+    private void addPhoto (String fileName){
+        //code
+    }
+
+    //Create an initializer to set RequestedBy to an empty array to avoid having null pointer errors
+    /*public void initialRequestedBy () {
+        List<String> initial = new List<String>() {
+        };
+        this.requestedBy = initial;
+        return;
+    }
+    */
+    public List<String> getRequestedBy() {
+        return requestedBy;
+    }
+
+    public void setRequestedBy(List<String> requestedBy) {
+        this.requestedBy = requestedBy;
+         //appends the requester to the list of requests
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 }

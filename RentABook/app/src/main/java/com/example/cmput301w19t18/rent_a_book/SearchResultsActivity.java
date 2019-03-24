@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+=======
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,21 +33,29 @@ import java.util.Collections;
  * (still a work in progress)
  */
 public class SearchResultsActivity extends AppCompatActivity {
+<<<<<<< HEAD
     public boolean update = false;
     public static final int SEARCHING = 1;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Book> BookSearchList;
+=======
+
+    ArrayList<Book> book_results;
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
     private String search;
     private FloatingActionButton searchButton;
     private EditText userSearchText;
     private DatabaseReference mUserDatabase;
 
+    // I don't know if I should implement the search results as a separate class in addition to this activity lol
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
+<<<<<<< HEAD
         mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
         BookSearchList = new ArrayList<>();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
@@ -84,6 +95,8 @@ public class SearchResultsActivity extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
     }
 
     /**

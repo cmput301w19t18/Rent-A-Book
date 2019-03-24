@@ -18,8 +18,10 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button next;
     private Button signup;
     private Button cancel;
     private EditText pass;
@@ -30,14 +32,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFireBaseD;
     private DatabaseReference DataR;
-    private String prefList;
+    private List<String> prefList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         mAuth = FirebaseAuth.getInstance();
-        next = (Button) findViewById(R.id.next);
         signup = (Button) findViewById(R.id.signup);
 
         cancel = (Button) findViewById(R.id.cancel);
@@ -49,12 +51,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mFireBaseD = FirebaseDatabase.getInstance();
         //DataR = mFireBaseD.getReference();
 
-        next.setOnClickListener(this);
         signup.setOnClickListener(this);
 
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
             //user is already logged in
+
 
         }
 
@@ -66,6 +68,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String first_name = fname.getText().toString().trim();
         String last_name = last.getText().toString().trim();
         String phone_num = phone.getText().toString().trim();
+        final List<String> prefList = new ArrayList<String>();
+
         //checks if user email and password is empty and makes sure they are not.
         if (user_email.isEmpty()){
             et_email.setError("Email is required");
@@ -127,11 +131,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        //checks what button the user clicked
-        if (view == next){
-            startActivity(new Intent(this, PickGenrePreference.class));
-        }
-
+        //checks what buttton the user clicked
         if (view == signup){
             signUp();
 

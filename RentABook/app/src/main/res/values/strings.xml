@@ -8,13 +8,13 @@
     <string name="RegisterPassword">Enter a Password</string>
     <string name="RegisterSignUp">Sign Up</string>
     <string name="Cancel">Cancel</string>
-    <string name="Next">Next</string>
 
     <string name="scan">Scan</string>
     <string name="Description">Description</string>
     <string name="Author">Author</string>
     <string name="Title">Title</string>
     <string name="ISBN">ISBN</string>
+<<<<<<< HEAD
 
     <string name="ChooseGenre">Choose three genres</string>
     <string name="BookPhoto">Book Photo</string>
@@ -25,4 +25,6 @@
     <string name="CategoryTitle">Category</string>
     <string name="searchText">Search</string>
 
+=======
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 </resources>

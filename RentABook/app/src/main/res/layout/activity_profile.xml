@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.cmput301w19t18.rent_a_book.ProfileActivity">
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="85dp"
@@ -87,6 +88,8 @@
         tools:layout_editor_absoluteY="409dp"
         tools:text="Owned" />
 
+=======
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
     <Button
         android:id="@+id/addbutton"
         android:layout_width="wrap_content"
@@ -97,9 +100,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="ADD BOOK"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toEndOf="@+id/userPhoneProfile"
         app:layout_constraintTop_toBottomOf="@+id/userEmailProfile" />
 
+=======
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="138dp" />
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 </android.support.constraint.ConstraintLayout>

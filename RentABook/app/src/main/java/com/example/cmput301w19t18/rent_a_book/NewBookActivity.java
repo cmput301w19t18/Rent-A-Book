@@ -20,6 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,6 +30,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     //firebase auth object
     private FirebaseAuth bAuth;
     private DatabaseReference databaseReference;
+    private DatabaseReference mdatabaseReference;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseApp firebaseApp;
 
@@ -72,6 +76,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
+        mdatabaseReference=  databaseReference.child("requested");
 
     }
 
@@ -120,14 +125,20 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         String ISBN = ISBNF.getText().toString().trim();
         String title = TitleF.getText().toString().trim();
         String id = databaseReference.push().getKey();
+        String user_id = bAuth.getCurrentUser().getUid();
 
         //some of these need to be changed every time a new book is added
 
         //Currently only is able to add values entered for a new book that is not already in the database
+<<<<<<< HEAD
 
         String genre = "000001010"; //going to be set by external function
         String requestedBy = "jakep@nypd.org";//new ArrayList<String>();
         String email = bAuth.getCurrentUser().getEmail();
+=======
+        List<String> genre = new ArrayList<String>(); //going to be set by external function
+        List<String> requestedBy = new ArrayList<String>();
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
         ArrayList<String> ownedBy = null;
 
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
@@ -137,8 +148,14 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //add the new book to firebase
+<<<<<<< HEAD
         Book newBook = new Book(title, author, ISBN, status, rating, email, genre, requestedBy);
         //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
+=======
+        requestedBy.add(user_id);
+
+        Book newBook = new Book(title, author, genre, ISBN, status,requestedBy,  rating, copyCount);
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -154,14 +171,23 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 else {
                     Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
+
                 }
 
             }
         }
 
         );
+<<<<<<< HEAD
         //databaseReference.child("books").setValue(newBook); //should put the book in the db under books
         //finish();
+=======
+        requestedBy.add(user_id);
+        databaseReference.child("books").setValue(newBook);//should put the book in the db under books
+        databaseReference.child("books").child("requested").setValue(requestedBy);
+
+
+>>>>>>> 62ada93ed3dc1f614ff1724b751fba868020b176
     }
 
     @Override //when you press the submit button
