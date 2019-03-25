@@ -1,6 +1,10 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,6 +83,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
+        Context context = searchViewHolder.itemView.getContext();
          Book currentItem = mSearchBookList.get(i);
 
          String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
@@ -88,6 +93,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
          searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
          searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
          searchViewHolder.mStatus.setText(currentItem.getBstatus());
+
+
+         if (i%2 == 1) {
+             searchViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.lightOrangeSpice));
+
+         }
+         else {
+             searchViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.tanSpice));
+         }
     }
 
     @Override
