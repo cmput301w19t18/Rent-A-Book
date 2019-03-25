@@ -24,12 +24,12 @@
         "source": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/res/drawable/unselected_circle_7dp.xml"
     },
     {
-        "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/color_mtrl_btn_ripple_color.xml.flat",
         "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/res/color/mtrl_btn_ripple_color.xml"
+    },
+    {
+        "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable_tooltip_frame_light.xml.flat",
@@ -140,12 +140,12 @@
         "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/drawable-mdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
-        "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/animator_design_fab_hide_motion_spec.xml.flat",
-        "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/res/animator/design_fab_hide_motion_spec.xml"
-    },
-    {
         "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
         "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/0310c96610920c3375951c612700b347/res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/animator_design_fab_hide_motion_spec.xml.flat",
+        "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/res/animator/design_fab_hide_motion_spec.xml"
     },
     {
         "merged": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/res/merged/debug/layout_abc_screen_simple.xml.flat",
