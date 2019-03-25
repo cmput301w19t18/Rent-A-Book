@@ -28,7 +28,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      * The Context.
      */
     Context context;
-
     /**
      * The Array list.
      */
@@ -124,7 +123,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
             super(itemView);
             ratingBar = (RatingBar)itemView.findViewById(R.id.bookRating);
             bookCover = (ImageView)itemView.findViewById(R.id.bookCover);
-
         }
     }
 }
