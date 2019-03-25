@@ -1,5 +1,8 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,6 +31,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
          * The M owner picture.
          */
         public ImageView mOwnerPicture;
+        public Context context;
         /**
          * The M book title.
          */
@@ -78,16 +82,38 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
-         Book currentItem = mSearchBookList.get(i);
+    public void onBindViewHolder(@NonNull final SearchViewHolder searchViewHolder, int i) {
+        final Book currentItem = mSearchBookList.get(i);
 
-         String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
-         Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
+
+
+        final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
+        Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
 //         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
-         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
-         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
-         searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
-         searchViewHolder.mStatus.setText(currentItem.getBstatus());
+        searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
+        searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
+        searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
+        searchViewHolder.mStatus.setText(currentItem.getBstatus());
+
+        searchViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),BookDetails.class );
+                intent.putExtra("title", currentItem.getBtitle());
+                intent.putExtra("owner", currentItem.getbOwner());
+                intent.putExtra("author",currentItem.getAuthor());
+                intent.putExtra("photo", bookCover);
+
+                intent.putExtra("mode","1");
+                Activity search =  (Activity)v.getContext();
+
+
+                v.getContext().startActivity(intent);
+
+
+
+            }
+        });
     }
 
     @Override
