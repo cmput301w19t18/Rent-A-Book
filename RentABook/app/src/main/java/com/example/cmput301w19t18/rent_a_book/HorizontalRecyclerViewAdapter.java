@@ -32,7 +32,7 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
     /**
      * The Array list.
      */
-    ArrayList<HorizontalModel> arrayList;
+    ArrayList<Book> arrayList;
 
     /**
      * Instantiates a new Horizontal recycler view adapter.
@@ -40,7 +40,7 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      * @param context   the context
      * @param arrayList the array list
      */
-    public HorizontalRecyclerViewAdapter(Context context, ArrayList<HorizontalModel> arrayList) {
+    public HorizontalRecyclerViewAdapter(Context context, ArrayList<Book> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -54,31 +54,43 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public void onBindViewHolder(@NonNull final HorizontalRVViewHolder horizontalRVViewHolder, final int i) {
-        final HorizontalModel horizontalModel = arrayList.get(i);
-        horizontalRVViewHolder.ratingBar.setRating(horizontalModel.getBookRating());
-        Picasso.get().load(horizontalModel.getBookCover()).into(horizontalRVViewHolder.bookCover);
+        final Book currentBook = arrayList.get(i);
+        horizontalRVViewHolder.ratingBar.setRating(currentBook.getRating());
+
+        String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
+        final String fake_description = "This is a description test. " +
+                "I realized we need to add the description in the book class, but for some reason is not there, " +
+                "so we have to add that as an attribute. I can't believe the project is due in like a week, " +
+                "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
+                "not an accurate description of the current book.";
+
+        Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
+
         horizontalRVViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), BookDetails.class);
+                //arrayList.get(i)
 
-                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getBookRating()));
-                intent.putExtra("btitle", arrayList.get(i).getBookTitle());
-                intent.putExtra("bookphoto",arrayList.get(i).getBookCover());
+                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getRating()));
+                intent.putExtra("btitle", arrayList.get(i).getBtitle());
+                intent.putExtra("bookphoto","http://covers.openlibrary.org/b/isbn/" + arrayList.get(i).getISBN() + "-M.jpg");
+                intent.putExtra("bstatus",arrayList.get(i).getBstatus());
+                intent.putExtra("owner",arrayList.get(i).getbOwner());
+                intent.putExtra("bdescription",fake_description);
+
+//                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getBookRating()));
+//                intent.putExtra("btitle", arrayList.get(i).getBookTitle());
+//                intent.putExtra("bookphoto",arrayList.get(i).getBookCover());
+
                 intent.putExtra("mode", "2");
                 Activity origin = (Activity) context;
                 origin.startActivity(intent);
 
-
-
                 //origin.startActivityForResult(intent,2);
-
-
-
 
             }
         });
-
 
         //horizontalRVViewHolder.bookCover.setImageResource(horizontalModel.getBookCover());
         //Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView);

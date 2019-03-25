@@ -1144,7 +1144,7 @@ id always
 id appIcon
 id appTitle
 id async
-id auth_textView2
+id auth_textView
 id auto
 id barrier
 id beginning
@@ -1156,6 +1156,7 @@ id bookCover
 id bookOwner
 id bookPhoto
 id bookRating
+id bookRating_view
 id bookResults
 id bookStatus
 id bookTitle
@@ -1191,7 +1192,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
-id desc_textView2
+id desc_textView
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1247,6 +1248,7 @@ id imageView2
 id imageView3
 id info
 id invisible
+id isbn_textView
 id italic
 id item_touch_helper_previous_elevation
 id labeled
@@ -1280,6 +1282,7 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id outline
+id owner_textView
 id packed
 id pager
 id parallax
@@ -1348,6 +1351,7 @@ id src_over
 id standard
 id start
 id status_bar_latest_event_content
+id status_textView
 id stretch
 id submenuarrow
 id submit_area
@@ -1612,6 +1616,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string project_id
+string req_button
 string scan
 string searchText
 string search_menu_title

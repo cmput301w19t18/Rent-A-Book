@@ -9,7 +9,7 @@
     <string name="signin">Log in</string>
     <string name="GenreButton">Add Genre</string>
     <string name="AddPhotoButton">Add Photo</string>
-
+    <string name="req_button">Request</string>
 
     <string name="RegisterFirst">Enter Your First Name</string>
     <string name="RegisterLast">Enter Your Last Name</string>

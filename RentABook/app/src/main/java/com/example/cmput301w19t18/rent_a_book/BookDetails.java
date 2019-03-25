@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +23,8 @@ import java.util.ArrayList;
 
 public class BookDetails extends AppCompatActivity  implements View.OnClickListener {
     SearchAdapter adapter;
-    TextView title;
-    TextView author;
+    TextView title, author, status, isbn, description, owner;
+    RatingBar ratingbook;
     private DatabaseReference mDatabase;
     private ArrayList<Book> BookList;
     private ArrayList<Book> homeBookList;
@@ -47,8 +48,6 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         adapter = new SearchAdapter(BookList);
 
         if(getIntent().getStringExtra("mode").contains("1")){
-
-
             setBookTitle();
         }
         if(getIntent().getStringExtra("mode").contains("2")){
@@ -56,8 +55,6 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
             homeDetails();
 
         }
-
-
 
         //setBookTitle();
         req_button.setOnClickListener(this);
@@ -71,10 +68,15 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         //Toast.makeText(getApplicationContext(), "home book details", Toast.LENGTH_LONG).show();
         final String rating = getIntent().getStringExtra("ratings");
         final String btitle = getIntent().getStringExtra("btitle");
+        final String bdescription = getIntent().getStringExtra("bdescription");
+
+
         bookimage = findViewById(R.id.bookimage);
         bookCover = getIntent().getStringExtra("bookphoto");
+
         Picasso.get().load(bookCover).into(bookimage);
         Query query = mDatabase.orderByChild("btitle");
+
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -88,22 +90,38 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
 
 
                         if(homebook.getBtitle().contains(btitle)){
-                            Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
+
                             BookList.add(homebook);
                             curr_book = homebook;
+
                             title = findViewById(R.id.title_textView);
                             title.setText(curr_book.getBtitle());
-                            author = findViewById(R.id.auth_textView2);
+
+                            author = findViewById(R.id.auth_textView);
                             author.setText(curr_book.getAuthor());
+
+                            status = findViewById(R.id.status_textView);
+                            status.setText(curr_book.getBstatus());
+
+                            isbn = findViewById(R.id.isbn_textView);
+                            isbn.setText(curr_book.getISBN());
+
+                            description = findViewById(R.id.desc_textView);
+                            description.setText(bdescription);
+
+                            owner = findViewById(R.id.owner_textView);
+                            owner.setText(curr_book.getbOwner());
+
+                            ratingbook = findViewById(R.id.bookRating_view);
+                            ratingbook.setRating(curr_book.getRating());
+
                             String keyer = dataSnapshot1.getKey();
                             key = keyer;
                             //Toast.makeText(getApplicationContext(), "size" + homeBookList.size() ,Toast.LENGTH_LONG).show();
 
 
-
                         }
-
-
 
 
                     }
@@ -120,13 +138,10 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
     }
 
 
-
-
-
     public void setBookTitle() {
         title = findViewById(R.id.title_textView);
         title.setText(getIntent().getStringExtra("title"));
-        author = findViewById(R.id.auth_textView2);
+        author = findViewById(R.id.auth_textView);
         author.setText(getIntent().getStringExtra("author"));
         bookimage = findViewById(R.id.bookimage);
         bookCover = getIntent().getStringExtra("photo");
@@ -149,8 +164,6 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
                             key = keyer;
 
                             Toast.makeText(getApplicationContext(),newBook.getBstatus() ,Toast.LENGTH_LONG).show();
-
-
 
                         }
                     }

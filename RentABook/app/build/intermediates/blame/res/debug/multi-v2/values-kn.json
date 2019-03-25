@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-kn/values-kn.xml",
+            "outputFile": "C:\\Users\\JuSong\\Desktop\\project\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kn\\values-kn.xml",
             "map": [
                 {
-                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a644385a66ecc0c218896954aca7f5e2/res/values-kn/values-kn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5668",
-                        "endColumns": "100",
-                        "endOffsets": "5764"
-                    }
-                },
-                {
-                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/0310c96610920c3375951c612700b347/res/values-kn/values.xml",
+                    "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\bda3d68c1f483e6adc793ced51ed61b3\\res\\values-kn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/values-kn/values-kn.xml",
+                    "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6614311ccedef14a6c82b89ad3ba1963\\res\\values-kn\\values-kn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5668",
+                        "endColumns": "100",
+                        "endOffsets": "5764"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\f6351559f2b09e05c375def4fed0ebe5\\res\\values-kn\\values-kn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/2548ce65821c4f7fc44c492a64da8688/res/values-kn/values.xml",
+                    "source": "C:\\Users\\JuSong\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\9eeaa872ca9789aef17e54bf5f3fc45a\\res\\values-kn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
