@@ -135,7 +135,6 @@ public class HomeActivity extends AppCompatActivity {
                         String url1 = "http://covers.openlibrary.org/b/isbn/";
                         String url2 = "-M.jpg";
                         horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
-                        horizontalModel.setBookTitle(newBook.getBtitle());
 
                         arrayListHorizontal_myBooks.add(horizontalModel);
                         bookList.add(newBook);

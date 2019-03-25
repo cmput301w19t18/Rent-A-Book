@@ -1,8 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +26,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      * The Context.
      */
     Context context;
-
     /**
      * The Array list.
      */
@@ -53,32 +50,10 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HorizontalRVViewHolder horizontalRVViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull HorizontalRVViewHolder horizontalRVViewHolder, int i) {
         final HorizontalModel horizontalModel = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(horizontalModel.getBookRating());
         Picasso.get().load(horizontalModel.getBookCover()).into(horizontalRVViewHolder.bookCover);
-        horizontalRVViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), BookDetails.class);
-
-                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getBookRating()));
-                intent.putExtra("btitle", arrayList.get(i).getBookTitle());
-                intent.putExtra("bookphoto",arrayList.get(i).getBookCover());
-                intent.putExtra("mode", "2");
-                Activity origin = (Activity) context;
-                origin.startActivity(intent);
-
-
-
-                //origin.startActivityForResult(intent,2);
-
-
-
-
-            }
-        });
-
 
         //horizontalRVViewHolder.bookCover.setImageResource(horizontalModel.getBookCover());
         //Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView);
@@ -112,7 +87,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
             super(itemView);
             ratingBar = (RatingBar)itemView.findViewById(R.id.bookRating);
             bookCover = (ImageView)itemView.findViewById(R.id.bookCover);
-
         }
     }
 }
