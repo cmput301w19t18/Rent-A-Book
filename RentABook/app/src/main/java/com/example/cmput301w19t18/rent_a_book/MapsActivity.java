@@ -62,10 +62,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Float zoom = new Float (15); //default zoom level
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CSB_home, zoom));
 
-        mMap.addMarker(new MarkerOptions().position(CSB_home).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
 
         enableMyLocation();
+        setMapLongClick(mMap);
     }
 
     //"In MapsActivity, override the onCreateOptionsMenu() method and inflate the map_options file:"
