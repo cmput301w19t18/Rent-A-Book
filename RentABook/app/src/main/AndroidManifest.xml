@@ -19,8 +19,6 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing"
         android:theme="@style/AppTheme">
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
         <activity android:name=".MapPreActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
