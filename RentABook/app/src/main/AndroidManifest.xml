@@ -24,10 +24,12 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppThemeNoBar">
 
         <activity android:name=".NewBookActivity"
             android:exported="true"></activity>
+
+        <!--<activity android:name=".LoginActivity"> -->
 
         <activity android:name=".MapPreActivity"></activity>
         <!--
@@ -45,8 +47,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity android:name=".LoginActivity">
 
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,17 +56,16 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".SearchResultsActivity"
+        <activity android:name=".SearchResultsActivity"
             android:exported="true" />
-        <activity
-            android:name=".HomeActivity"
+        <activity android:name=".HomeActivity"
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".BookDetails" />
         <activity android:name=".PickGenrePreference"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SuccessfulSignupActivity"/>
 
     </application>
 

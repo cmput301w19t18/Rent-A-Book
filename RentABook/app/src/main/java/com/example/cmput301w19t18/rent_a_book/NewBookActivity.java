@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,8 +17,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
@@ -48,6 +52,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         Intent intent = getIntent();
         Bundle b =  intent.getExtras();
 
@@ -69,7 +78,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
             finish(); //close activity
-            startActivity(new Intent(this, MainActivity.class)); //returns to login screen
+            startActivity(new Intent(this, LoginActivity.class)); //returns to login screen
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");

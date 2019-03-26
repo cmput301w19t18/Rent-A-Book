@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="230dp"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="8dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +21,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/CategoryTitle"
-            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:fontFamily="cursive"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Category" />
@@ -29,7 +32,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerHorizontalView"
             android:layout_width="match_parent"
-            android:layout_height="187dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:clipToPadding="false"
             android:orientation="horizontal"

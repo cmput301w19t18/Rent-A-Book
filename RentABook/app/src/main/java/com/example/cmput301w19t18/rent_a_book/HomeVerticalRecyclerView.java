@@ -2,6 +2,7 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
@@ -60,6 +61,15 @@ public class HomeVerticalRecyclerView extends RecyclerView.Adapter<HomeVerticalR
         verticalRVViewHolder.recyclerView.setHasFixedSize(true);
         verticalRVViewHolder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         verticalRVViewHolder.recyclerView.setAdapter(horizontalRecyclerViewAdapter);
+
+
+        if (i%2 == 1) {
+            verticalRVViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.lightOrangeSpice));
+
+        }
+        else {
+            verticalRVViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.tanSpice));
+        }
     }
 
     @Override

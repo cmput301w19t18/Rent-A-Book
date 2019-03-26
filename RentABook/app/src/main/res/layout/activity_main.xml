@@ -4,8 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.cmput301w19t18.rent_a_book.RegisterActivity">
+
+    android:layout_height="wrap_content"
+    tools:context=".LoginActivity">
+
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
