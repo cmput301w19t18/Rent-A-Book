@@ -65,7 +65,7 @@
                 android:text="@string/Next" />
 
             <Button
-                android:id="@+id/signup"
+                android:id="@+id/signupOld"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"

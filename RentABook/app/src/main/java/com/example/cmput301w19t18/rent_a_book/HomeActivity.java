@@ -27,7 +27,7 @@ import java.util.Collections;
 
 /**
  * The type Home activity.
- * Home activity consists of a nested recyclerviw and gets the reccomended category, books owned, and top books
+ * Home activity consists of a nested recyclerview and gets the recommended category, books owned, and top books
  * (still a work of progress and will change)
  *
  * Values are fetched using Firebase and querying them to get the correct information in each category

@@ -15,8 +15,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
@@ -70,7 +72,7 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
             finish(); //close activity
-            startActivity(new Intent(this, MainActivity.class)); //returns to login screen
+            startActivity(new Intent(this, LoginActivity.class)); //returns to login screen
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
