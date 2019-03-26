@@ -53,16 +53,6 @@
         app:layout_constraintTop_toTopOf="@+id/barrier">
 
 
-        <ImageView
-            android:id="@+id/mysteryHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button_highlighted" />
-
         <Button
             android:id="@+id/mysteryButton"
             android:layout_width="wrap_content"
@@ -72,23 +62,13 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="@color/lightOrangeSpice"
             android:shadowColor="#282a2b"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Mystery"
+            android:text="@string/mystery"
             android:textColor="@color/white" />
 
-        <ImageView
-            android:id="@+id/scifiHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="3"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/scifiButton"
@@ -98,23 +78,13 @@
             android:layout_column="3"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/tanSpice"
+            android:background="@drawable/tan_spice_circle"
             android:shadowColor="#282a2b"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="SciFi"
+            android:text="@string/scifi"
             android:textColor="@color/white" />
-
-        <ImageView
-            android:id="@+id/westernHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/westernButton"
@@ -123,23 +93,13 @@
             android:layout_row="2"
             android:layout_column="0"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/lightOlive"
+            android:background="@drawable/light_olive_circle"
             android:shadowColor="@color/mediumGray"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Western"
+            android:text="@string/western"
             android:textColor="@color/white" />
-
-        <ImageView
-            android:id="@+id/bioHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="2"
-            android:layout_column="3"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/bioButton"
@@ -148,23 +108,14 @@
             android:layout_row="2"
             android:layout_column="3"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/mediumOrangeSpice"
+            android:background="@drawable/medium_orange_spice"
             android:shadowColor="@color/black"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Biography"
+            android:text="@string/biography"
             android:textColor="@color/white" />
 
-        <ImageView
-            android:id="@+id/historyHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/historyButton"
@@ -173,23 +124,13 @@
             android:layout_row="3"
             android:layout_column="0"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/purpleSlate"
+            android:background="@drawable/purple_slate_circle"
             android:shadowColor="@color/black"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="HisFic"
+            android:text="@string/hisfic"
             android:textColor="@color/white" />
-
-        <ImageView
-            android:id="@+id/adventureHighlight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="3"
-            android:layout_column="3"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button_highlighted" />
 
         <Button
             android:id="@+id/adventureButton"
@@ -198,13 +139,12 @@
             android:layout_row="3"
             android:layout_column="3"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/lightGray"
+            android:background="@drawable/light_gray_circle"
             android:shadowColor="@color/black"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Adventure"
+            android:text="@string/adventure"
             android:textColor="@color/white" />
 
 
@@ -222,7 +162,7 @@
         android:layout_marginBottom="117dp"
         android:fontFamily="cursive"
         android:gravity="center_horizontal"
-        android:text="&lt;- 2 ->"
+        android:text="@string/lt_2"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:fontFamily="cursive"

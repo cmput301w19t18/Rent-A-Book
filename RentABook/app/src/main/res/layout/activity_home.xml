@@ -25,4 +25,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:pressedTranslationZ="12dp" />
 
+    <Button
+        android:id="@+id/maptest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="map test button"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="667dp" />
+
 </android.support.constraint.ConstraintLayout>

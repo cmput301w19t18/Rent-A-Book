@@ -7,23 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--
-    <TextView
-        android:id="@+id/genreText"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:fontFamily="cursive"
-        android:gravity="center_horizontal"
-        android:paddingTop="10dp"
-        android:text="@string/ChooseGenre"
-        android:textSize="40sp"
-        android:typeface="normal"
-        app:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-        -->
     <android.support.constraint.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
@@ -31,17 +14,6 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="genreText" />
 
-    <!--
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/barrier">
-        </android.support.v4.view.ViewPager>
--->
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
@@ -56,7 +28,6 @@
         app:layout_constraintTop_toTopOf="@+id/barrier">
 
 
-
         <Button
             android:id="@+id/comedyButton"
             android:layout_width="wrap_content"
@@ -66,12 +37,11 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/circle_button"
-            android:backgroundTint="@color/lightOrangeSpice"
             android:shadowColor="#282a2b"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Comedy"
+            android:text="@string/comedy"
             android:textColor="@color/white" />
 
         <Button
@@ -82,13 +52,12 @@
             android:layout_column="3"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/tanSpice"
+            android:background="@drawable/tan_spice_circle"
             android:shadowColor="#282a2b"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Drama"
+            android:text="@string/drama"
             android:textColor="@color/white" />
 
 
@@ -99,13 +68,12 @@
             android:layout_row="2"
             android:layout_column="0"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/lightOlive"
+            android:background="@drawable/light_olive_circle"
             android:shadowColor="@color/mediumGray"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Romance"
+            android:text="@string/romance"
             android:textColor="@color/white" />
 
 
@@ -116,13 +84,12 @@
             android:layout_row="2"
             android:layout_column="3"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/mediumOrangeSpice"
+            android:background="@drawable/medium_orange_spice"
             android:shadowColor="@color/black"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Comic"
+            android:text="@string/comic"
             android:textColor="@color/white" />
 
 
@@ -133,13 +100,12 @@
             android:layout_row="3"
             android:layout_column="0"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/purpleSlate"
+            android:background="@drawable/purple_slate_circle"
             android:shadowColor="@color/black"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Fantasy"
+            android:text="@string/fantasy"
             android:textColor="@color/white" />
 
         <Button
@@ -149,13 +115,12 @@
             android:layout_row="3"
             android:layout_column="3"
             android:layout_marginBottom="30dp"
-            android:background="@drawable/circle_button"
-            android:backgroundTint="@color/lightGray"
+            android:background="@drawable/light_gray_circle"
             android:shadowColor="@color/black"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
-            android:text="Horror"
+            android:text="@string/horror"
             android:textColor="@color/white" />
 
 
@@ -173,7 +138,7 @@
         android:layout_marginBottom="117dp"
         android:fontFamily="cursive"
         android:gravity="center_horizontal"
-        android:text="   1 ->"
+        android:text="@string/_1"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:fontFamily="cursive"

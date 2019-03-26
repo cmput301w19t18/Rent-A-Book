@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Rent-A-Book</string>
+    <string name="appTitle">Rent a Read</string>
+
+    <string name="noaccounttext">Don"'"t have an account?</string>
+    <string name="textsignup">Click here!</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="signin">Log in</string>
+    <string name="GenreButton">Add Genre</string>
+    <string name="AddPhotoButton">Add Photo</string>
+    <string name="req_button">Request</string>
 
     <string name="RegisterFirst">Enter Your First Name</string>
     <string name="RegisterLast">Enter Your Last Name</string>
@@ -24,5 +34,31 @@
     <string name="AddButton">+</string>
     <string name="CategoryTitle">Category</string>
     <string name="searchText">Search</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="terrain_map">terrain_map</string>
+    <string name="satellite_map">satellite_map</string>
+    <string name="hybrid_map">hybrid_map</string>
+    <string name="normal_map">normal_map</string>
+    <string name="western">Western</string>
+    <string name="scifi">SciFi</string>
+    <string name="mystery">Mystery</string>
+    <string name="biography">Biography</string>
+    <string name="hisfic">HisFic</string>
+    <string name="adventure">Adventure</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="horror">Horror</string>
+    <string name="comic">Comic</string>
+    <string name="romance">Romance</string>
+    <string name="drama">Drama</string>
+    <string name="comedy">Comedy</string>
+    <string name="nonfiction">Nonfiction</string>
+    <string name="ya">YA</string>
+    <string name="thiller">Thiller</string>
+    <string name="tragedy">Tragedy</string>
+    <string name="poetry">Poetry</string>
+    <string name="children_s">Children\'s</string>
+    <string name="_1"><![CDATA[  1 ->]]></string>
+    <string name="lt_2"><![CDATA[<- 2 ->]]></string>
+    <string name="lt_3"><![CDATA[<- 3  ]]></string>
 
 </resources>

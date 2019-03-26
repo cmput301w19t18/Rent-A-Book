@@ -28,10 +28,11 @@
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/text_input_layout"
         android:ems="10"
         android:hint="@string/searchText"
         android:inputType="text"
-        android:text="@string/searchText"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Brooklynn Nine-Nine" />
