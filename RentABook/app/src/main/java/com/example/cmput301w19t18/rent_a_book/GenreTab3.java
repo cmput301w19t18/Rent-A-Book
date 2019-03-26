@@ -4,6 +4,7 @@ package com.example.cmput301w19t18.rent_a_book;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,6 +57,10 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
     private String email;
     private String pass;
 
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase mFireBaseD;
+    private DatabaseReference DataR;
+
 
     public GenreTab3() {
         // constructor
@@ -61,6 +74,9 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         // setting up the viewmodel which allows each fragment communicate with each other
         model = ViewModelProviders.of(this).get(GenreViewModel.class);
 
+        mAuth = FirebaseAuth.getInstance();
+        mFireBaseD = FirebaseDatabase.getInstance();
+
         // TODO credit https://mobikul.com/pass-data-activity-fragment-android/
         // unpack data from activity
        /*if (getArguments() != null) {
@@ -73,11 +89,11 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         // TODO credit https://www.codexpedia.com/android/passing-data-to-activity-and-fragment-in-android/
         fName = getActivity().getIntent().getExtras().getString("firstName");
         lName = getActivity().getIntent().getExtras().getString("lastName");
-        phone = getActivity().getIntent().getExtras().getString("phone");
+        phone = getActivity().getIntent().getExtras().getString("phoneNum");
         pass = getActivity().getIntent().getExtras().getString("password");
         email = getActivity().getIntent().getExtras().getString("email");
 
-        Toast.makeText(this.getContext(),fName,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getContext(),pass,Toast.LENGTH_SHORT).show();
 
 
         Button nonfic = (Button) v.findViewById(R.id.nonficButton);
@@ -122,10 +138,10 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
             case R.id.yaButton:
                 //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(13) == 0 && selected < 3) {
-                    addGenre(13,"Picked YA!", "Young Adult");
+                    addGenre(13,"Picked YA!", "Young-Adult");
                 }
                 else if (preferenceList.get(13) == 1) {
-                    removeGenre(13, "YA unselected!", "Young Adult");
+                    removeGenre(13, "YA unselected!", "Young-Adult");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -236,7 +252,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }
 
-    public void signUp(String email, List<Integer> prefList, String firstName, String lastName, String password, String phone, List<String> genList) {
+    public void signUp(final String email, List<Integer> prefList, String firstName, String lastName, String password, final String phone, List<String> genList) {
         // string builder here to convert prefList to string
         StringBuilder strBuild = new StringBuilder();
         Iterator<Integer> i = prefList.iterator();
@@ -247,6 +263,8 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
             }
         }
 
+        final String gList = strBuild.toString();
+
         StringBuilder strBuild2 = new StringBuilder();
         Iterator<String> s = genList.iterator();
         while(s.hasNext()) {
@@ -255,6 +273,41 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 strBuild2.append(" ");
             }
         }
+
+
+        //Toast.makeText(getActivity(),gList,Toast.LENGTH_SHORT).show();
+
+        // send info to firebase here
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (!task.isSuccessful()){
+                    User user = new User(email, gList, fName, lName, phone);
+                    String user_id = mAuth.getCurrentUser().getUid();
+                    Toast.makeText(getActivity(),gList,Toast.LENGTH_SHORT).show();
+                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(!task.isSuccessful()){
+                                Toast.makeText(getActivity(),"Registration Success",Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+
+                    Toast.makeText(getActivity(),"User Registered!",Toast.LENGTH_SHORT).show();
+
+                    getActivity().finish();
+                }
+                //check if email is already registered
+                if (task.getException() instanceof FirebaseAuthUserCollisionException){
+                    Toast.makeText(getActivity(),"User Already Registered!",Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+
 
         //strBuild.toString();
         // then pack in extras

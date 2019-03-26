@@ -1,5 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -25,10 +26,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class SuccessfulSignupActivity extends AppCompatActivity implements View.OnClickListener{
-    private FirebaseAuth mAuth;
-    private FirebaseDatabase mFireBaseD;
-    private DatabaseReference DataR;
+public class SuccessfulSignupActivity extends AppCompatActivity {
 
     private String email;
     private String password;
@@ -41,6 +39,8 @@ public class SuccessfulSignupActivity extends AppCompatActivity implements View.
     private Button genre1;
     private Button genre2;
     private Button genre3;
+
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class SuccessfulSignupActivity extends AppCompatActivity implements View.
         TextView viewName = (TextView) findViewById(R.id.inputName);
         TextView viewPhone = (TextView) findViewById(R.id.inputPhone);
         TextView viewEmail = (TextView) findViewById(R.id.inputEmail);
+        TextView proceed = (TextView) findViewById(R.id.proceed);
 
         genre1 = (Button) findViewById(R.id.genre1);
         genre2 = (Button) findViewById(R.id.genre2);
@@ -84,115 +85,122 @@ public class SuccessfulSignupActivity extends AppCompatActivity implements View.
             genreListStr =(String) savedInstanceState.getSerializable("genresString");
         }
 
-        viewName.setText(fName + " " + lName);
+        String name = fName + " " + lName;
+        viewName.setText(name);
         viewPhone.setText(phone);
         viewEmail.setText(email);
 
 
         String selGenres[] = genreListStr.split(" ");
 
-        genre1.setText(selGenres[0]);
-        genre2.setText(selGenres[1]);
-        genre3.setText(selGenres[2]);
+        setButtonAttr(selGenres[0], genre1);
+        setButtonAttr(selGenres[1], genre2);
+        setButtonAttr(selGenres[2], genre3);
 
-        /*
-        // send info to firebase
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        proceed.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    User user = new User(email, genreList, fName, lName);
-                    String user_id = mAuth.getCurrentUser().getUid();
-
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(SuccessfulSignupActivity.this,"Registration Success",Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-                    Toast.makeText(getApplicationContext(),"User Registered!",Toast.LENGTH_SHORT).show();
-
-                    finish();
-                }
-                //check if email is already registered
-                if (task.getException() instanceof FirebaseAuthUserCollisionException){
-                    Toast.makeText(getApplicationContext(),"User Already Registered!",Toast.LENGTH_SHORT).show();
-
-                }
-
+            public void onClick(View v) {
+                // try to sign in here (keep user signed in)
+                Intent intent = new Intent(SuccessfulSignupActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
         });
-        */
 
-       // get and display from firebase
+
+
     }
 
     public void setButtonAttr(String s, Button b) {
-        if (s == "Comedy") {
-            b.setText(s);
-            b.setBackgroundColor(getResources().getColor(R.color.lightOrangeSpice));
+        b.setText(s);
+        if (s.equals("Comedy")) {
+            b.setBackgroundResource(R.drawable.circle_button);
         }
-        else if (s == "Drama") {
-            b.setText(s);
-            b.setBackgroundColor(getResources().getColor(R.color.tanSpice));
+        else if (s.equals("Drama")) {
+            b.setBackgroundResource(R.drawable.tan_spice_circle);
         }
-        else if (s == "Romance") {
-
+        else if (s.equals("Romance")) {
+            b.setBackgroundResource(R.drawable.light_olive_circle);
         }
-        else if (s == "Comics") {
-
+        else if (s.equals("Comics")) {
+            b.setBackgroundResource(R.drawable.medium_orange_spice);
         }
-        else if (s == "Fantasy") {
-
+        else if (s.equals("Fantasy")) {
+            b.setBackgroundResource(R.drawable.purple_slate_circle);
         }
-        else if (s == "Horror") {
-
+        else if (s.equals("Horror")) {
+            b.setBackgroundResource(R.drawable.light_gray_circle);
         }
-        else if (s == "Mystery") {
-
+        else if (s.equals("Mystery")) {
+            b.setBackgroundResource(R.drawable.circle_button);
         }
-        else if (s == "Science Fiction") {
-
+        else if (s.equals("Science-Fiction")) {
+            b.setText("Scifi");
+            b.setBackgroundResource(R.drawable.tan_spice_circle);
         }
-        else if (s == "Western") {
-
+        else if (s.equals("Western")) {
+            b.setBackgroundResource(R.drawable.light_olive_circle);
         }
-        else if (s == "Biography") {
-
+        else if (s.equals("Biography")) {
+            b.setBackgroundResource(R.drawable.medium_orange_spice);
         }
-        else if (s == "Historical Fiction") {
-
+        else if (s.equals("Historical-Fiction")) {
+            b.setText("Hisfic");
+            b.setBackgroundResource(R.drawable.purple_slate_circle);
         }
-        else if (s == "Adventure") {
-
+        else if (s.equals("Adventure")) {
+            b.setBackgroundResource(R.drawable.light_gray_circle);
         }
-        else if (s == "Non-Fiction") {
-
+        else if (s.equals("Non-Fiction")) {
+            b.setText("Nonfic");
+            b.setBackgroundResource(R.drawable.circle_button);
         }
-        else if (s == "Young Adult") {
-
+        else if (s.equals("Young-Adult")) {
+            b.setText("YA");
+            b.setBackgroundResource(R.drawable.tan_spice_circle);
         }
-        else if (s == "Thriller") {
-
+        else if (s.equals("Thriller")) {
+            b.setBackgroundResource(R.drawable.light_olive_circle);
         }
-        else if (s == "Tragedy") {
-
+        else if (s.equals("Tragedy")) {
+            b.setBackgroundResource(R.drawable.medium_orange_spice);
         }
-        else if (s == "Poetry") {
-
+        else if (s.equals("Poetry")) {
+            b.setBackgroundResource(R.drawable.purple_slate_circle);
         }
-        else if (s == "Children's") {
-
+        else if (s.equals("Children's")) {
+            b.setBackgroundResource(R.drawable.light_gray_circle);
         }
     }
 
+    /*
     @Override
     public void onClick(View view) {
-        // go to home page
+        // signin new user and go to home page
+
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Intent intent = new Intent(SuccessfulSignupActivity.this, HomeActivity.class);
+                    intent.putExtras(new Bundle());
+                    Bundle bundle = intent.getExtras();
+                    bundle.putString("user_email", email);
+
+                    intent.putExtras(bundle);
+                    //CLOSE ALL OPEN ACTIVITES.
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        Intent intent = new Intent(SuccessfulSignupActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
+    */
+
 
 }

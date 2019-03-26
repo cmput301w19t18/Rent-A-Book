@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/congrats"
+        android:id="@+id/congrat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -40,7 +40,7 @@
         app:fontFamily="sans-serif-condensed-light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/congrats" />
+        app:layout_constraintTop_toBottomOf="@+id/congrat" />
 
     <TextView
         android:id="@+id/proceed"
@@ -169,7 +169,6 @@
                 android:layout_height="84dp"
                 android:layout_row="3"
                 android:layout_column="3"
-                android:background="@drawable/circle_button"
                 android:shadowColor="@color/black"
                 android:shadowDx="5"
                 android:shadowDy="5"
@@ -184,7 +183,6 @@
                 android:layout_height="84dp"
                 android:layout_row="3"
                 android:layout_column="3"
-                android:background="@drawable/circle_button"
                 android:shadowColor="@color/black"
                 android:shadowDx="5"
                 android:shadowDy="5"
@@ -199,7 +197,6 @@
                 android:layout_height="84dp"
                 android:layout_row="3"
                 android:layout_column="3"
-                android:background="@drawable/circle_button"
                 android:shadowColor="@color/black"
                 android:shadowDx="5"
                 android:shadowDy="5"

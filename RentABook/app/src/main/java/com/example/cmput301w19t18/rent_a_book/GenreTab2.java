@@ -106,11 +106,11 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(7) == 0 && selected < 3) {
                     //genreList.add("Scifi");
-                    addGenre(7,"Picked science fiction!", "Science Fiction");
+                    addGenre(7,"Picked science fiction!", "Science-Fiction");
                 }
                 else if (preferenceList.get(7) == 1) {
                     //genreList.remove("Scifi");
-                    removeGenre(7, "Science Fiction unselected!", "Science Fiction");
+                    removeGenre(7, "Science Fiction unselected!", "Science-Fiction");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -148,11 +148,11 @@ public class GenreTab2 extends Fragment implements View.OnClickListener {
                 //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(10) == 0 && selected < 3) {
                     //genreList.add("History");
-                    addGenre(10,"Picked historical fiction!", "Historical Fiction");
+                    addGenre(10,"Picked historical fiction!", "Historical-Fiction");
                 }
                 else if (preferenceList.get(10) == 1) {
                     //genreList.remove("History");
-                    removeGenre(10, "Historical Fiction unselected!", "Historical Fiction");
+                    removeGenre(10, "Historical Fiction unselected!", "Historical-Fiction");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
