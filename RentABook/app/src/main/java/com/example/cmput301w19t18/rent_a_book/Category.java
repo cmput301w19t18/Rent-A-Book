@@ -14,7 +14,7 @@ public class Category {
     /**
      * The Array list.
      */
-    ArrayList<HorizontalModel> arrayList;
+    ArrayList<Book> arrayList;
 
     /**
      * Gets category title.
@@ -39,7 +39,7 @@ public class Category {
      *
      * @return the array list
      */
-    public ArrayList<HorizontalModel> getArrayList() {
+    public ArrayList<Book> getArrayList() {
         return arrayList;
     }
 
@@ -48,7 +48,7 @@ public class Category {
      *
      * @param arrayList the array list
      */
-    public void setArrayList(ArrayList<HorizontalModel> arrayList) {
+    public void setArrayList(ArrayList<Book> arrayList) {
         this.arrayList = arrayList;
     }
 }
