@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public abstract class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
+public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
     private FirebaseAuth bAuth;
@@ -56,16 +56,15 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
 
-
         //initializing fields and buttons
         SubmitB = (Button) findViewById(R.id.SubmitButton);
         ISBNF = (EditText) findViewById(R.id.ISBNBox);
         AuthorF = (EditText) findViewById(R.id.AuthBox);
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
+
         SubmitB.setOnClickListener(this);
         //email = b.getString("user_email");
-
 
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){

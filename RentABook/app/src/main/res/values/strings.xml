@@ -39,5 +39,6 @@
     <string name="satellite_map">satellite_map</string>
     <string name="hybrid_map">hybrid_map</string>
     <string name="normal_map">normal_map</string>
+    <string name="google_maps_key">AIzaSyCMAjWuJsN8TvKz70xpF3ivXfniwU24efo</string>
 
 </resources>
