@@ -1,4 +1,0 @@
-#Tue Mar 26 15:46:56 MDT 2019
-base.0=/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/transforms/dexMerger/debug/8
-path.0=classes.dex
-renamed.0=classes.dex
