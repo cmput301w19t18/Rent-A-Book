@@ -9,7 +9,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +29,7 @@ import java.util.Collections;
 
 /**
  * The type Home activity.
- * Home activity consists of a nested recyclerviw and gets the reccomended category, books owned, and top books
+ * Home activity consists of a nested recyclerview and gets the recommended category, books owned, and top books
  * (still a work of progress and will change)
  *
  * Values are fetched using Firebase and querying them to get the correct information in each category
@@ -65,16 +68,36 @@ public class HomeActivity extends AppCompatActivity {
      * The Category 2.
      */
     category2;
-    private ArrayList<HorizontalModel> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2;
+    private ArrayList<Book> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2;
     private ArrayList<Book> bookList;
+
+    //Map test button
+    private Button testButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_home);
 
         Intent intent = getIntent();
         Bundle b =  intent.getExtras();
+
+        //Map test button//
+        Button testButton = findViewById(R.id.maptest);
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
+                startActivityForResult(intent, ADDING);
+                update = true;
+            }
+        });
 
         arrayListVertical = new ArrayList<>();
         verticalRecyclerView = (RecyclerView)findViewById(R.id.homeRecyclerView);
@@ -129,15 +152,17 @@ public class HomeActivity extends AppCompatActivity {
                         // add all books in a list
                         Book newBook = snapshot.getValue(Book.class);
 
-                        HorizontalModel horizontalModel = new HorizontalModel();
+                        //HorizontalModel horizontalModel = new HorizontalModel();
 
-                        horizontalModel.setBookRating(newBook.getRating());
-                        String url1 = "http://covers.openlibrary.org/b/isbn/";
-                        String url2 = "-M.jpg";
-                        horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
-                        horizontalModel.setBookTitle(newBook.getBtitle());
+                        //horizontalModel.setBookRating(newBook.getRating());
+                        //String url1 = "http://covers.openlibrary.org/b/isbn/";
+                        //String url2 = "-M.jpg";
+                        //horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
+                        //horizontalModel.setBookTitle(newBook.getBtitle());
 
-                        arrayListHorizontal_myBooks.add(horizontalModel);
+                        //arrayListHorizontal_myBooks.add(horizontalModel);
+
+                        arrayListHorizontal_myBooks.add(newBook);
                         bookList.add(newBook);
                     }
                     // add the rest of the categories in here
@@ -150,12 +175,15 @@ public class HomeActivity extends AppCompatActivity {
                     for (int i=0; i<bookList.size(); i++) {
                         Book currentBook = bookList.get(i);
                         if (currentBook.getbOwner().contentEquals(bAuth.getCurrentUser().getEmail())) {
-                            HorizontalModel horizontalModel = new HorizontalModel();
-                            horizontalModel.setBookRating(currentBook.getRating());
-                            String url1 = "http://covers.openlibrary.org/b/isbn/";
-                            String url2 = "-M.jpg";
-                            horizontalModel.setBookCover(url1+currentBook.getISBN()+url2);
-                            arrayListHorizontal_myBooks2.add(horizontalModel);
+
+//                            HorizontalModel horizontalModel = new HorizontalModel();
+//                            horizontalModel.setBookRating(currentBook.getRating());
+//                            String url1 = "http://covers.openlibrary.org/b/isbn/";
+//                            String url2 = "-M.jpg";
+//                            horizontalModel.setBookCover(url1+currentBook.getISBN()+url2);
+
+
+                            arrayListHorizontal_myBooks2.add(currentBook);
                         }
                     }
 

@@ -1412,6 +1412,65 @@
 
 <attr format="boolean" name="circleCrop"/>
 </declare-styleable>
+    <declare-styleable name="MapAttrs"><attr name="mapType">
+<enum name="none" value="0"/>
+
+<enum name="normal" value="1"/>
+
+<enum name="satellite" value="2"/>
+
+<enum name="terrain" value="3"/>
+
+<enum name="hybrid" value="4"/>
+
+</attr>
+
+<attr format="float" name="cameraBearing"/>
+
+<attr format="float" name="cameraTargetLat"/>
+
+<attr format="float" name="cameraTargetLng"/>
+
+<attr format="float" name="cameraTilt"/>
+
+<attr format="float" name="cameraZoom"/>
+
+<attr format="boolean" name="liteMode"/>
+
+<attr format="boolean" name="uiCompass"/>
+
+<attr format="boolean" name="uiRotateGestures"/>
+
+<attr format="boolean" name="uiScrollGestures"/>
+
+<attr format="boolean" name="uiScrollGesturesDuringRotateOrZoom"/>
+
+<attr format="boolean" name="uiTiltGestures"/>
+
+<attr format="boolean" name="uiZoomControls"/>
+
+<attr format="boolean" name="uiZoomGestures"/>
+
+<attr format="boolean" name="useViewLifecycle"/>
+
+<attr format="boolean" name="zOrderOnTop"/>
+
+<attr format="boolean" name="uiMapToolbar"/>
+
+<attr format="boolean" name="ambientEnabled"/>
+
+<attr format="float" name="cameraMinZoomPreference"/>
+
+<attr format="float" name="cameraMaxZoomPreference"/>
+
+<attr format="float" name="latLngBoundsSouthWestLatitude"/>
+
+<attr format="float" name="latLngBoundsSouthWestLongitude"/>
+
+<attr format="float" name="latLngBoundsNorthEastLatitude"/>
+
+<attr format="float" name="latLngBoundsNorthEastLongitude"/>
+</declare-styleable>
     <declare-styleable name="MaterialButton"><attr name="android:insetLeft"/><attr name="android:insetRight"/><attr name="android:insetTop"/><attr name="android:insetBottom"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="reference" name="icon"/><attr format="dimension" name="iconSize"/><attr format="dimension" name="iconPadding"/><attr name="iconGravity">
       
       <flag name="start" value="0x1"/>
@@ -2218,6 +2277,7 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="dataBinding" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
@@ -2225,6 +2285,8 @@
     <item name="line3" type="id"/>
     <item name="mtrl_child_content_container" type="id"/>
     <item name="mtrl_internal_children_alpha_tag" type="id"/>
+    <item name="onAttachStateChangeListener" type="id"/>
+    <item name="onDateChanged" type="id"/>
     <item name="parent_matrix" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
@@ -2239,6 +2301,7 @@
     <item name="tag_unhandled_key_listeners" type="id"/>
     <item name="text" type="id"/>
     <item name="text2" type="id"/>
+    <item name="textWatcher" type="id"/>
     <item name="textinput_counter" type="id"/>
     <item name="textinput_error" type="id"/>
     <item name="textinput_helper_text" type="id"/>
@@ -2279,13 +2342,14 @@
     <string name="GenreButton">Add Genre</string>
     <string name="ISBN">ISBN</string>
     <string name="Next">Next</string>
-    <string name="RegisterEmail">Enter Your Email</string>
-    <string name="RegisterFirst">Enter Your First Name</string>
-    <string name="RegisterLast">Enter Your Last Name</string>
-    <string name="RegisterPassword">Enter a Password</string>
-    <string name="RegisterPhone">Enter Your Phone Number</string>
+    <string name="RegisterEmail">Email</string>
+    <string name="RegisterFirst">First Name</string>
+    <string name="RegisterLast">Last Name</string>
+    <string name="RegisterPassword">Password</string>
+    <string name="RegisterPhone">Phone Number</string>
     <string name="RegisterSignUp">Sign Up</string>
     <string name="Title">Title</string>
+    <string name="_1"><![CDATA[  1 ->]]></string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>
@@ -2325,12 +2389,17 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="adventure">Adventure</string>
     <string name="appTitle">Rent a Read</string>
     <string name="app_name">Rent-A-Book</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="biography">Biography</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="children_s">Children\'s</string>
+    <string name="comedy">Comedy</string>
+    <string name="comic">Comic</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -2350,31 +2419,53 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="default_web_client_id" translatable="false">980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com</string>
+    <string name="drama">Drama</string>
     <string name="email">Email</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
+    <string name="fantasy">Fantasy</string>
     <string name="firebase_database_url" translatable="false">https://rent-a-read.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">980693254175</string>
     <string name="google_api_key" translatable="false">AIzaSyAHmyjPcuGxZXK4LxhzO8PJ6-GdfQcZbmQ</string>
     <string name="google_app_id" translatable="false">1:980693254175:android:e64ab23eacf32ccf</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAHmyjPcuGxZXK4LxhzO8PJ6-GdfQcZbmQ</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDpFfoQIWl6bQAsWnJHICHoeJiBcC5R9Os</string>
     <string name="google_storage_bucket" translatable="false">rent-a-read.appspot.com</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="hisfic">HisFic</string>
+    <string name="horror">Horror</string>
+    <string name="hybrid_map">hybrid_map</string>
+    <string name="lt_2"><![CDATA[<- 2 ->]]></string>
+    <string name="lt_3"><![CDATA[<- 3  ]]></string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
+    <string name="mystery">Mystery</string>
     <string name="noaccounttext">Don"'"t have an account?</string>
+    <string name="nonfiction">Nonfiction</string>
+    <string name="normal_map">normal_map</string>
     <string name="pass">Password</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="poetry">Poetry</string>
     <string name="project_id" translatable="false">rent-a-read</string>
+    <string name="req_button">Request</string>
+    <string name="romance">Romance</string>
+    <string name="satellite_map">satellite_map</string>
     <string name="scan">Scan</string>
+    <string name="scifi">SciFi</string>
     <string name="searchText">Search</string>
     <string name="search_menu_title">Search</string>
     <string name="signin">Log in</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="terrain_map">terrain_map</string>
     <string name="textsignup">Click here!</string>
+    <string name="thiller">Thiller</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="tragedy">Tragedy</string>
+    <string name="western">Western</string>
+    <string name="ya">YA</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -3968,7 +4059,7 @@
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Holo.Spinner"/>
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/lightGray</item>
-        <item name="colorControlActivated">@color/pastelYellowDark</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
     </style>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
