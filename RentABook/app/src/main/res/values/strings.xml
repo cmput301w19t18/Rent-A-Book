@@ -11,11 +11,11 @@
     <string name="AddPhotoButton">Add Photo</string>
     <string name="req_button">Request</string>
 
-    <string name="RegisterFirst">Enter Your First Name</string>
-    <string name="RegisterLast">Enter Your Last Name</string>
-    <string name="RegisterPhone">Enter Your Phone Number</string>
-    <string name="RegisterEmail">Enter Your Email</string>
-    <string name="RegisterPassword">Enter a Password</string>
+    <string name="RegisterFirst">First Name</string>
+    <string name="RegisterLast">Last Name</string>
+    <string name="RegisterPhone">Phone Number</string>
+    <string name="RegisterEmail">Email</string>
+    <string name="RegisterPassword">Password</string>
     <string name="RegisterSignUp">Sign Up</string>
     <string name="Cancel">Cancel</string>
     <string name="Next">Next</string>
@@ -39,6 +39,7 @@
     <string name="satellite_map">satellite_map</string>
     <string name="hybrid_map">hybrid_map</string>
     <string name="normal_map">normal_map</string>
+    <string name="google_maps_key">AIzaSyCMAjWuJsN8TvKz70xpF3ivXfniwU24efo</string>
     <string name="western">Western</string>
     <string name="scifi">SciFi</string>
     <string name="mystery">Mystery</string>
@@ -60,5 +61,6 @@
     <string name="_1"><![CDATA[  1 ->]]></string>
     <string name="lt_2"><![CDATA[<- 2 ->]]></string>
     <string name="lt_3"><![CDATA[<- 3  ]]></string>
+    <string name="done">Done</string>
 
 </resources>

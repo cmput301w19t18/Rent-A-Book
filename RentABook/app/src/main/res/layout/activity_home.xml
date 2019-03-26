@@ -27,10 +27,14 @@
 
     <Button
         android:id="@+id/maptest"
-        android:layout_width="wrap_content"
+        android:layout_width="161dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/simple_button_layout"
         android:text="map test button"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public abstract class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
+public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
     private FirebaseAuth bAuth;
@@ -43,6 +43,12 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
     private EditText TitleF;
     private EditText DescF;
     private String email;
+    private String genre;
+    private String strGenre;
+    private Button GenreB;
+    private Button genre1;
+    private Button genre2;
+    private Button genre3;
 
     //latest book added:
     private Book addedBook;
@@ -57,14 +63,13 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Intent intent = getIntent();
-        Bundle b =  intent.getExtras();
+        //Intent intent = getIntent();
+        //Bundle b =  intent.getExtras();
 
         setContentView(R.layout.activity_newbook);
 
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
-
 
         //initializing fields and buttons
         SubmitB = (Button) findViewById(R.id.SubmitButton);
@@ -72,9 +77,39 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
         AuthorF = (EditText) findViewById(R.id.AuthBox);
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
+
+        GenreB = (Button) findViewById(R.id.GenreButton);
+
+        genre1 = (Button) findViewById(R.id.genre1);
+        genre2 = (Button) findViewById(R.id.genre2);
+        genre3 = (Button) findViewById(R.id.genre3);
+
         SubmitB.setOnClickListener(this);
+        GenreB.setOnClickListener(this);
         //email = b.getString("user_email");
 
+        // unpack
+
+        if (savedInstanceState == null) {
+            Bundle bundle = getIntent().getExtras();
+            if (bundle != null) {
+                genre = bundle.getString("genres");
+                strGenre = bundle.getString("genresString");
+
+                Toast.makeText(this,genre,Toast.LENGTH_SHORT).show();
+
+                String selGenres[] = strGenre.split(" ");
+
+                genre1.setText(selGenres[0]);
+                genre2.setText(selGenres[1]);
+                genre3.setText(selGenres[2]);
+            }
+        }
+        else {
+            genre = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
+            Toast.makeText(this,"No genres lol",Toast.LENGTH_SHORT).show();
+            //strGenre = (String) savedInstanceState.getSerializable("genresString");
+        }
 
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
@@ -98,7 +133,7 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
 
         //Currently only is able to add values entered for a new book that is not already in the database
 
-        String genre = "000001010"; //going to be set by external function
+        //String genre = "000001010"; //going to be set by external function
         String requestedBy = "none";
         String owneremail = bAuth.getCurrentUser().getEmail();
         ArrayList<String> ownedBy = null;
@@ -213,6 +248,14 @@ public abstract class NewBookActivity extends AppCompatActivity implements View.
 
         if(view == SubmitB){
             saveBookInfo(); //calls the save function upon press
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+
+        if (view == GenreB) {
+            // goes to select genre
+            Intent intent = new Intent(this, PickGenrePreferenceBooks.class);
+            startActivity(intent);
         }
 
     }

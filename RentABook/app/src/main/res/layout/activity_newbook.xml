@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -174,7 +173,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/genre_icon_pastel_pink_128dp"
-            android:text="Mystery"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
@@ -186,7 +184,6 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/genre_icon_pastel_pink_128dp"
-            android:text="YA"
             app:layout_constraintStart_toEndOf="@+id/genre1"
             app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
@@ -198,7 +195,6 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/genre_icon_pastel_pink_128dp"
-            android:text="Fiction"
             app:layout_constraintStart_toEndOf="@+id/genre2"
             app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 

@@ -6,6 +6,12 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+
+    <permission
+        android:name="com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE"/>
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,8 +24,11 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing"
-
         android:theme="@style/AppThemeNoBar">
+
+        <activity android:name=".NewBookActivity"
+            android:exported="true"></activity>
+
         <!--<activity android:name=".LoginActivity"> -->
 
         <activity android:name=".MapPreActivity"></activity>
@@ -33,7 +42,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyCMAjWuJsN8TvKz70xpF3ivXfniwU24efo" />
 
         <activity
             android:name=".MapsActivity"
@@ -46,11 +55,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SearchResultsActivity"
+
+        <activity android:name=".SearchResultsActivity"
             android:exported="true" />
-        <activity
-            android:name=".HomeActivity"
+        <activity android:name=".HomeActivity"
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
@@ -58,6 +66,8 @@
         <activity android:name=".PickGenrePreference"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".SuccessfulSignupActivity"/>
+        <activity android:name=".PickGenrePreferenceBooks"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
     </application>
 
