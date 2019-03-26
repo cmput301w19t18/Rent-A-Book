@@ -2,16 +2,17 @@ package com.example.cmput301w19t18.rent_a_book;
 
 public class BookRequest {
 
+    private int bookPhoto;
     private Boolean availableStatus;
     private String requestMessage;
     private Book book;
 
-    public BookRequest(){
+    public BookRequest(int bookPhoto, Boolean availableStatus, String requestMessage){
         //code
     }
 
     public void checkAvailableStatus (){
-        if ( this.book.bstatus == "Available" || this.book.bstatus == "Requested" ){
+        if ( this.book.getBstatus() == "Available" || this.book.getBstatus() == "Requested" ){
             this.availableStatus = true;
         } else {
             this.availableStatus = false;

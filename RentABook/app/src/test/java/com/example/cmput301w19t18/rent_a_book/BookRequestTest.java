@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BookRequestTest {
 
-    Book obj = new Book("Title", "Author", "Genre", "1234567890", "Available", "Owner", 5);
+    Book obj = new Book("Title", "Author", "1234567891234", "Available", 5, "Owner USer", "10010000", "");
 
     @Test
     public void checkAvailableStatus (){

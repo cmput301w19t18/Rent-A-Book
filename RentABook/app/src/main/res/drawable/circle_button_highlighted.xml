@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO credit https://androidcode.blogspot.com/2016/03/android-circle-shape-in-xml-drawable.html-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/black"/>
+            <stroke
+                android:color="@color/pastelPink"
+                android:width="5dp"/>
+            <size
+                android:height="125dp"
+                android:width="125dp"/>
+        </shape>
+    </item>
+</selector>
