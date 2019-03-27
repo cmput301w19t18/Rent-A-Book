@@ -29,16 +29,30 @@ import java.util.concurrent.TimeUnit;
 
 import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
 
+/**
+ * The type Maps activity.
+ */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
 
-    ///////////////// Location of the marker/pin dropped /////////////////
+    /**
+     * The constant locationLat.
+     */
+///////////////// Location of the marker/pin dropped /////////////////
     public static Double locationLat;
+    /**
+     * The constant locationLon.
+     */
     public static Double locationLon;
 
 
+    /**
+     * On create.
+     *
+     * @param savedInstanceState the saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +78,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
+     *
+     * @param googleMap the google map
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -83,7 +99,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    //"In MapsActivity, override the onCreateOptionsMenu() method and inflate the map_options file:"
+    /**
+     * On create options menu boolean.
+     *
+     * @param menu the menu
+     * @return the boolean
+     */
+//"In MapsActivity, override the onCreateOptionsMenu() method and inflate the map_options file:"
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -91,7 +113,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return true;
     }
 
-    //"To change the map type, use the setMapType() method on the GoogleMap object, passing in one of the map-type constants. "
+    /**
+     * Sets options item selected.
+     *
+     * @param item the item
+     * @return the options item selected
+     */
+//"To change the map type, use the setMapType() method on the GoogleMap object, passing in one of the map-type constants. "
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Change the map type based on the user's selection.
@@ -168,6 +196,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    /**
+     * On request permissions result.
+     *
+     * @param requestCode  the request code
+     * @param permissions  the permissions
+     * @param grantResults the grant results
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         // Check if location permissions are granted and if so enable the
