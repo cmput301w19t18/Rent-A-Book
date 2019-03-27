@@ -1,6 +1,7 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -23,6 +25,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
+import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -75,6 +80,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         enableMyLocation();
         setMapLongClick(mMap);
+
     }
 
     //"In MapsActivity, override the onCreateOptionsMenu() method and inflate the map_options file:"
@@ -132,6 +138,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         //return data from map marker position:
                         MapsActivity.locationLat = latLng.latitude;
                         MapsActivity.locationLon = latLng.longitude;
+
+                        //return to home after map
+                        try
+                        { Thread.sleep(1000); } //wait 1 second before returning to home
+                        catch(InterruptedException ex)
+                        { Thread.currentThread().interrupt(); }
+
+                        Intent intent = new Intent(MapsActivity.this, HomeActivity.class);
+                        startActivityForResult(intent, ADDING);
 
                     }
                 });
