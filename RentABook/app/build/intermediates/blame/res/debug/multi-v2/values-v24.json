@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "G:\\Documents\\GitHub\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/20d2d40594d17cb5937a06f52f64661f/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\b8105d68de2f3254b03c7b92d9b785cb\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\853314cde725fac9d1cb411dd5d530f7\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
