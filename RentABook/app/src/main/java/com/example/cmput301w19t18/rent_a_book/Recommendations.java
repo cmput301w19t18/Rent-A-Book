@@ -10,6 +10,29 @@ import java.util.ArrayList;
 
 public class Recommendations extends AppCompatActivity {
 
+    /**
+     * The Recommendations activity.
+     *
+     * Recommendations uses a collaborative filtering method approach
+     * to calculate what recommendations for users based on what they
+     * have rated previously in the past and users who hav rated
+     * things similarly to them. if the user is new and has not rated
+     * any books yet then they will be recommended books based off of
+     * their preferred genres.
+     *
+     * Currently recommendations is still not implemented to function
+     * as until the database is finalised I do not know how the
+     * data I need is stored.
+     *
+     * author: Julieta Dikova
+     *
+     * sources:
+     * https://www.analyticsvidhya.com/blog/2018/06/comprehensive-guide-recommendation-engine-python/
+     * https://stackoverflow.com/questions/520241/how-do-i-calculate-the-cosine-similarity-of-two-vectors
+     * https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68
+     */
+
+
     // get current user's id from firebase
     public int userID;
     // get user id's from firebase
