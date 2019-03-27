@@ -1,8 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -56,7 +54,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
          */
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
-            mOwnerPicture = itemView.findViewById(R.id.bookPhoto);
+            mOwnerPicture = itemView.findViewById(R.id.userPhoto);
             mBookTitle = itemView.findViewById(R.id.bookTitle);
             mBookAuthor = itemView.findViewById(R.id.bookAuthor);
             mOwnerName = itemView.findViewById(R.id.bookOwner);

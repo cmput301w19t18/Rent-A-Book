@@ -1,0 +1,4 @@
+#Tue Mar 26 15:43:37 MDT 2019
+base.0=C\:\\Users\\JuSong\\Desktop\\project\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+path.0=classes.dex
+renamed.0=classes.dex
