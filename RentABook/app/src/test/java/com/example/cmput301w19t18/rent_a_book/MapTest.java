@@ -19,7 +19,7 @@ public class MapTest {
 
         Double latlat = 150.0;
         Double lonlon = -50.0;
-        
+
         assertEquals(lat, latlat);
         assertEquals(lon, lonlon);
     }
