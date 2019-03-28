@@ -1,6 +1,7 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -23,17 +25,43 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
+import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
+
+/**
+ * The type Maps activity.
+ */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
 
-    ///////////////// Location of the marker/pin dropped /////////////////
+    /**
+     * The constant locationLat.
+     */
+///////////////// Location of the marker/pin dropped /////////////////
     public static Double locationLat;
     public static Double locationLon;
 
+    public static void setLocationLat(Double locationLat) {
+        MapsActivity.locationLat = locationLat;
+    }
+    public static void setLocationLon(Double locationLon) {
+        MapsActivity.locationLon = locationLon;
+    }
+    public static Double getLocationLat() {
+        return locationLat;
+    }
+    public static Double getLocationLon() {
+        return locationLon;
+    }
 
+
+    /**
+     * On create.
+     * @param savedInstanceState the saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +87,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
+     *
+     * @param googleMap the google map
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -75,9 +105,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         enableMyLocation();
         setMapLongClick(mMap);
+
     }
 
-    //"In MapsActivity, override the onCreateOptionsMenu() method and inflate the map_options file:"
+    /**
+     * On create options menu boolean.
+     *
+     * @param menu the menu
+     * @return the boolean
+     */
+//"In MapsActivity, override the onCreateOptionsMenu() method and inflate the map_options file:"
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -85,7 +122,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return true;
     }
 
-    //"To change the map type, use the setMapType() method on the GoogleMap object, passing in one of the map-type constants. "
+    /**
+     * Sets options item selected.
+     *
+     * @param item the item
+     * @return the options item selected
+     */
+//"To change the map type, use the setMapType() method on the GoogleMap object, passing in one of the map-type constants. "
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Change the map type based on the user's selection.
@@ -133,6 +176,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         MapsActivity.locationLat = latLng.latitude;
                         MapsActivity.locationLon = latLng.longitude;
 
+                        //return to home after map
+                        try
+                        { Thread.sleep(1000); } //wait 1 second before returning to home
+                        catch(InterruptedException ex)
+                        { Thread.currentThread().interrupt(); }
+
+                        Intent intent = new Intent(MapsActivity.this, HomeActivity.class);
+                        startActivityForResult(intent, ADDING);
+
                     }
                 });
 
@@ -153,6 +205,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    /**
+     * On request permissions result.
+     *
+     * @param requestCode  the request code
+     * @param permissions  the permissions
+     * @param grantResults the grant results
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         // Check if location permissions are granted and if so enable the

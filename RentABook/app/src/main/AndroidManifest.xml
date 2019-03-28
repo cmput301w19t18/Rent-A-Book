@@ -41,7 +41,7 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
+            android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAc556fiT2oUjs0rbz0o-KyW17Yrz8ruEM" />
 
         <activity
