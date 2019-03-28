@@ -85,8 +85,8 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        Intent intent = getIntent();
-        Bundle b =  intent.getExtras();
+        //Intent intent = getIntent();
+        //Bundle b =  intent.getExtras();
 
         //Map test button//
         Button testButton = findViewById(R.id.maptest);
@@ -110,12 +110,13 @@ public class HomeActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle extras = new Bundle();
+                //Bundle extras = new Bundle();
                 Intent intent = new Intent(HomeActivity.this, NewBookActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.putExtras(extras);
-                startActivityForResult(intent, ADDING);
-                update = true;
+                //intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                //intent.putExtras(extras);
+                //startActivityForResult(intent, ADDING);
+                //update = true;
+                startActivity(intent);
             }
         });
 

@@ -1,34 +1,24 @@
 package com.example.cmput301w19t18.rent_a_book;
 
-import android.app.ActionBar;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
-import android.arch.lifecycle.ViewModelProvider;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
 import com.example.cmput301w19t18.rent_a_book.databinding.CustomGenrePickTabBinding;
 
 import java.util.List;
 
-public class PickGenrePreference extends AppCompatActivity {
+public class PickGenrePreferenceBooks extends AppCompatActivity {
 
     /**
      * PickGenrePreference
@@ -55,11 +45,10 @@ public class PickGenrePreference extends AppCompatActivity {
     private CustomGenrePickTabBinding binding;
     private MutableLiveData<List<String>> mLD;
 
-    private String email;
-    private String password;
-    private String phone;
-    private String fName;
-    private String lName;
+    private String author;
+    private String title;
+    private String ISBN;
+    private float rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +78,9 @@ public class PickGenrePreference extends AppCompatActivity {
         final TextView genres = (TextView) findViewById(R.id.genresSelected);
 
         genreAdapter = new GenreAdapter(getSupportFragmentManager());
-        genreAdapter.addFragment(new GenreTab1(), "Page 1");
-        genreAdapter.addFragment(new GenreTab2(), "Page 2");
-        genreAdapter.addFragment(new GenreTab3(), "Page 3");
+        genreAdapter.addFragment(new GenreTabforBooks1(), "Page 1");
+        genreAdapter.addFragment(new GenreTabforBooks2(), "Page 2");
+        genreAdapter.addFragment(new GenreTabforBooks3(), "Page 3");
 
         viewPager.setAdapter(genreAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -102,43 +91,44 @@ public class PickGenrePreference extends AppCompatActivity {
         //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> s) {
-                // Updating UI to show the 3 selected genres
+                // Updating UI to show the selected genres
                 genres.setText(s.toString());
             }
         };
 
         model.getCurrPickedGenres().observe(this, genreObserver);
 
-        // unpack data from first activity
+
+        // unpack data from NewBookActivity
         if (savedInstanceState == null) {
             Bundle bundle = getIntent().getExtras();
             if (bundle != null) {
-                email = bundle.getString("email");
-                password = bundle.getString("password");
-                phone = bundle.getString("phoneNum");
-                fName = bundle.getString("firstName");
-                lName = bundle.getString("lastName");
+                author = bundle.getString("author");
+                title = bundle.getString("title");
+                ISBN = bundle.getString("ISBN");
+                rating = bundle.getFloat("rating");
             }
         }
         else {
-            email = (String) savedInstanceState.getSerializable("email");
-            password = (String) savedInstanceState.getSerializable("password");
-            phone = (String) savedInstanceState.getSerializable("phoneNum");
-            fName = (String) savedInstanceState.getSerializable("firstName");
-            lName = (String) savedInstanceState.getSerializable("lastName");
+            author = (String) savedInstanceState.getSerializable("author");
+            title = (String) savedInstanceState.getSerializable("title");
+            ISBN = (String) savedInstanceState.getSerializable("ISBN");
+            rating = (float) savedInstanceState.getSerializable("rating");
         }
 
         // repack to send to fragment
-        Bundle userInfo =  new Bundle();
-        userInfo.putString("firstName", fName);
-        userInfo.putString("lastName", lName);
-        userInfo.putString("phoneNum", phone);
-        userInfo.putString("email",email);
-        userInfo.putString("password", password);
+        Bundle bookInfo =  new Bundle();
+        bookInfo.putString("author", author);
+        bookInfo.putString("title", title);
+        bookInfo.putString("ISBN", ISBN);
 
-        GenreTab3 finalInfo = new GenreTab3();
-        finalInfo.setArguments(userInfo);
+        bookInfo.putFloat("rating", rating);
+
+        GenreTabforBooks3 genreInfo = new GenreTabforBooks3();
+        genreInfo.setArguments(bookInfo);
+
 
     }
+
 
 }
