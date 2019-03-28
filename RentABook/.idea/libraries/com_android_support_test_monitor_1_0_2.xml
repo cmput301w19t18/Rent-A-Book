@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="com.android.support.test:monitor-1.0.2">
+    <CLASSES>
+<<<<<<< HEAD:RentABook/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/monitor-1.0.2.aar/b16eab2737f8eacb2e567a308d74473b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/monitor-1.0.2.aar/b16eab2737f8eacb2e567a308d74473b/jars/classes.jar!/" />
+=======
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/monitor-1.0.2.aar/ef4483d4fc2f806f93f57132d732154b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/monitor-1.0.2.aar/ef4483d4fc2f806f93f57132d732154b/jars/classes.jar!/" />
+>>>>>>> f1168ba1c8ceb79af62e7cb31f24c3968dbf8d1a:RentABook/.idea/libraries/com_android_support_test_monitor_1_0_2.xml
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support.test/monitor/1.0.2/5764301056100b445e9ba31df7d1b554a55450f6/monitor-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

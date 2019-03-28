@@ -1229,6 +1229,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id done
 id dramaButton
 id edit_query
 id email
@@ -1505,6 +1506,7 @@ layout activity_newbook
 layout activity_pick_genre_pref
 layout activity_pick_genre_pref2
 layout activity_pick_genre_pref3
+layout activity_pick_genre_pref_books3
 layout activity_profile
 layout activity_search_results
 layout activity_sucess_signup
@@ -1647,6 +1649,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
+string done
 string drama
 string email
 string fab_transformation_scrim_behavior

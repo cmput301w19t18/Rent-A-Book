@@ -173,7 +173,7 @@
 
 
     <Button
-        android:id="@+id/genre1"
+        android:id="@+id/genre3"
         android:layout_width="84dp"
         android:layout_height="84dp"
         android:layout_row="3"
@@ -218,7 +218,7 @@
         app:layout_constraintVertical_bias="0.388" />
 
     <Button
-        android:id="@+id/genre3"
+        android:id="@+id/genre1"
         android:layout_width="84dp"
         android:layout_height="84dp"
         android:layout_row="3"

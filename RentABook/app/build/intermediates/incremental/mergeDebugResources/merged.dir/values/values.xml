@@ -2419,6 +2419,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="default_web_client_id" translatable="false">980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com</string>
+    <string name="done">Done</string>
     <string name="drama">Drama</string>
     <string name="email">Email</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
