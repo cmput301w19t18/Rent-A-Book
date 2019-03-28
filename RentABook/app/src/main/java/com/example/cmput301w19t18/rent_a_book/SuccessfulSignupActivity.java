@@ -172,35 +172,4 @@ public class SuccessfulSignupActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    @Override
-    public void onClick(View view) {
-        // signin new user and go to home page
-
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Intent intent = new Intent(SuccessfulSignupActivity.this, HomeActivity.class);
-                    intent.putExtras(new Bundle());
-                    Bundle bundle = intent.getExtras();
-                    bundle.putString("user_email", email);
-
-                    intent.putExtras(bundle);
-                    //CLOSE ALL OPEN ACTIVITES.
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        Intent intent = new Intent(SuccessfulSignupActivity.this, HomeActivity.class);
-        startActivity(intent);
-    }
-    */
-
-
 }

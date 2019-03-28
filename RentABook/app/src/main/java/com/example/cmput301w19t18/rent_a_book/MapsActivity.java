@@ -42,15 +42,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
 ///////////////// Location of the marker/pin dropped /////////////////
     public static Double locationLat;
-    /**
-     * The constant locationLon.
-     */
     public static Double locationLon;
+
+    public static void setLocationLat(Double locationLat) {
+        MapsActivity.locationLat = locationLat;
+    }
+    public static void setLocationLon(Double locationLon) {
+        MapsActivity.locationLon = locationLon;
+    }
+    public static Double getLocationLat() {
+        return locationLat;
+    }
+    public static Double getLocationLon() {
+        return locationLon;
+    }
 
 
     /**
      * On create.
-     *
      * @param savedInstanceState the saved instance state
      */
     @Override
