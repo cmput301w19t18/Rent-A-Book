@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cmput301w19t18.rent_a_book.databinding.CustomGenrePickTabBinding;
 
@@ -44,6 +45,11 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
     private CustomGenrePickTabBinding binding;
     private MutableLiveData<List<String>> mLD;
 
+    private String author;
+    private String title;
+    private String ISBN;
+    private float rating;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +78,8 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
         final TextView genres = (TextView) findViewById(R.id.genresSelected);
 
         genreAdapter = new GenreAdapter(getSupportFragmentManager());
-        genreAdapter.addFragment(new GenreTab1(), "Page 1");
-        genreAdapter.addFragment(new GenreTab2(), "Page 2");
+        genreAdapter.addFragment(new GenreTabforBooks1(), "Page 1");
+        genreAdapter.addFragment(new GenreTabforBooks2(), "Page 2");
         genreAdapter.addFragment(new GenreTabforBooks3(), "Page 3");
 
         viewPager.setAdapter(genreAdapter);
@@ -85,13 +91,44 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
         //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> s) {
-                // Updating UI to show the 3 selected genres
+                // Updating UI to show the selected genres
                 genres.setText(s.toString());
             }
         };
 
         model.getCurrPickedGenres().observe(this, genreObserver);
 
+
+        // unpack data from NewBookActivity
+        if (savedInstanceState == null) {
+            Bundle bundle = getIntent().getExtras();
+            if (bundle != null) {
+                author = bundle.getString("author");
+                title = bundle.getString("title");
+                ISBN = bundle.getString("ISBN");
+                rating = bundle.getFloat("rating");
+            }
+        }
+        else {
+            author = (String) savedInstanceState.getSerializable("author");
+            title = (String) savedInstanceState.getSerializable("title");
+            ISBN = (String) savedInstanceState.getSerializable("ISBN");
+            rating = (float) savedInstanceState.getSerializable("rating");
+        }
+
+        // repack to send to fragment
+        Bundle bookInfo =  new Bundle();
+        bookInfo.putString("author", author);
+        bookInfo.putString("title", title);
+        bookInfo.putString("ISBN", ISBN);
+
+        bookInfo.putFloat("rating", rating);
+
+        GenreTabforBooks3 genreInfo = new GenreTabforBooks3();
+        genreInfo.setArguments(bookInfo);
+
+
     }
+
 
 }

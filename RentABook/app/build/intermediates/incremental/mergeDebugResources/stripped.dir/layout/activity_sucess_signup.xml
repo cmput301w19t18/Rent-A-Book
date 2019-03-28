@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/congrat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="54dp"
+        android:text="Welcome to Rent-A-Read!"
+        android:textSize="36sp"
+        app:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/thank"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/thank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
+        android:layout_marginLeft="86dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
+        android:editable="false"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textMultiLine"
+        android:text="Thank you for signing up to Rent-A-Read!"
+        android:textSize="20sp"
+        app:fontFamily="sans-serif-condensed-light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/congrat" />
+
+    <TextView
+        android:id="@+id/proceed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="121dp"
+        android:layout_marginLeft="121dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginRight="115dp"
+        android:layout_marginBottom="61dp"
+        android:text="Proceed to Home"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30sp"
+        app:fontFamily="cursive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:text="Name"
+        android:textSize="20sp"
+        app:fontFamily="cursive"
+        app:layout_constraintBaseline_toBaselineOf="@+id/inputName"
+        app:layout_constraintEnd_toStartOf="@+id/inputName"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/inputName"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="57dp"
+        android:text="Name"
+        android:textSize="20sp"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/thank" />
+
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:text="Phone"
+        android:textSize="20sp"
+        app:fontFamily="cursive"
+        app:layout_constraintEnd_toStartOf="@+id/inputPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/inputPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:text="Phone"
+        android:textSize="20sp"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintStart_toEndOf="@+id/phone"
+        app:layout_constraintTop_toBottomOf="@+id/inputName" />
+
+
+    <TextView
+        android:id="@+id/enteredEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:text="Email"
+        android:textSize="20sp"
+        app:fontFamily="cursive"
+        app:layout_constraintBaseline_toBaselineOf="@+id/inputEmail"
+        app:layout_constraintEnd_toStartOf="@+id/inputEmail"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/inputEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="20dp"
+        android:text="Email"
+        android:textSize="20sp"
+        app:fontFamily="sans-serif-light"
+        app:layout_constraintStart_toEndOf="@+id/enteredEmail"
+        app:layout_constraintTop_toBottomOf="@+id/inputPhone" />
+
+
+    <TextView
+        android:id="@+id/select_genres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="288dp"
+        android:layout_marginRight="288dp"
+        android:layout_marginBottom="24dp"
+        android:text="Genres"
+        android:textSize="20sp"
+        app:fontFamily="cursive"
+        app:layout_constraintBottom_toTopOf="@+id/genre3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enteredEmail" />
+
+
+    <Button
+        android:id="@+id/genre3"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_row="3"
+        android:layout_column="3"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="246dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="78dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/proceed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/genre2"
+        app:layout_constraintTop_toBottomOf="@+id/thank" />
+
+    <Button
+        android:id="@+id/genre2"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_row="3"
+        android:layout_column="3"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="82dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/proceed"
+        app:layout_constraintEnd_toStartOf="@+id/genre1"
+        app:layout_constraintStart_toEndOf="@+id/genre3"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+        app:layout_constraintVertical_bias="0.388" />
+
+    <Button
+        android:id="@+id/genre1"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_row="3"
+        android:layout_column="3"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/genre2"
+        app:layout_constraintEnd_toStartOf="@+id/genre2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</android.support.constraint.ConstraintLayout>

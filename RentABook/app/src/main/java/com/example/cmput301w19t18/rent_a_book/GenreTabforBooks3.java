@@ -45,17 +45,16 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
      *
      */
     private GenreViewModel model;
-
     private List<Integer> preferenceList;
     private int selected;
     private List<String> genreList = new ArrayList<>();
     private TextView genreText;
 
-    private String fName;
-    private String lName;
-    private String phone;
-    private String email;
-    private String pass;
+    private String author;
+    private String title;
+    private String ISBN;
+    private float rating;
+
 
     public GenreTabforBooks3() {
         // constructor
@@ -69,16 +68,18 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
         // setting up the viewmodel which allows each fragment communicate with each other
         model = ViewModelProviders.of(this).get(GenreViewModel.class);
 
-        // TODO credit https://mobikul.com/pass-data-activity-fragment-android/
-        // unpack data from activity
-       /*if (getArguments() != null) {
-            fName = getArguments().getString("firstName");
-            lName = getArguments().getString("lastName");
-            pass = getArguments().getString("password");
-            email = getArguments().getString("email");
-        }*/
 
-        // TODO credit https://www.codexpedia.com/android/passing-data-to-activity-and-fragment-in-android/
+        // unpack data from activity
+        if (savedInstanceState == null) {
+            Bundle bundle = getActivity().getIntent().getExtras();
+            if (bundle != null) {
+                // TODO credit https://www.codexpedia.com/android/passing-data-to-activity-and-fragment-in-android/
+                author = getActivity().getIntent().getExtras().getString("author");
+                title = getActivity().getIntent().getExtras().getString("title");
+                ISBN = getActivity().getIntent().getExtras().getString("ISBN");
+                rating = getActivity().getIntent().getExtras().getFloat("rating");
+            }
+        }
 
 
         Button nonfic = (Button) v.findViewById(R.id.nonficButton);
@@ -183,12 +184,12 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
             case R.id.done:
                 // check if three genres are selected;
                 // if not ask to pick three genres
-                if (selected < 3) {
-                    Toast.makeText(this.getContext(), "Please select 3 genres", Toast.LENGTH_SHORT).show();
+                if (selected < 1) {
+                    Toast.makeText(this.getContext(), "Please select at least one genre", Toast.LENGTH_SHORT).show();
                 }
                 // else continue to successful registration page
                 else {
-                    // do signup here
+                    // add genres here
                     addGenres(preferenceList, genreList);
                 }
                 break;
@@ -257,14 +258,36 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
             }
         }
 
-        // Send genres back to NewBookActivity
+        // Send genres and all previous info back to NewBookActivity
         Intent intent = new Intent(this.getContext(), NewBookActivity.class);
         Bundle userInfo =  new Bundle();
+        userInfo.putStringArrayList("genreArray",(ArrayList<String>) genreList);
         userInfo.putString("genres",strBuild.toString());
         userInfo.putString("genresString", strBuild2.toString());
+
+        userInfo.putString("author", author);
+        userInfo.putString("title", title);
+        userInfo.putString("ISBN", ISBN);
+        userInfo.putFloat("rating", rating);
+
         intent.putExtras(userInfo);
 
         startActivity(intent);
 
+    }
+
+    public List<Integer> getPreferenceList() {
+        return preferenceList;
+    }
+
+    public void setPreferenceList(List<Integer> preferenceList) {
+        this.preferenceList = preferenceList;
+    }
+    public List<String> getGenreList() {
+        return genreList;
+    }
+
+    public void setGenreList(List<String> genreList) {
+        this.genreList = genreList;
     }
 }

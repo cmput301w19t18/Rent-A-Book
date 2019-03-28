@@ -16,7 +16,7 @@ public class Book implements Serializable{
     private String author;
     private String ISBN; //Established as an ISBN to allow for better error handling and to prevent dropping of leading 0's
     private String bstatus;
-    private Integer rating;
+    private float rating;
     private String bOwner;
     private String genre; //genre will be determined by an array
     private String requestedBy; //list of users that are requesting the book by email
@@ -36,7 +36,7 @@ public class Book implements Serializable{
      * @param genre       the genre
      * @param requestedBy the requested by
      */
-    public Book(String btitle, String author, String ISBN, String bstatus, Integer rating, String bOwner, String genre, String requestedBy) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -134,7 +134,7 @@ public class Book implements Serializable{
      *
      * @return the rating
      */
-    public Integer getRating() {
+    public float getRating() {
         return rating;
     }
 
@@ -143,7 +143,7 @@ public class Book implements Serializable{
      *
      * @param rating the rating
      */
-    public void setRating(Integer rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 

@@ -154,6 +154,10 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         bookimage = findViewById(R.id.bookimage);
         bookCover = getIntent().getStringExtra("photo");
         Picasso.get().load(bookCover).into(bookimage);
+        final String bdescription2 = getIntent().getStringExtra("bdescription2");
+
+
+
 
 
         Query query = mDatabase.orderByChild("btitle");
@@ -170,6 +174,18 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
                             BookList.add(newBook);
                             String keyer = snapshot.getKey();
                             key = keyer;
+                            ratingbook = findViewById(R.id.bookRating_view);
+                            ratingbook.setRating(newBook.getRating());
+
+                            status = findViewById(R.id.status_textView);
+                            status.setText(newBook.getBstatus());
+                            description = findViewById(R.id.desc_textView);
+                            description.setText(bdescription2);
+                            isbn = findViewById(R.id.isbn_textView);
+                            isbn.setText(newBook.getISBN());
+                            owner = findViewById(R.id.owner_textView);
+                            owner.setText(newBook.getbOwner());
+
 
                             Toast.makeText(getApplicationContext(),newBook.getBstatus() ,Toast.LENGTH_LONG).show();
 

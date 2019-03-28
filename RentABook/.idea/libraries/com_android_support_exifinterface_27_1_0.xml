@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="com.android.support:exifinterface-27.1.0">
+    <CLASSES>
+<<<<<<< HEAD:RentABook/.idea/libraries/Gradle__com_android_support_exifinterface_27_1_0_aar.xml
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/559a6430216454e11f0d84d6c5fc9fa2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/559a6430216454e11f0d84d6c5fc9fa2/jars/classes.jar!/" />
+=======
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/a6aae71b035e6107a690074db3ac65a9/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/a6aae71b035e6107a690074db3ac65a9/jars/classes.jar!/" />
+>>>>>>> f1168ba1c8ceb79af62e7cb31f24c3968dbf8d1a:RentABook/.idea/libraries/com_android_support_exifinterface_27_1_0.xml
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/exifinterface/27.1.0/c7140902caa70b53159e0f153c0584bbbbc88eb7/exifinterface-27.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

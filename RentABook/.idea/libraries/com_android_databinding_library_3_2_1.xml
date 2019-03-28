@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="com.android.databinding:library-3.2.1">
+    <CLASSES>
+<<<<<<< HEAD:RentABook/.idea/libraries/Gradle__com_android_databinding_library_3_3_2_aar.xml
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.3.2.aar/8d98f2979154ac222a1d7ac5fdf12ded/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.3.2.aar/8d98f2979154ac222a1d7ac5fdf12ded/res" />
+=======
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.2.1.aar/b6bc47cb81bacfddc5fb9618371bad6b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-3.2.1.aar/b6bc47cb81bacfddc5fb9618371bad6b/res" />
+>>>>>>> f1168ba1c8ceb79af62e7cb31f24c3968dbf8d1a:RentABook/.idea/libraries/com_android_databinding_library_3_2_1.xml
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.databinding/library/3.2.1/7eaacdd57d5f1503553abfde567be3e5c525f863/library-3.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
