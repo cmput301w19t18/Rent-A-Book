@@ -2429,7 +2429,7 @@
     <string name="google_api_key" translatable="false">AIzaSyAHmyjPcuGxZXK4LxhzO8PJ6-GdfQcZbmQ</string>
     <string name="google_app_id" translatable="false">1:980693254175:android:e64ab23eacf32ccf</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAHmyjPcuGxZXK4LxhzO8PJ6-GdfQcZbmQ</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDpFfoQIWl6bQAsWnJHICHoeJiBcC5R9Os</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAc556fiT2oUjs0rbz0o-KyW17Yrz8ruEM</string>
     <string name="google_storage_bucket" translatable="false">rent-a-read.appspot.com</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="hisfic">HisFic</string>

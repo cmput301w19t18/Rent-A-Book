@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\dueli\\Documents\\GitHub\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
+            "outputFile": "G:\\Documents\\GitHub\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dueli\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\9ec8994dd57051ad58d0dbd18d8dad72\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\853314cde725fac9d1cb411dd5d530f7\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
