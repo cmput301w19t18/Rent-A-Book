@@ -269,7 +269,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
             if (scanContent != null && scanFormat != null && scanFormat.equalsIgnoreCase("EAN_13")){
                 //Ensure that the proper format is scanned in
-                ISBNF.setText(scanContent);
                 String bookSearchString = "https://www.googleapis.com/books/v1/volumes?"+"q=isbn:"+scanContent+"&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
                 new GetBookInfo().execute(bookSearchString);
 
