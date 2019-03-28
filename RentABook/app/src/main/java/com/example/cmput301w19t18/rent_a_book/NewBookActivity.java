@@ -1,14 +1,20 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -23,7 +29,26 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -43,6 +68,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private EditText TitleF;
     private EditText DescF;
     private String email;
+    private Button ScanB;
 
     //latest book added:
     private Book addedBook;
@@ -66,14 +92,18 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         bAuth = FirebaseAuth.getInstance();
 
         //initializing fields and buttons
-        SubmitB = (Button) findViewById(R.id.SubmitButton);
-        ISBNF = (EditText) findViewById(R.id.ISBNBox);
-        AuthorF = (EditText) findViewById(R.id.AuthBox);
-        TitleF = (EditText) findViewById(R.id.TitleBox);
-        DescF = (EditText) findViewById(R.id.DescriptionBox);
+        SubmitB = findViewById(R.id.SubmitButton);
+        ISBNF = findViewById(R.id.ISBNBox);
+        AuthorF = findViewById(R.id.AuthBox);
+        TitleF = findViewById(R.id.TitleBox);
+        DescF = findViewById(R.id.DescriptionBox);
+
+        ScanB = findViewById(R.id.ScanButton);
 
         SubmitB.setOnClickListener(this);
         //email = b.getString("user_email");
+
+        ScanB.setOnClickListener(this);
 
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
@@ -82,6 +112,12 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
+
+        if (savedInstanceState != null) {
+            TitleF.setText(savedInstanceState.getString("title"));
+            AuthorF.setText(savedInstanceState.getString("author"));
+            DescF.setText(savedInstanceState.getString("description"));
+        }
 
     }
 
@@ -214,5 +250,127 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             saveBookInfo(); //calls the save function upon press
         }
 
+        if (view.getId() == R.id.ScanButton) {
+            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+            scanIntegrator.initiateScan();
+        }
+
     }
+
+    /////////// Scanner Implementation //////////////////
+
+    //Constructs the search string based on result of the scan
+    public void onActivityResult (int requestCode, int resultCode, Intent intent) {
+        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+
+        if (scanningResult != null) { //Check that the scan actually found something
+            String scanContent = scanningResult.getContents();
+            String scanFormat = scanningResult.getFormatName();
+
+            if (scanContent != null && scanFormat != null && scanFormat.equalsIgnoreCase("EAN_13")){
+                //Ensure that the proper format is scanned in
+                ISBNF.setText(scanContent);
+                String bookSearchString = "https://www.googleapis.com/books/v1/volumes?"+"q=isbn:"+scanContent+"&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+                new GetBookInfo().execute(bookSearchString);
+
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Not a valid scan!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+            Log.v("SCAN", "Content: "+scanContent+" - Format: "+scanFormat);
+
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), "No book data received!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+    }
+
+    //Conducts search and auto-fills applicable field
+    private class GetBookInfo extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... bookURLs) {
+            StringBuilder bookBuilder = new StringBuilder();
+
+            for (String bookSearchURL : bookURLs) {
+                HttpClient bookClient = new DefaultHttpClient();
+
+                try {
+                    HttpGet bookGet = new HttpGet(bookSearchURL);
+                    HttpResponse bookResponse = bookClient.execute(bookGet);
+                    StatusLine bookSearchStatus = bookResponse.getStatusLine();
+                    if (bookSearchStatus.getStatusCode() == 200) {
+                        HttpEntity bookEntity = bookResponse.getEntity();
+
+                        InputStream bookContent = bookEntity.getContent();
+                        InputStreamReader bookInput = new InputStreamReader(bookContent);
+                        BufferedReader bookReader = new BufferedReader(bookInput);
+
+                        String lineIn;
+                        while ((lineIn = bookReader.readLine()) != null) {
+                            bookBuilder.append(lineIn);
+                        }
+                    }
+                } catch (Exception e) { e.printStackTrace(); }
+            }
+
+            return bookBuilder.toString();
+
+        }
+
+        protected void onPostExecute(String result) {
+            try {
+                JSONObject resultObject = new JSONObject(result);
+                JSONArray bookArray = resultObject.getJSONArray("items");
+
+                JSONObject bookObject = bookArray.getJSONObject(0);
+                JSONObject volumeObject = bookObject.getJSONObject("volumeInfo");
+
+                try {
+                    TitleF.setText(volumeObject.getString("title"));
+                } catch (JSONException jse) {
+                    TitleF.setText("");
+                    jse.printStackTrace();
+                }
+
+                StringBuilder authorBuild = new StringBuilder();
+                try {
+                    JSONArray authorArray = volumeObject.getJSONArray("authors");
+                    for (int a = 0; a < authorArray.length(); a++) {
+                        if (a > 0) authorBuild.append(", ");
+                        authorBuild.append(authorArray.getString(a));
+                    }
+                    AuthorF.setText(authorBuild.toString());
+                } catch (JSONException jse) {
+                    AuthorF.setText("");
+                    jse.printStackTrace();
+                }
+
+                try {
+                    DescF.setText(volumeObject.getString("description"));
+                } catch (JSONException jse) {
+                    DescF.setText("");
+                    jse.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                TitleF.setText("");
+                AuthorF.setText("");
+                DescF.setText("");
+
+            }
+        }
+
+    }
+
+    //Saves all info so nothing is lost upon changing orientation
+    protected void onSaveInstanceState(Bundle savedBundle) {
+        savedBundle.putString("title", ""+TitleF.getText());
+        savedBundle.putString("author", ""+AuthorF.getText());
+        savedBundle.putString("description", ""+DescF.getText());
+        savedBundle.putString("isbn", ""+ISBNF.getText());
+    }
+
 }
