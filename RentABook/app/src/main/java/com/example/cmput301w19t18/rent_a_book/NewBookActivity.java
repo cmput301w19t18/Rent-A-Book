@@ -174,6 +174,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             TitleF.setText(savedInstanceState.getString("title"));
             AuthorF.setText(savedInstanceState.getString("author"));
             DescF.setText(savedInstanceState.getString("description"));
+            ISBNF.setText(savedInstanceState.getString("isbn"));
         }
 
     }
@@ -362,6 +363,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
             if (scanContent != null && scanFormat != null && scanFormat.equalsIgnoreCase("EAN_13")){
                 //Ensure that the proper format is scanned in
+                ISBNF.setText(scanContent);
                 String bookSearchString = "https://www.googleapis.com/books/v1/volumes?"+"q=isbn:"+scanContent+"&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
                 new GetBookInfo().execute(bookSearchString);
 
@@ -458,7 +460,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     //Saves all info so nothing is lost upon changing orientation
+    @Override
     protected void onSaveInstanceState(Bundle savedBundle) {
+        super.onSaveInstanceState(savedBundle);
         savedBundle.putString("title", ""+TitleF.getText());
         savedBundle.putString("author", ""+AuthorF.getText());
         savedBundle.putString("description", ""+DescF.getText());
