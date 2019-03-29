@@ -158,7 +158,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 AuthorF.setText(bundle.getString("author"));
                 ISBNF.setText(bundle.getString("ISBN"));
                 RatingF.setRating(bundle.getFloat("rating"));
-                coverIMG = savedInstanceState.getParcelable("coverPic");
+                DescF.setText(bundle.getString("description"));
+                coverIMG = bundle.getParcelable("coverPic");
                 bookCover.setImageBitmap(coverIMG);
             }
         }
@@ -180,6 +181,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             AuthorF.setText(savedInstanceState.getString("author"));
             DescF.setText(savedInstanceState.getString("description"));
             ISBNF.setText(savedInstanceState.getString("isbn"));
+            coverIMG = savedInstanceState.getParcelable("coverPic");
+            bookCover.setImageBitmap(coverIMG);
         }
 
     }
