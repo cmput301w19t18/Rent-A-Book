@@ -1,0 +1,115 @@
+{
+  "project_info": {
+    "project_number": "980693254175",
+    "firebase_url": "https://rent-a-read.firebaseio.com",
+    "project_id": "rent-a-read",
+    "storage_bucket": "rent-a-read.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980693254175:android:e64ab23eacf32ccf",
+        "android_client_info": {
+          "package_name": "com.example.cmput301w19t18.rent_a_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980693254175-44r3gfq45tnjej7iln9hg3kldknik7eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cmput301w19t18.rent_a_book",
+            "certificate_hash": "a8cadb84a179025882e8493b68efa37a9c6abc62"
+          }
+        },
+        {
+          "client_id": "980693254175-r8ucdjkqohusnfrnqtu7ipo3ctr8hij6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cmput301w19t18.rent_a_book",
+            "certificate_hash": "dab8f75d4ff3cc8404ef5b45f0ead1d4868db83a"
+          }
+        },
+        {
+          "client_id": "980693254175-sat4sgs9me3c31vn0utrr5a0pc38ta2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cmput301w19t18.rent_a_book",
+            "certificate_hash": "b7dcc070a8e3f2d09648e4363c36a7435b5f320e"
+          }
+        },
+        {
+          "client_id": "980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHmyjPcuGxZXK4LxhzO8PJ6-GdfQcZbmQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980693254175:android:6178a587f23ce9a2",
+        "android_client_info": {
+          "package_name": "com.example.rent_a_book"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980693254175-1rv1emig7londbqd9jcb9isi5umktgem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rent_a_book",
+            "certificate_hash": "dab8f75d4ff3cc8404ef5b45f0ead1d4868db83a"
+          }
+        },
+        {
+          "client_id": "980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHmyjPcuGxZXK4LxhzO8PJ6-GdfQcZbmQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
