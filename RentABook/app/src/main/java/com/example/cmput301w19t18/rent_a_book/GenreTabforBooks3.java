@@ -4,6 +4,7 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -54,7 +55,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
     private String title;
     private String ISBN;
     private float rating;
-
+    private String descrip;
+    private Bitmap coverIMG;
 
     public GenreTabforBooks3() {
         // constructor
@@ -78,6 +80,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
                 title = getActivity().getIntent().getExtras().getString("title");
                 ISBN = getActivity().getIntent().getExtras().getString("ISBN");
                 rating = getActivity().getIntent().getExtras().getFloat("rating");
+                descrip = getActivity().getIntent().getExtras().getString("description");
+                coverIMG = getActivity().getIntent().getExtras().getParcelable("coverPic");
             }
         }
 
@@ -269,6 +273,9 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
         userInfo.putString("title", title);
         userInfo.putString("ISBN", ISBN);
         userInfo.putFloat("rating", rating);
+
+        userInfo.putParcelable("coverPic", coverIMG);
+        userInfo.putString("description", descrip);
 
         intent.putExtras(userInfo);
 

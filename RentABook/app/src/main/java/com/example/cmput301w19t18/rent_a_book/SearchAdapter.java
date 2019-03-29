@@ -58,7 +58,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
          */
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
-            mOwnerPicture = itemView.findViewById(R.id.bookPhoto);
+            mOwnerPicture = itemView.findViewById(R.id.userPhoto);
             mBookTitle = itemView.findViewById(R.id.bookTitle);
             mBookAuthor = itemView.findViewById(R.id.bookAuthor);
             mOwnerName = itemView.findViewById(R.id.bookOwner);

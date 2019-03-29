@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Mar 29 13:49:08 MDT 2019
+#Fri Mar 29 14:17:57 MDT 2019
 0.baseType=DIRECTORY
 0.base=/Users/julietadikova/RentRecomends/Rent-A-Book/RentABook/app/build/intermediates/transforms/dexMerger/debug/0
 0.path=classes.dex
