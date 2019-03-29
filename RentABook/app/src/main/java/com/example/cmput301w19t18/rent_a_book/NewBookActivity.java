@@ -78,6 +78,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private Button genre2;
     private Button genre3;
     private RatingBar RatingF;
+    private ImageView bookCover;
+    private Bitmap coverIMG;
 
     //latest book added:
     private Book addedBook;
@@ -103,6 +105,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         AuthorF = findViewById(R.id.AuthBox);
         TitleF = findViewById(R.id.TitleBox);
         DescF = findViewById(R.id.DescriptionBox);
+
+        bookCover = findViewById(R.id.imageView2);
 
         ScanB = findViewById(R.id.ScanButton);
         SubmitB = (Button) findViewById(R.id.SubmitButton);
@@ -154,7 +158,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 AuthorF.setText(bundle.getString("author"));
                 ISBNF.setText(bundle.getString("ISBN"));
                 RatingF.setRating(bundle.getFloat("rating"));
-
+                coverIMG = savedInstanceState.getParcelable("coverPic");
+                bookCover.setImageBitmap(coverIMG);
             }
         }
         else {
@@ -448,6 +453,15 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                     jse.printStackTrace();
                 }
 
+                try {
+                    JSONObject imageInfo = volumeObject.getJSONObject("imageLinks");
+                    new GetBookThumb().execute(imageInfo.getString("smallThumbnail"));
+                }
+                catch(JSONException jse){
+                    bookCover.setImageBitmap(null);
+                    jse.printStackTrace();
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
                 TitleF.setText("");
@@ -459,6 +473,32 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    private class GetBookThumb extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... thumbURLs) {
+            try{
+                URL thumbURL = new URL(thumbURLs[0]);
+                URLConnection thumbConn = thumbURL.openConnection();
+                thumbConn.connect();
+
+                InputStream thumbIn = thumbConn.getInputStream();
+                BufferedInputStream thumbBuff = new BufferedInputStream(thumbIn);
+
+                coverIMG = BitmapFactory.decodeStream(thumbBuff);
+                thumbBuff.close();
+                thumbIn.close();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            return "";
+        }
+
+        protected void onPostExecute(String result){
+            bookCover.setImageBitmap(coverIMG);
+        }
+    }
+
     //Saves all info so nothing is lost upon changing orientation
     @Override
     protected void onSaveInstanceState(Bundle savedBundle) {
@@ -467,6 +507,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         savedBundle.putString("author", ""+AuthorF.getText());
         savedBundle.putString("description", ""+DescF.getText());
         savedBundle.putString("isbn", ""+ISBNF.getText());
+        savedBundle.putParcelable("coverPic", coverIMG);
     }
 
 }
