@@ -31,6 +31,8 @@ import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
 
 /**
  * The type Maps activity.
+ *
+ * author: oanderso
  */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
