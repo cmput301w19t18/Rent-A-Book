@@ -10,6 +10,7 @@
     <string name="GenreButton">Add Genre</string>
     <string name="AddPhotoButton">Add Photo</string>
     <string name="req_button">Request</string>
+    <string name="editButton">Edit</string>
 
     <string name="RegisterFirst">First Name</string>
     <string name="RegisterLast">Last Name</string>
