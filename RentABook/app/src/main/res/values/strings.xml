@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Rent-A-Book</string>
+
+    <string name="RegisterFirst">Enter Your First Name</string>
+    <string name="RegisterLast">Enter Your Last Name</string>
+    <string name="RegisterPhone">Enter Your Phone Number</string>
+    <string name="RegisterEmail">Enter Your Email</string>
+    <string name="RegisterPassword">Enter a Password</string>
+    <string name="RegisterSignUp">Sign Up</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Next">Next</string>
+
+    <string name="scan">Scan</string>
+    <string name="Description">Description</string>
+    <string name="Author">Author</string>
+    <string name="Title">Title</string>
+    <string name="ISBN">ISBN</string>
+
+    <string name="ChooseGenre">Choose three genres</string>
+    <string name="BookPhoto">Book Photo</string>
+    <string name="BookOwner">Book Owner</string>
+    <string name="BookStatus">Book Status</string>
+
+    <string name="AddButton">+</string>
+    <string name="CategoryTitle">Category</string>
+    <string name="searchText">Search</string>
+
+</resources>
