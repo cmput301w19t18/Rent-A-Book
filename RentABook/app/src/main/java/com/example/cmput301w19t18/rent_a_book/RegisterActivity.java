@@ -9,8 +9,11 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -46,6 +49,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.register);
         mAuth = FirebaseAuth.getInstance();
         next = (Button) findViewById(R.id.next);
@@ -130,23 +139,42 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     //signs the user up based on their info
-    public void signUp(){
+    public void onNext(){
         final String user_email = et_email.getText().toString().trim();
         String password = pass.getText().toString().trim();
         String first_name = fname.getText().toString().trim();
         String last_name = last.getText().toString().trim();
         String phone_num = phone.getText().toString().trim();
+
+        // check for first name
+        if (first_name.isEmpty()) {
+            fname.setError("First name is required");
+            fname.requestFocus();
+            return;
+        }
+
+        // check for last name
+        if (last_name.isEmpty()) {
+            last.setError("Last name is required");
+            last.requestFocus();
+            return;
+        }
+
+        // check if its correct phone number
+        if (!PhoneNumberUtils.isGlobalPhoneNumber(phone_num) || phone_num.length() < 7) {
+            phone.setError("Please enter a valid phone number");
+            phone.requestFocus();
+            return;
+        }
+
+
         //checks if user email and password is empty and makes sure they are not.
         if (user_email.isEmpty()){
             et_email.setError("Email is required");
             et_email.requestFocus();
             return;
         }
-        if (password.isEmpty()){
-            pass.setError("Email is required");
-            pass.requestFocus();
-            return;
-        }
+
         //checks if it is a correct email format.
         if (!Patterns.EMAIL_ADDRESS.matcher(user_email).matches()){
             et_email.setError("Please enter a valid email!");
@@ -161,6 +189,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        // pack all info into an intent
+        Intent intent = new Intent(this, PickGenrePreference.class);
+        Bundle userInfo =  new Bundle();
+        userInfo.putString("firstName", first_name);
+        userInfo.putString("lastName", last_name);
+        userInfo.putString("phoneNum", phone_num);
+        userInfo.putString("email",user_email);
+        userInfo.putString("password", password);
+
+        //GenreTab3 finalInfo = new GenreTab3();
+        //finalInfo.setArguments(userInfo);
+
+
+        intent.putExtras(userInfo);
+
+        startActivity(intent);
+
+        /*
+        // TODO add name, phone, put in intent, collect genres and then send to firebase
+        // maybe create an are you sure page displaying user info back to them before
+        // they confirm
         //finally register user, got this code from firebase instructions,
         mAuth.createUserWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -191,7 +240,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
-
+*/
 
     }
 
@@ -199,16 +248,21 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         //checks what button the user clicked
         if (view == next){
-            startActivity(new Intent(this, PickGenrePreference.class));
+
+            onNext();
+            //startActivity(new Intent(this, PickGenrePreference.class));
         }
 
+        // TODO this should not be here -> implement sign up class and call this after genre stuff
         if (view == signup){
-            signUp();
-
+            //signUp();
+            return;
         }
+        // TODO cancel should clear everything
         if (view == cancel){
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
 
         }
+
     }
 }

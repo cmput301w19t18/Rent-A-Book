@@ -10,7 +10,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Include required permissions for Google Maps API to run. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -65,6 +72,11 @@
             android:name="com.example.cmput301w19t18.rent_a_book.NewBookActivity"
             android:exported="true" />
         <activity android:name="com.example.cmput301w19t18.rent_a_book.addPhotoActivity" />
+        <!-- Needs to be explicitly declared on P+ -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -89,6 +101,11 @@
             android:name="com.squareup.picasso.PicassoProvider"
             android:authorities="com.example.cmput301w19t18.rent_a_book.com.squareup.picasso"
             android:exported="false" />
+        <provider
+            android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.example.cmput301w19t18.rent_a_book.lifecycle-trojan"
+            android:exported="false"
+            android:multiprocess="true" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
