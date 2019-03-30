@@ -2,8 +2,6 @@ package com.example.cmput301w19t18.rent_a_book;
 
 // oof, Google Mobile Vision API QR Code and Barcode Tutorial - Android
 // https://www.youtube.com/watch?v=czmEC5akcos
-// NEW record: 80 mins
-// sotr
 
 import android.app.Activity;
 import android.content.Intent;
