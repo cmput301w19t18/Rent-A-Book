@@ -1,8 +1,11 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,7 +24,38 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_profile);
-        addBook = (Button) findViewById(R.id.addbutton);
+
+        BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
+
+
+        bnv.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        Intent intent;
+                        switch (menuItem.getItemId()) {
+                            case R.id.home:
+                                intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.search:
+                                intent = new Intent(ProfileActivity.this, SearchResultsActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.inbox:
+                                // TODO this needs to be implemented
+                                break;
+                            case R.id.profile:
+                                // do nothing because we're already here
+                                break;
+                        }
+                        return false;
+                    }
+                }
+        );
+
+
+        addBook = (Button) findViewById(R.id.editButton);
         addBook.setOnClickListener(this);
     }
 

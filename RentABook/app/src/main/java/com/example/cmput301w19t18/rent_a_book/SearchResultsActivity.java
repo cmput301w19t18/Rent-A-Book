@@ -2,11 +2,13 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -45,6 +47,40 @@ public class SearchResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
+
+
+        BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
+
+
+        bnv.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        Intent intent;
+                        switch (menuItem.getItemId()) {
+                            case R.id.home:
+                                intent = new Intent(SearchResultsActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.search:
+                                // do nothing because we're already here
+                                break;
+                            case R.id.inbox:
+                                // TODO this needs to be implemented
+                                break;
+                            case R.id.profile:
+                                intent = new Intent(SearchResultsActivity.this, ProfileActivity.class);
+                                startActivity(intent);
+                                break;
+                        }
+                        return false;
+                    }
+                }
+        );
+
+
+
+
         mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
         BookSearchList = new ArrayList<>();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
