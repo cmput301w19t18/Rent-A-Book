@@ -21,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_profile);
-        addBook = (Button) findViewById(R.id.addbutton);
+        addBook = (Button) findViewById(R.id.editButton);
         addBook.setOnClickListener(this);
     }
 

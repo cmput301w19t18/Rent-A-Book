@@ -46,7 +46,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -62,7 +62,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
             app:layout_constraintTop_toBottomOf="@+id/TitleBox" />
 
         <Button
@@ -105,7 +105,7 @@
             android:padding="10dp"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
             app:layout_constraintTop_toBottomOf="@+id/AuthBox" />
 
         <Button
@@ -130,12 +130,12 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/simple_button_layout"
             android:text="@string/AddPhotoButton"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintEnd_toEndOf="@+id/imageBookCover"
+            app:layout_constraintStart_toStartOf="@+id/imageBookCover"
+            app:layout_constraintTop_toBottomOf="@+id/imageBookCover" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageBookCover"
             android:layout_width="150dp"
             android:layout_height="210dp"
             android:layout_marginStart="16dp"
@@ -162,7 +162,7 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
             app:layout_constraintTop_toBottomOf="@+id/ISBNBox" />
 
         <Button

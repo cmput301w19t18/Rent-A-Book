@@ -1,17 +1,35 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.JsonReader;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+import com.android.volley.Request;
+
+
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +42,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -51,10 +73,16 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private Button genre1;
     private Button genre2;
     private Button genre3;
+    private Button ScanB;
     private RatingBar RatingF;
+    private ImageView CoverB;
 
     //latest book added:
     private Book addedBook;
+    private String bookurl;
+
+    //volley stuff
+    private RequestQueue mQueue;
 
 
     @Override
@@ -71,6 +99,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
 
+        //initializing volley request
+        mQueue = Volley.newRequestQueue(this);
+
         //initializing fields and buttons
         SubmitB = (Button) findViewById(R.id.SubmitButton);
         ISBNF = (EditText) findViewById(R.id.ISBNBox);
@@ -78,8 +109,10 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
         RatingF = (RatingBar) findViewById(R.id.bookRating);
+        CoverB = (ImageView) findViewById(R.id.imageBookCover);
 
         GenreB = (Button) findViewById(R.id.GenreButton);
+        ScanB = (Button) findViewById(R.id.ScanButton);
 
         genre1 = (Button) findViewById(R.id.genre1);
         genre2 = (Button) findViewById(R.id.genre2);
@@ -87,6 +120,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         SubmitB.setOnClickListener(this);
         GenreB.setOnClickListener(this);
+        ScanB.setOnClickListener(this);
+
         //email = b.getString("user_email");
 
         // unpack
@@ -118,8 +153,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
                 TitleF.setText(bundle.getString("title"));
                 AuthorF.setText(bundle.getString("author"));
+                DescF.setText(bundle.getString("description"));
                 ISBNF.setText(bundle.getString("ISBN"));
                 RatingF.setRating(bundle.getFloat("rating"));
+                bookurl = bundle.getString("bookurl");
+                Picasso.get().load(bookurl).into(CoverB);
 
             }
         }
@@ -138,8 +176,61 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    public void scanBarcode(View v) {
+        Intent intent = new Intent(this, ScanBarcodeActivity.class);
+        startActivityForResult(intent, 0);
+    }
 
-    private void saveBookInfo(){
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    Barcode barcode = data.getParcelableExtra("barcode");
+                    ISBNF.setText(barcode.displayValue);
+
+                    String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                //String test = response.getString("kind");
+                                JSONArray jsonArray = response.getJSONArray("items");
+                                JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                                String json_title = jsonObject.getJSONObject("volumeInfo").getString("title");
+                                String json_author = jsonObject.getJSONObject("volumeInfo").getJSONArray("authors").get(0).toString();
+                                String json_desc = jsonObject.getJSONObject("volumeInfo").getString("description");
+                                String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
+
+                                TitleF.setText(json_title);
+                                AuthorF.setText(json_author);
+                                DescF.setText(json_desc);
+                                bookurl = json_img;
+                                Picasso.get().load(bookurl).into(CoverB);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+
+                    mQueue.add(request);
+
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data);
+            }
+        }
+    }
+
+    private void saveBookInfo() {
 
         String author = AuthorF.getText().toString().trim();
         String ISBN = ISBNF.getText().toString().trim();
@@ -277,8 +368,12 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     ////////////////// Overall book monitor check //////////////////
 
 
-    @Override //when you press the submit button
+    @Override //when you press any of the buttons
     public void onClick(View view) {
+
+        if(view == ScanB) {
+            scanBarcode(view);
+        }
 
         if(view == SubmitB){
             saveBookInfo(); //calls the save function upon press
@@ -299,6 +394,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             bookInfo.putString("ISBN", ISBNF.getText().toString().trim());
 
             bookInfo.putFloat("rating", RatingF.getRating());
+
+            bookInfo.putString("description", DescF.getText().toString().trim());
+
+            bookInfo.putString("bookurl", bookurl);
+
             intent.putExtras(bookInfo);
             startActivity(intent);
         }

@@ -49,6 +49,8 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
     private String title;
     private String ISBN;
     private float rating;
+    private String bookurl;
+    private String description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,8 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
                 title = bundle.getString("title");
                 ISBN = bundle.getString("ISBN");
                 rating = bundle.getFloat("rating");
+                bookurl = bundle.getString("bookurl");
+                description = bundle.getString("description");
             }
         }
         else {
@@ -114,6 +118,8 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
             title = (String) savedInstanceState.getSerializable("title");
             ISBN = (String) savedInstanceState.getSerializable("ISBN");
             rating = (float) savedInstanceState.getSerializable("rating");
+            description = (String) savedInstanceState.getSerializable("description");
+            bookurl = (String) savedInstanceState.getSerializable("bookurl");
         }
 
         // repack to send to fragment
@@ -121,12 +127,12 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
         bookInfo.putString("author", author);
         bookInfo.putString("title", title);
         bookInfo.putString("ISBN", ISBN);
-
         bookInfo.putFloat("rating", rating);
+        bookInfo.putString("description", description);
+        bookInfo.putString("bookurl", bookurl);
 
         GenreTabforBooks3 genreInfo = new GenreTabforBooks3();
         genreInfo.setArguments(bookInfo);
-
 
     }
 
