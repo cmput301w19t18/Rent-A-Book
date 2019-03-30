@@ -1,0 +1,10 @@
+*.class
+*~
+*.properties
+*.jar
+RentABook/app/build
+.idea/
+.DS_Store
+.gradle/
+local.properties
+*.iml

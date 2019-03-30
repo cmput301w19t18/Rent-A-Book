@@ -47,16 +47,6 @@ public class PickGenrePreference extends AppCompatActivity {
      *
      */
 
-    //static final int numPages = 3;
-    //private int[] preferenceList = new int [18];
-    //private int selectedNum = 0;
-    //private int tabIcon = R.drawable.circle_unselected_gray_5dp;
-
-   //private int[] tabIcons = {
-   //         R.drawable.unselected_circle_light_gray_10dp,
-   //         R.drawable.unselected_circle_light_gray_10dp,
-   //         R.drawable.unselected_circle_light_gray_10dp,
-   // };
 
     private GenreAdapter genreAdapter;
     private ViewPager viewPager;
@@ -89,8 +79,9 @@ public class PickGenrePreference extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.custom_genre_pick_tab);
 
-
-        binding.setLifecycleOwner(this); // <-- this enables MutableLiveData to be update on your UI
+        // TODO credit this
+        //enabling MutableLiveData to be updated on UI
+        binding.setLifecycleOwner(this);
         binding.setViewModel(model);
 
         viewPager = (ViewPager) findViewById(R.id.custPager);
@@ -105,17 +96,16 @@ public class PickGenrePreference extends AppCompatActivity {
         viewPager.setAdapter(genreAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        // setting up observer
         genres.setText(model.getGenresSelected().toString());
         final Observer<List<String>> genreObserver = new Observer<List<String>>() {
         //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> s) {
                 // Updating UI to show the 3 selected genres
-                //genres.setText(model.getCurrPickedGenres().toString());
                 genres.setText(s.toString());
             }
         };
-        //genres.setText(model.getGenresSelected().toString());
 
         model.getCurrPickedGenres().observe(this, genreObserver);
 
@@ -149,64 +139,6 @@ public class PickGenrePreference extends AppCompatActivity {
         GenreTab3 finalInfo = new GenreTab3();
         finalInfo.setArguments(userInfo);
 
-
-
     }
 
-    /*
-    public void sendData() {
-        Bundle bundle = new Bundle();
-
-
-        GenreTab3 userInfo = new GenreTab3();
-        userInfo.setArguments(bundle);
-    }
-    */
-
-/*
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_genre_pick_main, container, false);
-        romance = (Button) v.findViewById(R.id.romanceButton);
-        // romance.setOnClickListener(this);
-
-        romance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //bvPager.setCurrentItem(0);
-                if (view == romance) {
-                // test to see of button works
-                startActivity(new Intent(PickGenrePreference.this, LoginActivity.class));
-                //    selectedNum += 1;
-                //    if (selectedNum > 3) {
-                // send out a toast
-                //   } else {
-                // highlight and track which has been selected
-                // set genre reference to romance
-                //     preferenceList[2] = 1;
-
-                //  }
-                //  }
-            }
-        });
-        return v;
-    }
-*/
-    /*
-    public void onClick(View view) {
-        //bvPager.setCurrentItem(0);
-        if (view == romance) {
-            // test to see of button works
-            startActivity(new Intent(PickGenrePreference.this, LoginActivity.class));
-            selectedNum += 1;
-            if (selectedNum > 3) {
-                // send out a toast
-            } else {
-                // highlight and track which has been selected
-                // set genre reference to romance
-                preferenceList[2] = 1;
-
-            }
-        }
-    }
-    */
 }

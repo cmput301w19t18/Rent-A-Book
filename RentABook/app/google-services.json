@@ -31,14 +31,6 @@
           }
         },
         {
-          "client_id": "980693254175-sat4sgs9me3c31vn0utrr5a0pc38ta2o.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.cmput301w19t18.rent_a_book",
-            "certificate_hash": "b7dcc070a8e3f2d09648e4363c36a7435b5f320e"
-          }
-        },
-        {
           "client_id": "980693254175-sinvmufog1nv69f0onmq3a5eettsjd22.apps.googleusercontent.com",
           "client_type": 3
         }

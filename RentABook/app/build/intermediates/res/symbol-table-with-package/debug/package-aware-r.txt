@@ -1056,6 +1056,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_add_white_18dp
 drawable brook99
+drawable checkmark_icon
 drawable circle_button
 drawable circle_button_highlighted
 drawable circle_unselected_gray_5dp
@@ -1091,8 +1092,10 @@ drawable go1984
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable highlight_button
+drawable ic_email_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_local_phone_black_24dp
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
@@ -1124,23 +1127,22 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable unselected_circle_7dp
 drawable unselected_circle_light_gray_10dp
+drawable x_icon
 id ALT
-id AddPhotoButton
 id AuthBox
 id CTRL
 id CategoryTitle
 id DescriptionBox
 id FUNCTION
-id GenreButton
 id ISBNBox
 id META
-id OwnedProfile
 id SHIFT
 id SYM
 id ScanButton
 id SelectLocationButton
 id SubmitButton
 id TitleBox
+id accept_fab
 id action0
 id action_bar
 id action_bar_activity_content
@@ -1163,7 +1165,8 @@ id actions
 id activity_chooser_view_content
 id add
 id addEntry_fab
-id addbutton
+id addPhoto
+id addphoto
 id addressField
 id adjust_height
 id adjust_width
@@ -1183,7 +1186,6 @@ id blocking
 id bookAuthor
 id bookCover
 id bookOwner
-id bookPhoto
 id bookRating
 id bookRating_view
 id bookResults
@@ -1191,6 +1193,10 @@ id bookStatus
 id bookTitle
 id bookimage
 id bottom
+id btnCamera
+id btnCancel
+id btnChoose
+id btnUpload
 id buttonPanel
 id cancel
 id cancel_action
@@ -1229,7 +1235,9 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id done
 id dramaButton
+id editButton
 id edit_query
 id email
 id end
@@ -1272,9 +1280,10 @@ id icon_only
 id ifRoom
 id image
 id imageView
-id imageView2
 id imageView3
-id imageView4
+id imageView5
+id imageView6
+id imgView
 id info
 id inputEmail
 id inputName
@@ -1286,6 +1295,7 @@ id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
 id last
+id layout_button
 id left
 id light
 id line1
@@ -1337,6 +1347,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id recyclerHorizontalView
+id reject_fab
 id req_button
 id right
 id right_icon
@@ -1438,6 +1449,8 @@ id useLogo
 id userEmailProfile
 id userFullNameProfile
 id userPhoneProfile
+id userPhoto
+id viewPhoto
 id view_offset_helper
 id visible
 id westernButton
@@ -1494,6 +1507,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_photo
 layout activity_book_details2
 layout activity_genre_pick_main
 layout activity_home
@@ -1505,6 +1519,7 @@ layout activity_newbook
 layout activity_pick_genre_pref
 layout activity_pick_genre_pref2
 layout activity_pick_genre_pref3
+layout activity_pick_genre_pref_books3
 layout activity_profile
 layout activity_search_results
 layout activity_sucess_signup
@@ -1543,7 +1558,9 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout old_genre_pick
 layout register
+layout request_user_item
 layout search_item
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -1647,7 +1664,9 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
+string done
 string drama
+string editButton
 string email
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -2278,3 +2297,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml provider_paths

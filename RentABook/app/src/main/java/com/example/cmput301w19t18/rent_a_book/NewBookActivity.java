@@ -1,31 +1,37 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.UUID;
 
 
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
@@ -35,6 +41,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseApp firebaseApp;
+    private static final String TAG = "myActivity";
+
 
     //buttons and fields
     private Button SubmitB;
@@ -43,19 +51,19 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private EditText TitleF;
     private EditText DescF;
     private String email;
+    private Button btnPhoto;
+    private ImageView imageView;
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 71;
 
-    //latest book added:
-    private Book addedBook;
 
+
+    //record of books added by ISBN
+    private Integer[] booksList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Intent intent = getIntent();
         Bundle b =  intent.getExtras();
@@ -65,25 +73,125 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
 
+
         //initializing fields and buttons
         SubmitB = (Button) findViewById(R.id.SubmitButton);
         ISBNF = (EditText) findViewById(R.id.ISBNBox);
         AuthorF = (EditText) findViewById(R.id.AuthBox);
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
-
+        btnPhoto = findViewById(R.id.addphoto);
+        imageView = findViewById(R.id.image);
         SubmitB.setOnClickListener(this);
         //email = b.getString("user_email");
+        btnPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addButton();
+            }
+        });
+
+
+
 
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
             finish(); //close activity
-            startActivity(new Intent(this, LoginActivity.class)); //returns to login screen
+            startActivity(new Intent(this, MainActivity.class)); //returns to login screen
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
 
     }
+
+    private void addButton(){
+
+        Intent intent = new Intent(this, addPhotoActivity.class);
+        startActivityForResult(intent, 1);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                filePath = data.getParcelableExtra("filepath");
+
+                if(filePath != null) {
+                    //Toast.makeText(getApplicationContext(), "Uri: " + filePath.toString(), Toast.LENGTH_SHORT).show();
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                        Bitmap b = getResizedBitmap(bitmap, 150, 240);
+                        imageView.setImageBitmap(b);
+                    }
+                    catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+
+            }
+        }
+    }
+
+    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap(
+                bm, 0, 0, width, height, matrix, false);
+        bm.recycle();
+        return resizedBitmap;
+    }
+
+    //////////////// Check if exists in the database //////////////// https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
+
+
+    /*
+    ValueEventListener responseListener  = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot snapshot) {
+
+            databaseReference.child("books").orderByChild("ISBN").equalTo(ISBNF.getText().toString().trim()).once
+
+            if (snapshot.getValue() != null) {
+                //user exists, do something
+            } else {
+                //user does not exist, do something else
+            }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+
+
+    };
+
+    public static DatabaseReference getBaseRef() {
+        return FirebaseDatabase.getInstance().getReference();
+    }
+
+    public static DatabaseReference getResponsesRef() {
+        return getBaseRef().child("books");
+    }
+
+    */
+
+
+    ////////////////////////////////////////////////////////////////
 
 
     private void saveBookInfo(){
@@ -98,20 +206,19 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //Currently only is able to add values entered for a new book that is not already in the database
 
         String genre = "000001010"; //going to be set by external function
-        String requestedBy = "none";
-        String owneremail = bAuth.getCurrentUser().getEmail();
+        String requestedBy = "jakep@nypd.org";//new ArrayList<String>();
+        String email = bAuth.getCurrentUser().getEmail();
         ArrayList<String> ownedBy = null;
 
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
         Integer rating = 4;
         Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
-        //REMOVE COPYCOUNT FROM INDIVIDUAL BOOK CLASS
+
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, ISBN, status, rating, owneremail, genre, requestedBy);
-
-        addedBook = newBook; //sets the last added book to this new book
+        Book newBook = new Book(title, author, ISBN, status, rating, email, genre, requestedBy);
+        //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -119,93 +226,23 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 if (task.isComplete()){
                     Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
                     finish();
+
                 }
                 if(!task.isSuccessful()){
                     Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
 
-    }
-
-
-    ////////////////// Overall book monitor check //////////////////
-
-    //fetches a list of all books in the DB
-    Query query = FirebaseDatabase.getInstance().getReference("uniqueBooks");
-    ArrayList fetchedBookList = new ArrayList<>();
-
-    //query book column, retrieve all unique books
-    private void queryBooks(Query query) {
-        ValueEventListener valueEventListener = new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                fetchedBookList.clear();
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Book fetchBook = snapshot.getValue(Book.class);
-
-                        fetchedBookList.add(fetchBook);
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        };
-        query.addListenerForSingleValueEvent(valueEventListener);
-    }
-
-    //operations with the book monitor column in the database
-    private void bookMonitor(){
-        queryBooks(query);
-        Boolean wasIn = Boolean.FALSE; //if the book is already in the DB or not
-
-        //if the book is in there, then get all the info on it/
-        Integer uCopyCount = 0;
-        Integer uRating = 0;
-        String uISBN = addedBook.getISBN();
-        String uGenre = addedBook.getGenre();
-
-        for (int i=0; i<fetchedBookList.size(); i++) {
-            uniqueBook currentBook = (uniqueBook) fetchedBookList.get(i); //casted firebase object to uniquebook object
-            if (currentBook.getISBN() == addedBook.getISBN()){
-                //means the book is already in the database. increment the count, add to the genre array
-                wasIn = Boolean.TRUE;
-
-                uCopyCount = currentBook.getCopyCount();
-                uRating = currentBook.getRating();
-
-                break;
             }
         }
 
-
-        //references the uniqueBooks section of the database
-        DatabaseReference uniqueBookReference = FirebaseDatabase.getInstance().getReference("UniqueBooks");
-        String id = uniqueBookReference.push().getKey(); //// CHECK: supposed to get the key of this particular book ////
-
-        if (wasIn = Boolean.FALSE){
-            //means the book is not already in the DB. Adds a new unique book.
-            uniqueBook addedUniqueBook = new uniqueBook(uISBN, uGenre); //creates new uniqueBook object
-            uniqueBookReference.setValue(addedUniqueBook);
-
-        } else {
-            //means the book is already in the database. increment the count, add to the genre array
-            uniqueBook uniqueBookUpdate = new uniqueBook(uISBN, uGenre, uRating, uCopyCount);
-            uniqueBookReference.child(id).setValue(uniqueBookUpdate); //should update the book of that value (id)
-
-        }
-
+        );
+        //databaseReference.child("books").setValue(newBook); //should put the book in the db under books
+        //finish();
     }
-     
-    ////////////////// Overall book monitor check //////////////////
-
 
     @Override //when you press the submit button
     public void onClick(View view) {
