@@ -3,7 +3,9 @@ package com.example.cmput301w19t18.rent_a_book;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -85,8 +88,34 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        //Intent intent = getIntent();
-        //Bundle b =  intent.getExtras();
+        BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
+
+
+        bnv.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        Intent intent;
+                        switch (menuItem.getItemId()) {
+                            case R.id.home:
+                                // do nothing because we're already here
+                                break;
+                            case R.id.search:
+                                intent = new Intent(HomeActivity.this, SearchResultsActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.inbox:
+                                // TODO this needs to be implemented
+                                break;
+                            case R.id.profile:
+                                intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                                startActivity(intent);
+                                break;
+                        }
+                        return false;
+                    }
+                }
+        );
 
         //Map test button//
         Button testButton = findViewById(R.id.maptest);
@@ -119,6 +148,9 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
         bAuth = FirebaseAuth.getInstance();
 

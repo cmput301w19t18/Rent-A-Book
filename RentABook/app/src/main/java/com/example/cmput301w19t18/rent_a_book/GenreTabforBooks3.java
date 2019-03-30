@@ -262,6 +262,10 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
             }
         }
 
+        // clear genre lists just to avoid errors that may crop up from unclearing
+        genList.clear();
+        prefList.clear();
+
         // Send genres and all previous info back to NewBookActivity
         Intent intent = new Intent(this.getContext(), NewBookActivity.class);
         Bundle userInfo =  new Bundle();

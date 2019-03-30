@@ -6,11 +6,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <FrameLayout
+        android:id="@+id/navbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
+        android:backgroundTint="@color/lightOlive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:itemBackground="@color/lightOlive"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/navigation"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/activity_home_vertical" />
+
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addEntry_fab"
@@ -18,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="128dp"
         android:src="@drawable/baseline_add_white_18dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,9 +53,9 @@
         android:id="@+id/maptest"
         android:layout_width="161dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="128dp"
         android:background="@drawable/simple_button_layout"
         android:text="map test button"
         app:layout_constraintBottom_toBottomOf="parent"
