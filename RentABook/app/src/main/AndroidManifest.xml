@@ -15,7 +15,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.provider"
@@ -26,7 +25,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"
                 tools:replace="android:resource" />
-
         </provider>
 
         <activity android:name=".MainActivity">
@@ -43,6 +41,8 @@
             android:name=".HomeActivity"
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".BookDetails" />
+        <activity android:name=".MapsActivity" />
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".PickGenrePreference"
@@ -51,8 +51,8 @@
             android:name=".NewBookActivity"
             android:exported="true" />
         <activity android:name=".addPhotoActivity" />
+        <activity android:name=".Inbox"
+            android:exported="true"></activity>
     </application>
-
-
 
 </manifest>

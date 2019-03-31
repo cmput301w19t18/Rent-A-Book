@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\NavidAmin\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\NavidAmin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\e5e145246016bd4d1adc426e83130ee2\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

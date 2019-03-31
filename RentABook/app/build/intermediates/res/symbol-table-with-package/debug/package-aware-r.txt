@@ -1284,6 +1284,7 @@ id imageView3
 id imageView5
 id imageView6
 id imgView
+id inboxResults
 id info
 id inputEmail
 id inputName
@@ -1512,6 +1513,7 @@ layout activity_book_details2
 layout activity_genre_pick_main
 layout activity_home
 layout activity_home_vertical
+layout activity_inbox
 layout activity_main
 layout activity_map_pre
 layout activity_maps

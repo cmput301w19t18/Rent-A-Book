@@ -1,29 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\NavidAmin\\Rent-A-Book\\RentABook\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "/Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\NavidAmin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\e25b254312f2ebe18919e4f79d073ac3\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2,5,8,11",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,223,386,554",
-                        "endLines": "4,7,10,13",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "218,381,549,716"
-                    },
-                    "to": {
-                        "startLines": "265,268,272,276",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "19504,19672,19961,20257",
-                        "endLines": "267,270,274,278",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "19667,19830,20124,20419"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\NavidAmin\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\8113f0ee96d1bd5f37d01fca42003517\\res\\values-v21\\values-v21.xml",
+                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,10,18,26",
                         "startColumns": "4,4,4,4",
@@ -42,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\NavidAmin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\04a1927748dcd0f6b9040269d93ae825\\res\\values-v21\\values-v21.xml",
+                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a644385a66ecc0c218896954aca7f5e2/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -61,7 +42,26 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\NavidAmin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\e5e145246016bd4d1adc426e83130ee2\\res\\values-v21\\values-v21.xml",
+                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/20d2d40594d17cb5937a06f52f64661f/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
+                    },
+                    "to": {
+                        "startLines": "265,268,272,276",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "19504,19672,19961,20257",
+                        "endLines": "267,270,274,278",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "19667,19830,20124,20419"
+                    }
+                },
+                {
+                    "source": "/Users/ikramshire/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69274fda8ebd33f40af9052c6d96c8ab/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,107,110,154,157,160,162,164,166,169,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,221,222,223,233,234,235,247",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
