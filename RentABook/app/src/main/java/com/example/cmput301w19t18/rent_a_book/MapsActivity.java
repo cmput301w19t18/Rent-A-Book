@@ -32,7 +32,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
@@ -41,6 +43,9 @@ import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
  * The type Maps activity.
  */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private DatabaseReference mUserDatabase;
+    FirebaseAuth mAuth;
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
@@ -108,11 +113,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Float zoom = new Float (15); //default zoom level
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CSB_home, zoom));
 
-        mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB"));
+        mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
 
         enableMyLocation();
         setMapLongClick(mMap);
+
+
 
     }
 
@@ -164,8 +171,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void setMapLongClick(final GoogleMap map) {
 
 
-
-
         map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
@@ -174,7 +179,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
                     @Override
                     public void onMapLongClick(LatLng latLng) {
-                        String snippet = String.format(Locale.getDefault(), //may need to edit to be latLng
+                        String snippet = String.format(Locale.getDefault(),
                                 "Lat: %1$.5f, Long: %2$.5f",
                                 latLng.latitude,
                                 latLng.longitude);
@@ -185,17 +190,97 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 .snippet(snippet));
 
                         //return data from map marker position:
-                        MapsActivity.locationLat = latLng.latitude;
-                        MapsActivity.locationLon = latLng.longitude;
+                        locationLat = latLng.latitude;
+                        locationLon = latLng.longitude;
 
+                        //Accepting request
+                        String accepted = getIntent().getStringExtra("Accepted");
+                        Toast.makeText(getApplicationContext(), accepted, Toast.LENGTH_LONG).show();
+                        if (accepted.contains("1")){
+                            //FIREBASE
+
+                            mAuth = FirebaseAuth.getInstance();
+                            mUserDatabase = FirebaseDatabase.getInstance().getReference("Users");
+
+                            String user_email = mAuth.getCurrentUser().getEmail();
+                            String user_id = mAuth.getCurrentUser().getUid();
+
+                            DatabaseReference accepted_ref = mUserDatabase.child(user_id);
+                            accepted_ref.child("lat").setValue(locationLat);
+                            accepted_ref.child("lon").setValue(locationLon);
+
+                            Toast.makeText(getApplicationContext(), "Location Set", Toast.LENGTH_LONG).show();
+
+                        }
+
+                        //String borrowed = getIntent().getStringExtra("Borrowed");
+                        //Toast.makeText(getApplicationContext(), borrowed, Toast.LENGTH_LONG).show();
+                        //if (getIntent().getStringExtra("Borrowed").contains("2")){
+                        else{
+
+                            String bookTitle = getIntent().getStringExtra("Book");
+                            final String ownerEmail = getIntent().getStringExtra("Owner");
+                            Toast.makeText(getApplicationContext(), "test email", Toast.LENGTH_LONG).show();
+
+                            DatabaseReference mDatabase4;
+                            final FirebaseAuth mAuth;
+                            mAuth = FirebaseAuth.getInstance();
+
+                            mDatabase4 = FirebaseDatabase.getInstance().getReference("Users");
+                            Query query4 = mDatabase4.orderByChild("email");
+                            ValueEventListener eventListener = new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()){
+                                        //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
+                                        for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+                                            User user = snapshot.getValue(User.class);
+                                            if (user.email.contains(ownerEmail)) {
+
+                                                String keyer = snapshot.getKey();
+
+                                                Toast.makeText(getApplicationContext(), keyer, Toast.LENGTH_LONG).show();
+                                            }
+
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            };
+                            query4.addListenerForSingleValueEvent(eventListener);
+
+
+
+                            /*
+                            LatLng CSB_home = new LatLng(53.526724, -113.526483); //Location of CSB
+                            Float zoom = new Float (15); //default zoom level
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CSB_home, zoom));
+
+                            mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
+                            mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
+                            */
+
+                        }
+
+
+                        /*
                         //return to home after map
                         try
                         { Thread.sleep(1000); } //wait 1 second before returning to home
                         catch(InterruptedException ex)
                         { Thread.currentThread().interrupt(); }
 
-                        Intent intent = new Intent(MapsActivity.this, HomeActivity.class);
-                        startActivityForResult(intent, ADDING);
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.putExtra("Accepted","1");
+                        getApplicationContext().startActivity(intent);
+                         */
+
+
 
                     }
                 });
