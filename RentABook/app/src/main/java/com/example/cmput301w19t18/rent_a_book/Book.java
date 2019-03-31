@@ -1,9 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-
-import android.support.v7.app.AppCompatActivity;
 
 /**
  * The type Book.
@@ -20,6 +17,7 @@ public class Book implements Serializable{
     private String bOwner;
     private String genre; //genre will be determined by an array
     private String requestedBy; //list of users that are requesting the book by email
+    private String description;
 
     //private String description; //Description of the book entered by the user
     //private Integer copyCount; //number of copies of the book that exist
@@ -45,10 +43,25 @@ public class Book implements Serializable{
         this.bOwner = bOwner;
         this.genre = genre;
         this.requestedBy = requestedBy;
+        this.description = description;
 
         //use of arrays:
         //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
         //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+
+    }
+
+    //second constructor that allows storage of description
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String description) {
+        this.btitle = btitle;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.bstatus = bstatus;
+        this.rating = rating;
+        this.bOwner = bOwner;
+        this.genre = genre;
+        this.requestedBy = requestedBy;
+        this.description = description;
 
     }
 
@@ -199,5 +212,13 @@ public class Book implements Serializable{
      */
     public void setRequestedBy(String requestedBy) {
         this.requestedBy = requestedBy;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
