@@ -11,6 +11,18 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.media.Image;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.JsonReader;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+import com.android.volley.Request;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +31,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +50,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.io.StringReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -43,7 +68,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseApp firebaseApp;
     private static final String TAG = "myActivity";
 
-
     //buttons and fields
     private Button SubmitB;
     private EditText ISBNF;
@@ -56,7 +80,22 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
 
+    private String genre;
+    private String strGenre;
+    private Button GenreB;
+    private Button genre1;
+    private Button genre2;
+    private Button genre3;
+    private Button ScanB;
+    private RatingBar RatingF;
+    private ImageView CoverB;
 
+    //latest book added:
+    private Book addedBook;
+    private String bookurl;
+
+    //volley stuff
+    private RequestQueue mQueue;
 
     //record of books added by ISBN
     private Integer[] booksList;
@@ -73,6 +112,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
 
+        //initializing volley request
+        mQueue = Volley.newRequestQueue(this);
 
         //initializing fields and buttons
         SubmitB = (Button) findViewById(R.id.SubmitButton);
@@ -80,7 +121,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         AuthorF = (EditText) findViewById(R.id.AuthBox);
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
-        btnPhoto = findViewById(R.id.addphoto);
+        btnPhoto = findViewById(R.id.addPhoto);
         imageView = findViewById(R.id.image);
         SubmitB.setOnClickListener(this);
         //email = b.getString("user_email");
@@ -91,7 +132,59 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
+        RatingF = (RatingBar) findViewById(R.id.bookRating);
+        CoverB = (ImageView) findViewById(R.id.imageBookCover);
 
+        GenreB = (Button) findViewById(R.id.GenreButton);
+        ScanB = (Button) findViewById(R.id.ScanButton);
+
+        SubmitB.setOnClickListener(this);
+        GenreB.setOnClickListener(this);
+        ScanB.setOnClickListener(this);
+
+        //email = b.getString("user_email");
+
+        // unpack
+        if (savedInstanceState == null) {
+            Bundle bundle = getIntent().getExtras();
+            if (bundle != null) {
+                genre = bundle.getString("genres");
+                strGenre = bundle.getString("genresString");
+                Toast.makeText(this,genre,Toast.LENGTH_SHORT).show();
+
+                if(!strGenre.contains(" ")) {
+                    genre1.setText(strGenre);
+                }
+                else {
+                    String selGenres[] = strGenre.split(" ");
+                    if (selGenres.length == 2 ) {
+                        genre1.setText(selGenres[0]);
+                        genre2.setText(selGenres[1]);
+                    }
+                    else {
+                        genre1.setText(selGenres[0]);
+                        genre2.setText(selGenres[1]);
+                        genre3.setText(selGenres[2]);
+                    }
+
+                }
+
+                // set info TODO last ditch effort is force user to enter genre first
+
+                TitleF.setText(bundle.getString("title"));
+                AuthorF.setText(bundle.getString("author"));
+                DescF.setText(bundle.getString("description"));
+                ISBNF.setText(bundle.getString("ISBN"));
+                RatingF.setRating(bundle.getFloat("rating"));
+                bookurl = bundle.getString("bookurl");
+                Picasso.get().load(bookurl).into(CoverB);
+
+            }
+        }
+        else {
+            genre = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
+            //Toast.makeText(this,"No genres lol",Toast.LENGTH_SHORT).show();
+        }
 
 
         //check if user is logged in. if not, returns null
@@ -105,14 +198,58 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void addButton(){
-
         Intent intent = new Intent(this, addPhotoActivity.class);
         startActivityForResult(intent, 1);
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 0) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    Barcode barcode = data.getParcelableExtra("barcode");
+                    ISBNF.setText(barcode.displayValue);
+
+                    String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                //String test = response.getString("kind");
+                                JSONArray jsonArray = response.getJSONArray("items");
+                                JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                                String json_title = jsonObject.getJSONObject("volumeInfo").getString("title");
+                                String json_author = jsonObject.getJSONObject("volumeInfo").getJSONArray("authors").get(0).toString();
+                                String json_desc = jsonObject.getJSONObject("volumeInfo").getString("description");
+                                String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
+
+                                TitleF.setText(json_title);
+                                AuthorF.setText(json_author);
+                                DescF.setText(json_desc);
+                                bookurl = json_img;
+                                Picasso.get().load(bookurl).into(CoverB);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+
+                    mQueue.add(request);
+
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data);
+            }
+        }
 
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
@@ -132,9 +269,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
             }
+
             if (resultCode == Activity.RESULT_CANCELED) {
 
             }
+
         }
     }
 
@@ -155,46 +294,12 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         return resizedBitmap;
     }
 
-    //////////////// Check if exists in the database //////////////// https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
-
-
-    /*
-    ValueEventListener responseListener  = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot snapshot) {
-
-            databaseReference.child("books").orderByChild("ISBN").equalTo(ISBNF.getText().toString().trim()).once
-
-            if (snapshot.getValue() != null) {
-                //user exists, do something
-            } else {
-                //user does not exist, do something else
-            }
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-
-        }
-
-
-    };
-
-    public static DatabaseReference getBaseRef() {
-        return FirebaseDatabase.getInstance().getReference();
+    public void scanBarcode(View v) {
+        Intent intent = new Intent(this, ScanBarcodeActivity.class);
+        startActivityForResult(intent, 0);
     }
 
-    public static DatabaseReference getResponsesRef() {
-        return getBaseRef().child("books");
-    }
-
-    */
-
-
-    ////////////////////////////////////////////////////////////////
-
-
-    private void saveBookInfo(){
+    private void saveBookInfo() {
 
         String author = AuthorF.getText().toString().trim();
         String ISBN = ISBNF.getText().toString().trim();
@@ -244,11 +349,39 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //finish();
     }
 
-    @Override //when you press the submit button
+    @Override //when you press any of the buttons
     public void onClick(View view) {
+
+        if(view == ScanB) {
+            scanBarcode(view);
+        }
 
         if(view == SubmitB){
             saveBookInfo(); //calls the save function upon press
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+
+        if (view == GenreB) {
+            // goes to select genre
+            // pack current info to send there and back
+            Intent intent = new Intent(this, PickGenrePreferenceBooks.class);
+            Bundle bookInfo = new Bundle();
+
+            bookInfo.putString("title",TitleF.getText().toString().trim());
+
+            bookInfo.putString("author", AuthorF.getText().toString().trim());
+
+            bookInfo.putString("ISBN", ISBNF.getText().toString().trim());
+
+            bookInfo.putFloat("rating", RatingF.getRating());
+
+            bookInfo.putString("description", DescF.getText().toString().trim());
+
+            bookInfo.putString("bookurl", bookurl);
+
+            intent.putExtras(bookInfo);
+            startActivity(intent);
         }
 
     }

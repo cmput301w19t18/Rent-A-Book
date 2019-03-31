@@ -1,142 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewBookActivity">
+    tools:context="com.example.cmput301w19t18.rent_a_book.NewBookActivity">
 
-    <EditText
-        android:id="@+id/DescriptionBox"
-        android:layout_width="317dp"
-        android:layout_height="112dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="252dp"
-        android:ems="10"
-        android:hint="@string/Description"
-        android:inputType="textMultiLine"
-        android:selectAllOnFocus="false"
-        android:singleLine="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NewBookActivity">
 
-    <EditText
-        android:id="@+id/TitleBox"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:ems="10"
-        android:hint="@string/Title"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ISBNBox"
-        app:layout_constraintVertical_chainStyle="spread" />
+        <EditText
+            android:id="@+id/DescriptionBox"
+            android:layout_width="0dp"
+            android:layout_height="207dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/text_input_layout"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="@string/Description"
+            android:inputType="textMultiLine"
+            android:padding="15dp"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addPhoto" />
 
-    <EditText
-        android:id="@+id/AuthBox"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:ems="10"
-        android:hint="@string/Author"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/TitleBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_input_layout"
+            android:ems="10"
+            android:hint="@string/Title"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/ScanButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="274dp"
-        android:layout_marginLeft="274dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="163dp"
-        android:text="@string/scan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
+        <EditText
+            android:id="@+id/AuthBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_input_layout"
+            android:ems="10"
+            android:hint="@string/Author"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
+            app:layout_constraintTop_toBottomOf="@+id/TitleBox" />
 
-    <EditText
-        android:id="@+id/ISBNBox"
-        android:layout_width="149dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="217dp"
-        android:layout_marginRight="217dp"
-        android:layout_marginBottom="59dp"
-        android:ems="10"
-        android:hint="@string/ISBN"
-        android:inputType="text"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/DescriptionBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <Button
+            android:id="@+id/ScanButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/simple_button_layout"
+            android:text="@string/scan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/SubmitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginRight="141dp"
-        android:layout_marginBottom="166dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ScanButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
+        <Button
+            android:id="@+id/GenreButton"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/simple_button_layout"
+            android:text="@string/GenreButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
 
-    <Button
-        android:id="@+id/addphoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="ADD/CHANGE PHOTO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TitleBox"
-        app:layout_constraintTop_toBottomOf="@+id/AuthBox" />
+        <EditText
+            android:id="@+id/ISBNBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/text_input_layout"
+            android:ems="10"
+            android:hint="@string/ISBN"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
+            app:layout_constraintTop_toBottomOf="@+id/AuthBox" />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/DescriptionBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.247"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TitleBox"
-        app:srcCompat="@drawable/baseline_add_white_18dp" />
+        <Button
+            android:id="@+id/SubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/simple_button_layout"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/genre1"
+            app:layout_constraintVertical_bias="1.0" />
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/addPhoto"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/simple_button_layout"
+            android:text="@string/AddPhotoButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageBookCover"
+            app:layout_constraintStart_toStartOf="@+id/imageBookCover"
+            app:layout_constraintTop_toBottomOf="@+id/imageBookCover" />
+
+        <ImageView
+            android:id="@+id/imageBookCover"
+            android:layout_width="150dp"
+            android:layout_height="210dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <RatingBar
+            android:id="@+id/bookRating"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="0.5"
+            android:theme="@style/RatingBar"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toEndOf="@+id/imageBookCover"
+            app:layout_constraintTop_toBottomOf="@+id/ISBNBox" />
+
+        <Button
+            android:id="@+id/genre1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/genre_icon_pastel_pink_128dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
+
+        <Button
+            android:id="@+id/genre2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/genre_icon_pastel_pink_128dp"
+            app:layout_constraintStart_toEndOf="@+id/genre1"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
+
+        <Button
+            android:id="@+id/genre3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/genre_icon_pastel_pink_128dp"
+            app:layout_constraintStart_toEndOf="@+id/genre2"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionBox" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

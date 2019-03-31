@@ -15,7 +15,7 @@ public class GenreViewModel extends ViewModel {
     private static int count = 0;
     private MutableLiveData numSelected;
 
-    private static List<Integer> genresSelected = new ArrayList<Integer>(Collections.nCopies(18,0));;
+    private static List<Integer> genresSelected = new ArrayList<Integer>(Collections.nCopies(18,0));
     private MutableLiveData<List<Integer>> genres;
 
     private MutableLiveData<List<String>> currPickedGenres;
