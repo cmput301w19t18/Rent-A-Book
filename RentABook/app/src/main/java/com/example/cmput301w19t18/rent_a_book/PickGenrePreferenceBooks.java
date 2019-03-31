@@ -51,8 +51,13 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
     private String title;
     private String ISBN;
     private float rating;
+<<<<<<< HEAD
     private String descrip;
     private Bitmap coverIMG;
+=======
+    private String bookurl;
+    private String description;
+>>>>>>> 791ee7d0460127c1078061f7e4cbb2337ec02adc
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,8 +116,13 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
                 title = bundle.getString("title");
                 ISBN = bundle.getString("ISBN");
                 rating = bundle.getFloat("rating");
+<<<<<<< HEAD
                 descrip = bundle.getString("description");
                 coverIMG = bundle.getParcelable("coverPic");
+=======
+                bookurl = bundle.getString("bookurl");
+                description = bundle.getString("description");
+>>>>>>> 791ee7d0460127c1078061f7e4cbb2337ec02adc
             }
         }
         else {
@@ -120,7 +130,12 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
             title = (String) savedInstanceState.getSerializable("title");
             ISBN = (String) savedInstanceState.getSerializable("ISBN");
             rating = (float) savedInstanceState.getSerializable("rating");
+<<<<<<< HEAD
             descrip = (String) savedInstanceState.getSerializable("description");
+=======
+            description = (String) savedInstanceState.getSerializable("description");
+            bookurl = (String) savedInstanceState.getSerializable("bookurl");
+>>>>>>> 791ee7d0460127c1078061f7e4cbb2337ec02adc
         }
 
         // repack to send to fragment
@@ -128,8 +143,9 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
         bookInfo.putString("author", author);
         bookInfo.putString("title", title);
         bookInfo.putString("ISBN", ISBN);
-
         bookInfo.putFloat("rating", rating);
+        bookInfo.putString("description", description);
+        bookInfo.putString("bookurl", bookurl);
 
         if (coverIMG != null) {
             bookInfo.putParcelable("coverPic", coverIMG);
@@ -138,7 +154,6 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
 
         GenreTabforBooks3 genreInfo = new GenreTabforBooks3();
         genreInfo.setArguments(bookInfo);
-
 
     }
 

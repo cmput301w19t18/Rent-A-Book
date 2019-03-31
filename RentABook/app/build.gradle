@@ -53,7 +53,10 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:15.0.1'
 
+    implementation 'com.google.android.gms:play-services-vision:15.0.2'
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
 
+    implementation 'com.android.volley:volley:1.1.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

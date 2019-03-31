@@ -1,23 +1,40 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+import android.graphics.Matrix;
+import android.media.Image;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.JsonReader;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+import com.android.volley.Request;
+
+
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,26 +47,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.StringReader;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -70,19 +72,27 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private EditText TitleF;
     private EditText DescF;
     private String email;
-    private Button ScanB;
     private String genre;
     private String strGenre;
     private Button GenreB;
     private Button genre1;
     private Button genre2;
     private Button genre3;
+    private Button ScanB;
+    private Button PhotoB;
     private RatingBar RatingF;
-    private ImageView bookCover;
-    private Bitmap coverIMG;
+    private ImageView CoverB;
 
     //latest book added:
     private Book addedBook;
+    private String bookurl;
+
+    //volley stuff
+    private RequestQueue mQueue;
+
+    // camera stuff
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 71;
 
 
     @Override
@@ -99,24 +109,21 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
 
+        //initializing volley request
+        mQueue = Volley.newRequestQueue(this);
+
         //initializing fields and buttons
-        SubmitB = findViewById(R.id.SubmitButton);
-        ISBNF = findViewById(R.id.ISBNBox);
-        AuthorF = findViewById(R.id.AuthBox);
-        TitleF = findViewById(R.id.TitleBox);
-        DescF = findViewById(R.id.DescriptionBox);
-
-        bookCover = findViewById(R.id.imageView2);
-
-        ScanB = findViewById(R.id.ScanButton);
         SubmitB = (Button) findViewById(R.id.SubmitButton);
         ISBNF = (EditText) findViewById(R.id.ISBNBox);
         AuthorF = (EditText) findViewById(R.id.AuthBox);
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
         RatingF = (RatingBar) findViewById(R.id.bookRating);
+        CoverB = (ImageView) findViewById(R.id.imageBookCover);
 
         GenreB = (Button) findViewById(R.id.GenreButton);
+        ScanB = (Button) findViewById(R.id.ScanButton);
+        PhotoB = (Button) findViewById(R.id.AddPhotoButton);
 
         genre1 = (Button) findViewById(R.id.genre1);
         genre2 = (Button) findViewById(R.id.genre2);
@@ -124,9 +131,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         SubmitB.setOnClickListener(this);
         GenreB.setOnClickListener(this);
+        ScanB.setOnClickListener(this);
+        PhotoB.setOnClickListener(this);
+
         //email = b.getString("user_email");
 
-        ScanB.setOnClickListener(this);
         // unpack
         if (savedInstanceState == null) {
             Bundle bundle = getIntent().getExtras();
@@ -156,11 +165,12 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
                 TitleF.setText(bundle.getString("title"));
                 AuthorF.setText(bundle.getString("author"));
+                DescF.setText(bundle.getString("description"));
                 ISBNF.setText(bundle.getString("ISBN"));
                 RatingF.setRating(bundle.getFloat("rating"));
-                DescF.setText(bundle.getString("description"));
-                coverIMG = bundle.getParcelable("coverPic");
-                bookCover.setImageBitmap(coverIMG);
+                bookurl = bundle.getString("bookurl");
+                Picasso.get().load(bookurl).into(CoverB);
+
             }
         }
         else {
@@ -176,19 +186,111 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
 
-        if (savedInstanceState != null) {
-            TitleF.setText(savedInstanceState.getString("title"));
-            AuthorF.setText(savedInstanceState.getString("author"));
-            DescF.setText(savedInstanceState.getString("description"));
-            ISBNF.setText(savedInstanceState.getString("isbn"));
-            coverIMG = savedInstanceState.getParcelable("coverPic");
-            bookCover.setImageBitmap(coverIMG);
-        }
+    }
+
+    public void scanBarcode(View v) {
+        Intent intent = new Intent(this, ScanBarcodeActivity.class);
+        startActivityForResult(intent, 0);
+    }
+
+    private void addButton(){
+
+        //Intent intent = new Intent(this, addPhotoActivity.class);
+        //startActivityForResult(intent, 1);
 
     }
 
 
-    private void saveBookInfo(){
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    Barcode barcode = data.getParcelableExtra("barcode");
+                    ISBNF.setText(barcode.displayValue);
+
+                    String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+
+                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                //String test = response.getString("kind");
+                                JSONArray jsonArray = response.getJSONArray("items");
+                                JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                                String json_title = jsonObject.getJSONObject("volumeInfo").getString("title");
+                                String json_author = jsonObject.getJSONObject("volumeInfo").getJSONArray("authors").get(0).toString();
+                                String json_desc = jsonObject.getJSONObject("volumeInfo").getString("description");
+                                String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
+
+                                TitleF.setText(json_title);
+                                AuthorF.setText(json_author);
+                                DescF.setText(json_desc);
+                                bookurl = json_img;
+                                Picasso.get().load(bookurl).into(CoverB);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+
+                    mQueue.add(request);
+
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data);
+            }
+        }
+        else if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                filePath = data.getParcelableExtra("filepath");
+
+                if(filePath != null) {
+                    //Toast.makeText(getApplicationContext(), "Uri: " + filePath.toString(), Toast.LENGTH_SHORT).show();
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                        Bitmap b = getResizedBitmap(bitmap, 150, 240);
+                        CoverB.setImageBitmap(b);
+                    }
+                    catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+
+            }
+        }
+    }
+
+    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap(
+                bm, 0, 0, width, height, matrix, false);
+        bm.recycle();
+        return resizedBitmap;
+    }
+
+
+    private void saveBookInfo() {
 
         String author = AuthorF.getText().toString().trim();
         String ISBN = ISBNF.getText().toString().trim();
@@ -322,17 +424,25 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
-     
+
     ////////////////// Overall book monitor check //////////////////
 
 
-    @Override //when you press the submit button
+    @Override //when you press any of the buttons
     public void onClick(View view) {
+
+        if(view == ScanB) {
+            scanBarcode(view);
+        }
 
         if(view == SubmitB){
             saveBookInfo(); //calls the save function upon press
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
+        }
+
+        if (view == PhotoB) {
+            addButton();
         }
 
         if (view == GenreB) {
@@ -342,175 +452,23 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             Bundle bookInfo = new Bundle();
 
             bookInfo.putString("title",TitleF.getText().toString().trim());
+
             bookInfo.putString("author", AuthorF.getText().toString().trim());
+
             bookInfo.putString("ISBN", ISBNF.getText().toString().trim());
+
             bookInfo.putFloat("rating", RatingF.getRating());
-            bookInfo.putParcelable("coverPic", coverIMG);
+
             bookInfo.putString("description", DescF.getText().toString().trim());
+
+            bookInfo.putString("bookurl", bookurl);
 
             intent.putExtras(bookInfo);
             startActivity(intent);
         }
 
-        if (view.getId() == R.id.ScanButton) {
-            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-            scanIntegrator.initiateScan();
-        }
-
     }
 
-    /////////// Scanner Implementation //////////////////
 
-    //Constructs the search string based on result of the scan
-    public void onActivityResult (int requestCode, int resultCode, Intent intent) {
-        IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-
-        if (scanningResult != null) { //Check that the scan actually found something
-            String scanContent = scanningResult.getContents();
-            String scanFormat = scanningResult.getFormatName();
-
-            if (scanContent != null && scanFormat != null && scanFormat.equalsIgnoreCase("EAN_13")){
-                //Ensure that the proper format is scanned in
-                ISBNF.setText(scanContent);
-                String bookSearchString = "https://www.googleapis.com/books/v1/volumes?"+"q=isbn:"+scanContent+"&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
-                new GetBookInfo().execute(bookSearchString);
-
-            } else {
-                Toast toast = Toast.makeText(getApplicationContext(), "Not a valid scan!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-
-            Log.v("SCAN", "Content: "+scanContent+" - Format: "+scanFormat);
-
-        } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "No book data received!", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-    }
-
-    //Conducts search and auto-fills applicable field
-    private class GetBookInfo extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... bookURLs) {
-            StringBuilder bookBuilder = new StringBuilder();
-
-            for (String bookSearchURL : bookURLs) {
-                HttpClient bookClient = new DefaultHttpClient();
-
-                try {
-                    HttpGet bookGet = new HttpGet(bookSearchURL);
-                    HttpResponse bookResponse = bookClient.execute(bookGet);
-                    StatusLine bookSearchStatus = bookResponse.getStatusLine();
-                    if (bookSearchStatus.getStatusCode() == 200) {
-                        HttpEntity bookEntity = bookResponse.getEntity();
-
-                        InputStream bookContent = bookEntity.getContent();
-                        InputStreamReader bookInput = new InputStreamReader(bookContent);
-                        BufferedReader bookReader = new BufferedReader(bookInput);
-
-                        String lineIn;
-                        while ((lineIn = bookReader.readLine()) != null) {
-                            bookBuilder.append(lineIn);
-                        }
-                    }
-                } catch (Exception e) { e.printStackTrace(); }
-            }
-
-            return bookBuilder.toString();
-
-        }
-
-        protected void onPostExecute(String result) {
-            try {
-                JSONObject resultObject = new JSONObject(result);
-                JSONArray bookArray = resultObject.getJSONArray("items");
-
-                JSONObject bookObject = bookArray.getJSONObject(0);
-                JSONObject volumeObject = bookObject.getJSONObject("volumeInfo");
-
-                try {
-                    TitleF.setText(volumeObject.getString("title"));
-                } catch (JSONException jse) {
-                    TitleF.setText("");
-                    jse.printStackTrace();
-                }
-
-                StringBuilder authorBuild = new StringBuilder();
-                try {
-                    JSONArray authorArray = volumeObject.getJSONArray("authors");
-                    for (int a = 0; a < authorArray.length(); a++) {
-                        if (a > 0) authorBuild.append(", ");
-                        authorBuild.append(authorArray.getString(a));
-                    }
-                    AuthorF.setText(authorBuild.toString());
-                } catch (JSONException jse) {
-                    AuthorF.setText("");
-                    jse.printStackTrace();
-                }
-
-                try {
-                    DescF.setText(volumeObject.getString("description"));
-                } catch (JSONException jse) {
-                    DescF.setText("");
-                    jse.printStackTrace();
-                }
-
-                try {
-                    JSONObject imageInfo = volumeObject.getJSONObject("imageLinks");
-                    new GetBookThumb().execute(imageInfo.getString("smallThumbnail"));
-                }
-                catch(JSONException jse){
-                    bookCover.setImageBitmap(null);
-                    jse.printStackTrace();
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                TitleF.setText("");
-                AuthorF.setText("");
-                DescF.setText("");
-
-            }
-        }
-
-    }
-
-    private class GetBookThumb extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... thumbURLs) {
-            try{
-                URL thumbURL = new URL(thumbURLs[0]);
-                URLConnection thumbConn = thumbURL.openConnection();
-                thumbConn.connect();
-
-                InputStream thumbIn = thumbConn.getInputStream();
-                BufferedInputStream thumbBuff = new BufferedInputStream(thumbIn);
-
-                coverIMG = BitmapFactory.decodeStream(thumbBuff);
-                thumbBuff.close();
-                thumbIn.close();
-            }
-            catch(Exception e){
-                e.printStackTrace();
-            }
-            return "";
-        }
-
-        protected void onPostExecute(String result){
-            bookCover.setImageBitmap(coverIMG);
-        }
-    }
-
-    //Saves all info so nothing is lost upon changing orientation
-    @Override
-    protected void onSaveInstanceState(Bundle savedBundle) {
-        super.onSaveInstanceState(savedBundle);
-        savedBundle.putString("title", ""+TitleF.getText());
-        savedBundle.putString("author", ""+AuthorF.getText());
-        savedBundle.putString("description", ""+DescF.getText());
-        savedBundle.putString("isbn", ""+ISBNF.getText());
-        savedBundle.putParcelable("coverPic", coverIMG);
-    }
 
 }

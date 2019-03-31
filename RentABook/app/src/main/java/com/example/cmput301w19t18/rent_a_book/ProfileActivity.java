@@ -24,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_profile);
+<<<<<<< HEAD
 
         BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
 
@@ -55,6 +56,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         );
 
 
+=======
+>>>>>>> 791ee7d0460127c1078061f7e4cbb2337ec02adc
         addBook = (Button) findViewById(R.id.editButton);
         addBook.setOnClickListener(this);
     }

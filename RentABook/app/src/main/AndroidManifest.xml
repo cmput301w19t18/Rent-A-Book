@@ -11,10 +11,12 @@
         android:name="com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE"
         android:protectionLevel="signature"/>
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +29,12 @@
         android:theme="@style/AppThemeNoBar">
 
         <activity android:name=".NewBookActivity"
-            android:exported="true"></activity>
+            android:label="Barcode Reader"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".ScanBarcodeActivity"
+            android:label="Scan Barcode" />
 
         <!--<activity android:name=".LoginActivity"> -->
 
@@ -43,6 +50,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAc556fiT2oUjs0rbz0o-KyW17Yrz8ruEM" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
 
         <activity
             android:name=".MapsActivity"

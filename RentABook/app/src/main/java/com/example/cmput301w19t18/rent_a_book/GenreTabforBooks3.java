@@ -57,6 +57,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
     private float rating;
     private String descrip;
     private Bitmap coverIMG;
+    private String bookurl;
+    private String description;
 
     public GenreTabforBooks3() {
         // constructor
@@ -82,6 +84,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
                 rating = getActivity().getIntent().getExtras().getFloat("rating");
                 descrip = getActivity().getIntent().getExtras().getString("description");
                 coverIMG = getActivity().getIntent().getExtras().getParcelable("coverPic");
+                bookurl = getActivity().getIntent().getExtras().getString("bookurl");
+                description = getActivity().getIntent().getExtras().getString("description");
             }
         }
 
@@ -277,6 +281,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
         userInfo.putString("title", title);
         userInfo.putString("ISBN", ISBN);
         userInfo.putFloat("rating", rating);
+        userInfo.putString("description", description);
+        userInfo.putString("bookurl", bookurl);
 
         userInfo.putParcelable("coverPic", coverIMG);
         userInfo.putString("description", descrip);
