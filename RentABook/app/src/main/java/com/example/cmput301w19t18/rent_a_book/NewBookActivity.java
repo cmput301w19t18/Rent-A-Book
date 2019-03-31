@@ -125,6 +125,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         imageView = findViewById(R.id.image);
         SubmitB.setOnClickListener(this);
         //email = b.getString("user_email");
+
         btnPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
