@@ -31,7 +31,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AddPhotoButton" />
+            app:layout_constraintTop_toBottomOf="@+id/addPhoto" />
 
         <EditText
             android:id="@+id/TitleBox"
@@ -124,7 +124,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/AddPhotoButton"
+            android:id="@+id/addPhoto"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

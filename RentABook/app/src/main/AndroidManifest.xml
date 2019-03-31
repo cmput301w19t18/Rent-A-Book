@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cmput301w19t18.rent_a_book">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <permission
         android:name="com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE"
         android:protectionLevel="signature"/>
@@ -27,6 +24,21 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustNothing"
         android:theme="@style/AppThemeNoBar">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="android:resource" />
+
+        </provider>
+
+        <activity android:name=".MainActivity"></activity>
 
         <activity android:name=".NewBookActivity"
             android:label="Barcode Reader"
@@ -69,20 +81,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".SearchResultsActivity"
+        <activity
+            android:name=".SearchResultsActivity"
             android:exported="true" />
-        <activity android:name=".HomeActivity"
+        <activity
+            android:name=".HomeActivity"
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".BookDetails" />
-        <activity android:name=".PickGenrePreference"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".SuccessfulSignupActivity"/>
-        <activity android:name=".PickGenrePreferenceBooks"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".PickGenrePreference"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <activity android:name=".addPhotoActivity" />
     </application>
 
 </manifest>
