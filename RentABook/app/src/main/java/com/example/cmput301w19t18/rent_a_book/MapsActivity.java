@@ -50,6 +50,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
 
+    public String uLat;
+    public String uLon;
+
     /**
      * The constant locationLat.
      */
@@ -117,9 +120,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
 
         enableMyLocation();
-        setMapLongClick(mMap);
+        //setMapLongClick(mMap);
 
-
+        String accepted = getIntent().getStringExtra("Accepted");
+        if (accepted.contains("2")) {
+            displayPickupMap(locationLat, locationLon);
+        }
+        if (accepted.contains("1")){
+            setMapLongClick(mMap);
+        }
 
     }
 
@@ -194,92 +203,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         locationLon = latLng.longitude;
 
                         //Accepting request
-                        String accepted = getIntent().getStringExtra("Accepted");
-                        Toast.makeText(getApplicationContext(), accepted, Toast.LENGTH_LONG).show();
-                        if (accepted.contains("1")){
-                            //FIREBASE
+                        //FIREBASE
 
-                            mAuth = FirebaseAuth.getInstance();
-                            mUserDatabase = FirebaseDatabase.getInstance().getReference("Users");
+                        mAuth = FirebaseAuth.getInstance();
+                        mUserDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
-                            String user_email = mAuth.getCurrentUser().getEmail();
-                            String user_id = mAuth.getCurrentUser().getUid();
+                        String user_id = mAuth.getCurrentUser().getUid();
 
-                            DatabaseReference accepted_ref = mUserDatabase.child(user_id);
-                            accepted_ref.child("lat").setValue(locationLat);
-                            accepted_ref.child("lon").setValue(locationLon);
+                        DatabaseReference accepted_ref = mUserDatabase.child(user_id);
+                        accepted_ref.child("lat").setValue(locationLat);
+                        accepted_ref.child("lon").setValue(locationLon);
 
-                            Toast.makeText(getApplicationContext(), "Location Set", Toast.LENGTH_LONG).show();
-
-                        }
-
-                        //String borrowed = getIntent().getStringExtra("Borrowed");
-                        //Toast.makeText(getApplicationContext(), borrowed, Toast.LENGTH_LONG).show();
-                        //if (getIntent().getStringExtra("Borrowed").contains("2")){
-                        else{
-
-                            String bookTitle = getIntent().getStringExtra("Book");
-                            final String ownerEmail = getIntent().getStringExtra("Owner");
-                            Toast.makeText(getApplicationContext(), "test email", Toast.LENGTH_LONG).show();
-
-                            DatabaseReference mDatabase4;
-                            final FirebaseAuth mAuth;
-                            mAuth = FirebaseAuth.getInstance();
-
-                            mDatabase4 = FirebaseDatabase.getInstance().getReference("Users");
-                            Query query4 = mDatabase4.orderByChild("email");
-                            ValueEventListener eventListener = new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    if (dataSnapshot.exists()){
-                                        //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
-                                        for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-
-                                            User user = snapshot.getValue(User.class);
-                                            if (user.email.contains(ownerEmail)) {
-
-                                                String keyer = snapshot.getKey();
-
-                                                Toast.makeText(getApplicationContext(), keyer, Toast.LENGTH_LONG).show();
-                                            }
-
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            };
-                            query4.addListenerForSingleValueEvent(eventListener);
-
-
-
-                            /*
-                            LatLng CSB_home = new LatLng(53.526724, -113.526483); //Location of CSB
-                            Float zoom = new Float (15); //default zoom level
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CSB_home, zoom));
-
-                            mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
-                            mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
-                            */
-
-                        }
-
-
-                        /*
-                        //return to home after map
-                        try
-                        { Thread.sleep(1000); } //wait 1 second before returning to home
-                        catch(InterruptedException ex)
-                        { Thread.currentThread().interrupt(); }
-
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                        intent.putExtra("Accepted","1");
-                        getApplicationContext().startActivity(intent);
-                         */
-
+                        Toast.makeText(getApplicationContext(), "Location Set", Toast.LENGTH_LONG).show();
 
 
                     }
@@ -290,6 +225,110 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
+
+    public void displayPickupMap(Double lon, Double lat){
+
+        //String borrowed = getIntent().getStringExtra("Borrowed");
+        //Toast.makeText(getApplicationContext(), borrowed, Toast.LENGTH_LONG).show();
+        //if (getIntent().getStringExtra("Borrowed").contains("2")){
+
+        String bookTitle = getIntent().getStringExtra("Book");
+        final String ownerEmail = getIntent().getStringExtra("Owner");
+        //Toast.makeText(getApplicationContext(), "test email", Toast.LENGTH_LONG).show();
+
+        DatabaseReference mDatabase4;
+        final FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+
+        mDatabase4 = FirebaseDatabase.getInstance().getReference("Users");
+        Query query4 = mDatabase4.orderByChild("email");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
+                    for (final DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+                        User user = snapshot.getValue(User.class);
+                        if (user.email.contains(ownerEmail)) {
+
+                            String keyer = snapshot.getKey();
+
+
+                            //Gets lat
+
+                            DatabaseReference lat_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
+
+                            lat_ref.getRef().addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                                        //Double lat = dataSnapshot1.child("lat").getValue(Double.class);
+                                        //Toast.makeText(getApplicationContext(), dataSnapshot1.getValue().toString(), Toast.LENGTH_LONG).show();
+                                        String lat = dataSnapshot1.getValue().toString();
+                                        uLat = lat;
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            }) ;
+
+                            //Gets lon
+
+                            DatabaseReference lon_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
+
+                            lon_ref.getRef().addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot dataSnapshot2: dataSnapshot.getChildren()){
+                                        //Double lat = dataSnapshot1.child("lat").getValue(Double.class);
+                                        //Toast.makeText(getApplicationContext(), dataSnapshot1.getValue().toString(), Toast.LENGTH_LONG).show();
+                                        String lon = dataSnapshot2.getValue().toString();
+                                        uLon = lon;
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            }) ;
+
+
+                        }
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        query4.addListenerForSingleValueEvent(eventListener);
+
+        Toast.makeText(getApplicationContext(), uLat, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), uLon, Toast.LENGTH_LONG).show();
+
+
+        LatLng pickup_point = new LatLng(lat, lon); //Location of CSB
+        Float zoom = new Float (15); //default zoom level
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
+
+        mMap.addMarker(new MarkerOptions().position(pickup_point).title("PICKUP POINT"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
+
+
+
+    }
+
+
+
 
     //////////// Current location methods ////////////
     private void enableMyLocation() {

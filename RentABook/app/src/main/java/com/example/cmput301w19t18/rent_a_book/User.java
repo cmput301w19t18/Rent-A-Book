@@ -31,6 +31,14 @@ public class User implements Serializable {
 
     }
 
+    public User() {
+        this.email = email;
+        this.prefList = prefList;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNum = phoneNum;
+    }
+
     public int[] getBooks_Owned() {
         return books_Owned;
     }

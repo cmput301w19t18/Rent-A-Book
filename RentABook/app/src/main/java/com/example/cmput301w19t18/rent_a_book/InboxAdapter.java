@@ -290,10 +290,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
 
                                     }
-
                                 }
-
-
                             }
                         }
                     }
@@ -335,13 +332,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                                     if(book.getBstatus().contains("Borrowed")){
                                         String keyer = snapshot.getKey();
 
-
-
-
-
-
                                     }
-
                                 }
 
 
@@ -366,7 +357,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
 
                 Intent intent = new Intent(context, MapsActivity.class);
-                intent.putExtra("Borrowed","2");
+                intent.putExtra("Accepted","2");
                 intent.putExtra("Owner", currentItem.getbOwner());
                 context.startActivity(intent);
 
