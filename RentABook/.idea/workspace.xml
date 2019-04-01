@@ -24,9 +24,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/InboxAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/InboxAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/MapsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/MapsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/User.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -134,13 +132,13 @@
     <session id="446700525">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2810" />
+          <entry key="java" value="3627" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2810" />
+          <entry key="JAVA" value="3627" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -156,14 +154,14 @@
         <counts>
           <entry key="gradle" value="2" />
           <entry key="java" value="16" />
-          <entry key="xml" value="3" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
           <entry key="JAVA" value="16" />
-          <entry key="XML" value="3" />
+          <entry key="XML" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -173,8 +171,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1117">
-              <caret line="323" column="66" selection-start-line="323" selection-start-column="66" selection-end-line="323" selection-end-column="66" />
+            <state relative-caret-position="464">
+              <caret line="327" selection-start-line="327" selection-end-line="327" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -240,8 +238,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/BookDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="33" column="8" selection-start-line="33" selection-end-line="34" />
+            <state relative-caret-position="255">
+              <caret line="96" column="62" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -282,6 +280,8 @@
       <find>clicked b</find>
       <find>cur_lat</find>
       <find>uLat</find>
+      <find>coords</find>
+      <find>coord</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2710,6 +2710,17 @@
             </path>
             <path>
               <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -3141,7 +3152,7 @@
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5028612" side_tool="true" weight="0.32909605" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="11" sideWeight="0.49713877" visible="true" weight="0.21908894" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="11" sideWeight="0.49713877" visible="true" weight="0.27874187" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.329718" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Build" order="14" weight="0.17895879" />
@@ -3341,17 +3352,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/BookDetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="33" column="8" selection-start-line="33" selection-end-line="34" />
+        <state relative-caret-position="255">
+          <caret line="96" column="62" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1117">
-          <caret line="323" column="66" selection-start-line="323" selection-start-column="66" selection-end-line="323" selection-end-column="66" />
+        <state relative-caret-position="464">
+          <caret line="327" selection-start-line="327" selection-end-line="327" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

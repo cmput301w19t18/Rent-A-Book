@@ -1,21 +1,17 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,12 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
 
 /**
  * The type Maps activity.
@@ -50,8 +42,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
 
-    public String uLat;
-    public String uLon;
+    public static ArrayList<String> coords;
 
     /**
      * The constant locationLat.
@@ -82,6 +73,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -92,6 +84,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        coords = new ArrayList<>();
     }
 
 
@@ -124,7 +118,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         String accepted = getIntent().getStringExtra("Accepted");
         if (accepted.contains("2")) {
-            displayPickupMap(locationLat, locationLon);
+
+            //Toast.makeText(getApplicationContext(), locationLat.toString(), Toast.LENGTH_LONG).show();
+
+
+            displayPickupMap();
         }
         if (accepted.contains("1")){
             setMapLongClick(mMap);
@@ -214,6 +212,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         accepted_ref.child("lat").setValue(locationLat);
                         accepted_ref.child("lon").setValue(locationLon);
 
+
+
                         Toast.makeText(getApplicationContext(), "Location Set", Toast.LENGTH_LONG).show();
 
 
@@ -227,7 +227,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    public void displayPickupMap(Double lon, Double lat){
+    public void displayPickupMap(){
 
         //String borrowed = getIntent().getStringExtra("Borrowed");
         //Toast.makeText(getApplicationContext(), borrowed, Toast.LENGTH_LONG).show();
@@ -253,11 +253,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         User user = snapshot.getValue(User.class);
                         if (user.email.contains(ownerEmail)) {
 
-                            String keyer = snapshot.getKey();
+                            final String keyer = snapshot.getKey();
 
-
-                            //Gets lat
-
+                            //GETS LON
                             DatabaseReference lat_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
 
                             lat_ref.getRef().addValueEventListener(new ValueEventListener() {
@@ -266,8 +264,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                                         //Double lat = dataSnapshot1.child("lat").getValue(Double.class);
                                         //Toast.makeText(getApplicationContext(), dataSnapshot1.getValue().toString(), Toast.LENGTH_LONG).show();
-                                        String lat = dataSnapshot1.getValue().toString();
-                                        uLat = lat;
+                                        String lat = dataSnapshot1.getValue(String.class);
+
+                                        Toast.makeText(getApplicationContext(), lat, Toast.LENGTH_LONG).show();
+
+                                        coords.add(lat);
+
                                     }
                                 }
 
@@ -277,30 +279,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 }
                             }) ;
 
-                            //Gets lon
-
+                            //GETS LON
                             DatabaseReference lon_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
 
                             lon_ref.getRef().addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     for (DataSnapshot dataSnapshot2: dataSnapshot.getChildren()){
-                                        //Double lat = dataSnapshot1.child("lat").getValue(Double.class);
-                                        //Toast.makeText(getApplicationContext(), dataSnapshot1.getValue().toString(), Toast.LENGTH_LONG).show();
-                                        String lon = dataSnapshot2.getValue().toString();
-                                        uLon = lon;
+
+                                        String lon = dataSnapshot2.getValue(String.class);
+
+                                        coords.add(lon);
+
                                     }
                                 }
-
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                 }
                             }) ;
 
-
                         }
-
                     }
                 }
             }
@@ -312,15 +311,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         };
         query4.addListenerForSingleValueEvent(eventListener);
 
-        Toast.makeText(getApplicationContext(), uLat, Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(), uLon, Toast.LENGTH_LONG).show();
 
-
-        LatLng pickup_point = new LatLng(lat, lon); //Location of CSB
+        LatLng pickup_point = new LatLng(53.53, -113.52); //Location of CSB
         Float zoom = new Float (15); //default zoom level
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
 
-        mMap.addMarker(new MarkerOptions().position(pickup_point).title("PICKUP POINT"));
+        mMap.addMarker(new MarkerOptions().position(pickup_point).title("Pickup Point"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
 
 
