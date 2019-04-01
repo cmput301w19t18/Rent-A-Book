@@ -22,8 +22,6 @@ public class User implements Serializable {
     private int[] books_borrowed;
     private String URI;
 
-
-
     public User(String email, String prefList, String firstName, String lastName, String phoneNum, String URI){
 
         this.email = email;

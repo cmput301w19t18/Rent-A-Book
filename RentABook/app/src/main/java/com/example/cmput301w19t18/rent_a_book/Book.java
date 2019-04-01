@@ -52,6 +52,21 @@ public class Book implements Serializable{
 
     }
 
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre) {
+        this.btitle = btitle;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.bstatus = bstatus;
+        this.rating = rating;
+        this.bOwner = bOwner;
+        this.genre = genre;
+
+        //use of arrays:
+        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
+        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+
+    }
+
     /**
      * Instantiates a new Book.
      */
@@ -199,5 +214,14 @@ public class Book implements Serializable{
      */
     public void setRequestedBy(String requestedBy) {
         this.requestedBy = requestedBy;
+    }
+
+    public void addRequester(String requester) {
+        if(requestedBy.equals(null) || requestedBy.length() == 0) {
+            this.requestedBy = requester;
+        }
+        else {
+            this.requestedBy += ", " + requester;
+        }
     }
 }

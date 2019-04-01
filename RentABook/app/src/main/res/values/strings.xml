@@ -67,5 +67,8 @@
     <string name="search">Search</string>
     <string name="inbox">Inbox</string>
     <string name="profile">Profile</string>
+    <string name="thriller">Thriller</string>
+    <string name="request">Request</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
