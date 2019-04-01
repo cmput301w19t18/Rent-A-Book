@@ -21,6 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * The type Old inbox copy.
+ */
 public class OldInboxCopy extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -28,6 +31,9 @@ public class OldInboxCopy extends AppCompatActivity {
 
     private ArrayList<Book> BookInboxList;
     private DatabaseReference mUserDatabase;
+    /**
+     * The M auth.
+     */
     FirebaseAuth mAuth;
 
     @Override

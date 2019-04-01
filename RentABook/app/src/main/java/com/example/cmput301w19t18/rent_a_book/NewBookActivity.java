@@ -56,6 +56,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
+/**
+ * The type New book activity.
+ * All data pertinent to creating a new book entry. User will enter information here
+ * and the data is stored to firebase.
+ */
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -317,6 +322,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    /**
+     * Scan barcode.
+     *
+     * @param v the v
+     */
     public void scanBarcode(View v) {
         Intent intent = new Intent(this, ScanBarcodeActivity.class);
         startActivityForResult(intent, 0);

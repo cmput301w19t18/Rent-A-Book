@@ -26,6 +26,10 @@ import java.util.List;
 import java.util.Scanner;
 
 
+/**
+ * The type Successful signup activity.
+ * Displays the genre selectors after a user successfully signed up
+ */
 public class SuccessfulSignupActivity extends AppCompatActivity {
 
     private String email;
@@ -40,6 +44,9 @@ public class SuccessfulSignupActivity extends AppCompatActivity {
     private Button genre2;
     private Button genre3;
 
+    /**
+     * Firebase authentication
+     */
     FirebaseAuth mAuth;
 
     @Override
@@ -110,6 +117,12 @@ public class SuccessfulSignupActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Sets button attr. Displays selector circles for genre setting of the app.
+     *
+     * @param s the s
+     * @param b the b
+     */
     public void setButtonAttr(String s, Button b) {
         b.setText(s);
         if (s.equals("Comedy")) {

@@ -59,6 +59,9 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
+/**
+ * The type Old new book activity.
+ */
 public class OldNewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -295,6 +298,14 @@ public class OldNewBookActivity extends AppCompatActivity implements View.OnClic
     }
 
 
+    /**
+     * Gets resized bitmap.
+     *
+     * @param bm        the bm
+     * @param newWidth  the new width
+     * @param newHeight the new height
+     * @return the resized bitmap
+     */
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -312,6 +323,11 @@ public class OldNewBookActivity extends AppCompatActivity implements View.OnClic
         return resizedBitmap;
     }
 
+    /**
+     * Scan barcode.
+     *
+     * @param v the v
+     */
     public void scanBarcode(View v) {
         Intent intent = new Intent(this, ScanBarcodeActivity.class);
         startActivityForResult(intent, 0);

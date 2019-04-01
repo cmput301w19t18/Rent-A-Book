@@ -22,6 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * The type Inbox. Displays the books currently being requested from the user, as well as
+ * the books that the user owns that are currently being requested.
+ */
 public class Inbox extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -29,6 +33,9 @@ public class Inbox extends AppCompatActivity {
 
     private ArrayList<Book> BookInboxList;
     private DatabaseReference mUserDatabase;
+    /**
+     * Initialized firebase data
+     */
     FirebaseAuth mAuth;
 
     @Override
@@ -89,6 +96,9 @@ public class Inbox extends AppCompatActivity {
         displayInbox();
     }
 
+    /**
+     * Displays the inbox information on the app
+     */
     private void displayInbox() {
 
         final String user_email = mAuth.getCurrentUser().getEmail();

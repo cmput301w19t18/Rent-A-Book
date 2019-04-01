@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * The type Book.
- * Creates Book Class
+ * Creates Book Class, stores all information pertaining to books
  * Created by oanderso, and modified by jusong, ishire, dikova
  */
 public class Book implements Serializable{
@@ -214,6 +214,11 @@ public class Book implements Serializable{
         this.requestedBy = requestedBy;
     }
 
+    /**
+     * Allows multiple people to request a copy of a book.
+     * @param requester
+     * @return
+     */
     public String addRequester(String requester) {
         if(requestedBy.equals(null) || requestedBy.length() == 0) {
             requestedBy = requester;

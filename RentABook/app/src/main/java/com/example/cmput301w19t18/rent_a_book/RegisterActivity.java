@@ -25,6 +25,11 @@ import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
+/**
+ * The type Register activity.
+ * Allows a user to register a new profile to the firebase database
+ * User information can be edited later
+ */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private Button next;
     private Button signup;
@@ -141,7 +146,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 */
 
-    //signs the user up based on their info
+    /**
+     * On next.
+     */
+//signs the user up based on their info
     public void onNext(){
         final String user_email = et_email.getText().toString().trim();
         String password = pass.getText().toString().trim();
