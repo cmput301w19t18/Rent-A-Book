@@ -70,5 +70,6 @@
     <string name="thriller">Thriller</string>
     <string name="request">Request</string>
     <string name="cancel">Cancel</string>
+    <string name="requested">Requested</string>
 
 </resources>

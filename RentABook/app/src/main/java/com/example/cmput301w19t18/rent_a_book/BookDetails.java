@@ -1,5 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,22 +23,27 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BookDetails extends AppCompatActivity  implements View.OnClickListener {
-    SearchAdapter adapter;
-    TextView title, author, status, isbn, description, owner;
-    RatingBar ratingbook;
+    private SearchAdapter adapter;
+    private TextView title, author, status, isbn, description, owner;
+    private RatingBar ratingbook;
     private DatabaseReference mDatabase;
+    private DatabaseReference databaseReference;
     private ArrayList<Book> BookList;
     private ArrayList<Book> homeBookList;
     private Button req_button;
     public String key;
-    String bookCover;
-    ImageView bookimage;
-    FirebaseAuth mAuth;
-    String mode;
-    Book curr_book;
+    private String bookCover;
+    private ImageView bookimage;
+    private FirebaseAuth mAuth;
+    //private String mode;
+    private Book curr_book;
     private boolean req = false;
+    private String requesters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,7 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        mode = "1";
+        String mode = "1";
         setContentView(R.layout.activity_book_details2);
         BookList = new ArrayList<>();
         homeBookList = new ArrayList<>();
@@ -69,23 +75,21 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
             setBookTitle();
         }
         if(getIntent().getStringExtra("mode").contains("2")){
-            //Toast.makeText(getApplicationContext(), getIntent().getStringExtra("btitle"), Toast.LENGTH_LONG).show();
             homeDetails();
 
         }
 
-        //setBookTitle();
-        //req_button.setText("Request");
 
         req_button.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+
+        Toast.makeText(this,mAuth.getCurrentUser().getEmail(),Toast.LENGTH_SHORT).show();
 
 
     }
 
     public void homeDetails() {
-
-        //Toast.makeText(getApplicationContext(), "home book details", Toast.LENGTH_LONG).show();
         final String rating = getIntent().getStringExtra("ratings");
         final String btitle = getIntent().getStringExtra("btitle");
         final String bdescription = getIntent().getStringExtra("bdescription");
@@ -110,47 +114,34 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
 
 
                         if(homebook.getBtitle().contains(btitle)){
-                            //Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
-
                             BookList.add(homebook);
                             curr_book = homebook;
 
-                            //title = findViewById(R.id.title_textView);
                             title.setText(curr_book.getBtitle());
 
-                            //author = findViewById(R.id.auth_textView);
                             author.setText(curr_book.getAuthor());
 
-                            //status = findViewById(R.id.status_textView);
                             status.setText(curr_book.getBstatus());
 
-                            //isbn = findViewById(R.id.isbn_textView);
                             isbn.setText(curr_book.getISBN());
 
-                            //description = findViewById(R.id.desc_textView);
                             description.setText(bdescription);
 
-                            //owner = findViewById(R.id.owner_textView);
                             owner.setText(curr_book.getbOwner());
 
-                            //ratingbook = findViewById(R.id.bookRating_view);
                             ratingbook.setRating(curr_book.getRating());
 
                             String keyer = dataSnapshot1.getKey();
                             key = keyer;
 
-                            if (curr_book.getBstatus().equals("Available")) {
+                            // check if current user has requested the book
+                            if (!curr_book.isRequesting(mAuth.getCurrentUser().getEmail())) {
                                 req_button.setText(getString(R.string.request));
                             }
-                            else if (curr_book.getBstatus().equals("Requested")) {
+                            else if (curr_book.isRequesting(mAuth.getCurrentUser().getEmail())) {
                                 req_button.setText(getString(R.string.cancel));
                             }
-                            //Toast.makeText(getApplicationContext(), "size" + homeBookList.size() ,Toast.LENGTH_LONG).show();
-
-
                         }
-
-
                     }
                 }
             }
@@ -166,11 +157,8 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
 
 
     public void setBookTitle() {
-        //title = findViewById(R.id.title_textView);
         title.setText(getIntent().getStringExtra("title"));
-        //author = findViewById(R.id.auth_textView);
         author.setText(getIntent().getStringExtra("author"));
-        //bookimage = findViewById(R.id.bookimage);
         bookCover = getIntent().getStringExtra("photo");
         Picasso.get().load(bookCover).into(bookimage);
         final String bdescription2 = getIntent().getStringExtra("bdescription2");
@@ -193,26 +181,16 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
                             BookList.add(newBook);
                             String keyer = snapshot.getKey();
                             key = keyer;
-                            //ratingbook = findViewById(R.id.bookRating_view);
                             ratingbook.setRating(newBook.getRating());
-
-                            //status = findViewById(R.id.status_textView);
                             status.setText(newBook.getBstatus());
-                            //description = findViewById(R.id.desc_textView);
                             description.setText(bdescription2);
-                            //isbn = findViewById(R.id.isbn_textView);
                             isbn.setText(newBook.getISBN());
-                            //owner = findViewById(R.id.owner_textView);
                             owner.setText(newBook.getbOwner());
 
-
                             Toast.makeText(getApplicationContext(),newBook.getBstatus() ,Toast.LENGTH_LONG).show();
-
                         }
                     }
-
                 }
-
             }
 
             @Override
@@ -222,48 +200,48 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         };
 
         query.addListenerForSingleValueEvent(valueEventListener);
-
-
-
-
-
-
-
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
         if (v == req_button){
-            //if (req_button.getText() == "Request") {
+            DatabaseReference req_ref = FirebaseDatabase.getInstance().getReference("Books").child(key).child("bstatus");
+            DatabaseReference req_by = FirebaseDatabase.getInstance().getReference("Books").child(key).child("requestedBy");
             if (!req) {
-                DatabaseReference req_ref = FirebaseDatabase.getInstance().getReference("Books").child(key).child("bstatus");
-                DatabaseReference req_by = FirebaseDatabase.getInstance().getReference("Books").child(key).child("requestedBy");
                 req_ref.setValue("Requested");
-                //status.setText(curr_book.getBstatus());
-                status.setText("Requested");
-                req_by.setValue(mAuth.getCurrentUser().getEmail().toString());
+                status.setText(getString(R.string.requested));
+
+                // add user to request list
+                requesters = curr_book.addRequester(mAuth.getCurrentUser().getEmail());
+                req_by.setValue(requesters);
 
                 req_button.setText("Cancel");
                 req = true;
-                //BookList.get(0).setBstatus("Requested");
-                Toast.makeText(getApplicationContext(), "Requested", Toast.LENGTH_LONG).show();
-            }
-            //if (req_button.getText() == "Cancel") {
-            else if (req) {
-                // remove the user from request
 
+            }
+            else if (req){
+                // remove the user from request
                 // set button text back to request
-                DatabaseReference req_ref = FirebaseDatabase.getInstance().getReference("Books").child(key).child("bstatus");
-                //DatabaseReference req_by = FirebaseDatabase.getInstance().getReference("Books").child(key).child("requestedBy");
                 req_ref.setValue("Available");
-                //status.setText(curr_book.getBstatus());
+
+                // remove user request list
+                List<String> l = curr_book.stringToList(curr_book.getRequestedBy());
+                l.remove(mAuth.getCurrentUser().getEmail());
+
+                // set list back to string
+                requesters = curr_book.listToString(l);
+                // clear list
+                l.clear();
+
+                // reset string of requesting users
+                curr_book.setRequestedBy(requesters);
+                req_by.setValue(requesters);
+
                 status.setText("Available");
                 req_button.setText("Request");
                 req = false;
-                Toast.makeText(getApplicationContext(), "Request Cancelled", Toast.LENGTH_LONG).show();
-
             }
-
         }
     }
 }

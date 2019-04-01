@@ -137,6 +137,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
         );
 
+
         //Map test button//
         Button testButton = findViewById(R.id.maptest);
         testButton.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +174,8 @@ public class HomeActivity extends AppCompatActivity {
 
         arrayListHorizontal_myBooks = new ArrayList<>();
         arrayListHorizontal_myBooks2 = new ArrayList<>();
+
+        //Toast.makeText(this,bAuth.getCurrentUser().getEmail(),Toast.LENGTH_SHORT).show();
 
         bookList = new ArrayList<>();
 
