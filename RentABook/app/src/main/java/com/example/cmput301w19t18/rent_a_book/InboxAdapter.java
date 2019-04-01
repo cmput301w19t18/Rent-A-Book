@@ -105,10 +105,13 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final InboxViewHolder inboxViewHolder, int i) {
+
         final Context context = inboxViewHolder.itemView.getContext();
         final Book currentItem = mInboxBookList.get(i);
         final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
+
         Picasso.get().load(bookCover).into(inboxViewHolder.mOwnerPicture);
+
         inboxViewHolder.mBookTitle.setText(currentItem.getBtitle());
         inboxViewHolder.mBookAuthor.setText(currentItem.getAuthor());
         inboxViewHolder.mOwnerName.setText(currentItem.getbOwner());
@@ -152,8 +155,6 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
             }
         };
         query2.addListenerForSingleValueEvent(eventListener);
-
-
 
 
 

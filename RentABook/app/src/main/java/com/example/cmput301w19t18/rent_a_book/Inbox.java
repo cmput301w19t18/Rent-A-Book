@@ -1,10 +1,15 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +34,47 @@ public class Inbox extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_inbox);
+
+        BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
+
+
+        bnv.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.home:
+                                Intent intent1;
+                                intent1 = new Intent(Inbox.this, HomeActivity.class);
+                                startActivity(intent1);
+                                break;
+                            case R.id.search:
+                                Intent intent2;
+                                intent2 = new Intent(Inbox.this, SearchResultsActivity.class);
+                                startActivity(intent2);
+                                break;
+                            case R.id.inbox:
+                                // do nothing because we're already here
+                                break;
+                            case R.id.profile:
+                                Intent intent3;
+                                intent3 = new Intent(Inbox.this, ProfileActivity.class);
+                                startActivity(intent3);
+                                break;
+                        }
+                        return false;
+                    }
+                }
+        );
+
+
         mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
         BookInboxList = new ArrayList<>();
         mRecyclerView = findViewById(R.id.inboxResults);
@@ -45,8 +90,10 @@ public class Inbox extends AppCompatActivity {
     }
 
     private void displayInbox() {
+
         final String user_email = mAuth.getCurrentUser().getEmail();
         Query query = mUserDatabase.orderByChild("bOwner");
+
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -63,14 +110,8 @@ public class Inbox extends AppCompatActivity {
                         if(req_book.getBstatus().contains("Borrowed")){
                             if(req_book.getRequestedBy().contains(user_email)){
                                 BookInboxList.add(req_book);
-
                             }
-
                         }
-
-
-
-
 
                     }
                 }
@@ -85,4 +126,5 @@ public class Inbox extends AppCompatActivity {
         };
         query.addListenerForSingleValueEvent(valueEventListener);
     }
+
 }

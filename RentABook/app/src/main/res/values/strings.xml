@@ -63,5 +63,9 @@
     <string name="lt_2"><![CDATA[<- 2 ->]]></string>
     <string name="lt_3"><![CDATA[<- 3  ]]></string>
     <string name="done">Done</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="inbox">Inbox</string>
+    <string name="profile">Profile</string>
 
 </resources>

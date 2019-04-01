@@ -56,6 +56,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
     private String phone;
     private String email;
     private String pass;
+    private String pPic;
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFireBaseD;
@@ -77,23 +78,16 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         mAuth = FirebaseAuth.getInstance();
         mFireBaseD = FirebaseDatabase.getInstance();
 
-        // TODO credit https://mobikul.com/pass-data-activity-fragment-android/
-        // unpack data from activity
-       /*if (getArguments() != null) {
-            fName = getArguments().getString("firstName");
-            lName = getArguments().getString("lastName");
-            pass = getArguments().getString("password");
-            email = getArguments().getString("email");
-        }*/
-
         // TODO credit https://www.codexpedia.com/android/passing-data-to-activity-and-fragment-in-android/
         fName = getActivity().getIntent().getExtras().getString("firstName");
         lName = getActivity().getIntent().getExtras().getString("lastName");
         phone = getActivity().getIntent().getExtras().getString("phoneNum");
         pass = getActivity().getIntent().getExtras().getString("password");
         email = getActivity().getIntent().getExtras().getString("email");
+        pPic = getActivity().getIntent().getExtras().getString("profileURI");
 
-        Toast.makeText(this.getContext(),pass,Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this.getContext(),pPic,Toast.LENGTH_SHORT).show();
 
 
         Button nonfic = (Button) v.findViewById(R.id.nonficButton);
@@ -204,7 +198,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 // else continue to successful registration page
                 else {
                     // do signup here
-                    signUp(email,preferenceList,fName,lName, pass, phone, genreList);
+                    signUp(email,preferenceList,fName,lName, pass, phone, genreList, pPic);
                 }
                 break;
         }
@@ -252,7 +246,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }
 
-    public void signUp(final String email, List<Integer> prefList, String firstName, String lastName, String password, final String phone, List<String> genList) {
+    public void signUp(final String email, List<Integer> prefList, String firstName, String lastName, String password, final String phone, List<String> genList, final String URI) {
         // string builder here to convert prefList to string
         StringBuilder strBuild = new StringBuilder();
         Iterator<Integer> i = prefList.iterator();
@@ -281,10 +275,11 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()){
-                    User user = new User(email, gList, fName, lName, phone);
+                if (task.isSuccessful()){
+                    User user = new User(email, gList, fName, lName, phone, URI);
                     String user_id = mAuth.getCurrentUser().getUid();
                     Toast.makeText(getActivity(),gList,Toast.LENGTH_SHORT).show();
+
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

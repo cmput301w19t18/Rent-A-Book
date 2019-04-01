@@ -26,8 +26,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -56,14 +59,17 @@ public class addPhotoActivity extends AppCompatActivity {
 
     private ImageView imageView;
 
-    private Uri filePath;
+    private Uri filePath, downloadUri;
     private String path;
+    private String download_url;
 
     private final int PICK_IMAGE_REQUEST = 71;
     private final int CAMERA_REQUEST = 82;
 
     private FirebaseStorage storage;
     private StorageReference storageReference;
+
+    private boolean finished_onComplete=false;
 
 
     @Override
@@ -90,9 +96,9 @@ public class addPhotoActivity extends AppCompatActivity {
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isReadStoragePermissionGranted() == true){
+                if(isReadStoragePermissionGranted()){
                     chooseCamera();
-                };
+                }
             }
         });
 
@@ -143,6 +149,25 @@ public class addPhotoActivity extends AppCompatActivity {
         }
     }
 
+    public  boolean isCameraPermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v("TAG1","Permission is granted1");
+                return true;
+            } else {
+
+                Log.v("TAG2","Permission is revoked1");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 4);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v("TAG3","Permission is granted1");
+            return true;
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -151,11 +176,22 @@ public class addPhotoActivity extends AppCompatActivity {
                 if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
                     Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
                     //resume tasks needing this permission
-                    chooseCamera();
+                    isCameraPermissionGranted();
                 }
                 else{
                     Toast.makeText(this, "Storage permission required to make requested changes", Toast.LENGTH_SHORT).show();
                 }
+        }
+        if(requestCode == 4){
+            Log.d("TAG", "External storage2");
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
+                //resume tasks needing this permission
+                chooseCamera();
+            }
+            else{
+                Toast.makeText(this, "Camera permission required to make requested changes", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -183,6 +219,7 @@ public class addPhotoActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         } else if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
 
             try {
@@ -202,36 +239,45 @@ public class addPhotoActivity extends AppCompatActivity {
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
+            String random_uuid = UUID.randomUUID().toString();
 
-            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
-            ref.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            Toast.makeText(addPhotoActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            Toast.makeText(addPhotoActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                    .getTotalByteCount());
-                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
-                        }
-                    });
+            final StorageReference ref = storageReference.child("images/"+ random_uuid);
 
-            if (!addPhotoActivity.this.isFinishing() && progressDialog != null) {
-                progressDialog.dismiss();
-                endActivity();
-            }
+            UploadTask uploadTask = ref.putFile(filePath);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return ref.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        downloadUri = task.getResult();
+                        //Toast.makeText(addPhotoActivity.this, "lolwut: "+ downloadUri, Toast.LENGTH_SHORT).show();
+                        Intent returnIntent = new Intent();
+                        returnIntent.putExtra("filepath", filePath);
+                        returnIntent.putExtra("download_uri", downloadUri);
+                        //Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
+
+                        setResult(Activity.RESULT_OK, returnIntent);
+                        finish();
+
+                        //finished_onComplete = true;
+
+                    } else {
+                        // Handle failures
+                        // ...
+                    }
+                }
+            });
+
 
         }
     }
@@ -239,6 +285,9 @@ public class addPhotoActivity extends AppCompatActivity {
     private void endActivity() {
         Intent returnIntent = new Intent();
         returnIntent.putExtra("filepath", filePath);
+        returnIntent.putExtra("download_uri", downloadUri);
+        Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
+
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }

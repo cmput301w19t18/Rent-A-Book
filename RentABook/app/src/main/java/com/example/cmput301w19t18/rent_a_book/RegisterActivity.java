@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
@@ -19,13 +18,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -44,7 +40,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatabaseReference DataR;
     private String prefList;
     private Uri filePath;
-    private ImageView imageview;
+    private ImageView profilepic;
+    private Uri download_uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.register);
         mAuth = FirebaseAuth.getInstance();
         next = (Button) findViewById(R.id.next);
-        addPhoto = (Button) findViewById(R.id.addPhoto);
-        signup = (Button) findViewById(R.id.signup);
+        addPhoto = (Button) findViewById(R.id.AddPhotoButton);
         cancel = (Button) findViewById(R.id.cancel);
         pass = (EditText) findViewById(R.id.pass);
         et_email = (EditText) findViewById(R.id.email);
@@ -67,16 +63,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         fname = (EditText) findViewById(R.id.fname);
         last = (EditText) findViewById(R.id.last);
         mFireBaseD = FirebaseDatabase.getInstance();
-        imageview = (ImageView) findViewById(R.id.viewPhoto);
+        profilepic = (ImageView) findViewById(R.id.viewPhoto);
         //DataR = mFireBaseD.getReference();
 
         next.setOnClickListener(this);
-        signup.setOnClickListener(this);
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
             //user is already logged in
 
         }
+
+        //filePath = Uri.parse("R.drawable.default_profile_pic_olive");
+        filePath = Uri.parse("https://firebasestorage.googleapis.com/v0/b/rent-a-read.appspot.com/o/images%2Fdefault_pp.png?alt=media&token=73e1ec93-1052-4467-ba6f-9aaf5778e4fb");
+        Picasso.get().load(filePath).into(profilepic);
 
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +83,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 choosePhoto();
             }
         });
+        //Toast.makeText(this,filePath.toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void choosePhoto(){
@@ -98,19 +98,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
-                filePath = data.getParcelableExtra("filepath");
 
+                filePath = data.getParcelableExtra("filepath");
+                download_uri = data.getParcelableExtra("download_uri");
+//                Toast.makeText(this,"REGISTER_ACTIVITY_TOAST: " + download_uri.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,download_url.toString(), Toast.LENGTH_SHORT).show();
                 if(filePath != null) {
-                    //Toast.makeText(getApplicationContext(), "Uri: " + filePath.toString(), Toast.LENGTH_SHORT).show();
-                    try {
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                        Bitmap b = getResizedBitmap(bitmap, 150, 240);
-                        imageview.setImageBitmap(b);
-                    }
-                    catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    //Toast.makeText(getApplicationContext(), "Uri: " + download_url, Toast.LENGTH_SHORT).show();
+                    //Picasso.get().load(download_url).into(profilepic);
+                    Toast.makeText(this,filePath.toString(), Toast.LENGTH_SHORT).show();
+                    Picasso.get().load(filePath).into(profilepic);
+                } else {
+                    filePath = Uri.parse("android.resource://com.example.cmput301w19t18.rent_a_book/drawable/default_profile_pic_olive");
+                    //filePath = Uri.parse("R.drawable.default_profile_pic_olive");
+                    //Picasso.get().load(filePath).into(profilepic);
+                    //Toast.makeText(this,download_uri.toString(), Toast.LENGTH_SHORT).show();
+                    Picasso.get().load(download_uri).into(profilepic);
                 }
 
             }
@@ -119,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         }
     }
-
+/*
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -136,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         bm.recycle();
         return resizedBitmap;
     }
-
+*/
 
     //signs the user up based on their info
     public void onNext(){
@@ -145,6 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String first_name = fname.getText().toString().trim();
         String last_name = last.getText().toString().trim();
         String phone_num = phone.getText().toString().trim();
+        //String profile_uri = download_uri;
 
         // check for first name
         if (first_name.isEmpty()) {
@@ -197,50 +201,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         userInfo.putString("phoneNum", phone_num);
         userInfo.putString("email",user_email);
         userInfo.putString("password", password);
-
-        //GenreTab3 finalInfo = new GenreTab3();
-        //finalInfo.setArguments(userInfo);
-
+        userInfo.putString("profileURI", download_uri.toString());
 
         intent.putExtras(userInfo);
 
         startActivity(intent);
-
-        /*
-        // TODO add name, phone, put in intent, collect genres and then send to firebase
-        // maybe create an are you sure page displaying user info back to them before
-        // they confirm
-        //finally register user, got this code from firebase instructions,
-        mAuth.createUserWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    User user = new User(user_email, prefList);
-                    String user_id = mAuth.getCurrentUser().getUid();
-
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(RegisterActivity.this,"Registration Success",Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-                    Toast.makeText(getApplicationContext(),"User Registered!",Toast.LENGTH_SHORT).show();
-
-                    finish();
-                }
-                //check if email is already registered
-                if (task.getException() instanceof FirebaseAuthUserCollisionException){
-                    Toast.makeText(getApplicationContext(),"User  Already Registered!",Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-*/
 
     }
 
@@ -250,14 +215,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (view == next){
 
             onNext();
-            //startActivity(new Intent(this, PickGenrePreference.class));
         }
 
-        // TODO this should not be here -> implement sign up class and call this after genre stuff
-        if (view == signup){
-            //signUp();
-            return;
-        }
         // TODO cancel should clear everything
         if (view == cancel){
             startActivity(new Intent(this, LoginActivity.class));
