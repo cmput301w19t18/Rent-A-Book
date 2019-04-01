@@ -196,7 +196,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 genreList = dataSnapshot.getValue().toString();
-                Toast.makeText(getApplicationContext(), "1" + genreList, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "1" + genreList, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -214,7 +214,6 @@ public class HomeActivity extends AppCompatActivity {
                 arrayListHorizontal_myBooks.clear();
                 bookList.clear();
                 if (dataSnapshot.exists()) {
-                    Toast.makeText(getApplicationContext(), "im so tired tbh asdfasdfasdf", Toast.LENGTH_LONG).show();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         // add all books in a list
                         Book newBook = snapshot.getValue(Book.class);
@@ -259,9 +258,6 @@ public class HomeActivity extends AppCompatActivity {
                         addCategoryGenre(genres[c]);
                     }
 
-                    Toast.makeText(getApplicationContext(), "3" + genreList, Toast.LENGTH_LONG).show();
-
-
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -290,7 +286,6 @@ public class HomeActivity extends AppCompatActivity {
             if (genre.equals(strGenres[j])) {
                 genre_position = j; //pos
             }
-            Toast.makeText(getApplicationContext(), "GENRE" + genre_position, Toast.LENGTH_SHORT).show();
         }
 
         for (int i=0; i<bookList.size(); i++) {
@@ -301,7 +296,6 @@ public class HomeActivity extends AppCompatActivity {
 
             if (gList[genre_position].equals("1")) {
                 arrayListHorizontal_myGenreBooks.add(currentBook);
-                Toast.makeText(getApplicationContext(), "book yo" + currentBook.getBtitle(), Toast.LENGTH_SHORT).show();
             }
         }
         category_i.setArrayList(arrayListHorizontal_myGenreBooks);
