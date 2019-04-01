@@ -107,6 +107,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
 
 
+        /*
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         LatLng CSB_home = new LatLng(53.526724, -113.526483); //Location of CSB
@@ -115,7 +116,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
-
+        */
 
         enableMyLocation();
         //setMapLongClick(mMap);
@@ -321,7 +322,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.addMarker(new MarkerOptions().position(pickup_point).title("Pickup Point"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
-
 
 
     }
