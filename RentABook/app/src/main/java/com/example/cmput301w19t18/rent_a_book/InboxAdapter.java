@@ -24,6 +24,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
+
 /**
  * Created by ikramshire on 2019-03-30.
  */
@@ -33,6 +35,8 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
 
     public static class InboxViewHolder extends RecyclerView.ViewHolder {
+
+        public static ArrayList<Book> BookList;
 
         /**
          * The M owner picture.
@@ -202,7 +206,6 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 //mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
                 currentItem.setBstatus("Borrowed");
                 Toast.makeText(context,"accepted", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(context, MapsActivity.class);
                 //intent.putExtra("accepted", "1");
                 //intent.putExtra("title", currentItem.getBtitle());
 
@@ -249,9 +252,11 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                     }
                 };
                 query.addListenerForSingleValueEvent(eventListener);
-                //goes to map activity
-                context.startActivity(intent);
 
+                //goes to map activity
+                Intent intent = new Intent(context, MapsActivity.class);
+                intent.putExtra("Accepted","1");
+                context.startActivity(intent);
 
 
             }
@@ -263,6 +268,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 DatabaseReference mDatabase3;
                 final FirebaseAuth mAuth;
                 mAuth = FirebaseAuth.getInstance();
+
 
                 mDatabase3 = FirebaseDatabase.getInstance().getReference("Books");
                 Query query3 = mDatabase3.orderByChild("btitle");
@@ -284,10 +290,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
 
                                     }
-
                                 }
-
-
                             }
                         }
                     }
@@ -354,6 +357,67 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
         });
 
 
+        inboxViewHolder.mOwnerPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(context,"Clicked book picture",Toast.LENGTH_LONG).show();
+
+                DatabaseReference mDatabase4;
+                final FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+                final String[] bookEmail = {""};
+
+                mDatabase4 = FirebaseDatabase.getInstance().getReference("Books");
+                Query query4 = mDatabase4.orderByChild("btitle");
+                ValueEventListener eventListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()){
+                            //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                Book book = snapshot.getValue(Book.class);
+
+                                if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
+                                    if(book.getBstatus().contains("Borrowed")){
+                                        String keyer = snapshot.getKey();
+
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                };
+                query4.addListenerForSingleValueEvent(eventListener);
+
+                /*
+                Intent book_loc = new Intent(context, MapsActivity.class);
+                book_loc.putExtra("Borrowed", "2");
+                book_loc.putExtra("Book", currentItem.getBtitle());
+                book_loc.putExtra("Owner", currentItem.getbOwner());
+                context.startActivity(book_loc);
+                */
+
+
+                Intent intent = new Intent(context, MapsActivity.class);
+                intent.putExtra("Accepted","2");
+                intent.putExtra("Owner", currentItem.getbOwner());
+                context.startActivity(intent);
+
+                //Toast.makeText(context, currentItem.getbOwner(), Toast.LENGTH_LONG).show();
+
+
+
+
+
+            }
+        });
 
 
 

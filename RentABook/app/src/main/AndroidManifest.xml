@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cmput301w19t18.rent_a_book">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -18,11 +16,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        android:windowSoftInputMode="adjustNothing">
-        <activity android:name=".MapPreActivity"></activity>
-
+        android:windowSoftInputMode="adjustNothing"
+        android:theme="@style/AppThemeNoBar"
+        tools:ignore="GoogleAppIndexingWarning">
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.provider"
@@ -62,7 +59,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".BookDetails" />
 
-
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".PickGenrePreference"
@@ -74,6 +70,32 @@
         <activity android:name=".addPhotoActivity" />
         <activity android:name=".Inbox"
             android:exported="true"></activity>
+
+
+        <!--
+      The API key for Google Maps-based APIs is defined as a string resource.
+      (See the file "res/values/google_maps_api.xml").
+      Note that the API key is linked to the encryption key used to sign the APK.
+      You need a different API key for each encryption key, including the release key that is used to
+      sign the APK for publishing.
+      You can define the keys for the debug and release targets in src/debug/ and src/release/.
+ -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAc556fiT2oUjs0rbz0o-KyW17Yrz8ruEM" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+
+
     </application>
 
 </manifest>

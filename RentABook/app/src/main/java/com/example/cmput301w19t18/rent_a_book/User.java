@@ -16,8 +16,11 @@ public class User implements Serializable {
     public String phoneNum;
     public String email;
     public  String prefList;
+    public Double cur_lat;
+    public Double cur_lon;
     private int[] books_Owned;
     private int[] books_borrowed;
+
 
     public User(String email, String prefList, String firstName, String lastName, String phoneNum){
         this.email = email;
@@ -26,6 +29,14 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.phoneNum = phoneNum;
 
+    }
+
+    public User() {
+        this.email = email;
+        this.prefList = prefList;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNum = phoneNum;
     }
 
     public int[] getBooks_Owned() {
@@ -58,6 +69,19 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Double getCur_lat() {
+        return cur_lat;
+    }
+    public void setCur_lat(Double cur_lat) {
+        this.cur_lat = cur_lat;
+    }
+    public Double getCur_lon() {
+        return cur_lon;
+    }
+    public void setCur_lon(Double cur_lon) {
+        this.cur_lon = cur_lon;
     }
 
 }

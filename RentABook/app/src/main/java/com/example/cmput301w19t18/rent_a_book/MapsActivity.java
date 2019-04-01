@@ -1,21 +1,18 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,18 +29,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-
-import static com.example.cmput301w19t18.rent_a_book.HomeActivity.ADDING;
 
 /**
  * The type Maps activity.
  */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private DatabaseReference mUserDatabase;
+    FirebaseAuth mAuth;
+
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private GoogleMap mMap;
+
+    public static ArrayList<String> coords;
 
     /**
      * The constant locationLat.
@@ -74,6 +75,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -84,6 +86,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        coords = new ArrayList<>();
     }
 
 
@@ -102,17 +106,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
+        /*
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         LatLng CSB_home = new LatLng(53.526724, -113.526483); //Location of CSB
         Float zoom = new Float (15); //default zoom level
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CSB_home, zoom));
 
-        mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB"));
+        mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
+        */
 
         enableMyLocation();
-        setMapLongClick(mMap);
+        //setMapLongClick(mMap);
+
+        String accepted = getIntent().getStringExtra("Accepted");
+        if (accepted.contains("2")) {
+
+            //Toast.makeText(getApplicationContext(), locationLat.toString(), Toast.LENGTH_LONG).show();
+
+
+            displayPickupMap();
+        }
+        if (accepted.contains("1")){
+            setMapLongClick(mMap);
+        }
 
     }
 
@@ -164,9 +183,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void setMapLongClick(final GoogleMap map) {
 
 
-
-
-
         map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
@@ -175,7 +191,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
                     @Override
                     public void onMapLongClick(LatLng latLng) {
-                        String snippet = String.format(Locale.getDefault(), //may need to edit to be latLng
+                        String snippet = String.format(Locale.getDefault(),
                                 "Lat: %1$.5f, Long: %2$.5f",
                                 latLng.latitude,
                                 latLng.longitude);
@@ -186,18 +202,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 .snippet(snippet));
 
                         //return data from map marker position:
-                        MapsActivity.locationLat = latLng.latitude;
-                        MapsActivity.locationLon = latLng.longitude;
+                        locationLat = latLng.latitude;
+                        locationLon = latLng.longitude;
+
+                        //Accepting request
+                        //FIREBASE
+
+                        mAuth = FirebaseAuth.getInstance();
+                        mUserDatabase = FirebaseDatabase.getInstance().getReference("Users");
+
+                        String user_id = mAuth.getCurrentUser().getUid();
+
+                        DatabaseReference accepted_ref = mUserDatabase.child(user_id);
+                        String latLon = locationLat.toString() + "," + locationLon.toString();
+                        accepted_ref.child("latlon").setValue(latLon);
+                        //accepted_ref.child("lon").setValue(locationLon);
 
 
-                        //return to home after map
-                        try
-                        { Thread.sleep(1000); } //wait 1 second before returning to home
-                        catch(InterruptedException ex)
-                        { Thread.currentThread().interrupt(); }
 
-                        Intent intent = new Intent(MapsActivity.this, HomeActivity.class);
-                        startActivityForResult(intent, ADDING);
+                        Toast.makeText(getApplicationContext(), "Location Set", Toast.LENGTH_LONG).show();
+
 
                     }
                 });
@@ -207,6 +231,103 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
+
+    public void displayPickupMap(){
+
+        //String borrowed = getIntent().getStringExtra("Borrowed");
+        //Toast.makeText(getApplicationContext(), borrowed, Toast.LENGTH_LONG).show();
+        //if (getIntent().getStringExtra("Borrowed").contains("2")){
+
+        String bookTitle = getIntent().getStringExtra("Book");
+        final String ownerEmail = getIntent().getStringExtra("Owner");
+        //Toast.makeText(getApplicationContext(), "test email", Toast.LENGTH_LONG).show();
+
+        DatabaseReference mDatabase4;
+        final FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+
+        mDatabase4 = FirebaseDatabase.getInstance().getReference("Users");
+        Query query4 = mDatabase4.orderByChild("email");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
+                    for (final DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+                        User user = snapshot.getValue(User.class);
+                        if (user.email.contains(ownerEmail)) {
+
+                            final String keyer = snapshot.getKey();
+
+                            //GETS BOTH
+                            DatabaseReference latlon_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
+
+                            latlon_ref.getRef().addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+
+                                        String latlon = dataSnapshot1.getValue().toString();
+                                        //Toast.makeText(getApplicationContext(), latlon, Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(getApplicationContext(), latlon.substring(0,8), Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(getApplicationContext(), "String" + latlon.length() , Toast.LENGTH_LONG).show();
+
+                                        //ArrayList<String> coords = (ArrayList<String>) Arrays.asList(latlon.split(","));
+                                        //Toast.makeText(getApplicationContext(), "Size" + coords.size(), Toast.LENGTH_LONG).show();
+
+                                        //String[] coords = latlon.split(",");
+                                        //Toast.makeText(getApplicationContext(), "Size" + coords.length, Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(getApplicationContext(), latlon, Toast.LENGTH_LONG).show();
+
+                                        //String[] coords = latlon.split(",",-1);
+                                        //Toast.makeText(getApplicationContext(), coords[1].toString() , Toast.LENGTH_LONG).show();
+
+                                        //System.out.println(coords[0]);
+
+
+                                        /*
+                                        LatLng pickup_point = new LatLng(53, -113);
+                                        Float zoom = new Float (15); //default zoom levelparseDouble(latlon.substring(18,30)
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
+
+                                        mMap.addMarker(new MarkerOptions().position(pickup_point).title("Pickup Point SET"));
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
+                                        */
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            }) ;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        query4.addListenerForSingleValueEvent(eventListener);
+
+
+        LatLng pickup_point = new LatLng(53.52430657369597, -113.52843571454287); //Location of CSB
+        Float zoom = new Float (15); //default zoom level
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
+
+        mMap.addMarker(new MarkerOptions().position(pickup_point).title("Pickup Point"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
+
+
+    }
+
+
+
 
     //////////// Current location methods ////////////
     private void enableMyLocation() {
