@@ -2,6 +2,8 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import android.support.v7.app.AppCompatActivity;
 
@@ -20,6 +22,8 @@ public class Book implements Serializable{
     private String bOwner;
     private String genre; //genre will be determined by an array
     private String requestedBy; //list of users that are requesting the book by email
+    private List<String> requestedList = new ArrayList<String>();
+    private boolean requested = false;
 
     //private String description; //Description of the book entered by the user
     //private Integer copyCount; //number of copies of the book that exist
@@ -216,12 +220,50 @@ public class Book implements Serializable{
         this.requestedBy = requestedBy;
     }
 
-    public void addRequester(String requester) {
+    public String addRequester(String requester) {
         if(requestedBy.equals(null) || requestedBy.length() == 0) {
-            this.requestedBy = requester;
+            requestedBy = requester;
         }
         else {
-            this.requestedBy += ", " + requester;
+            requestedBy += ", " + requester;
         }
+        return requestedBy;
+    }
+
+    public List<String> stringToList(String str) {
+       if (!str.contains(", ")) {
+           requestedList.add(str);
+       }
+       else {
+           String[] r = str.split(", ");
+           for (int i = 0; i < r.length; i++) {
+               requestedList.add(r[i]);
+           }
+       }
+
+        return requestedList;
+    }
+
+    public String listToString(List<String> lStr) {
+        StringBuilder strBuild = new StringBuilder();
+        Iterator<String> i = lStr.iterator();
+        while(i.hasNext()) {
+            strBuild.append(i.next());
+            if(i.hasNext()) {
+                strBuild.append(", ");
+            }
+        }
+        requestedBy = strBuild.toString();
+        return requestedBy;
+    }
+
+    public boolean isRequesting(String user) {
+        if (requestedList.contains(user)) {
+            requested = true;
+        }
+        else {
+            requested = false;
+        }
+        return requested;
     }
 }
