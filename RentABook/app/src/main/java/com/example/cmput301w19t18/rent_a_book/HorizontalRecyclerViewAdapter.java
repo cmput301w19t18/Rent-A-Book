@@ -12,17 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -44,9 +34,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      */
     ArrayList<Book> arrayList;
 
-    //volley stuff
-    private RequestQueue mQueue;
-
     /**
      * Instantiates a new Horizontal recycler view adapter.
      *
@@ -67,40 +54,17 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public void onBindViewHolder(@NonNull final HorizontalRVViewHolder horizontalRVViewHolder, final int i) {
-        mQueue = Volley.newRequestQueue(context);
         final Book currentBook = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(currentBook.getRating());
 
-        //String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
+        String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
+        final String fake_description = "This is a description test. " +
+                "I realized we need to add the description in the book class, but for some reason is not there, " +
+                "so we have to add that as an attribute. I can't believe the project is due in like a week, " +
+                "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
+                "not an accurate description of the current book.";
 
-        String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + currentBook.getISBN() + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    //String test = response.getString("kind");
-                    JSONArray jsonArray = response.getJSONArray("items");
-                    JSONObject jsonObject = jsonArray.getJSONObject(0);
-
-                    String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
-
-                    //bookurl = json_img;
-                    Picasso.get().load(json_img).into(horizontalRVViewHolder.bookCover);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-        mQueue.add(request);
-
-
-        //Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
+        Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
 
         horizontalRVViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,15 +77,23 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
                 intent.putExtra("bookphoto","http://covers.openlibrary.org/b/isbn/" + arrayList.get(i).getISBN() + "-M.jpg");
                 intent.putExtra("bstatus",arrayList.get(i).getBstatus());
                 intent.putExtra("owner",arrayList.get(i).getbOwner());
+                intent.putExtra("bdescription",fake_description);
+
+//                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getBookRating()));
+//                intent.putExtra("btitle", arrayList.get(i).getBookTitle());
+//                intent.putExtra("bookphoto",arrayList.get(i).getBookCover());
 
                 intent.putExtra("mode", "2");
                 Activity origin = (Activity) context;
                 origin.startActivity(intent);
 
+                //origin.startActivityForResult(intent,2);
 
             }
         });
 
+        //horizontalRVViewHolder.bookCover.setImageResource(horizontalModel.getBookCover());
+        //Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView);
     }
 
     @Override

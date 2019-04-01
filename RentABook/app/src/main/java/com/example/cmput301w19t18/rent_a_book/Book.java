@@ -24,7 +24,6 @@ public class Book implements Serializable{
     private String requestedBy; //list of users that are requesting the book by email
     private List<String> requestedList = new ArrayList<String>();
     private boolean requested = false;
-    private String description;
 
     //private String description; //Description of the book entered by the user
     //private Integer copyCount; //number of copies of the book that exist
@@ -41,7 +40,7 @@ public class Book implements Serializable{
      * @param genre       the genre
      * @param requestedBy the requested by
      */
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String description) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -50,7 +49,6 @@ public class Book implements Serializable{
         this.bOwner = bOwner;
         this.genre = genre;
         this.requestedBy = requestedBy;
-        this.description = description;
 
         //use of arrays:
         //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
@@ -58,7 +56,7 @@ public class Book implements Serializable{
 
     }
 
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String description) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -66,7 +64,6 @@ public class Book implements Serializable{
         this.rating = rating;
         this.bOwner = bOwner;
         this.genre = genre;
-        this.description = description;
 
         //use of arrays:
         //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
@@ -77,7 +74,7 @@ public class Book implements Serializable{
     /**
      * Instantiates a new Book.
      */
-    public Book() {}
+    public Book() {};
 
     /**
      * Gets btitle.
@@ -268,13 +265,5 @@ public class Book implements Serializable{
             requested = false;
         }
         return requested;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

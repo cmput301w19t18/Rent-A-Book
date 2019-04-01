@@ -125,7 +125,7 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
 
                             isbn.setText(curr_book.getISBN());
 
-                            description.setText(curr_book.getDescription());
+                            description.setText(bdescription);
 
                             owner.setText(curr_book.getbOwner());
 
