@@ -330,6 +330,9 @@
               <caret line="290" selection-start-line="290" selection-end-line="290" />
             </state>
           </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -347,6 +350,9 @@
             <state relative-caret-position="1275">
               <caret line="96" column="62" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="62" />
             </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -2773,6 +2779,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/Inbox.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/MapsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/InboxAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/User.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/MapsActivity.java" />
@@ -2790,7 +2797,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
@@ -3361,6 +3368,9 @@
           <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
@@ -3381,6 +3391,9 @@
         <state relative-caret-position="459">
           <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
@@ -3411,11 +3424,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/Inbox.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="32" column="77" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="77" />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/cmput301w19t18/rent_a_book/InboxAdapter.java">

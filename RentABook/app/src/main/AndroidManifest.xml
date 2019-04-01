@@ -25,13 +25,24 @@
             android:authorities="com.example.provider"
             android:exported="false"
             android:grantUriPermissions="true"
-            tools:replace="android:authorities">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"
-                tools:replace="android:resource" />
+            tools:replace="android:authorities" >
+        <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/provider_paths"
+        tools:replace="android:resource" />
+
+
+
         </provider>
 
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAc556fiT2oUjs0rbz0o-KyW17Yrz8ruEM" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,6 +66,7 @@
         <activity
             android:name=".NewBookActivity"
             android:exported="true" />
+        <activity android:name=".MapsActivity" />
         <activity android:name=".addPhotoActivity" />
         <activity android:name=".Inbox"
             android:exported="true"></activity>
