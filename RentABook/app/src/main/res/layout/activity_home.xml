@@ -31,34 +31,26 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="626dp"
+        app:layout_constraintBottom_toTopOf="@+id/navView"
+        tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/activity_home_vertical" />
-
 
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addEntry_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="668dp"
         android:src="@drawable/baseline_add_white_18dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navbarContainer"
+        app:layout_constraintVertical_bias="0.919"
         app:pressedTranslationZ="12dp" />
-
-    <Button
-        android:id="@+id/maptest"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="128dp"
-        android:background="@drawable/simple_button_layout"
-        android:text="map test button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
