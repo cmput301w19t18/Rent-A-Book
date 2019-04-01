@@ -303,6 +303,55 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
             }
         });
+        inboxViewHolder.mOwnerPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference mDatabase3;
+                final FirebaseAuth mAuth;
+                mAuth = FirebaseAuth.getInstance();
+
+                mDatabase3 = FirebaseDatabase.getInstance().getReference("Books");
+                Query query3 = mDatabase3.orderByChild("btitle");
+                ValueEventListener eventListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()){
+                            //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                Book book = snapshot.getValue(Book.class);
+
+                                if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
+                                    if(book.getBstatus().contains("Borrowed")){
+                                        String keyer = snapshot.getKey();
+
+                                        DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(keyer).child("bstatus");
+                                        book_ref.setValue("Available");
+
+                                        Toast.makeText(context,"Book Returned",Toast.LENGTH_LONG).show();
+
+
+                                    }
+
+                                }
+
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                };
+                query3.addListenerForSingleValueEvent(eventListener);
+
+                Intent book_loc = new Intent(context, MapsActivity.class);
+                book_loc.putExtra("borrow", "2");
+                context.startActivity(book_loc);
+
+            }
+        });
 
 
 

@@ -166,6 +166,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
+
         map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
@@ -187,6 +188,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         //return data from map marker position:
                         MapsActivity.locationLat = latLng.latitude;
                         MapsActivity.locationLon = latLng.longitude;
+
 
                         //return to home after map
                         try

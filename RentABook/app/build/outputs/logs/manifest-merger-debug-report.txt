@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
-INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
-INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
-INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
+INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
+INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
+INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
 MERGED from [com.android.databinding:adapters:3.2.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/adapters-3.2.1.aar/a4507d9c34a7bc9df6be6b54cbfd1080/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.databinding:library:3.2.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/library-3.2.1.aar/b6bc47cb81bacfddc5fb9618371bad6b/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:design:28.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/AndroidManifest.xml:17:1-24:12
@@ -68,22 +68,22 @@ MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/ikramshire
 MERGED from [com.android.support:print:28.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/41c85291439511ec2db34e6e05c4a75d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/6f08118d16a5bd77afc5b63c458a5f12/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.0.aar/b6af1805dc890e080e3f5a12e8f0a2e5/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
-INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
-INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
+INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
+INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
+INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
 	package
 		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:4:5-53
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-58:12
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:1-79:12
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:2:11-69
@@ -109,8 +109,40 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:7:5-80
 	android:name
 		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:7:22-77
+uses-permission#android.permission.CAMERA
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:8:5-65
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:8:22-62
+uses-permission#com.example.cmput301w19t18.rent_a_book.permission.MAPS_RECEIVE
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:9:5-101
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:9:22-99
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:10:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/d00b6161bd90ac8ecda09bbbb1442075/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/d00b6161bd90ac8ecda09bbbb1442075/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/b4a69d315f385e4534593732fa739a95/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/b4a69d315f385e4534593732fa739a95/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/e43be2e30197af5a4d8ec623f75a760d/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/e43be2e30197af5a4d8ec623f75a760d/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a6807da62d1dc1936e4bd848e033e5d9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a6807da62d1dc1936e4bd848e033e5d9/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/49868ed63c0cd0a7f1cb1fd61e1ad5af/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/49868ed63c0cd0a7f1cb1fd61e1ad5af/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-storage-common:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-16.0.1.aar/a12fd571261b194510ce2058e5ef741c/AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-storage-common:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-16.0.1.aar/a12fd571261b194510ce2058e5ef741c/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:13:22-76
 application
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:9:5-56:19
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:15:5-77:19
 MERGED from [com.android.support:design:28.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/5917cc9287fd5e71517c01935bcd22a7/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/59892aa909786bf94e1806462980efa1/AndroidManifest.xml:9:5-20
@@ -164,105 +196,123 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.0] /User
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/a644385a66ecc0c218896954aca7f5e2/AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:14:9-35
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:12:9-41
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:18:9-41
 	android:windowSoftInputMode
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:17:9-52
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:23:9-52
 	android:roundIcon
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:13:9-54
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:19:9-54
 	android:icon
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:11:9-43
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:17:9-43
 	android:allowBackup
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:16:9-35
 	android:theme
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:15:9-40
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:21:9-40
 	android:usesCleartextTraffic
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:16:9-44
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:22:9-44
+activity#com.example.cmput301w19t18.rent_a_book.MapPreActivity
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:24:9-61
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:24:19-49
 provider#android.support.v4.content.FileProvider
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:18:9-28:20
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:26:9-39:20
 	android:grantUriPermissions
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:22:13-47
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:30:13-47
 	android:authorities
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:20:13-55
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:28:13-55
 	android:exported
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:21:13-37
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:29:13-37
 	tools:replace
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:23:13-48
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:31:13-48
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:19:13-67
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:27:13-67
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:24:13-27:52
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:32:9-35:44
 	android:resource
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:26:17-55
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:34:9-47
 	tools:replace
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:27:17-49
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:35:9-41
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:25:17-67
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:33:9-59
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:42:9-44:71
+	android:value
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:44:13-68
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:43:13-58
+meta-data#com.google.android.gms.version
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:46:9-48:69
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/8d0c3d92ff16461ac56f947fa05d15a9/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/8d0c3d92ff16461ac56f947fa05d15a9/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:48:13-66
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:47:13-58
 activity#com.example.cmput301w19t18.rent_a_book.MainActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:30:9-36:20
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:49:9-55:20
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:30:19-47
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:49:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:31:13-35:29
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:50:13-54:29
 action#android.intent.action.MAIN
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:32:17-69
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:51:17-69
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:32:25-66
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:51:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:34:17-77
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:53:17-77
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:34:27-74
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:53:27-74
 activity#com.example.cmput301w19t18.rent_a_book.SearchResultsActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:37:9-39:39
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:56:9-58:39
 	android:exported
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:39:13-36
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:58:13-36
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:38:13-50
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:57:13-50
 activity#com.example.cmput301w19t18.rent_a_book.HomeActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:40:9-42:39
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:59:9-61:39
 	android:exported
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:42:13-36
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:61:13-36
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:41:13-41
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:60:13-41
 activity#com.example.cmput301w19t18.rent_a_book.RegisterActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:43:9-54
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:62:9-54
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:43:19-51
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:62:19-51
 activity#com.example.cmput301w19t18.rent_a_book.BookDetails
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:44:9-49
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:63:9-49
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:44:19-46
-activity#com.example.cmput301w19t18.rent_a_book.MapsActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:45:9-50
-	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:45:19-47
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:63:19-46
 activity#com.example.cmput301w19t18.rent_a_book.ProfileActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:46:9-53
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:66:9-53
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:46:19-50
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:66:19-50
 activity#com.example.cmput301w19t18.rent_a_book.PickGenrePreference
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:47:9-49:72
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:67:9-69:72
 	android:theme
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:49:13-69
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:69:13-69
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:48:13-48
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:68:13-48
 activity#com.example.cmput301w19t18.rent_a_book.NewBookActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:50:9-52:39
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:70:9-72:39
 	android:exported
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:52:13-36
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:72:13-36
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:51:13-44
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:71:13-44
+activity#com.example.cmput301w19t18.rent_a_book.MapsActivity
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:73:9-50
+	android:name
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:73:19-47
 activity#com.example.cmput301w19t18.rent_a_book.addPhotoActivity
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:53:9-54
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:74:9-54
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:53:19-51
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:74:19-51
 activity#com.example.cmput301w19t18.rent_a_book.Inbox
-ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:54:9-55:48
+ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:75:9-76:48
 	android:exported
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:55:13-36
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:76:13-36
 	android:name
-		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:54:19-40
+		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml:75:19-40
 uses-sdk
 INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
@@ -407,20 +457,6 @@ INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/m
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 		ADDED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/ikramshire/Documents/GitHub/Rent-A-Book/RentABook/app/src/main/AndroidManifest.xml
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:16.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/d00b6161bd90ac8ecda09bbbb1442075/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/b4a69d315f385e4534593732fa739a95/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-measurement-connector-impl:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.1.aar/b4a69d315f385e4534593732fa739a95/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-analytics:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/e43be2e30197af5a4d8ec623f75a760d/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-analytics:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.1.aar/e43be2e30197af5a4d8ec623f75a760d/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a6807da62d1dc1936e4bd848e033e5d9/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-analytics-impl:16.1.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.1.1.aar/a6807da62d1dc1936e4bd848e033e5d9/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-iid:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/49868ed63c0cd0a7f1cb1fd61e1ad5af/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/49868ed63c0cd0a7f1cb1fd61e1ad5af/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-storage-common:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-16.0.1.aar/a12fd571261b194510ce2058e5ef741c/AndroidManifest.xml:7:5-79
-MERGED from [com.google.firebase:firebase-storage-common:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-16.0.1.aar/a12fd571261b194510ce2058e5ef741c/AndroidManifest.xml:7:5-79
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:16.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/d00b6161bd90ac8ecda09bbbb1442075/AndroidManifest.xml:23:22-76
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:16.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/d00b6161bd90ac8ecda09bbbb1442075/AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
@@ -631,12 +667,6 @@ ADDED from [com.google.firebase:firebase-common:16.0.0] /Users/ikramshire/.gradl
 		ADDED from [com.google.firebase:firebase-common:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/dd65609e3275709739f5f0ebac25be8c/AndroidManifest.xml:13:13-36
 	android:name
 		ADDED from [com.google.firebase:firebase-common:16.0.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/dd65609e3275709739f5f0ebac25be8c/AndroidManifest.xml:10:13-77
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/8d0c3d92ff16461ac56f947fa05d15a9/AndroidManifest.xml:23:9-25:69
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/8d0c3d92ff16461ac56f947fa05d15a9/AndroidManifest.xml:25:13-66
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/8d0c3d92ff16461ac56f947fa05d15a9/AndroidManifest.xml:24:13-58
 meta-data#android.support.VERSION
 ADDED from [com.android.support:support-v4:26.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/7000358dd8ef455361a5cf3f739f07db/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-media-compat:26.1.0] /Users/ikramshire/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/20d2d40594d17cb5937a06f52f64661f/AndroidManifest.xml:26:9-28:38
