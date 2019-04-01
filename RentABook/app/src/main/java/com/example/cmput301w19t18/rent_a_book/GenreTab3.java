@@ -87,7 +87,7 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         pPic = getActivity().getIntent().getExtras().getString("profileURI");
 
 
-        Toast.makeText(this.getContext(),pPic,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this.getContext(),pPic,Toast.LENGTH_SHORT).show();
 
 
         Button nonfic = (Button) v.findViewById(R.id.nonficButton);

@@ -100,7 +100,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 .orderByChild("email")
                 .equalTo(bAuth.getCurrentUser().getEmail());
 
-        Toast.makeText(getApplicationContext(), bAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), bAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
 
         doQuery(query);
 
@@ -133,7 +133,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 //File profilePic = new File(Uri.parse(user.getURI()).toString());
 
 
-                Toast.makeText(getApplicationContext(), myUri.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), myUri.toString(), Toast.LENGTH_LONG).show();
                 //Picasso.get().load(myUri).placeholder(R.drawable.default_profile_pic_olive).into(profilepic);
                 Picasso.get().load(myUri).into(profilepic);
 

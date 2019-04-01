@@ -248,80 +248,9 @@ public class addPhotoActivity extends AppCompatActivity {
                 }
             });
 
-
-            /*
-            ref.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss();
-                            Toast.makeText(addPhotoActivity.this, "Uploaded" + ref, Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            Toast.makeText(addPhotoActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                    .getTotalByteCount());
-                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
-                        }
-                    });
-
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-
-                    // Continue with the task to get the download URL
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
-                    } else {
-                        // Handle failures
-                        // ...
-                    }
-                }
-            });*/
-/*
-            if (!addPhotoActivity.this.isFinishing() && progressDialog != null) {
-                progressDialog.dismiss();
-                if (finished_onComplete) {
-                    //endActivity();
-                    Intent returnIntent = new Intent();
-                    returnIntent.putExtra("filepath", filePath);
-                    returnIntent.putExtra("download_uri", downloadUri);
-                    Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
-
-                    setResult(Activity.RESULT_OK, returnIntent);
-                    finish();
-                }
-            }
-        */
         }
     }
-
-    private void endActivity() {
-        Intent returnIntent = new Intent();
-        returnIntent.putExtra("filepath", filePath);
-        returnIntent.putExtra("download_uri", downloadUri);
-        Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
-
-        setResult(Activity.RESULT_OK, returnIntent);
-        finish();
-    }
+    
 
     private void cancelAction(){
         this.finish();
