@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * The type Book.
  * Creates Book Class
- * Created by oanderso, and modified by jusong, ishire
+ * Created by oanderso, and modified by jusong, ishire, dikova
  */
 public class Book implements Serializable{
 
@@ -25,8 +25,6 @@ public class Book implements Serializable{
     private List<String> requestedList = new ArrayList<String>();
     private boolean requested = false;
 
-    //private String description; //Description of the book entered by the user
-    //private Integer copyCount; //number of copies of the book that exist
 
     /**
      * Instantiates a new Book.
@@ -64,10 +62,6 @@ public class Book implements Serializable{
         this.rating = rating;
         this.bOwner = bOwner;
         this.genre = genre;
-
-        //use of arrays:
-        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
-        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
 
     }
 
