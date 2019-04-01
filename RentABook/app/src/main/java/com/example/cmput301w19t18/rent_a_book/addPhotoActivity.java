@@ -260,16 +260,13 @@ public class addPhotoActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
                         downloadUri = task.getResult();
-                        //Toast.makeText(addPhotoActivity.this, "lolwut: "+ downloadUri, Toast.LENGTH_SHORT).show();
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra("filepath", filePath);
                         returnIntent.putExtra("download_uri", downloadUri);
-                        //Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
 
                         setResult(Activity.RESULT_OK, returnIntent);
                         finish();
 
-                        //finished_onComplete = true;
 
                     } else {
                         // Handle failures
@@ -286,7 +283,6 @@ public class addPhotoActivity extends AppCompatActivity {
         Intent returnIntent = new Intent();
         returnIntent.putExtra("filepath", filePath);
         returnIntent.putExtra("download_uri", downloadUri);
-        Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
 
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
