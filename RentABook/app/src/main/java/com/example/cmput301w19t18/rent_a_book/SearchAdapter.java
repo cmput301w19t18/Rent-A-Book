@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +52,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
          */
         public TextView mStatus;
 
+
         /**
          * Instantiates a new Search view holder.
          *
@@ -63,6 +65,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             mBookAuthor = itemView.findViewById(R.id.bookAuthor);
             mOwnerName = itemView.findViewById(R.id.bookOwner);
             mStatus = itemView.findViewById(R.id.bookStatus);
+
+
+
         }
     }
 
@@ -86,7 +91,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
         Context context = searchViewHolder.itemView.getContext();
-         final Book currentItem = mSearchBookList.get(i);
+        final Book currentItem = mSearchBookList.get(i);
         final String fake_description = "This is a description test. " +
                 "I realized we need to add the description in the book class, but for some reason is not there, " +
                 "so we have to add that as an attribute. I can't believe the project is due in like a week, " +

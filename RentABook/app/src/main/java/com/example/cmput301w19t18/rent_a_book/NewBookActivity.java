@@ -9,6 +9,11 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.media.Image;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.JsonReader;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +28,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import android.widget.RatingBar;
 
 import android.widget.RatingBar;
 
@@ -42,6 +49,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+
+import java.io.StringReader;
+import java.net.URL;
+
 import java.util.ArrayList;
 
 
@@ -80,7 +91,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     //latest book added:
     private Book addedBook;
     private String bookurl, download_url;
-
 
     //volley stuff
     private RequestQueue mQueue;
@@ -142,6 +152,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         ScanB.setOnClickListener(this);
         PhotoB.setOnClickListener(this);
 
+        PhotoB.setOnClickListener(this);
+
         //email = b.getString("user_email");
 
         // unpack
@@ -177,6 +189,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 ISBNF.setText(bundle.getString("ISBN"));
                 RatingF.setRating(bundle.getFloat("rating"));
                 // make checks for if from scanner or camera (maybe)
+
                 bookurl = bundle.getString("bookurl");
                 Picasso.get().load(bookurl).into(CoverB);
 
@@ -191,7 +204,8 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
             finish(); //close activity
-            startActivity(new Intent(this, MainActivity.class)); //returns to login screen
+            startActivity(new Intent(this, LoginActivity.class)); //returns to login screen
+
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
@@ -201,6 +215,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private void addButton(){
         Intent intent = new Intent(this, addPhotoActivity.class);
         startActivityForResult(intent, 1);
+
     }
 
     @Override
@@ -273,6 +288,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -294,6 +310,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(this, ScanBarcodeActivity.class);
         startActivityForResult(intent, 0);
     }
+
 
 
     private void saveBookInfo() {

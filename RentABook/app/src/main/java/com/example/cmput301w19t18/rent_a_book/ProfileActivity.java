@@ -60,18 +60,24 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                         Intent intent;
                         switch (menuItem.getItemId()) {
                             case R.id.home:
-                                intent = new Intent(ProfileActivity.this, HomeActivity.class);
-                                startActivity(intent);
+                                Intent intent1;
+                                intent1 = new Intent(ProfileActivity.this, HomeActivity.class);
+                                startActivity(intent1);
                                 break;
                             case R.id.search:
-                                intent = new Intent(ProfileActivity.this, SearchResultsActivity.class);
-                                startActivity(intent);
+                                Intent intent2;
+                                intent2 = new Intent(ProfileActivity.this, SearchResultsActivity.class);
+                                startActivity(intent2);
                                 break;
                             case R.id.inbox:
-                                // TODO this needs to be implemented
+                                Intent intent3;
+                                intent3 = new Intent(ProfileActivity.this, Inbox.class);
+                                startActivity(intent3);
+
                                 break;
                             case R.id.profile:
                                 // do nothing because we're already here

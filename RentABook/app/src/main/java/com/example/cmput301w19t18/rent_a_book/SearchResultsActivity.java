@@ -63,28 +63,33 @@ public class SearchResultsActivity extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                         Intent intent;
                         switch (menuItem.getItemId()) {
                             case R.id.home:
-                                intent = new Intent(SearchResultsActivity.this, HomeActivity.class);
-                                startActivity(intent);
+                                Intent intent1;
+                                intent1 = new Intent(SearchResultsActivity.this, HomeActivity.class);
+                                startActivity(intent1);
                                 break;
                             case R.id.search:
-                                // do nothing because we're already here
+                                // do nothing because we are already here
                                 break;
                             case R.id.inbox:
-                                // TODO this needs to be implemented
+                                Intent intent2;
+                                intent2 = new Intent(SearchResultsActivity.this, Inbox.class);
+                                startActivity(intent2);
                                 break;
+
                             case R.id.profile:
-                                intent = new Intent(SearchResultsActivity.this, ProfileActivity.class);
-                                startActivity(intent);
+                                Intent intent3;
+                                intent3 = new Intent(SearchResultsActivity.this, ProfileActivity.class);
+                                startActivity(intent3);
                                 break;
                         }
                         return false;
                     }
                 }
         );
-
 
 
 

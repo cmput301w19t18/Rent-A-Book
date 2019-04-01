@@ -17,6 +17,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.view.MenuItem;
 
+import android.widget.Toast;
+
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -95,21 +98,29 @@ public class HomeActivity extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                         Intent intent;
                         switch (menuItem.getItemId()) {
                             case R.id.home:
                                 // do nothing because we're already here
+                                //Toast.makeText(getApplicationContext(), "home", Toast.LENGTH_LONG).show();
                                 break;
                             case R.id.search:
-                                intent = new Intent(HomeActivity.this, SearchResultsActivity.class);
-                                startActivity(intent);
+                                //Toast.makeText(getApplicationContext(), "search", Toast.LENGTH_LONG).show();
+                                Intent intent1;
+                                intent1 = new Intent(HomeActivity.this, SearchResultsActivity.class);
+                                startActivity(intent1);
                                 break;
                             case R.id.inbox:
-                                // TODO this needs to be implemented
+                                //Toast.makeText(getApplicationContext(), "inbox", Toast.LENGTH_LONG).show();
+                                Intent intent2 = new Intent(HomeActivity.this, Inbox.class);
+                                startActivity(intent2);
                                 break;
                             case R.id.profile:
-                                intent = new Intent(HomeActivity.this, ProfileActivity.class);
-                                startActivity(intent);
+                                //Toast.makeText(getApplicationContext(), "profile", Toast.LENGTH_LONG).show();
+                                Intent intent3;
+                                intent3 = new Intent(HomeActivity.this, ProfileActivity.class);
+                                startActivity(intent3);
                                 break;
                         }
                         return false;
