@@ -57,6 +57,7 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
     private float rating;
     private String descrip;
     private Bitmap coverIMG;
+
     private String bookurl;
     private String description;
 
@@ -283,7 +284,6 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
         userInfo.putFloat("rating", rating);
         userInfo.putString("description", description);
         userInfo.putString("bookurl", bookurl);
-
         userInfo.putParcelable("coverPic", coverIMG);
         userInfo.putString("description", descrip);
 
