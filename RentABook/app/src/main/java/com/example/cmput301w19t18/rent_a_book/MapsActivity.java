@@ -106,26 +106,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-        /*
-        // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
-        LatLng CSB_home = new LatLng(53.526724, -113.526483); //Location of CSB
-        Float zoom = new Float (15); //default zoom level
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CSB_home, zoom));
-
-        mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
-        */
-
         enableMyLocation();
-        //setMapLongClick(mMap);
 
         String accepted = getIntent().getStringExtra("Accepted");
         if (accepted.contains("2")) {
-
-            //Toast.makeText(getApplicationContext(), locationLat.toString(), Toast.LENGTH_LONG).show();
-
 
             displayPickupMap();
         }
@@ -216,9 +200,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         DatabaseReference accepted_ref = mUserDatabase.child(user_id);
                         String latLon = locationLat.toString() + "," + locationLon.toString();
                         accepted_ref.child("latlon").setValue(latLon);
-                        //accepted_ref.child("lon").setValue(locationLon);
-
-
 
                         Toast.makeText(getApplicationContext(), "Location Set", Toast.LENGTH_LONG).show();
 
@@ -235,13 +216,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void displayPickupMap(){
 
-        //String borrowed = getIntent().getStringExtra("Borrowed");
-        //Toast.makeText(getApplicationContext(), borrowed, Toast.LENGTH_LONG).show();
-        //if (getIntent().getStringExtra("Borrowed").contains("2")){
-
         String bookTitle = getIntent().getStringExtra("Book");
         final String ownerEmail = getIntent().getStringExtra("Owner");
-        //Toast.makeText(getApplicationContext(), "test email", Toast.LENGTH_LONG).show();
 
         DatabaseReference mDatabase4;
         final FirebaseAuth mAuth;
@@ -270,31 +246,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
 
                                         String latlon = dataSnapshot1.getValue().toString();
-                                        //Toast.makeText(getApplicationContext(), latlon, Toast.LENGTH_LONG).show();
-                                        //Toast.makeText(getApplicationContext(), latlon.substring(0,8), Toast.LENGTH_LONG).show();
-                                        //Toast.makeText(getApplicationContext(), "String" + latlon.length() , Toast.LENGTH_LONG).show();
-
-                                        //ArrayList<String> coords = (ArrayList<String>) Arrays.asList(latlon.split(","));
-                                        //Toast.makeText(getApplicationContext(), "Size" + coords.size(), Toast.LENGTH_LONG).show();
-
-                                        //String[] coords = latlon.split(",");
-                                        //Toast.makeText(getApplicationContext(), "Size" + coords.length, Toast.LENGTH_LONG).show();
-                                        //Toast.makeText(getApplicationContext(), latlon, Toast.LENGTH_LONG).show();
-
-                                        //String[] coords = latlon.split(",",-1);
-                                        //Toast.makeText(getApplicationContext(), coords[1].toString() , Toast.LENGTH_LONG).show();
-
-                                        //System.out.println(coords[0]);
-
-
-                                        /*
-                                        LatLng pickup_point = new LatLng(53, -113);
-                                        Float zoom = new Float (15); //default zoom levelparseDouble(latlon.substring(18,30)
-                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
-
-                                        mMap.addMarker(new MarkerOptions().position(pickup_point).title("Pickup Point SET"));
-                                        mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
-                                        */
                                     }
                                 }
 

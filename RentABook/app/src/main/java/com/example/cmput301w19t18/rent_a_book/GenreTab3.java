@@ -118,7 +118,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             // change to put info into intents to send to main activity and other fragments
             case R.id.nonficButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(12) == 0 && selected < 3) {
                     addGenre(12,"Picked non-fiction!", "Non-Fiction");
                 }
@@ -130,7 +129,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.yaButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(13) == 0 && selected < 3) {
                     addGenre(13,"Picked YA!", "Young-Adult");
                 }
@@ -142,7 +140,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.thrillerButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(14) == 0 && selected < 3) {
                     addGenre(14,"Picked thriller!", "Thriller");
                 }
@@ -154,7 +151,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.tragedyButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(15) == 0 && selected < 3) {
                     addGenre(15,"Picked tragedy!", "Tragedy");
                 }
@@ -166,7 +162,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.poetryButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(16) == 0 && selected < 3) {
                     addGenre(16,"Picked poetry!", "Poetry");
                 }
@@ -178,7 +173,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.childButton:
-                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 if (preferenceList.get(17) == 0 && selected < 3) {
                     addGenre(17,"Picked children's!", "Children's");
                 }
@@ -269,8 +263,6 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         }
 
 
-        //Toast.makeText(getActivity(),gList,Toast.LENGTH_SHORT).show();
-
         // send info to firebase here
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -304,10 +296,8 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         });
 
 
-        //strBuild.toString();
         // then pack in extras
         Intent intent = new Intent(this.getContext(), SuccessfulSignupActivity.class);
-        //Intent intent = new Intent(this.getContext(), PickGenrePreference.class);
         Bundle userInfo =  new Bundle();
         userInfo.putString("firstName", firstName);
         userInfo.putString("lastName", lastName);
@@ -318,9 +308,8 @@ public class GenreTab3 extends Fragment implements View.OnClickListener {
         userInfo.putString("genresString", strBuild2.toString());
         intent.putExtras(userInfo);
 
-        startActivity(intent);
-
         // send to next activity
+        startActivity(intent);
 
     }
 }

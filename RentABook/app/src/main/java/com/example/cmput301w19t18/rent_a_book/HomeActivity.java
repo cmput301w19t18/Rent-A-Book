@@ -91,9 +91,6 @@ public class HomeActivity extends AppCompatActivity {
         bAuth = FirebaseAuth.getInstance();
         databaseReference_user = FirebaseDatabase.getInstance().getReference("Users").child(bAuth.getUid()).child("prefList"); //gets the preference list
         getGenreList(databaseReference_user);
-        //Toast.makeText(getApplicationContext(), "2" + genreList, Toast.LENGTH_LONG).show();
-
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -112,21 +109,17 @@ public class HomeActivity extends AppCompatActivity {
                         switch (menuItem.getItemId()) {
                             case R.id.home:
                                 // do nothing because we're already here
-                                //Toast.makeText(getApplicationContext(), "home", Toast.LENGTH_LONG).show();
                                 break;
                             case R.id.search:
-                                //Toast.makeText(getApplicationContext(), "search", Toast.LENGTH_LONG).show();
                                 Intent intent1;
                                 intent1 = new Intent(HomeActivity.this, SearchResultsActivity.class);
                                 startActivity(intent1);
                                 break;
                             case R.id.inbox:
-                                //Toast.makeText(getApplicationContext(), "inbox", Toast.LENGTH_LONG).show();
                                 Intent intent2 = new Intent(HomeActivity.this, Inbox.class);
                                 startActivity(intent2);
                                 break;
                             case R.id.profile:
-                                //Toast.makeText(getApplicationContext(), "profile", Toast.LENGTH_LONG).show();
                                 Intent intent3;
                                 intent3 = new Intent(HomeActivity.this, ProfileActivity.class);
                                 startActivity(intent3);
@@ -150,12 +143,7 @@ public class HomeActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Bundle extras = new Bundle();
                 Intent intent = new Intent(HomeActivity.this, NewBookActivity.class);
-                //intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                //intent.putExtras(extras);
-                //startActivityForResult(intent, ADDING);
-                //update = true;
                 startActivity(intent);
             }
         });
@@ -164,8 +152,6 @@ public class HomeActivity extends AppCompatActivity {
 
         arrayListHorizontal_myBooks = new ArrayList<>();
         arrayListHorizontal_myBooks2 = new ArrayList<>();
-
-        //Toast.makeText(this,bAuth.getCurrentUser().getEmail(),Toast.LENGTH_SHORT).show();
 
         bookList = new ArrayList<>();
 
@@ -186,7 +172,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 genreList = dataSnapshot.getValue().toString();
-                //Toast.makeText(getApplicationContext(), "1" + genreList, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -282,8 +267,6 @@ public class HomeActivity extends AppCompatActivity {
 
         for (int i=0; i<bookList.size(); i++) {
             Book currentBook = bookList.get(i);
-            //Toast.makeText(getApplicationContext(), "current book ? ? ? " + currentBook.getBtitle(), Toast.LENGTH_SHORT).show();
-            // genre currentBook.getGenre() -> "0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1"
             String[] gList = currentBook.getGenre().split(" ");
 
             if (gList[genre_position].equals("1")) {

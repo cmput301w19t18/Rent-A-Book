@@ -46,7 +46,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -128,42 +127,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 phone_number.setText(user.getPhoneNum());
                 email.setText(user.getEmail());
 
-                //Uri myUri = Uri.parse(user.getURI());
-                //Uri myUri = Uri.parse(user.getURI());
                 Uri myUri = Uri.parse(user.getURI());
-                //URI myUri = null;
-                //myUri.create(user.getURI());
-
-                //URL url = myUri.toURL();
-
-                //File profilePic = new File(Uri.parse(user.getURI()).toString());
 
 
                 Toast.makeText(getApplicationContext(), myUri.toString(), Toast.LENGTH_LONG).show();
                 //Picasso.get().load(myUri).placeholder(R.drawable.default_profile_pic_olive).into(profilepic);
                 Picasso.get().load(myUri).into(profilepic);
-
-                /*
-                URL url;
-                try {
-                    url = myUri.;
-                    System.out.println("URL from URI: " + url);
-                }
-                catch (MalformedURLException e) {
-                    System.out.println("Malformed URL: " + e.getMessage());
-                }
-                */
-
-                //Toast.makeText(getApplicationContext(), profilePic.toString(), Toast.LENGTH_LONG).show();
-                //Picasso.get().load(user.getURI()).into(profilepic);
-
-                //Picasso.with(this).load(myUri).into(profilepic);
-
-
-                //Picasso picassoInstance = new Picasso.Builder(ProfileActivity.this.getApplicationContext())
-                //        .addRequestHandler(new FireBaseRequestHandler())
-                 //       .build();
-
 
                 String genreList = user.getPrefList();
                 String[] gList = genreList.split(" ");

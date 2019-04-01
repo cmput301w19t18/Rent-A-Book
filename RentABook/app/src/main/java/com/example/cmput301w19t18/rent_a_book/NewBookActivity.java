@@ -103,7 +103,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -125,7 +124,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         btnPhoto = findViewById(R.id.AddPhotoButton);
         imageView = findViewById(R.id.image);
         SubmitB.setOnClickListener(this);
-        //email = b.getString("user_email");
 
         btnPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,7 +219,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    //String test = response.getString("kind");
                     JSONArray jsonArray = response.getJSONArray("items");
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
 
@@ -266,7 +263,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                //String test = response.getString("kind");
                                 JSONArray jsonArray = response.getJSONArray("items");
                                 JSONObject jsonObject = jsonArray.getJSONObject(0);
 
@@ -335,20 +331,14 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         //Currently only is able to add values entered for a new book that is not already in the database
 
-        //String genre = "000001010"; //going to be set by external function
         String requestedBy = "";//new ArrayList<String>();
         String email = bAuth.getCurrentUser().getEmail();
-        //ArrayList<String> ownedBy = null;
 
-        //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
+
+
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
-        //Integer rating = 4;
-        //Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
-
-
         //add the new book to firebase
         Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy, description);
-        //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

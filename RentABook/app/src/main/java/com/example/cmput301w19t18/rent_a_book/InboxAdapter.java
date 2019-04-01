@@ -136,10 +136,6 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                                 inboxViewHolder.accept_button.hide();
                                 inboxViewHolder.mOwnerName.setText("Click to return this book");
 
-
-                                //Toast.makeText(context,inboxViewHolder.reject_button.getVisibility(),Toast.LENGTH_LONG).show();
-
-
                             }
 
                         }
@@ -201,18 +197,9 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
         inboxViewHolder.accept_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //DatabaseReference mUserDatabase;
-                //FirebaseAuth mAuth;
-                //mAuth = FirebaseAuth.getInstance();
-                //mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
                 currentItem.setBstatus("Borrowed");
                 Toast.makeText(context,"accepted", Toast.LENGTH_LONG).show();
-                //intent.putExtra("accepted", "1");
-                //intent.putExtra("title", currentItem.getBtitle());
 
-                //allowing user to set the book to borrowed
-                //final String accepted = getIntent().getStringExtra("accepted");
-                //final String book =getIntent().getStringExtra("title");
                 DatabaseReference mDatabase;
                 final FirebaseAuth mAuth;
                 mAuth = FirebaseAuth.getInstance();
@@ -223,7 +210,6 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()){
-                            //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
                             for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                                 Book book = snapshot.getValue(Book.class);
                                 if (book.getBtitle().contains(currentItem.getBtitle())){
@@ -361,7 +347,6 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
         inboxViewHolder.mOwnerPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context,"Clicked book picture",Toast.LENGTH_LONG).show();
 
                 DatabaseReference mDatabase4;
                 final FirebaseAuth mAuth;
@@ -397,39 +382,16 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 };
                 query4.addListenerForSingleValueEvent(eventListener);
 
-                /*
-                Intent book_loc = new Intent(context, MapsActivity.class);
-                book_loc.putExtra("Borrowed", "2");
-                book_loc.putExtra("Book", currentItem.getBtitle());
-                book_loc.putExtra("Owner", currentItem.getbOwner());
-                context.startActivity(book_loc);
-                */
-
-
                 Intent intent = new Intent(context, MapsActivity.class);
                 intent.putExtra("Accepted","2");
                 intent.putExtra("Owner", currentItem.getbOwner());
                 context.startActivity(intent);
-
-                //Toast.makeText(context, currentItem.getbOwner(), Toast.LENGTH_LONG).show();
-
-
-
-
-
             }
         });
-
-
-
-
-
     }
 
     @Override
     public int getItemCount() {
         return mInboxBookList.size();
     }
-
-
 }

@@ -40,7 +40,6 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
     private String bookCover;
     private ImageView bookimage;
     private FirebaseAuth mAuth;
-    //private String mode;
     private Book curr_book;
     private boolean req = false;
     private String requesters;
@@ -49,7 +48,6 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -162,10 +160,6 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         bookCover = getIntent().getStringExtra("photo");
         Picasso.get().load(bookCover).into(bookimage);
         final String bdescription2 = getIntent().getStringExtra("bdescription2");
-
-
-
-
 
         Query query = mDatabase.orderByChild("btitle");
 

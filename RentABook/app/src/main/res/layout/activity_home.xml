@@ -9,7 +9,9 @@
     <FrameLayout
         android:id="@+id/navbarContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navView"
@@ -31,8 +33,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="626dp"
-        app:layout_constraintBottom_toTopOf="@+id/navView"
+        android:layout_height="734dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/activity_home_vertical" />
 
@@ -41,16 +43,14 @@
         android:id="@+id/addEntry_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="668dp"
         android:src="@drawable/baseline_add_white_18dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/navbarContainer"
-        app:layout_constraintVertical_bias="0.919"
+        app:layout_constraintVertical_bias="0.975"
         app:pressedTranslationZ="12dp" />
 
 </android.support.constraint.ConstraintLayout>

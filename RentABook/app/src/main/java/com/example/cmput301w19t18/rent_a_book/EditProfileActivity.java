@@ -25,7 +25,6 @@ import java.io.IOException;
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private Button next;
-    private Button signup;
     private Button addPhoto;
     private Button cancel;
     private EditText pass;
@@ -36,7 +35,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private FirebaseAuth mAuth;
     private FirebaseDatabase mFireBaseD;
     private DatabaseReference DataR;
-    private String prefList;
     private Uri filePath;
     private ImageView imageview;
 
@@ -61,7 +59,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         last = (EditText) findViewById(R.id.last);
         mFireBaseD = FirebaseDatabase.getInstance();
         imageview = (ImageView) findViewById(R.id.viewPhoto);
-        //DataR = mFireBaseD.getReference();
 
         next.setOnClickListener(this);
         cancel.setOnClickListener(this);
@@ -93,7 +90,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 filePath = data.getParcelableExtra("filepath");
 
                 if(filePath != null) {
-                    //Toast.makeText(getApplicationContext(), "Uri: " + filePath.toString(), Toast.LENGTH_SHORT).show();
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                         Bitmap b = getResizedBitmap(bitmap, 150, 240);
@@ -190,49 +186,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         userInfo.putString("email",user_email);
         userInfo.putString("password", password);
 
-        //GenreTab3 finalInfo = new GenreTab3();
-        //finalInfo.setArguments(userInfo);
-
 
         intent.putExtras(userInfo);
 
         startActivity(intent);
-
-        /*
-        // TODO add name, phone, put in intent, collect genres and then send to firebase
-        // maybe create an are you sure page displaying user info back to them before
-        // they confirm
-        //finally register user, got this code from firebase instructions,
-        mAuth.createUserWithEmailAndPassword(user_email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    User user = new User(user_email, prefList);
-                    String user_id = mAuth.getCurrentUser().getUid();
-
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(RegisterActivity.this,"Registration Success",Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-                    Toast.makeText(getApplicationContext(),"User Registered!",Toast.LENGTH_SHORT).show();
-
-                    finish();
-                }
-                //check if email is already registered
-                if (task.getException() instanceof FirebaseAuthUserCollisionException){
-                    Toast.makeText(getApplicationContext(),"User  Already Registered!",Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-*/
 
     }
 
@@ -244,13 +201,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             onNext();
             //startActivity(new Intent(this, PickGenrePreference.class));
         }
-
-        // TODO this should not be here -> implement sign up class and call this after genre stuff
-        if (view == signup){
-            //signUp();
-            return;
-        }
-        // TODO cancel should clear everything
         if (view == cancel){
             startActivity(new Intent(this, LoginActivity.class));
 

@@ -71,20 +71,16 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
         final Book currentBook = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(currentBook.getRating());
 
-        //String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
-
         String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + currentBook.getISBN() + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    //String test = response.getString("kind");
                     JSONArray jsonArray = response.getJSONArray("items");
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
 
                     String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
 
-                    //bookurl = json_img;
                     Picasso.get().load(json_img).into(horizontalRVViewHolder.bookCover);
 
                 } catch (JSONException e) {
@@ -99,14 +95,10 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
         });
         mQueue.add(request);
 
-
-        //Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
-
         horizontalRVViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), BookDetails.class);
-                //arrayList.get(i)
 
                 intent.putExtra("ratings", String.valueOf(arrayList.get(i).getRating()));
                 intent.putExtra("btitle", arrayList.get(i).getBtitle());
