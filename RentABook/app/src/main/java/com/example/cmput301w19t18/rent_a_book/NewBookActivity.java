@@ -85,6 +85,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private Button genre3;
     private Button ScanB;
     private Button PhotoB;
+    private Button FetchB;
     private RatingBar RatingF;
     private ImageView CoverB;
 
@@ -139,6 +140,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         GenreB = (Button) findViewById(R.id.GenreButton);
         ScanB = (Button) findViewById(R.id.ScanButton);
         PhotoB = (Button) findViewById(R.id.AddPhotoButton);
+        FetchB = (Button) findViewById(R.id.getInfoButton);
 
         genre1 = (Button) findViewById(R.id.genre1);
         genre2 = (Button) findViewById(R.id.genre2);
@@ -148,6 +150,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         GenreB.setOnClickListener(this);
         ScanB.setOnClickListener(this);
         PhotoB.setOnClickListener(this);
+        FetchB.setOnClickListener(this);
 
         PhotoB.setOnClickListener(this);
 
@@ -211,6 +214,44 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    private void fetchButton(){
+
+        String isbn = ISBNF.getText().toString();
+        String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    //String test = response.getString("kind");
+                    JSONArray jsonArray = response.getJSONArray("items");
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                    String json_title = jsonObject.getJSONObject("volumeInfo").getString("title");
+                    String json_author = jsonObject.getJSONObject("volumeInfo").getJSONArray("authors").get(0).toString();
+                    String json_desc = jsonObject.getJSONObject("volumeInfo").getString("description");
+                    String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
+
+                    TitleF.setText(json_title);
+                    AuthorF.setText(json_author);
+                    DescF.setText(json_desc);
+                    bookurl = json_img;
+                    Picasso.get().load(bookurl).into(CoverB);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -266,7 +307,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                 download_url = data.getParcelableExtra("download_url");
 
                 if(filePath != null) {
-                    Toast.makeText(getApplicationContext(), "Uri: " + filePath.toString(), Toast.LENGTH_SHORT).show();
                     Picasso.get().load(filePath).into(CoverB);
                 }
 
@@ -347,6 +387,10 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         if (view == PhotoB) {
             addButton();
+        }
+
+        if (view == FetchB) {
+            fetchButton();
         }
 
         if (view == GenreB) {
