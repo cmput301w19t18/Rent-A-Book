@@ -138,16 +138,6 @@ public class HomeActivity extends AppCompatActivity {
         );
 
 
-        //Map test button//
-        Button testButton = findViewById(R.id.maptest);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
-                startActivityForResult(intent, ADDING);
-                update = true;
-            }
-        });
 
         arrayListVertical = new ArrayList<>();
         verticalRecyclerView = (RecyclerView)findViewById(R.id.homeRecyclerView);
