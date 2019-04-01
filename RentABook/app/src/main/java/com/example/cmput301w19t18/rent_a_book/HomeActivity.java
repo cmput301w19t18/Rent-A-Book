@@ -1,6 +1,7 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
+import android.databinding.ObservableInt;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,7 +17,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.view.MenuItem;
-
+import android.databinding.ObservableInt;
 import android.widget.Toast;
 
 
@@ -30,6 +31,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -48,7 +50,7 @@ import java.util.Collections;
 public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth bAuth;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference, databaseReference_user;
 
     private RecyclerView verticalRecyclerView;
     /**
@@ -74,8 +76,11 @@ public class HomeActivity extends AppCompatActivity {
      * The Category 2.
      */
     category2;
-    private ArrayList<Book> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2;
+    private ArrayList<Book> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2, arrayListHorizontal_myGenreBooks;
     private ArrayList<Book> bookList;
+    private String genreList;
+    private String[] genres = new String[3];
+    private ObservableInt mObsInt;
 
     //Map test button
     private Button testButton;
@@ -83,6 +88,10 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        bAuth = FirebaseAuth.getInstance();
+        databaseReference_user = FirebaseDatabase.getInstance().getReference("Users").child(bAuth.getUid()).child("prefList"); //gets the preference list
+        getGenreList(databaseReference_user);
+        //Toast.makeText(getApplicationContext(), "2" + genreList, Toast.LENGTH_LONG).show();
 
         // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -160,12 +169,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-        bAuth = FirebaseAuth.getInstance();
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
+
         arrayListHorizontal_myBooks = new ArrayList<>();
         arrayListHorizontal_myBooks2 = new ArrayList<>();
 
@@ -183,29 +188,33 @@ public class HomeActivity extends AppCompatActivity {
      * The Value event listener 1.
      */
 
+    private void getGenreList(DatabaseReference databaseReference_user) {
+        databaseReference_user.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                genreList = dataSnapshot.getValue().toString();
+                Toast.makeText(getApplicationContext(), "1" + genreList, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
     private void doQuery(Query query, final Category category) {
-
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 arrayListHorizontal_myBooks.clear();
                 bookList.clear();
                 if (dataSnapshot.exists()) {
+                    Toast.makeText(getApplicationContext(), "im so tired tbh asdfasdfasdf", Toast.LENGTH_LONG).show();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         // add all books in a list
                         Book newBook = snapshot.getValue(Book.class);
-
-                        //HorizontalModel horizontalModel = new HorizontalModel();
-
-                        //horizontalModel.setBookRating(newBook.getRating());
-                        //String url1 = "http://covers.openlibrary.org/b/isbn/";
-                        //String url2 = "-M.jpg";
-                        //horizontalModel.setBookCover(url1+newBook.getISBN()+url2);
-                        //horizontalModel.setBookTitle(newBook.getBtitle());
-
-                        //arrayListHorizontal_myBooks.add(horizontalModel);
-
                         arrayListHorizontal_myBooks.add(newBook);
                         bookList.add(newBook);
                     }
@@ -213,20 +222,14 @@ public class HomeActivity extends AppCompatActivity {
                     category.setArrayList(arrayListHorizontal_myBooks);
                     arrayListVertical.add(category);
 
+                    //------------------------------------------------
+
                     category2 = new Category();
                     category2.setCategoryTitle("My Books");
 
                     for (int i=0; i<bookList.size(); i++) {
                         Book currentBook = bookList.get(i);
                         if (currentBook.getbOwner().contentEquals(bAuth.getCurrentUser().getEmail())) {
-
-//                            HorizontalModel horizontalModel = new HorizontalModel();
-//                            horizontalModel.setBookRating(currentBook.getRating());
-//                            String url1 = "http://covers.openlibrary.org/b/isbn/";
-//                            String url2 = "-M.jpg";
-//                            horizontalModel.setBookCover(url1+currentBook.getISBN()+url2);
-
-
                             arrayListHorizontal_myBooks2.add(currentBook);
                         }
                     }
@@ -234,6 +237,28 @@ public class HomeActivity extends AppCompatActivity {
                     category2.setArrayList(arrayListHorizontal_myBooks2);
                     arrayListVertical.add(category2);
                     Collections.swap(arrayListVertical,0, 1);
+
+                    //--------------------------------------------------
+
+
+                    String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children"};
+
+                    String[] gList = genreList.split(" ");
+                    int b = 0;
+                    for (int a=0; a<gList.length; a++) {
+                        if (gList[a].equals("1")) {
+                            genres[b] = strGenres[a];
+                            b++;
+                        }
+                    }
+
+                    for (int c=0; c<genres.length; c++) {
+                        addCategoryGenre(genres[c]);
+                    }
+
+                    Toast.makeText(getApplicationContext(), "3" + genreList, Toast.LENGTH_LONG).show();
+
+
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -246,6 +271,38 @@ public class HomeActivity extends AppCompatActivity {
 
         query.addListenerForSingleValueEvent(valueEventListener);
 
+    }
+
+    private void addCategoryGenre(String genre) {
+
+        arrayListHorizontal_myGenreBooks = new ArrayList<>();
+        Category category_i = new Category();
+        category_i.setCategoryTitle(genre);
+
+        String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children"};
+        // get position
+
+        int genre_position = 0;
+        for (int j=0; j<strGenres.length; j++) {
+            if (genre.equals(strGenres[j])) {
+                genre_position = j; //pos
+            }
+            Toast.makeText(getApplicationContext(), "GENRE" + genre_position, Toast.LENGTH_SHORT).show();
+        }
+
+        for (int i=0; i<bookList.size(); i++) {
+            Book currentBook = bookList.get(i);
+            //Toast.makeText(getApplicationContext(), "current book ? ? ? " + currentBook.getBtitle(), Toast.LENGTH_SHORT).show();
+            // genre currentBook.getGenre() -> "0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1"
+            String[] gList = currentBook.getGenre().split(" ");
+
+            if (gList[genre_position].equals("1")) {
+                arrayListHorizontal_myGenreBooks.add(currentBook);
+                Toast.makeText(getApplicationContext(), "book yo" + currentBook.getBtitle(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        category_i.setArrayList(arrayListHorizontal_myGenreBooks);
+        arrayListVertical.add(category_i);
     }
 
 }
