@@ -15,7 +15,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 import static org.junit.Assert.assertEquals;
 
-public class LoginActivityTest {
+class LoginActivityTest {
 
     private EditText email;
     private EditText pass;
