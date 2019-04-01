@@ -10,7 +10,9 @@
     <FrameLayout
         android:id="@+id/navbarContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navView"
@@ -30,7 +32,7 @@
         />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profilePicture"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="32dp"
@@ -51,7 +53,7 @@
         app:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/profilePicture"
         tools:text="Amy Santiago" />
 
     <TextView
@@ -59,8 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         android:background="@drawable/text_input_layout"
         android:padding="10dp"
         android:text="TextView"
@@ -74,13 +76,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         android:background="@drawable/text_input_layout"
         android:padding="10dp"
         android:text="TextView"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/userEmailProfile"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmailProfile"
         tools:text="202-555-0132" />
 
@@ -93,7 +95,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="TextView"
+        android:text="Genres"
         android:textSize="30sp"
         app:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,19 +107,23 @@
         android:id="@+id/imageView5"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userFullNameProfile"
-        app:srcCompat="@drawable/ic_email_black_24dp"
-        tools:layout_editor_absoluteX="80dp" />
+        app:srcCompat="@drawable/ic_email_black_24dp" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/ic_local_phone_black_24dp"
-        tools:layout_editor_absoluteX="80dp" />
+        app:srcCompat="@drawable/ic_local_phone_black_24dp" />
 
     <Button
         android:id="@+id/genre3"
@@ -128,6 +134,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:background="@drawable/genre_icon_pastel_pink_128dp"
         android:shadowColor="@color/black"
         android:shadowDx="5"
         android:shadowDy="5"
@@ -147,6 +154,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/genre_icon_pastel_pink_128dp"
         android:shadowColor="@color/black"
         android:shadowDx="5"
         android:shadowDy="5"
@@ -165,6 +173,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/genre_icon_pastel_pink_128dp"
         android:shadowColor="@color/black"
         android:shadowDx="5"
         android:shadowDy="5"
@@ -177,12 +186,12 @@
         android:id="@+id/editButton"
         android:layout_width="50dp"
         android:layout_height="47dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/simple_button_layout"
         android:text="@string/editButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navView"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

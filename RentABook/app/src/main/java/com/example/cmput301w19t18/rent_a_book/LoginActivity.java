@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (view == txtsignup){
             //go to register activity
-            startActivity( new Intent(this,RegisterActivity.class));
+            startActivity( new Intent(this, RegisterActivity.class));
         }
 
     }
