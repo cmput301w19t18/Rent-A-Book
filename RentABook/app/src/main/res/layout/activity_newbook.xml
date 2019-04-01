@@ -78,6 +78,23 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
+            android:id="@+id/getInfoButton"
+            android:layout_width="70dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/simple_button_layout"
+            android:padding="10dp"
+            android:text="@string/fetch"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ISBNBox"
+            app:layout_constraintTop_toBottomOf="@+id/AuthBox" />
+
+        <Button
             android:id="@+id/GenreButton"
             android:layout_width="103dp"
             android:layout_height="wrap_content"
@@ -91,20 +108,17 @@
 
         <EditText
             android:id="@+id/ISBNBox"
-            android:layout_width="200dp"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginLeft="22dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/text_input_layout"
             android:ems="10"
             android:hint="@string/ISBN"
             android:inputType="text"
             android:padding="10dp"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageBookCover"
             app:layout_constraintTop_toBottomOf="@+id/AuthBox" />
 
