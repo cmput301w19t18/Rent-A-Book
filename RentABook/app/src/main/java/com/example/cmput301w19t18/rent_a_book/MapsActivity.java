@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,6 +30,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 /**
@@ -104,6 +106,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         LatLng CSB_home = new LatLng(53.526724, -113.526483); //Location of CSB
@@ -112,6 +115,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.addMarker(new MarkerOptions().position(CSB_home).title("CSB HAS CHANGED"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(CSB_home));
+
 
         enableMyLocation();
         //setMapLongClick(mMap);
@@ -209,8 +213,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         String user_id = mAuth.getCurrentUser().getUid();
 
                         DatabaseReference accepted_ref = mUserDatabase.child(user_id);
-                        accepted_ref.child("lat").setValue(locationLat);
-                        accepted_ref.child("lon").setValue(locationLon);
+                        String latLon = locationLat.toString() + "," + locationLon.toString();
+                        accepted_ref.child("latlon").setValue(latLon);
+                        //accepted_ref.child("lon").setValue(locationLon);
 
 
 
@@ -255,21 +260,40 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                             final String keyer = snapshot.getKey();
 
-                            //GETS LON
-                            DatabaseReference lat_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
+                            //GETS BOTH
+                            DatabaseReference latlon_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
 
-                            lat_ref.getRef().addValueEventListener(new ValueEventListener() {
+                            latlon_ref.getRef().addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                                        //Double lat = dataSnapshot1.child("lat").getValue(Double.class);
-                                        //Toast.makeText(getApplicationContext(), dataSnapshot1.getValue().toString(), Toast.LENGTH_LONG).show();
-                                        String lat = dataSnapshot1.getValue(String.class);
 
-                                        Toast.makeText(getApplicationContext(), lat, Toast.LENGTH_LONG).show();
+                                        String latlon = dataSnapshot1.getValue().toString();
+                                        //Toast.makeText(getApplicationContext(), latlon, Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(getApplicationContext(), latlon.substring(0,8), Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(getApplicationContext(), "String" + latlon.length() , Toast.LENGTH_LONG).show();
 
-                                        coords.add(lat);
+                                        //ArrayList<String> coords = (ArrayList<String>) Arrays.asList(latlon.split(","));
+                                        //Toast.makeText(getApplicationContext(), "Size" + coords.size(), Toast.LENGTH_LONG).show();
 
+                                        //String[] coords = latlon.split(",");
+                                        //Toast.makeText(getApplicationContext(), "Size" + coords.length, Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(getApplicationContext(), latlon, Toast.LENGTH_LONG).show();
+
+                                        //String[] coords = latlon.split(",",-1);
+                                        //Toast.makeText(getApplicationContext(), coords[1].toString() , Toast.LENGTH_LONG).show();
+
+                                        //System.out.println(coords[0]);
+
+
+                                        /*
+                                        LatLng pickup_point = new LatLng(53, -113);
+                                        Float zoom = new Float (15); //default zoom levelparseDouble(latlon.substring(18,30)
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
+
+                                        mMap.addMarker(new MarkerOptions().position(pickup_point).title("Pickup Point SET"));
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLng(pickup_point));
+                                        */
                                     }
                                 }
 
@@ -278,27 +302,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                                 }
                             }) ;
-
-                            //GETS LON
-                            DatabaseReference lon_ref = FirebaseDatabase.getInstance().getReference("Users").child(keyer);
-
-                            lon_ref.getRef().addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot dataSnapshot2: dataSnapshot.getChildren()){
-
-                                        String lon = dataSnapshot2.getValue(String.class);
-
-                                        coords.add(lon);
-
-                                    }
-                                }
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            }) ;
-
                         }
                     }
                 }
@@ -312,7 +315,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         query4.addListenerForSingleValueEvent(eventListener);
 
 
-        LatLng pickup_point = new LatLng(53.53, -113.52); //Location of CSB
+        LatLng pickup_point = new LatLng(53.52430657369597, -113.52843571454287); //Location of CSB
         Float zoom = new Float (15); //default zoom level
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pickup_point, zoom));
 
