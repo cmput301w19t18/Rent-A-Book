@@ -1,26 +1,29 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class uniqueBook implements Serializable {
 
     private String ISBN;
     private String genre;
-    private float rating;
+    private float userRating;
     private Integer copyCount;
     private String author;
     private String title;
     private float avgRating;
     private String avgGenre;
+    private float totalRunningRating;
 
-    public uniqueBook(String ISBN, String genre, float rating, Integer copyCount, String author, String title){
+    public uniqueBook(String ISBN, String genre, float userRating, Integer copyCount, String author, String title){
         this.copyCount = copyCount;
         this.genre = genre;
         this.ISBN = ISBN;
-        this.rating = rating;
+        this.userRating = userRating;
         this.author = author;
         this.title = title;
-        this.avgRating = rating/copyCount;
+        //this.avgRating = userRating/copyCount;
+        this.avgRating = calculateRating();
         this.avgGenre = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
     }
 
@@ -28,17 +31,11 @@ public class uniqueBook implements Serializable {
         this.copyCount = 1;
         this.genre = genre; //need to implement method to parse genre
         this.ISBN = ISBN;
-        this.rating = 0;
+        this.userRating = 0;
         this.author = author;
         this.title = title;
         this.avgGenre = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
         this.avgRating = 0;
-    }
-
-    // might not need this if
-    //calculates average rating of the book
-    public void calculateRating(){
-        avgRating = getRating()/getCopyCount();
     }
 
 
@@ -60,11 +57,11 @@ public class uniqueBook implements Serializable {
     }
 
     public float getRating() {
-        return rating;
+        return userRating;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
+    public void setRating(float userRating) {
+        this.userRating = userRating;
     }
 
     public Integer getCopyCount() {
@@ -102,6 +99,48 @@ public class uniqueBook implements Serializable {
 
     public void setAvgGenre(String avgGenre) {
         this.avgGenre = avgGenre;
+    }
+
+    public float getUserRating() {
+        return userRating;
+    }
+
+    public void setUserRating(float userRating) {
+        this.userRating = userRating;
+    }
+
+    public float getTotalRunningRating() {
+        return totalRunningRating;
+    }
+
+    public void setTotalRunningRating(float totalRunningRating) {
+        this.totalRunningRating = totalRunningRating;
+    }
+
+    // methods
+    // might not need this if
+    //calculates average rating of the book
+    public float calculateRating(){
+        avgRating = this.getTotalRunningRating()/this.getCopyCount();
+        return avgRating;
+    }
+
+    // gets the sum of all user ratings
+    public void calculateAllRating(float newRating) {
+        this.totalRunningRating = this.totalRunningRating + newRating;
+        setTotalRunningRating(this.totalRunningRating);
+    }
+
+    // calculate the three most popular genres as set by users
+    public void calculateAvgGenre() {
+
+    }
+
+    // convert genre strings to actual integer arrays
+    public ArrayList<Integer> stringToIntArray(String s) {
+        // TODO implement
+        ArrayList<Integer> i = new ArrayList<Integer>();
+        return i;
     }
 
 }

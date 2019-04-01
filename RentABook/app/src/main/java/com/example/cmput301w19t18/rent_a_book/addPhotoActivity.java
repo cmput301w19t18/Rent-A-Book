@@ -250,7 +250,7 @@ public class addPhotoActivity extends AppCompatActivity {
 
         }
     }
-    
+
 
     private void cancelAction(){
         this.finish();
