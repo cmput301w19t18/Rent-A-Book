@@ -15,22 +15,37 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
+/**
+ * The type Book details test.
+ */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class BookDetailsTest {
 
+    /**
+     * The Curr book.
+     */
     Book curr_book = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Available", 4, "jakep@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
 
 
+    /**
+     * The Activity test rule.
+     */
     @Rule
     public ActivityTestRule<BookDetails> activityTestRule = new ActivityTestRule<BookDetails>(BookDetails.class);
     private BookDetails bookDetails = null;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         bookDetails = activityTestRule.getActivity();
     }
 
+    /**
+     * Test home details.
+     */
     @Test
     public void testHomeDetails(){
 
@@ -43,6 +58,9 @@ public class BookDetailsTest {
 
     }
 
+    /**
+     * Tear down.
+     */
     @After
     public void tearDown() {
         bookDetails = null;

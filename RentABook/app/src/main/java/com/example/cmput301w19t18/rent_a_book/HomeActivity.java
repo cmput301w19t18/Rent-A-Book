@@ -39,13 +39,12 @@ import java.util.Collections;
  * The type Home activity.
  * Home activity consists of a nested recyclerview and gets the recommended category, books owned, and top books
  * (still a work of progress and will change)
- *
+ * <p>
  * Values are fetched using Firebase and querying them to get the correct information in each category
- *
+ * <p>
  * https://firebase.google.com/docs/database/admin/retrieve-data
  * https://github.com/mitchtabian/Firebase-Read-Database/blob/master/FirebaseReadData/app/src/main/java/com/tabian/firebasereaddata/ViewDatabase.java
  * https://www.youtube.com/watch?v=NQI8XNFzZT4&t=5s
- *
  */
 public class HomeActivity extends AppCompatActivity {
 
@@ -86,6 +85,9 @@ public class HomeActivity extends AppCompatActivity {
     private Button testButton;
 
     @Override
+    /**
+     * Creation and rendering of the home activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bAuth = FirebaseAuth.getInstance();
@@ -178,7 +180,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /**
-     * The Value event listener 1.
+     * Gets the
      */
 
     private void getGenreList(DatabaseReference databaseReference_user) {
