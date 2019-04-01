@@ -2,12 +2,15 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -44,7 +47,47 @@ public class SearchResultsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_search_results);
+
+
+        BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
+
+
+        bnv.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        Intent intent;
+                        switch (menuItem.getItemId()) {
+                            case R.id.home:
+                                intent = new Intent(SearchResultsActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.search:
+                                // do nothing because we're already here
+                                break;
+                            case R.id.inbox:
+                                // TODO this needs to be implemented
+                                break;
+                            case R.id.profile:
+                                intent = new Intent(SearchResultsActivity.this, ProfileActivity.class);
+                                startActivity(intent);
+                                break;
+                        }
+                        return false;
+                    }
+                }
+        );
+
+
+
+
         mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
         BookSearchList = new ArrayList<>();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);

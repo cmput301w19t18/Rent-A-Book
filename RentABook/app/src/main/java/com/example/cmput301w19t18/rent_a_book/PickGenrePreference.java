@@ -60,6 +60,7 @@ public class PickGenrePreference extends AppCompatActivity {
     private String phone;
     private String fName;
     private String lName;
+    private String pPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +119,7 @@ public class PickGenrePreference extends AppCompatActivity {
                 phone = bundle.getString("phoneNum");
                 fName = bundle.getString("firstName");
                 lName = bundle.getString("lastName");
+                pPic = bundle.getString("profileURI");
             }
         }
         else {
@@ -126,6 +128,7 @@ public class PickGenrePreference extends AppCompatActivity {
             phone = (String) savedInstanceState.getSerializable("phoneNum");
             fName = (String) savedInstanceState.getSerializable("firstName");
             lName = (String) savedInstanceState.getSerializable("lastName");
+            pPic = (String) savedInstanceState.getSerializable("profileURI");
         }
 
         // repack to send to fragment
@@ -135,6 +138,7 @@ public class PickGenrePreference extends AppCompatActivity {
         userInfo.putString("phoneNum", phone);
         userInfo.putString("email",email);
         userInfo.putString("password", password);
+        userInfo.putString("profileURI", pPic);
 
         GenreTab3 finalInfo = new GenreTab3();
         finalInfo.setArguments(userInfo);

@@ -4,6 +4,7 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -54,6 +55,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
     private String title;
     private String ISBN;
     private float rating;
+    private String descrip;
+    private Bitmap coverIMG;
     private String bookurl;
     private String description;
 
@@ -79,6 +82,8 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
                 title = getActivity().getIntent().getExtras().getString("title");
                 ISBN = getActivity().getIntent().getExtras().getString("ISBN");
                 rating = getActivity().getIntent().getExtras().getFloat("rating");
+                descrip = getActivity().getIntent().getExtras().getString("description");
+                coverIMG = getActivity().getIntent().getExtras().getParcelable("coverPic");
                 bookurl = getActivity().getIntent().getExtras().getString("bookurl");
                 description = getActivity().getIntent().getExtras().getString("description");
             }
@@ -261,6 +266,10 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
             }
         }
 
+        // clear genre lists just to avoid errors that may crop up from unclearing
+        genList.clear();
+        prefList.clear();
+
         // Send genres and all previous info back to NewBookActivity
         Intent intent = new Intent(this.getContext(), NewBookActivity.class);
         Bundle userInfo =  new Bundle();
@@ -274,6 +283,9 @@ public class GenreTabforBooks3 extends Fragment implements View.OnClickListener 
         userInfo.putFloat("rating", rating);
         userInfo.putString("description", description);
         userInfo.putString("bookurl", bookurl);
+
+        userInfo.putParcelable("coverPic", coverIMG);
+        userInfo.putString("description", descrip);
 
         intent.putExtras(userInfo);
 

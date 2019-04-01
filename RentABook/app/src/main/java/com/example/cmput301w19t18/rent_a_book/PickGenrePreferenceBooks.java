@@ -4,7 +4,9 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -49,6 +51,8 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
     private String title;
     private String ISBN;
     private float rating;
+    private String descrip;
+    private Bitmap coverIMG;
     private String bookurl;
     private String description;
 
@@ -109,6 +113,8 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
                 title = bundle.getString("title");
                 ISBN = bundle.getString("ISBN");
                 rating = bundle.getFloat("rating");
+                descrip = bundle.getString("description");
+                coverIMG = bundle.getParcelable("coverPic");
                 bookurl = bundle.getString("bookurl");
                 description = bundle.getString("description");
             }
@@ -118,6 +124,7 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
             title = (String) savedInstanceState.getSerializable("title");
             ISBN = (String) savedInstanceState.getSerializable("ISBN");
             rating = (float) savedInstanceState.getSerializable("rating");
+            descrip = (String) savedInstanceState.getSerializable("description");
             description = (String) savedInstanceState.getSerializable("description");
             bookurl = (String) savedInstanceState.getSerializable("bookurl");
         }
@@ -130,6 +137,11 @@ public class PickGenrePreferenceBooks extends AppCompatActivity {
         bookInfo.putFloat("rating", rating);
         bookInfo.putString("description", description);
         bookInfo.putString("bookurl", bookurl);
+
+        if (coverIMG != null) {
+            bookInfo.putParcelable("coverPic", coverIMG);
+        }
+        bookInfo.putString("description", descrip);
 
         GenreTabforBooks3 genreInfo = new GenreTabforBooks3();
         genreInfo.setArguments(bookInfo);
