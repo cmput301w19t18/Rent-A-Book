@@ -72,6 +72,10 @@ public class HomeVerticalRecyclerView extends RecyclerView.Adapter<HomeVerticalR
         }
     }
 
+    /**
+     * Allows the number of items on the page to be counted
+     * @return
+     */
     @Override
     public int getItemCount() {
         return arrayList.size();

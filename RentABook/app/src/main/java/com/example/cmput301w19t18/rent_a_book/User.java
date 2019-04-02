@@ -8,6 +8,9 @@ import java.util.List;
 /**
  * Created by ikramshire on 2019-03-04.
  * Modified by jusong on 2019-03-09
+ *
+ * Contains all of the information pertinent to users. Information can be queried from firebase
+ * and edited at a later date by the logged in user.
  */
 
 public class User implements Serializable {

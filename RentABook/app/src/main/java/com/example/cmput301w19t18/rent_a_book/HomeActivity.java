@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
     category2;
     private ArrayList<Book> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2, arrayListHorizontal_myGenreBooks;
     private ArrayList<Book> bookList;
-    private String genreList = "1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
+    private String genreList;
     private String[] genres = new String[3];
     private ObservableInt mObsInt;
 
@@ -220,14 +220,12 @@ public class HomeActivity extends AppCompatActivity {
 
                     String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children"};
 
-                    if (genreList.contains(" ")) {
-                        String[] gList = genreList.split(" ");
-                        int b = 0;
-                        for (int a = 0; a < gList.length; a++) {
-                            if (gList[a].equals("1")) {
-                                genres[b] = strGenres[a];
-                                b++;
-                            }
+                    String[] gList = genreList.split(" ");
+                    int b = 0;
+                    for (int a=0; a<gList.length; a++) {
+                        if (gList[a].equals("1")) {
+                            genres[b] = strGenres[a];
+                            b++;
                         }
                     }
 

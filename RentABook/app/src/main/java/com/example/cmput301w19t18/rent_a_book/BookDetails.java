@@ -27,6 +27,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type Book details.
+ * Allows user to click a book image and view the details of the book.
+ */
 public class BookDetails extends AppCompatActivity  implements View.OnClickListener {
     private SearchAdapter adapter;
     private TextView title, author, status, isbn, description, owner;
@@ -36,6 +40,9 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
     private ArrayList<Book> BookList;
     private ArrayList<Book> homeBookList;
     private Button req_button;
+    /**
+     * The Key.
+     */
     public String key;
     private String bookCover;
     private ImageView bookimage;
@@ -87,6 +94,10 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
 
     }
 
+    /**
+     * Home details.
+     * shows the details of the book that has been clicked
+     */
     public void homeDetails() {
         final String rating = getIntent().getStringExtra("ratings");
         final String btitle = getIntent().getStringExtra("btitle");
@@ -123,7 +134,7 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
 
                             isbn.setText(curr_book.getISBN());
 
-                            description.setText(curr_book.getDescription());
+                            description.setText(bdescription);
 
                             owner.setText(curr_book.getbOwner());
 
@@ -154,6 +165,9 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
     }
 
 
+    /**
+     * Sets book title.
+     */
     public void setBookTitle() {
         title.setText(getIntent().getStringExtra("title"));
         author.setText(getIntent().getStringExtra("author"));

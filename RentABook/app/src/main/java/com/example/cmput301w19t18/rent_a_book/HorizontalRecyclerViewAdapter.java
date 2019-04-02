@@ -12,17 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -44,9 +34,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      */
     ArrayList<Book> arrayList;
 
-    //volley stuff
-    private RequestQueue mQueue;
-
     /**
      * Instantiates a new Horizontal recycler view adapter.
      *
@@ -67,7 +54,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
 
     @Override
     public void onBindViewHolder(@NonNull final HorizontalRVViewHolder horizontalRVViewHolder, final int i) {
-        mQueue = Volley.newRequestQueue(context);
         final Book currentBook = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(currentBook.getRating());
 
@@ -95,6 +81,15 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
         });
         mQueue.add(request);
 
+        String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
+        final String fake_description = "This is a description test. " +
+                "I realized we need to add the description in the book class, but for some reason is not there, " +
+                "so we have to add that as an attribute. I can't believe the project is due in like a week, " +
+                "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
+                "not an accurate description of the current book.";
+
+        Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
+
         horizontalRVViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +100,7 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
                 intent.putExtra("bookphoto","http://covers.openlibrary.org/b/isbn/" + arrayList.get(i).getISBN() + "-M.jpg");
                 intent.putExtra("bstatus",arrayList.get(i).getBstatus());
                 intent.putExtra("owner",arrayList.get(i).getbOwner());
+                intent.putExtra("bdescription",fake_description);
 
                 intent.putExtra("mode", "2");
                 Activity origin = (Activity) context;

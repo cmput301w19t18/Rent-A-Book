@@ -30,6 +30,10 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 
+/**
+ * The type Profile activity.
+ * Displays the user's profile and allows them to set and change values. Allows setting of values
+ */
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private Button addBook;
     private FirebaseAuth bAuth;
@@ -111,7 +115,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-
+    /**
+     * gets credentials of user
+     * @param query
+     */
     private void doQuery(Query query) {
 
         ValueEventListener valueEventListener = new ValueEventListener() {

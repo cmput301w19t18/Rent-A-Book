@@ -33,24 +33,40 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="734dp"
         app:layout_constraintBottom_toBottomOf="parent"
+=======
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+>>>>>>> f6399ca5b54ddfca9ed2f4d4057c4265d62a9502
         tools:layout_editor_absoluteX="0dp"
         tools:listitem="@layout/activity_home_vertical" />
+
 
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addEntry_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginTop="4dp"
         android:layout_marginBottom="668dp"
+=======
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="128dp"
+>>>>>>> f6399ca5b54ddfca9ed2f4d4057c4265d62a9502
         android:src="@drawable/baseline_add_white_18dp"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@+id/navbarContainer"
         app:layout_constraintVertical_bias="0.975"
+=======
+>>>>>>> f6399ca5b54ddfca9ed2f4d4057c4265d62a9502
         app:pressedTranslationZ="12dp" />
 
 </android.support.constraint.ConstraintLayout>

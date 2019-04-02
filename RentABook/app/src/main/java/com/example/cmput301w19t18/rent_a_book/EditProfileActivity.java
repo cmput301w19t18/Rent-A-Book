@@ -23,6 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 
+/**
+ * The type Edit profile activity.
+ * Allows the user to edit their profile on the profile page
+ */
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private Button next;
     private Button addPhoto;
@@ -75,6 +79,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
+    /**
+     * Allows user to set a photo
+     */
     private void choosePhoto(){
 
         Intent intent = new Intent(this, addPhotoActivity.class);
@@ -108,6 +115,14 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    /**
+     * Gets resized bitmap.
+     *
+     * @param bm        the bm
+     * @param newWidth  the new width
+     * @param newHeight the new height
+     * @return the resized bitmap
+     */
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -126,7 +141,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-    //signs the user up based on their info
+    /**
+     * On next.
+     */
+//signs the user up based on their info
     public void onNext(){
         final String user_email = et_email.getText().toString().trim();
         String password = pass.getText().toString().trim();

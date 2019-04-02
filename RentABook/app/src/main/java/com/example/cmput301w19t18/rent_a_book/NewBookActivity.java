@@ -56,6 +56,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
+/**
+ * The type New book activity.
+ * All data pertinent to creating a new book entry. User will enter information here
+ * and the data is stored to firebase.
+ */
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -150,6 +155,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         PhotoB.setOnClickListener(this);
         FetchB.setOnClickListener(this);
 
+        PhotoB.setOnClickListener(this);
 
 
         // unpack
@@ -312,6 +318,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    /**
+     * Scan barcode.
+     *
+     * @param v the v
+     */
     public void scanBarcode(View v) {
         Intent intent = new Intent(this, ScanBarcodeActivity.class);
         startActivityForResult(intent, 0);
@@ -325,7 +336,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         String ISBN = ISBNF.getText().toString().trim();
         String title = TitleF.getText().toString().trim();
         String id = databaseReference.push().getKey();
-        String description = DescF.getText().toString().trim();
 
         //some of these need to be changed every time a new book is added
 
@@ -334,6 +344,10 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         String requestedBy = "";//new ArrayList<String>();
         String email = bAuth.getCurrentUser().getEmail();
 
+        //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
+        String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
+        //Integer rating = 4;
+        Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
 
 
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed

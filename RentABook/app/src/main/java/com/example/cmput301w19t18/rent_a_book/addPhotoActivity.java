@@ -54,6 +54,9 @@ import java.util.UUID;
 
 import static java.security.AccessController.getContext;
 
+/**
+ * The type Add photo activity. Allows users to add photos to their books as well as their profiles upon profile creation.
+ */
 public class addPhotoActivity extends AppCompatActivity {
 
 
@@ -130,6 +133,11 @@ public class addPhotoActivity extends AppCompatActivity {
         startActivityForResult(intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
+    /**
+     * Is read storage permission granted boolean.
+     *
+     * @return the boolean
+     */
     public  boolean isReadStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -149,6 +157,11 @@ public class addPhotoActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Is camera permission granted boolean.
+     *
+     * @return the boolean
+     */
     public  boolean isCameraPermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.CAMERA)

@@ -20,10 +20,18 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
+/**
+ * The type Scan barcode activity.
+ * Allows a user to scan in a book using barcode. The book data is automatically uploaded
+ * into the firebase.
+ */
 public class ScanBarcodeActivity extends Activity {
 
     private static final int MY_PERMISSION_REQUEST_CAMERA = 2569;
 
+    /**
+     * The Camera preview.
+     */
     SurfaceView cameraPreview;
 
     @Override
