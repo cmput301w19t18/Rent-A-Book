@@ -115,6 +115,7 @@ public class Inbox extends AppCompatActivity {
                             if(req_book.getBstatus().contains("Requested") ){
                                 BookInboxList.add(req_book);
 
+                                Toast.makeText(getApplicationContext(), req_book.getBtitle(),Toast.LENGTH_LONG).show();
                             }
                         }
                         if(req_book.getBstatus().contains("Borrowed")){

@@ -122,6 +122,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
         //This checks if the user is borrowing the book is displays it so it will be clicked
         mDatabase2 = FirebaseDatabase.getInstance().getReference("Books");
         Query query2 = mDatabase2.orderByChild("btitle");
+        final String user_email = mAuth.getCurrentUser().getEmail();
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -130,18 +131,20 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                     for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                         Book book = snapshot.getValue(Book.class);
 
-                        if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
-                            if(book.getBstatus().contains("Borrowed")){
+
+                        if(book.getbOwner().contains(user_email)) {
+                            if (book.getBstatus().contains("Borrowed")) {
                                 inboxViewHolder.reject_button.hide();
                                 inboxViewHolder.accept_button.hide();
                                 inboxViewHolder.mOwnerName.setText("Click to return this book");
-
-
-                                //Toast.makeText(context,inboxViewHolder.reject_button.getVisibility(),Toast.LENGTH_LONG).show();
-
-
                             }
-
+                        }
+                        if(book.getbOwner().contains(user_email)){
+                            inboxViewHolder.reject_button.show();
+                            inboxViewHolder.accept_button.show();
+                            if(book.getBstatus().contains("Requested")){
+                                Toast.makeText(context, book.getBstatus(), Toast.LENGTH_LONG).show();
+                            }
                         }
 
 
@@ -155,8 +158,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
             }
         };
         query2.addListenerForSingleValueEvent(eventListener);
-
-
+        //Toast.makeText(context,mAuth.getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
 
         inboxViewHolder.reject_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,16 +176,16 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                             //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
                             for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                                 Book book = snapshot.getValue(Book.class);
-                                if (book.getBtitle().contains(currentItem.getBtitle())){
-                                    String keyer = snapshot.getKey();
-
-                                    DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(keyer).child("bstatus");
-                                    book_ref.setValue("Available");
-
-                                }
 
 
+                                /*
+                                if (book.getBstatus().contains("Borrowed") && book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
+                                    inboxViewHolder.reject_button.hide();
+                                    inboxViewHolder.accept_button.hide();
 
+                                    inboxViewHolder.mOwnerName.setText("Click to return this book");
+
+                                }*/
                             }
                         }
                     }
@@ -195,6 +197,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 };
                 query.addListenerForSingleValueEvent(eventListener);
                 Toast.makeText(context, "rejected", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context,mAuth.getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
             }
         });
         // accepts the user's offer
@@ -233,16 +236,14 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                                     book_ref.setValue("Borrowed");
 
                                 }
-                                if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
-                                    if(book.getBstatus().contains("Borrowed")){
-                                        inboxViewHolder.reject_button.hide();
-                                        inboxViewHolder.accept_button.hide();
 
-                                    }
+                                /*
+                                if (book.getBstatus().contains("Borrowed") && book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
+                                    inboxViewHolder.reject_button.hide();
+                                    inboxViewHolder.accept_button.hide();
 
                                 }
-
-
+                                */
                             }
                         }
                     }
@@ -252,6 +253,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
                     }
                 };
+
                 query.addListenerForSingleValueEvent(eventListener);
 
                 //goes to map activity
@@ -262,6 +264,8 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
             }
         });
+
+
         //return the book once the user clicks on the owners name and changes book status to available if the book is borrowed
         inboxViewHolder.mOwnerName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -281,16 +285,15 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                             for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                                 Book book = snapshot.getValue(Book.class);
 
-                                if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
-                                    if(book.getBstatus().contains("Borrowed")){
-                                        String keyer = snapshot.getKey();
+                                if (book.getBstatus().contains("Borrowed") && book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
 
-                                        DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(keyer).child("bstatus");
-                                        book_ref.setValue("Available");
-                                        Toast.makeText(context,"Book Returned",Toast.LENGTH_LONG).show();
+                                    String keyer = snapshot.getKey();
+
+                                    DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(keyer).child("bstatus");
+                                    book_ref.setValue("Available");
+                                    Toast.makeText(context,"Book Returned",Toast.LENGTH_LONG).show();
 
 
-                                    }
                                 }
                             }
                         }
@@ -307,55 +310,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
 
             }
         });
-        inboxViewHolder.mOwnerPicture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference mDatabase3;
-                final FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
 
-                mDatabase3 = FirebaseDatabase.getInstance().getReference("Books");
-                Query query3 = mDatabase3.orderByChild("btitle");
-                ValueEventListener eventListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()){
-                            //Toast.makeText(context,dataSnapshot.getKey(),Toast.LENGTH_LONG).show();
-                            for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                                Book book = snapshot.getValue(Book.class);
-
-                                if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
-                                    if(book.getBstatus().contains("Borrowed")){
-                                        String keyer = snapshot.getKey();
-
-                                        DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(keyer).child("bstatus");
-                                        book_ref.setValue("Available");
-
-                                        Toast.makeText(context,"Book Returned",Toast.LENGTH_LONG).show();
-
-
-                                    }
-
-                                }
-
-
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                };
-                query3.addListenerForSingleValueEvent(eventListener);
-
-                Intent book_loc = new Intent(context, MapsActivity.class);
-                book_loc.putExtra("borrow", "2");
-                context.startActivity(book_loc);
-
-            }
-        });
 
 
         inboxViewHolder.mOwnerPicture.setOnClickListener(new View.OnClickListener() {
@@ -378,12 +333,26 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                             for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                                 Book book = snapshot.getValue(Book.class);
 
+                                /*
                                 if (book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
                                     if(book.getBstatus().contains("Borrowed")){
                                         String keyer = snapshot.getKey();
 
                                     }
                                 }
+                                */
+
+                                /*
+                                if(book.getBstatus().contains("Borrowed") && book.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
+                                    inboxViewHolder.reject_button.hide();
+                                    inboxViewHolder.accept_button.hide();
+                                    inboxViewHolder.mOwnerName.setText("Click to return this book");
+
+
+                                    //Toast.makeText(context,inboxViewHolder.reject_button.getVisibility(),Toast.LENGTH_LONG).show();
+
+                                }
+                                */
 
 
                             }
@@ -397,14 +366,6 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 };
                 query4.addListenerForSingleValueEvent(eventListener);
 
-                /*
-                Intent book_loc = new Intent(context, MapsActivity.class);
-                book_loc.putExtra("Borrowed", "2");
-                book_loc.putExtra("Book", currentItem.getBtitle());
-                book_loc.putExtra("Owner", currentItem.getbOwner());
-                context.startActivity(book_loc);
-                */
-
 
                 Intent intent = new Intent(context, MapsActivity.class);
                 intent.putExtra("Accepted","2");
@@ -414,16 +375,8 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 //Toast.makeText(context, currentItem.getbOwner(), Toast.LENGTH_LONG).show();
 
 
-
-
-
             }
         });
-
-
-
-
-
     }
 
     @Override
