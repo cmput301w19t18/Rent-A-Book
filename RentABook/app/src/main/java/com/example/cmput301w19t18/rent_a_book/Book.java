@@ -230,15 +230,15 @@ public class Book implements Serializable{
     }
 
     public List<String> stringToList(String str) {
-       if (!str.contains(", ")) {
-           requestedList.add(str);
-       }
-       else {
-           String[] r = str.split(", ");
-           for (int i = 0; i < r.length; i++) {
-               requestedList.add(r[i]);
-           }
-       }
+        if (!str.contains(", ")) {
+            requestedList.add(str);
+        }
+        else {
+            String[] r = str.split(", ");
+            for (int i = 0; i < r.length; i++) {
+                requestedList.add(r[i]);
+            }
+        }
 
         return requestedList;
     }

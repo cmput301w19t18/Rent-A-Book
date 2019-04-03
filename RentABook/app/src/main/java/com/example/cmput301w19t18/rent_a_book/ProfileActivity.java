@@ -50,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -136,10 +137,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 Uri myUri = Uri.parse(user.getURI());
 
-
                 Toast.makeText(getApplicationContext(), myUri.toString(), Toast.LENGTH_LONG).show();
                 //Picasso.get().load(myUri).placeholder(R.drawable.default_profile_pic_olive).into(profilepic);
                 Picasso.get().load(myUri).into(profilepic);
+
 
                 String genreList = user.getPrefList();
                 String[] gList = genreList.split(" ");

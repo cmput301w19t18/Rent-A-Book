@@ -37,10 +37,14 @@ public class GenreAdapter extends FragmentStatePagerAdapter {
      *
      */
 
+    //private String[] genres = {"Comedy", "Drama", "Romance", "Comics/Graphic Novel", "Fantasy",
+    //        "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction",
+    //       "Adventure", "Nonfiction", "YA", "Thriller", "Tragedy", "Poetry", "Scientific Writing"};
 
     private final List<Fragment> fList = new ArrayList<>();
     private final List<String> ftList = new ArrayList<>();
     private Context context;
+    //private LayoutInflater lInflater;
 
     public GenreAdapter(FragmentManager fm) {
         super(fm);
@@ -59,13 +63,21 @@ public class GenreAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int pos) {
+        //return ftList.get(pos);
         return null;
     }
 
     @Override
     public int getCount() {
         // number of swipeable screens
+        //return 3;
         return fList.size();
     }
 
+/*
+    // trying to implement custom tabs
+    public View getTabView(int pos) {
+        View v = LayoutInflater.from(context).inflate(R.layout.custom_genre_pick_tab, null);
+    }
+*/
 }

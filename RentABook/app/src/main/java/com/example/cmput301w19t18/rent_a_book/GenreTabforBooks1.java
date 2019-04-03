@@ -66,6 +66,13 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
         Button fantasy = (Button) v.findViewById(R.id.fantasyButton);
         Button horror = (Button) v.findViewById(R.id.horrorButton);
 
+        //ImageView comedyHL = (ImageView) v.findViewById(R.id.comedyHighlight);
+        //ImageView dramaHL = (ImageView) v.findViewById(R.id.dramaHighlight);
+        //ImageView romanceHL = (ImageView) v.findViewById(R.id.romanceHighlight);
+        //ImageView comicHL = (ImageView) v.findViewById(R.id.comicsHighlight);
+        //ImageView fantasyHL = (ImageView) v.findViewById(R.id.fantasyHighlight);
+        //ImageView horrorHL = (ImageView) v.findViewById(R.id.horrorHighlight);
+
         comedy.setOnClickListener(this);
         drama.setOnClickListener(this);
         romance.setOnClickListener(this);
@@ -91,13 +98,24 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
             case R.id.comedyButton:
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(0) == 0 && selected < 3) {
+                    //genreList.add("Comedy");
                     addGenre(0, "Picked comedy!", "Comedy");
-                    }
+
+                    //model.getCurrPickedGenres().setValue(genreList);
+                    //genreText.setText(genreList.toString());
+                    // update preference list
+                    //preferenceList.set(0,1);
+                    //model.getCurrPickedGenres().postValue(genreSelected);
+                    //Toast.makeText(this.getContext(),"Picked comedy!",Toast.LENGTH_SHORT).show();
+                }
                 else if (preferenceList.get(0) == 1){
+                    //genreList.remove("Comedy");
                     removeGenre(0,"Comedy unselected!", "Comedy");
                     // update preference list
+                    //preferenceList.set(0,0);
                     model.getCurrPickedGenres().setValue(genreList);
                     genreText.setText(genreList.toString());
+                    //Toast.makeText(this.getContext(),"Comedy unselected!",Toast.LENGTH_SHORT).show();
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -106,11 +124,14 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 break;
 
             case R.id.dramaButton:
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(1) == 0 && selected < 3) {
+                    //genreList.add("Drama");
                     addGenre(1, "Picked drama!", "Drama");
                 }
                 else if (preferenceList.get(1) == 1){
+                    //genreList.remove("Drama");
                     removeGenre(1, "Drama unselected!", "Drama");
                 }
                 else if (selected >= 3) {
@@ -118,23 +139,29 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 }
                 break;
             case R.id.romanceButton:
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(2) == 0 && selected < 3) {
+                    //genreList.add("Romance");
                     addGenre(2,"Picked romance!", "Romance");
                 }
                 else if (preferenceList.get(2) == 1){
+                    //genreList.remove("Romance");
                     removeGenre(2, "Romance unselected!", "Romance");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
                 }
-                    break;
+                break;
             case R.id.comicsButton:
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(3) == 0 && selected < 3) {
+                    //genreList.add("Comics");
                     addGenre(3, "Picked comics!", "Comics");
                 }
                 else if (preferenceList.get(3) == 1){
+                    //genreList.remove("Comics");
                     removeGenre(3, "Comics unselected!", "Comics");
                 }
                 else if (selected >= 3) {
@@ -142,11 +169,14 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 }
                 break;
             case R.id.fantasyButton:
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(4) == 0 && selected < 3) {
+                    //genreList.add("Fantasy");
                     addGenre(4, "Picked fantasy!", "Fantasy");
                 }
                 else if (preferenceList.get(4) == 1){
+                    //genreList.remove("Fantasy");
                     removeGenre(4, "Fantasy unselected!", "Fantasy");
                 }
                 else if (selected >= 3) {
@@ -154,11 +184,14 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 }
                 break;
             case R.id.horrorButton:
+                //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(5) == 0 && selected < 3) {
+                    //genreList.add("Horror");
                     addGenre(5, "Picked horror!", "Horror");
                 }
                 else if (preferenceList.get(5) == 1){
+                    //genreList.remove("Horror");
                     removeGenre(5, "Horror unselected!", "Horror");
                 }
                 else if (selected >= 3) {
@@ -206,5 +239,8 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
         model.getCurrPickedGenres().setValue(genreList);
         // display
         genreText.setText(genreList.toString());
+
+
+        Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }
 }

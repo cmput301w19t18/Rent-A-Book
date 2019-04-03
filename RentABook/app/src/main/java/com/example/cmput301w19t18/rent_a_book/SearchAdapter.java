@@ -99,43 +99,43 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                 "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
                 "not an accurate description of the current book.";
 
-         final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
-         Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
+        final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
+        Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
 //         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
-         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
-         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
-         searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
-         searchViewHolder.mStatus.setText(currentItem.getBstatus());
-         searchViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent intent = new Intent(v.getContext(),BookDetails.class );
-                 intent.putExtra("title", currentItem.getBtitle());
-                 intent.putExtra("owner", currentItem.getbOwner());
-                 intent.putExtra("author",currentItem.getAuthor());
-                 intent.putExtra("photo", bookCover);
-                 intent.putExtra("owner2", currentItem.getbOwner());
-                 intent.putExtra("bdescription2",fake_description);
+        searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
+        searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
+        searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
+        searchViewHolder.mStatus.setText(currentItem.getBstatus());
+        searchViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),BookDetails.class );
+                intent.putExtra("title", currentItem.getBtitle());
+                intent.putExtra("owner", currentItem.getbOwner());
+                intent.putExtra("author",currentItem.getAuthor());
+                intent.putExtra("photo", bookCover);
+                intent.putExtra("owner2", currentItem.getbOwner());
+                intent.putExtra("bdescription2",fake_description);
 
 
-                 intent.putExtra("mode","1");
-                 Activity search =  (Activity)v.getContext();
+                intent.putExtra("mode","1");
+                Activity search =  (Activity)v.getContext();
 
 
-                 v.getContext().startActivity(intent);
-             }
-         });
+                v.getContext().startActivity(intent);
+            }
+        });
 
 
 
 
-         if (i%2 == 1) {
-             searchViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.lightOrangeSpice));
+        if (i%2 == 1) {
+            searchViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.lightOrangeSpice));
 
-         }
-         else {
-             searchViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.tanSpice));
-         }
+        }
+        else {
+            searchViewHolder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.tanSpice));
+        }
     }
 
     @Override

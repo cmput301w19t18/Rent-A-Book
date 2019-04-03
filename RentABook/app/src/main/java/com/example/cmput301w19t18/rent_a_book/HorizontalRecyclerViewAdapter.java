@@ -57,30 +57,6 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
         final Book currentBook = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(currentBook.getRating());
 
-        String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + currentBook.getISBN() + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArray = response.getJSONArray("items");
-                    JSONObject jsonObject = jsonArray.getJSONObject(0);
-
-                    String json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
-
-                    Picasso.get().load(json_img).into(horizontalRVViewHolder.bookCover);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-        mQueue.add(request);
-
         String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
         final String fake_description = "This is a description test. " +
                 "I realized we need to add the description in the book class, but for some reason is not there, " +
@@ -94,6 +70,7 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), BookDetails.class);
+                //arrayList.get(i)
 
                 intent.putExtra("ratings", String.valueOf(arrayList.get(i).getRating()));
                 intent.putExtra("btitle", arrayList.get(i).getBtitle());
@@ -102,14 +79,21 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
                 intent.putExtra("owner",arrayList.get(i).getbOwner());
                 intent.putExtra("bdescription",fake_description);
 
+//                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getBookRating()));
+//                intent.putExtra("btitle", arrayList.get(i).getBookTitle());
+//                intent.putExtra("bookphoto",arrayList.get(i).getBookCover());
+
                 intent.putExtra("mode", "2");
                 Activity origin = (Activity) context;
                 origin.startActivity(intent);
 
+                //origin.startActivityForResult(intent,2);
 
             }
         });
 
+        //horizontalRVViewHolder.bookCover.setImageResource(horizontalModel.getBookCover());
+        //Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(imageView);
     }
 
     @Override
