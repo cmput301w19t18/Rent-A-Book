@@ -24,6 +24,7 @@ public class Book implements Serializable{
     private String requestedBy; //list of users that are requesting the book by email
     private List<String> requestedList = new ArrayList<String>();
     private boolean requested = false;
+    private String borrowedBy;
 
 
     /**
@@ -38,7 +39,7 @@ public class Book implements Serializable{
      * @param genre       the genre
      * @param requestedBy the requested by
      */
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String borrowedBy) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -47,10 +48,7 @@ public class Book implements Serializable{
         this.bOwner = bOwner;
         this.genre = genre;
         this.requestedBy = requestedBy;
-
-        //use of arrays:
-        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
-        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+        this.borrowedBy = borrowedBy;
 
     }
 
@@ -264,5 +262,13 @@ public class Book implements Serializable{
             requested = false;
         }
         return requested;
+    }
+
+    public String getBorrowedBy() {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(String borrowedBy) {
+        this.borrowedBy = borrowedBy;
     }
 }

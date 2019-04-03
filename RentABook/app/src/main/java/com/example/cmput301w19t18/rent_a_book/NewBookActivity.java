@@ -346,6 +346,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //Currently only is able to add values entered for a new book that is not already in the database
 
         //String genre = "000001010"; //going to be set by external function
+        String borrowedBy = "";
         String requestedBy = "";//new ArrayList<String>();
         String email = bAuth.getCurrentUser().getEmail();
         //ArrayList<String> ownedBy = null;
@@ -357,7 +358,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy);
+        Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy, borrowedBy);
         //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
