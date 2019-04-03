@@ -110,8 +110,8 @@ public class GenreViewModel extends ViewModel {
 
     // use this to print out the string. they match to the index of genres
     private void loadCurrPickedGenres() {
-            List<String> pickedGenres = new ArrayList<>();
-            currPickedGenres.setValue(pickedGenres);
+        List<String> pickedGenres = new ArrayList<>();
+        currPickedGenres.setValue(pickedGenres);
     }
 
 

@@ -34,7 +34,9 @@ import java.util.Arrays;
 import java.util.Locale;
 
 /**
- * The type Maps activity.
+ * The type Maps activity. Displays the map view, as well as handles dropping of a pin
+ * to set pickup location by the owner user, and displays the pickup location of the owner to
+ * the borrowing user when they check their inbox.
  */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -46,10 +48,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public static ArrayList<String> coords;
 
-    /**
-     * The constant locationLat.
-     */
-///////////////// Location of the marker/pin dropped /////////////////
+    ///////////////// Location of the marker/pin dropped /////////////////
     public static Double locationLat;
     public static Double locationLon;
 
@@ -150,7 +149,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     /**
-     * Sets options item selected.
+     * Sets options item selected. lets user select different map types.
      *
      * @param item the item
      * @return the options item selected
@@ -177,8 +176,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-
-
+    /**
+     * Allows user to click and hold twice to drop pin for pickup point.
+     * @param map
+     */
     //////////////// Allows setting of pins ////////////////
     private void setMapLongClick(final GoogleMap map) {
 
@@ -233,6 +234,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    /**
+     * Displays the pickup point for a user who has had their request accepted, and will go to fetch
+     * the book.
+     */
     public void displayPickupMap(){
 
         //String borrowed = getIntent().getStringExtra("Borrowed");
@@ -327,8 +332,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-
-
+    /**
+     * Permission to enable location services
+     */
     //////////// Current location methods ////////////
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this,

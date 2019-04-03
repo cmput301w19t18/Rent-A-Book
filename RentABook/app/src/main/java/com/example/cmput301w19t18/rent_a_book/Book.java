@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 /**
  * The type Book.
- * Creates Book Class
- * Created by oanderso, and modified by jusong, ishire
+ * Creates Book Class, stores all information pertaining to books
+ * Created by oanderso, and modified by jusong, ishire, dikova
  */
 public class Book implements Serializable{
 
@@ -24,9 +24,8 @@ public class Book implements Serializable{
     private String requestedBy; //list of users that are requesting the book by email
     private List<String> requestedList = new ArrayList<String>();
     private boolean requested = false;
+    private String borrowedBy;
 
-    //private String description; //Description of the book entered by the user
-    //private Integer copyCount; //number of copies of the book that exist
 
     /**
      * Instantiates a new Book.
@@ -40,7 +39,7 @@ public class Book implements Serializable{
      * @param genre       the genre
      * @param requestedBy the requested by
      */
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String borrowedBy) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -49,10 +48,7 @@ public class Book implements Serializable{
         this.bOwner = bOwner;
         this.genre = genre;
         this.requestedBy = requestedBy;
-
-        //use of arrays:
-        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
-        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+        this.borrowedBy = borrowedBy;
 
     }
 
@@ -64,10 +60,6 @@ public class Book implements Serializable{
         this.rating = rating;
         this.bOwner = bOwner;
         this.genre = genre;
-
-        //use of arrays:
-        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
-        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
 
     }
 
@@ -220,6 +212,11 @@ public class Book implements Serializable{
         this.requestedBy = requestedBy;
     }
 
+    /**
+     * Allows multiple people to request a copy of a book.
+     * @param requester
+     * @return
+     */
     public String addRequester(String requester) {
         if(requestedBy.equals(null) || requestedBy.length() == 0) {
             requestedBy = requester;
@@ -231,15 +228,15 @@ public class Book implements Serializable{
     }
 
     public List<String> stringToList(String str) {
-       if (!str.contains(", ")) {
-           requestedList.add(str);
-       }
-       else {
-           String[] r = str.split(", ");
-           for (int i = 0; i < r.length; i++) {
-               requestedList.add(r[i]);
-           }
-       }
+        if (!str.contains(", ")) {
+            requestedList.add(str);
+        }
+        else {
+            String[] r = str.split(", ");
+            for (int i = 0; i < r.length; i++) {
+                requestedList.add(r[i]);
+            }
+        }
 
         return requestedList;
     }
@@ -265,5 +262,13 @@ public class Book implements Serializable{
             requested = false;
         }
         return requested;
+    }
+
+    public String getBorrowedBy() {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(String borrowedBy) {
+        this.borrowedBy = borrowedBy;
     }
 }

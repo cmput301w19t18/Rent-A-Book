@@ -56,6 +56,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
+/**
+ * The type New book activity.
+ * All data pertinent to creating a new book entry. User will enter information here
+ * and the data is stored to firebase.
+ */
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -108,9 +113,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //Intent intent = getIntent();
-        //Bundle b =  intent.getExtras();
-
         setContentView(R.layout.activity_newbook);
 
         //initializing firebase auth object
@@ -157,7 +159,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
         PhotoB.setOnClickListener(this);
 
-        //email = b.getString("user_email");
 
         // unpack
         if (savedInstanceState == null) {
@@ -184,8 +185,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
                 }
 
-                // set info TODO last ditch effort is force user to enter genre first
-
                 TitleF.setText(bundle.getString("title"));
                 AuthorF.setText(bundle.getString("author"));
                 DescF.setText(bundle.getString("description"));
@@ -200,7 +199,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
         else {
             genre = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
-            //Toast.makeText(this,"No genres lol",Toast.LENGTH_SHORT).show();
         }
 
 
@@ -328,24 +326,11 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-
-    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
-        matrix.postScale(scaleWidth, scaleHeight);
-
-        // "RECREATE" THE NEW BITMAP
-        Bitmap resizedBitmap = Bitmap.createBitmap(
-                bm, 0, 0, width, height, matrix, false);
-        bm.recycle();
-        return resizedBitmap;
-    }
-
+    /**
+     * Scan barcode.
+     *
+     * @param v the v
+     */
     public void scanBarcode(View v) {
         Intent intent = new Intent(this, ScanBarcodeActivity.class);
         startActivityForResult(intent, 0);
@@ -365,6 +350,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //Currently only is able to add values entered for a new book that is not already in the database
 
         //String genre = "000001010"; //going to be set by external function
+        String borrowedBy = "";
         String requestedBy = "";//new ArrayList<String>();
         String email = bAuth.getCurrentUser().getEmail();
         //ArrayList<String> ownedBy = null;
@@ -376,31 +362,25 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy);
+        Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy, borrowedBy);
         //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isComplete()){
-                    Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
-                    finish();
-
-                }
-                if(!task.isSuccessful()){
-                    Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
-
-                }
-                else {
-                    Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        }
-
+                                                                                @Override
+                                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                                    if (task.isComplete()){
+                                                                                        Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
+                                                                                        finish();
+                                                                                    }
+                                                                                    if(!task.isSuccessful()){
+                                                                                        Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                    else {
+                                                                                        Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                }
+                                                                            }
         );
-        //databaseReference.child("books").setValue(newBook); //should put the book in the db under books
-        //finish();
     }
 
 
@@ -445,8 +425,6 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
             bookInfo.putString("description", DescF.getText().toString().trim());
 
             bookInfo.putString("bookurl", bookurl);
-
-            //bookInfo.putString("imgURL", filePath.toString());
 
             intent.putExtras(bookInfo);
             startActivity(intent);

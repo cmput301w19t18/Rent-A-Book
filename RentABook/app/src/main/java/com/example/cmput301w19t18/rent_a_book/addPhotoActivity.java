@@ -54,6 +54,9 @@ import java.util.UUID;
 
 import static java.security.AccessController.getContext;
 
+/**
+ * The type Add photo activity. Allows users to add photos to their books as well as their profiles upon profile creation.
+ */
 public class addPhotoActivity extends AppCompatActivity {
 
 
@@ -130,6 +133,11 @@ public class addPhotoActivity extends AppCompatActivity {
         startActivityForResult(intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
+    /**
+     * Is read storage permission granted boolean.
+     *
+     * @return the boolean
+     */
     public  boolean isReadStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -149,6 +157,11 @@ public class addPhotoActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Is camera permission granted boolean.
+     *
+     * @return the boolean
+     */
     public  boolean isCameraPermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(Manifest.permission.CAMERA)
@@ -172,15 +185,15 @@ public class addPhotoActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode == 3){
-                Log.d("TAG", "External storage2");
-                if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
-                    Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
-                    //resume tasks needing this permission
-                    isCameraPermissionGranted();
-                }
-                else{
-                    Toast.makeText(this, "Storage permission required to make requested changes", Toast.LENGTH_SHORT).show();
-                }
+            Log.d("TAG", "External storage2");
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
+                //resume tasks needing this permission
+                isCameraPermissionGranted();
+            }
+            else{
+                Toast.makeText(this, "Storage permission required to make requested changes", Toast.LENGTH_SHORT).show();
+            }
         }
         if(requestCode == 4){
             Log.d("TAG", "External storage2");
@@ -260,16 +273,13 @@ public class addPhotoActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
                         downloadUri = task.getResult();
-                        //Toast.makeText(addPhotoActivity.this, "lolwut: "+ downloadUri, Toast.LENGTH_SHORT).show();
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra("filepath", filePath);
                         returnIntent.putExtra("download_uri", downloadUri);
-                        //Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
 
                         setResult(Activity.RESULT_OK, returnIntent);
                         finish();
 
-                        //finished_onComplete = true;
 
                     } else {
                         // Handle failures
@@ -286,7 +296,6 @@ public class addPhotoActivity extends AppCompatActivity {
         Intent returnIntent = new Intent();
         returnIntent.putExtra("filepath", filePath);
         returnIntent.putExtra("download_uri", downloadUri);
-        Toast.makeText(addPhotoActivity.this, "OOoOOOOoooooOOOoof: "+ downloadUri, Toast.LENGTH_SHORT).show();
 
         setResult(Activity.RESULT_OK, returnIntent);
         finish();

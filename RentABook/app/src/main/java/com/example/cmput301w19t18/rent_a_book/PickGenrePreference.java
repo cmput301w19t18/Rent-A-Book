@@ -100,7 +100,7 @@ public class PickGenrePreference extends AppCompatActivity {
         // setting up observer
         genres.setText(model.getGenresSelected().toString());
         final Observer<List<String>> genreObserver = new Observer<List<String>>() {
-        //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
+            //model.getCurrPickedGenres().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(@Nullable List<String> s) {
                 // Updating UI to show the 3 selected genres

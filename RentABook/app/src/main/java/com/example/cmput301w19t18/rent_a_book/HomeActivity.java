@@ -91,6 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         bAuth = FirebaseAuth.getInstance();
         databaseReference_user = FirebaseDatabase.getInstance().getReference("Users").child(bAuth.getUid()).child("prefList"); //gets the preference list
         getGenreList(databaseReference_user);
+        genreList = databaseReference_user.toString();
         //Toast.makeText(getApplicationContext(), "2" + genreList, Toast.LENGTH_LONG).show();
 
         // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
@@ -138,16 +139,6 @@ public class HomeActivity extends AppCompatActivity {
         );
 
 
-        //Map test button//
-        Button testButton = findViewById(R.id.maptest);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, MapsActivity.class);
-                startActivityForResult(intent, ADDING);
-                update = true;
-            }
-        });
 
         arrayListVertical = new ArrayList<>();
         verticalRecyclerView = (RecyclerView)findViewById(R.id.homeRecyclerView);
@@ -243,6 +234,7 @@ public class HomeActivity extends AppCompatActivity {
                     //--------------------------------------------------
 
 
+
                     String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children"};
 
                     String[] gList = genreList.split(" ");
@@ -281,22 +273,28 @@ public class HomeActivity extends AppCompatActivity {
         String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children"};
         // get position
 
-        int genre_position = 0;
-        for (int j=0; j<strGenres.length; j++) {
-            if (genre.equals(strGenres[j])) {
-                genre_position = j; //pos
+
+        String genreList = FirebaseDatabase.getInstance().getReference("Users").child("prefList").toString();
+        String[] gList = genreList.split(" ");
+        int j = 0;
+        for (int i = 0; i < gList.length; i++) {
+            if (gList[i].equals("1")) {
+                genres[j] = strGenres[i];
+                j++;
             }
+
         }
+
 
         for (int i=0; i<bookList.size(); i++) {
             Book currentBook = bookList.get(i);
             //Toast.makeText(getApplicationContext(), "current book ? ? ? " + currentBook.getBtitle(), Toast.LENGTH_SHORT).show();
             // genre currentBook.getGenre() -> "0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1"
-            String[] gList = currentBook.getGenre().split(" ");
+            String[] bookGenre = currentBook.getGenre().split(" ");
+                if (bookGenre[j].equals("1")) {
+                    arrayListHorizontal_myGenreBooks.add(currentBook);
+                }
 
-            if (gList[genre_position].equals("1")) {
-                arrayListHorizontal_myGenreBooks.add(currentBook);
-            }
         }
         category_i.setArrayList(arrayListHorizontal_myGenreBooks);
         arrayListVertical.add(category_i);

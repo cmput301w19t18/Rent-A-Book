@@ -98,7 +98,7 @@ public class GenreTabforBooks2 extends Fragment implements View.OnClickListener 
 
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
-                 }
+                }
 
                 break;
             case R.id.scifiButton:

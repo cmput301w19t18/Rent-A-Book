@@ -21,6 +21,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * The type Login activity. This is the login page of the app.
+ * Verifies the credentials of the user tring to log in.
+ * Allows user to create new profile.
+ */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private Button signin;
 
@@ -28,6 +33,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private  EditText email;
     private TextView txtsignup;
+    /**
+     * The M auth.
+     */
     FirebaseAuth mAuth;
 
     @Override

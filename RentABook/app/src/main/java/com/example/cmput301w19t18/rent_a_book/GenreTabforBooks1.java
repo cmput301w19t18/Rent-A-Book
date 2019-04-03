@@ -107,7 +107,7 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                     //preferenceList.set(0,1);
                     //model.getCurrPickedGenres().postValue(genreSelected);
                     //Toast.makeText(this.getContext(),"Picked comedy!",Toast.LENGTH_SHORT).show();
-                    }
+                }
                 else if (preferenceList.get(0) == 1){
                     //genreList.remove("Comedy");
                     removeGenre(0,"Comedy unselected!", "Comedy");
@@ -152,7 +152,7 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
                 }
-                    break;
+                break;
             case R.id.comicsButton:
                 //startActivity(new Intent(getActivity().getBaseContext(), LoginActivity.class));
                 // check to see if this button is already selected and that less than 3 genres have been selected

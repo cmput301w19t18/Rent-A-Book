@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,13 +22,20 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class OldInboxCopy extends AppCompatActivity {
+/**
+ * The type Inbox. Displays the books currently being requested from the user, as well as
+ * the books that the user owns that are currently being requested.
+ */
+public class OldInbox extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     private ArrayList<Book> BookInboxList;
     private DatabaseReference mUserDatabase;
+    /**
+     * Initialized firebase data
+     */
     FirebaseAuth mAuth;
 
     @Override
@@ -51,12 +59,12 @@ public class OldInboxCopy extends AppCompatActivity {
                         switch (menuItem.getItemId()) {
                             case R.id.home:
                                 Intent intent1;
-                                intent1 = new Intent(OldInboxCopy.this, HomeActivity.class);
+                                intent1 = new Intent(OldInbox.this, HomeActivity.class);
                                 startActivity(intent1);
                                 break;
                             case R.id.search:
                                 Intent intent2;
-                                intent2 = new Intent(OldInboxCopy.this, SearchResultsActivity.class);
+                                intent2 = new Intent(OldInbox.this, SearchResultsActivity.class);
                                 startActivity(intent2);
                                 break;
                             case R.id.inbox:
@@ -64,7 +72,7 @@ public class OldInboxCopy extends AppCompatActivity {
                                 break;
                             case R.id.profile:
                                 Intent intent3;
-                                intent3 = new Intent(OldInboxCopy.this, ProfileActivity.class);
+                                intent3 = new Intent(OldInbox.this, ProfileActivity.class);
                                 startActivity(intent3);
                                 break;
                         }
@@ -79,7 +87,7 @@ public class OldInboxCopy extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.inboxResults);
         mRecyclerView.setHasFixedSize(true); //for not, it will change size
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new InboxAdapter(BookInboxList);
+        //mAdapter = new InboxAdapter(BookInboxList);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -88,6 +96,9 @@ public class OldInboxCopy extends AppCompatActivity {
         displayInbox();
     }
 
+    /**
+     * Displays the inbox information on the app
+     */
     private void displayInbox() {
 
         final String user_email = mAuth.getCurrentUser().getEmail();
@@ -104,6 +115,7 @@ public class OldInboxCopy extends AppCompatActivity {
                             if(req_book.getBstatus().contains("Requested") ){
                                 BookInboxList.add(req_book);
 
+                                Toast.makeText(getApplicationContext(), req_book.getBtitle(),Toast.LENGTH_LONG).show();
                             }
                         }
                         if(req_book.getBstatus().contains("Borrowed")){
