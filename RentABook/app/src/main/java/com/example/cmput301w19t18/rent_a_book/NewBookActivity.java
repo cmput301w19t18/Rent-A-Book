@@ -224,7 +224,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private void fetchButton(){
 
         String isbn = ISBNF.getText().toString();
-        String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+        //String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+        String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn;
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -268,7 +270,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
                     Barcode barcode = data.getParcelableExtra("barcode");
                     ISBNF.setText(barcode.displayValue);
 
-                    String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
+                    //
+                    String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue;
+                    //String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
 
                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
                         @Override
