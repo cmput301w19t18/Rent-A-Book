@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context="com.example.cmput301w19t18.rent_a_book.BookDetails">
 
+    <FrameLayout
+        android:id="@+id/navbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/lightOlive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:itemBackground="@color/lightOlive"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/navigation"
+        app:labelVisibilityMode="unlabeled"
+        />
+
+
     <ImageView
         android:id="@+id/bookimage"
         android:layout_width="150dp"

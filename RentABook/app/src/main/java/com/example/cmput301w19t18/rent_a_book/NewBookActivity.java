@@ -339,6 +339,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         String author = AuthorF.getText().toString().trim();
         String ISBN = ISBNF.getText().toString().trim();
         String title = TitleF.getText().toString().trim();
+        String description = DescF.getText().toString().trim();
         String id = databaseReference.push().getKey();
 
         //some of these need to be changed every time a new book is added
@@ -346,6 +347,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //Currently only is able to add values entered for a new book that is not already in the database
 
         //String genre = "000001010"; //going to be set by external function
+        String borrowedBy = "";
         String requestedBy = "";//new ArrayList<String>();
         String email = bAuth.getCurrentUser().getEmail();
         //ArrayList<String> ownedBy = null;
@@ -357,24 +359,24 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //add the new book to firebase
-        Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy);
+        Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy, borrowedBy, description);
         //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
 
         databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isComplete()){
-                    Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-                if(!task.isSuccessful()){
-                    Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
+                                                                                @Override
+                                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                                    if (task.isComplete()){
+                                                                                        Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
+                                                                                        finish();
+                                                                                    }
+                                                                                    if(!task.isSuccessful()){
+                                                                                        Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                    else {
+                                                                                        Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                }
+                                                                            }
         );
     }
 

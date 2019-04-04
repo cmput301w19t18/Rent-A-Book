@@ -52,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -81,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //filePath = Uri.parse("R.drawable.default_profile_pic_olive");
         filePath = Uri.parse("https://firebasestorage.googleapis.com/v0/b/rent-a-read.appspot.com/o/images%2Fdefault_pp.png?alt=media&token=73e1ec93-1052-4467-ba6f-9aaf5778e4fb");
         Picasso.get().load(filePath).into(profilepic);
-
+        download_uri = filePath;
         addPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,24 +126,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         }
     }
-/*
-    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
-        matrix.postScale(scaleWidth, scaleHeight);
-
-        // "RECREATE" THE NEW BITMAP
-        Bitmap resizedBitmap = Bitmap.createBitmap(
-                bm, 0, 0, width, height, matrix, false);
-        bm.recycle();
-        return resizedBitmap;
-    }
-*/
 
     /**
      * On next.

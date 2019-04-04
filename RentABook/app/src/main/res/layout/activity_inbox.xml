@@ -42,4 +42,13 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/request_user_item" />
 
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_requests"/>
+
 </android.support.constraint.ConstraintLayout>
+

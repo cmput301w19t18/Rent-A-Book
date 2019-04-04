@@ -2,17 +2,23 @@ package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,28 +27,31 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type Inbox. Displays the books currently being requested from the user, as well as
  * the books that the user owns that are currently being requested.
  */
 public class Inbox extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
-    private ArrayList<Book> BookInboxList;
-    private DatabaseReference mUserDatabase;
     /**
      * Initialized firebase data
      */
-    FirebaseAuth mAuth;
+    private FirebaseAuth bAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabaseBooks;
+    private DatabaseReference mDatabaseUsers;
+    private RecyclerView recyclerView;
+    private TextView noDataView;
+    private InboxAdapter mAdapter;
+    private ArrayList<Book> bookRequests = new ArrayList<Book>();
+    private ArrayList<String> usersRequesting = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -81,61 +90,70 @@ public class Inbox extends AppCompatActivity {
                 }
         );
 
+        // connect to firebase and get book info
+        bAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        mDatabaseBooks = database.getReference().child("Books");
+        mDatabaseUsers = database.getReference().child("Users");
 
-        mUserDatabase = FirebaseDatabase.getInstance().getReference("Books");
-        BookInboxList = new ArrayList<>();
-        mRecyclerView = findViewById(R.id.inboxResults);
-        mRecyclerView.setHasFixedSize(true); //for not, it will change size
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new InboxAdapter(BookInboxList);
-        mAuth = FirebaseAuth.getInstance();
+        recyclerView = (RecyclerView) findViewById(R.id.inboxResults);
+        noDataView = (TextView) findViewById(R.id.noData);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-        displayInbox();
-    }
 
-    /**
-     * Displays the inbox information on the app
-     */
-    private void displayInbox() {
 
-        final String user_email = mAuth.getCurrentUser().getEmail();
-        Query query = mUserDatabase.orderByChild("bOwner");
-
-        ValueEventListener valueEventListener = new ValueEventListener() {
+        mDatabaseBooks.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                BookInboxList.clear();
-                if(dataSnapshot.exists()){
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        Book req_book = snapshot.getValue(Book.class);
-                        if(req_book.getbOwner().contains(user_email)){
-                            if(req_book.getBstatus().contains("Requested") ){
-                                BookInboxList.add(req_book);
-
-                                Toast.makeText(getApplicationContext(), req_book.getBtitle(),Toast.LENGTH_LONG).show();
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Book b = dataSnapshot1.getValue(Book.class);
+                    // check if owner owns book
+                    if (b.getbOwner().equals(bAuth.getCurrentUser().getEmail()) && b.getBstatus().equals("Requested")) {
+                        // add each book based on one single request
+                        if (b.getRequestedBy().contains(", ")) {
+                            String[] r =  b.getRequestedBy().split(", ");
+                            for (int i = 0; i < r.length; i++) {
+                                // add new book with each requester?
+                                //Toast.makeText(Inbox.this,r[i], Toast.LENGTH_SHORT).show();
+                                Book newBook = new Book(b.getBtitle(), b.getAuthor(), b.getISBN(), b.getBstatus(), b.getRating(), b.getbOwner(), b.getGenre(), r[i], "", b.getDescription());
+                                //b.setRequestedBy(r[i]);
+                                bookRequests.add(newBook);
+                                usersRequesting.add(r[i]);
                             }
                         }
-                        if(req_book.getBstatus().contains("Borrowed")){
-                            if(req_book.getRequestedBy().contains(user_email)){
-                                BookInboxList.add(req_book);
-                            }
+                        else {
+                            usersRequesting.add(b.getRequestedBy());
+                            bookRequests.add(b);
                         }
 
                     }
                 }
-                mAdapter.notifyDataSetChanged();
+                mAdapter = new InboxAdapter(Inbox.this, bookRequests, usersRequesting);
+                recyclerView.setAdapter(mAdapter);
 
+                if (mAdapter.getItemCount() == 0) {
+                    // if no borrow requests show display no request message
+                    recyclerView.setVisibility(View.GONE);
+                    noDataView.setVisibility(View.VISIBLE);
+                } else {
+                    // else show the people asking to borrow
+                    recyclerView.setVisibility(View.VISIBLE);
+                    noDataView.setVisibility(View.GONE);
+
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Toast.makeText(Inbox.this,"Yikes, something went wrong", Toast.LENGTH_SHORT).show();
             }
-        };
-        query.addListenerForSingleValueEvent(valueEventListener);
+        });
+
+
     }
 
 }

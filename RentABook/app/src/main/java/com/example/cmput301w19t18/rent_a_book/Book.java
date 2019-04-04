@@ -24,6 +24,8 @@ public class Book implements Serializable{
     private String requestedBy; //list of users that are requesting the book by email
     private List<String> requestedList = new ArrayList<String>();
     private boolean requested = false;
+    private String borrowedBy;
+    private String description;
 
 
     /**
@@ -38,7 +40,7 @@ public class Book implements Serializable{
      * @param genre       the genre
      * @param requestedBy the requested by
      */
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String borrowedBy, String description) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -47,14 +49,12 @@ public class Book implements Serializable{
         this.bOwner = bOwner;
         this.genre = genre;
         this.requestedBy = requestedBy;
-
-        //use of arrays:
-        //https://alvinalexander.com/java/java-string-array-reference-java-5-for-loop-syntax
-        //https://stackoverflow.com/questions/17515096/string-array-initialization-in-java
+        this.borrowedBy = borrowedBy;
+        this.description = description;
 
     }
 
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String description) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -62,13 +62,14 @@ public class Book implements Serializable{
         this.rating = rating;
         this.bOwner = bOwner;
         this.genre = genre;
+        this.description = description;
 
     }
 
     /**
      * Instantiates a new Book.
      */
-    public Book() {};
+    public Book() {}
 
     /**
      * Gets btitle.
@@ -230,15 +231,15 @@ public class Book implements Serializable{
     }
 
     public List<String> stringToList(String str) {
-       if (!str.contains(", ")) {
-           requestedList.add(str);
-       }
-       else {
-           String[] r = str.split(", ");
-           for (int i = 0; i < r.length; i++) {
-               requestedList.add(r[i]);
-           }
-       }
+        if (!str.contains(", ")) {
+            requestedList.add(str);
+        }
+        else {
+            String[] r = str.split(", ");
+            for (int i = 0; i < r.length; i++) {
+                requestedList.add(r[i]);
+            }
+        }
 
         return requestedList;
     }
@@ -264,5 +265,21 @@ public class Book implements Serializable{
             requested = false;
         }
         return requested;
+    }
+
+    public String getBorrowedBy() {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(String borrowedBy) {
+        this.borrowedBy = borrowedBy;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

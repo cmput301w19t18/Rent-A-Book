@@ -185,15 +185,15 @@ public class addPhotoActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode == 3){
-                Log.d("TAG", "External storage2");
-                if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
-                    Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
-                    //resume tasks needing this permission
-                    isCameraPermissionGranted();
-                }
-                else{
-                    Toast.makeText(this, "Storage permission required to make requested changes", Toast.LENGTH_SHORT).show();
-                }
+            Log.d("TAG", "External storage2");
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
+                //resume tasks needing this permission
+                isCameraPermissionGranted();
+            }
+            else{
+                Toast.makeText(this, "Storage permission required to make requested changes", Toast.LENGTH_SHORT).show();
+            }
         }
         if(requestCode == 4){
             Log.d("TAG", "External storage2");

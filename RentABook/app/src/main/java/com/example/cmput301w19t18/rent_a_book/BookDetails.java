@@ -1,9 +1,12 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,8 +65,49 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        String mode = "1";
         setContentView(R.layout.activity_book_details2);
+
+        BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
+
+
+        bnv.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                        Intent intent;
+                        switch (menuItem.getItemId()) {
+                            case R.id.home:
+                                // do nothing because we're already here
+                                //Toast.makeText(getApplicationContext(), "home", Toast.LENGTH_LONG).show();
+                                Intent intent1;
+                                intent1 = new Intent(BookDetails.this, HomeActivity.class);
+                                startActivity(intent1);
+                                break;
+                            case R.id.search:
+                                //Toast.makeText(getApplicationContext(), "search", Toast.LENGTH_LONG).show();
+                                Intent intent2;
+                                intent2 = new Intent(BookDetails.this, SearchResultsActivity.class);
+                                startActivity(intent2);
+                                break;
+                            case R.id.inbox:
+                                //Toast.makeText(getApplicationContext(), "inbox", Toast.LENGTH_LONG).show();
+                                Intent intent3 = new Intent(BookDetails.this, Inbox.class);
+                                startActivity(intent3);
+                                break;
+                            case R.id.profile:
+                                //Toast.makeText(getApplicationContext(), "profile", Toast.LENGTH_LONG).show();
+                                Intent intent4;
+                                intent4 = new Intent(BookDetails.this, ProfileActivity.class);
+                                startActivity(intent4);
+                                break;
+                        }
+                        return false;
+                    }
+                });
+
+
+        String mode = "1";
         BookList = new ArrayList<>();
         homeBookList = new ArrayList<>();
         mDatabase = FirebaseDatabase.getInstance().getReference("Books");
@@ -220,42 +265,40 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == req_button){
-            DatabaseReference req_ref = FirebaseDatabase.getInstance().getReference("Books").child(key).child("bstatus");
-            DatabaseReference req_by = FirebaseDatabase.getInstance().getReference("Books").child(key).child("requestedBy");
-            if (!req) {
-                req_ref.setValue("Requested");
-                status.setText(getString(R.string.requested));
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+            //DatabaseReference req_ref = FirebaseDatabase.getInstance().getReference("Books").child(key).child("bstatus");
+            //DatabaseReference req_by = FirebaseDatabase.getInstance().getReference().child("Books").child("requestedBy");
+            DatabaseReference req_by = ref.child("Books").child(key).child("requestedBy");
+            req_by.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    //Book b = dataSnapshot.getValue(Book.class);
+                    //List<String> r = Arrays.asList(str.split("\\s*,\\s*"));
+                    String str = dataSnapshot.getValue(String.class);
+                    List<String> r = Arrays.asList(str.split("\\s*,\\s*"));
+                    if (r.contains(mAuth.getCurrentUser().getEmail())) {
+                        Toast.makeText(getApplicationContext(),"Requested" ,Toast.LENGTH_LONG).show();
 
-                // add user to request list
-                requesters = curr_book.addRequester(mAuth.getCurrentUser().getEmail());
-                req_by.setValue(requesters);
 
-                req_button.setText("Cancel");
-                req = true;
+                        req_button.setText("Cancel");
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(),str ,Toast.LENGTH_LONG).show();
+                    }
+                }
 
-            }
-            else if (req){
-                // remove the user from request
-                // set button text back to request
-                req_ref.setValue("Available");
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                // remove user request list
-                List<String> l = curr_book.stringToList(curr_book.getRequestedBy());
-                l.remove(mAuth.getCurrentUser().getEmail());
+                }
+            });
 
-                // set list back to string
-                requesters = curr_book.listToString(l);
-                // clear list
-                l.clear();
-
-                // reset string of requesting users
-                curr_book.setRequestedBy(requesters);
-                req_by.setValue(requesters);
-
-                status.setText("Available");
-                req_button.setText("Request");
-                req = false;
-            }
         }
     }
+
+    public void handleRequests() {
+
+    }
+
 }
+
