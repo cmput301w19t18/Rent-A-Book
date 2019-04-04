@@ -12,7 +12,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -33,6 +43,8 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      * The Array list.
      */
     ArrayList<Book> arrayList;
+    private String json_img;
+    private RequestQueue mQueue;
 
     /**
      * Instantiates a new Horizontal recycler view adapter.
@@ -40,16 +52,20 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
      * @param context   the context
      * @param arrayList the array list
      */
+
     public HorizontalRecyclerViewAdapter(Context context, ArrayList<Book> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        mQueue = Volley.newRequestQueue(context);
     }
 
     @NonNull
     @Override
     public HorizontalRVViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.home_book_item, viewGroup, false);
+        //initializing volley request
         return new HorizontalRVViewHolder(view);
+
     }
 
     @Override
@@ -57,14 +73,40 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
         final Book currentBook = arrayList.get(i);
         horizontalRVViewHolder.ratingBar.setRating(currentBook.getRating());
 
-        String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
-        final String fake_description = "This is a description test. " +
-                "I realized we need to add the description in the book class, but for some reason is not there, " +
-                "so we have to add that as an attribute. I can't believe the project is due in like a week, " +
-                "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
-                "not an accurate description of the current book.";
+        String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + currentBook.getISBN();
+        //String jsonText = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + barcode.displayValue + "&key=AIzaSyBazEyC2EkUpHmYKCh3NNS-Zq2inaSB7_0";
 
-        Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, jsonText, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    //String test = response.getString("kind");
+                    JSONArray jsonArray = response.getJSONArray("items");
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    json_img = jsonObject.getJSONObject("volumeInfo").getJSONObject("imageLinks").getString("thumbnail");
+                    Picasso.get().load(json_img).into(horizontalRVViewHolder.bookCover);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+
+//        String url = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
+//        final String fake_description = "This is a description test. " +
+//                "I realized we need to add the description in the book class, but for some reason is not there, " +
+//                "so we have to add that as an attribute. I can't believe the project is due in like a week, " +
+//                "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
+//                "not an accurate description of the current book.";
+//
+//        Picasso.get().load(url).into(horizontalRVViewHolder.bookCover);
 
         horizontalRVViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,9 +117,11 @@ public class HorizontalRecyclerViewAdapter extends RecyclerView.Adapter<Horizont
                 intent.putExtra("ratings", String.valueOf(arrayList.get(i).getRating()));
                 intent.putExtra("btitle", arrayList.get(i).getBtitle());
                 intent.putExtra("bookphoto","http://covers.openlibrary.org/b/isbn/" + arrayList.get(i).getISBN() + "-M.jpg");
+                intent.putExtra("bookphoto",json_img);
                 intent.putExtra("bstatus",arrayList.get(i).getBstatus());
                 intent.putExtra("owner",arrayList.get(i).getbOwner());
-                intent.putExtra("bdescription",fake_description);
+                intent.putExtra("bdescription", arrayList.get(i).getDescription);
+                //intent.putExtra("bdescription",fake_description);
 
 //                intent.putExtra("ratings", String.valueOf(arrayList.get(i).getBookRating()));
 //                intent.putExtra("btitle", arrayList.get(i).getBookTitle());
