@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by ikramshire on 2019-03-04.
+<<<<<<< HEAD
  * Modified by jusong on 2019-03-09
  *
  * Contains all of the information pertinent to users. Information can be queried from firebase
@@ -71,6 +72,13 @@ public class User implements Serializable {
     public void setURI(String URI) {
         this.URI = URI;
     }
+=======
+ */
+
+public class User implements Serializable {
+    public String email;
+    public  String prefList;
+    private int[] books_Owned;
 
     public int[] getBooks_Owned() {
         return books_Owned;
@@ -80,6 +88,26 @@ public class User implements Serializable {
         this.books_Owned = books_Owned;
     }
 
+    public int[] getBooks_borrowed() {
+        return books_borrowed;
+    }
+
+    public void setBooks_borrowed(int[] books_borrowed) {
+        this.books_borrowed = books_borrowed;
+    }
+
+    private int[] books_borrowed;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
+
+    public int[] getBooks_Owned() {
+        return books_Owned;
+    }
+
+    public void setBooks_Owned(int[] books_Owned) {
+        this.books_Owned = books_Owned;
+    }
+
+<<<<<<< HEAD
     public int[] getBooks_borrowed() {
         return books_borrowed;
     }
@@ -115,6 +143,25 @@ public class User implements Serializable {
     }
     public void setCur_lon(Double cur_lon) {
         this.cur_lon = cur_lon;
+=======
+
+
+
+
+
+    public User(String email, String prefList ){
+        this.email = email;
+        this.prefList = prefList;
+
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     }
 
 }

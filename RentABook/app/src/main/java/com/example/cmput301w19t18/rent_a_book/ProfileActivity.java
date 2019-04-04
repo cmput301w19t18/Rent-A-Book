@@ -1,6 +1,7 @@
 package com.example.cmput301w19t18.rent_a_book;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -45,6 +46,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseDatabase mFireBaseD;
     private String[] strGenres = {"comedy", "drama", "romance", "comics", "fantasy", "horror", "mystery", "scifi", "western", "biography", "hisfic", "adventure", "nonfic", "ya", "thriller", "tragedy", "poetry", "children"};
     private String[] genres = new String[3];
+=======
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button addBook;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_profile);
+<<<<<<< HEAD
 
         BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
 
@@ -178,6 +189,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+=======
+        addBook = (Button) findViewById(R.id.addbutton);
+        addBook.setOnClickListener(this);
+    }
+
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     @Override
     public void onClick(View v) {
         if (v == addBook){

@@ -7,6 +7,7 @@
     android:id="@+id/profile_activity"
     tools:context="com.example.cmput301w19t18.rent_a_book.ProfileActivity">
 
+<<<<<<< HEAD
     <FrameLayout
         android:id="@+id/navbarContainer"
         android:layout_width="match_parent"
@@ -194,4 +195,13 @@
         app:layout_constraintBottom_toTopOf="@+id/navView"
         app:layout_constraintEnd_toEndOf="parent" />
 
+=======
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD BOOK"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="138dp" />
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 </android.support.constraint.ConstraintLayout>

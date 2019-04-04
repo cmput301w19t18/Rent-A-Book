@@ -88,6 +88,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/text_input_layout"
             android:hint="@string/RegisterPassword"
+<<<<<<< HEAD
             android:inputType="textPassword"
             android:padding="10dp"
             app:layout_constraintTop_toBottomOf="@+id/email"
@@ -106,6 +107,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phone" />
+=======
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/RegisterSignUp" />
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         <Button
             android:id="@+id/cancel"

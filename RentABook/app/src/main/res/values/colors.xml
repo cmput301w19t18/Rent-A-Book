@@ -3,6 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+<<<<<<< HEAD
     <color name="pastelPink">#FFB3BA</color>
     <color name="pastelOrange">#FFDFBA</color>
     <color name="pastelYellow">#FFFFBA</color>
@@ -21,4 +22,6 @@
     <color name="purpleSlate">#807E82</color>
     <color name="lightGray">#B8B8B8</color>
     <color name="mediumGray">#333536</color>
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 </resources>

@@ -30,9 +30,14 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
     implementation 'com.android.support:design:28.0.0'
 
+<<<<<<< HEAD
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
+=======
+
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -40,6 +45,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.1'
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
+<<<<<<< HEAD
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
@@ -51,6 +57,8 @@ dependencies {
     implementation 'android.arch.lifecycle:livedata:1.1.1'
     implementation 'android.arch.lifecycle:livedata-core:1.1.1'
     annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
     implementation 'com.google.firebase:firebase-core:15.0.1'
     implementation 'com.android.support.test:rules:1.0.2'
@@ -72,4 +80,7 @@ dependencies {
 
 apply plugin: 'com.google.gms.google-services'
 
+<<<<<<< HEAD
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f

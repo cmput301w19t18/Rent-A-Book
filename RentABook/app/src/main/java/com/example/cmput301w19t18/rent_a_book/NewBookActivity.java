@@ -1,5 +1,6 @@
 package com.example.cmput301w19t18.rent_a_book;
 
+<<<<<<< HEAD
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -52,15 +53,38 @@ import java.io.IOException;
 
 import java.io.StringReader;
 import java.net.URL;
+=======
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnCompleteListener;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
 import java.util.ArrayList;
 
 
+<<<<<<< HEAD
 /**
  * The type New book activity.
  * All data pertinent to creating a new book entry. User will enter information here
  * and the data is stored to firebase.
  */
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 public class NewBookActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -68,7 +92,10 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseApp firebaseApp;
+<<<<<<< HEAD
     private static final String TAG = "myActivity";
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
     //buttons and fields
     private Button SubmitB;
@@ -76,6 +103,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     private EditText AuthorF;
     private EditText TitleF;
     private EditText DescF;
+<<<<<<< HEAD
     private String email;
     private Button btnPhoto;
     private ImageView imageView;
@@ -100,6 +128,9 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
     //volley stuff
     private RequestQueue mQueue;
+=======
+
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
     //record of books added by ISBN
     private Integer[] booksList;
@@ -107,19 +138,25 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
 
         // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         setContentView(R.layout.activity_newbook);
 
         //initializing firebase auth object
         bAuth = FirebaseAuth.getInstance();
 
+<<<<<<< HEAD
         //initializing volley request
         mQueue = Volley.newRequestQueue(this);
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         //initializing fields and buttons
         SubmitB = (Button) findViewById(R.id.SubmitButton);
@@ -127,6 +164,7 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         AuthorF = (EditText) findViewById(R.id.AuthBox);
         TitleF = (EditText) findViewById(R.id.TitleBox);
         DescF = (EditText) findViewById(R.id.DescriptionBox);
+<<<<<<< HEAD
         btnPhoto = findViewById(R.id.AddPhotoButton);
         imageView = findViewById(R.id.image);
         SubmitB.setOnClickListener(this);
@@ -200,19 +238,28 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         else {
             genre = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0";
         }
+=======
+        SubmitB.setOnClickListener(this);
+
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
 
         //check if user is logged in. if not, returns null
         if (bAuth.getCurrentUser() == null){
             finish(); //close activity
+<<<<<<< HEAD
             startActivity(new Intent(this, LoginActivity.class)); //returns to login screen
 
+=======
+            startActivity(new Intent(this, MainActivity.class)); //returns to login screen
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Books");
 
     }
 
+<<<<<<< HEAD
     private void addButton(){
         Intent intent = new Intent(this, addPhotoActivity.class);
         startActivityForResult(intent, 1);
@@ -335,16 +382,62 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void saveBookInfo() {
+=======
+    //////////////// Check if exists in the database //////////////// https://www.quora.com/How-do-I-check-a-child-exist-in-firebase-database-using-Android
+
+
+    /*
+    ValueEventListener responseListener  = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot snapshot) {
+
+            databaseReference.child("books").orderByChild("ISBN").equalTo(ISBNF.getText().toString().trim()).once
+
+            if (snapshot.getValue() != null) {
+                //user exists, do something
+            } else {
+                //user does not exist, do something else
+            }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+
+
+    };
+
+    public static DatabaseReference getBaseRef() {
+        return FirebaseDatabase.getInstance().getReference();
+    }
+
+    public static DatabaseReference getResponsesRef() {
+        return getBaseRef().child("books");
+    }
+
+    */
+
+
+    ////////////////////////////////////////////////////////////////
+
+
+    private void saveBookInfo(){
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         String author = AuthorF.getText().toString().trim();
         String ISBN = ISBNF.getText().toString().trim();
         String title = TitleF.getText().toString().trim();
+<<<<<<< HEAD
         String description = DescF.getText().toString().trim();
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         String id = databaseReference.push().getKey();
 
         //some of these need to be changed every time a new book is added
 
         //Currently only is able to add values entered for a new book that is not already in the database
+<<<<<<< HEAD
 
         //String genre = "000001010"; //going to be set by external function
         String borrowedBy = "";
@@ -355,10 +448,19 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
         //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
         String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
         //Integer rating = 4;
+=======
+        String[] genre = {"test genre"}; //going to be set by external function
+        ArrayList<String> requestedBy = new ArrayList<String>();
+        ArrayList<String> ownedBy = null;
+        //ownedBy.add(bAuth.getCurrentUser().getEmail()); // sets as owner
+        String status = "Available"; //as long as there is one copy of the book that is not requested or borrowed
+        Integer rating = 0;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         Integer copyCount = 1; //how do we check if a copy already exists and increment the counter? Do we actually need to keep track of this or will the owner
 
 
         //add the new book to firebase
+<<<<<<< HEAD
         Book newBook = new Book(title, author, ISBN, status, RatingF.getRating(), email, genre, requestedBy, borrowedBy, description);
         //Book newBook = new Book(title, author, genre, ISBN, status, requestedBy, rating, email);
 
@@ -431,3 +533,41 @@ public class NewBookActivity extends AppCompatActivity implements View.OnClickLi
 
 
 }
+=======
+        Book newBook = new Book(title, author, genre, ISBN, status,requestedBy,  rating, copyCount);
+        databaseReference.child(id).setValue(newBook).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isComplete()){
+                    Toast.makeText(NewBookActivity.this, "Book uploaded", Toast.LENGTH_SHORT).show();
+                    finish();
+
+                }
+                if(!task.isSuccessful()){
+                    Toast.makeText(NewBookActivity.this,"error",Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    Toast.makeText(NewBookActivity.this,"uploaded",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }
+
+        );
+        databaseReference.child("books").setValue(newBook); //should put the book in the db under books
+        //finish();
+    }
+
+
+
+    @Override //when you press the submit button
+    public void onClick(View view) {
+
+        if(view == SubmitB){
+            saveBookInfo(); //calls the save function upon press
+        }
+
+    }
+}
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f

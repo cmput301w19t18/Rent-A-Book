@@ -31,7 +31,6 @@ import java.io.IOException;
  * User information can be edited later
  */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button next;
     private Button signup;
     private Button addPhoto;
     private Button cancel;
@@ -58,8 +57,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         setContentView(R.layout.register);
         mAuth = FirebaseAuth.getInstance();
+<<<<<<< HEAD
         next = (Button) findViewById(R.id.next);
         addPhoto = (Button) findViewById(R.id.AddPhotoButton);
+=======
+        signup = (Button) findViewById(R.id.signup);
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         cancel = (Button) findViewById(R.id.cancel);
         pass = (EditText) findViewById(R.id.pass);
         et_email = (EditText) findViewById(R.id.email);
@@ -70,10 +73,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         profilepic = (ImageView) findViewById(R.id.viewPhoto);
         //DataR = mFireBaseD.getReference();
 
+<<<<<<< HEAD
         next.setOnClickListener(this);
         cancel.setOnClickListener(this);
         if (mAuth.getCurrentUser() != null ){
             //user is already logged in
+=======
+        signup.setOnClickListener(this);
+        cancel.setOnClickListener(this);
+        if (mAuth.getCurrentUser() != null ){
+            //user is already logged in
+
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         }
 
@@ -200,8 +211,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
+<<<<<<< HEAD
         //checks what button the user clicked
         if (view == next){
+=======
+        //checks what buttton the user clicked
+        if (view == signup){
+            signUp();
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
             onNext();
         }

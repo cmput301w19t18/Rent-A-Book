@@ -7,6 +7,7 @@
     android:id="@+id/search_activity"
     tools:context=".SearchResultsActivity">
 
+<<<<<<< HEAD
     <FrameLayout
         android:id="@+id/navbarContainer"
         android:layout_width="match_parent"
@@ -76,4 +77,6 @@
         app:maxImageSize="20dp"
         app:pressedTranslationZ="12dp" />
 
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 </android.support.constraint.ConstraintLayout>

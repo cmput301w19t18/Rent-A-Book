@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -23,6 +24,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,16 +36,23 @@ import java.util.Collections;
  * (still a work in progress)
  */
 public class SearchResultsActivity extends AppCompatActivity {
+<<<<<<< HEAD
     public boolean update = false;
     public static final int SEARCHING = 1;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Book> BookSearchList;
+=======
+
+    ArrayList<Book> book_results;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     private String search;
     private FloatingActionButton searchButton;
     private EditText userSearchText;
     private DatabaseReference mUserDatabase;
+
+    // I don't know if I should implement the search results as a separate class in addition to this activity lol
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +64,7 @@ public class SearchResultsActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_search_results);
+<<<<<<< HEAD
 
 
         BottomNavigationView bnv = (BottomNavigationView) findViewById(R.id.navView);
@@ -118,6 +129,8 @@ public class SearchResultsActivity extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     }
 
     /**

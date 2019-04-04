@@ -19,12 +19,21 @@ public class SearchResultsActivityTest {
         // String btitle, String author, String genre, String ISBN, String bstatus, String owner, Integer rating
         String search = "Brooklyn 99";
         // Book object has private access
+<<<<<<< HEAD
         Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Available", 4, "jakep@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book2 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Available", 4, "amys@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Requested", 4, "rosad@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Accepted", 4, "charlesb@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Borrowed", 4, "raymondh@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book6 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Available", 4, "jakep@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
+=======
+        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "jakep@nypd.org", requestedBy, 5, copyCount);
+        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", "2", "Available", "amys@nypd.org", requestedBy, 4, copyCount);
+        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1","Requested",  "rosad@nypd.org", requestedBy, 5, copyCount);
+        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Accepted", "charlesb@nypd.org", requestedBy, 5, copyCount);
+        Book book5 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Borrowed", "raymondh@nypd.org", requestedBy, 5, copyCount);
+        Book book6 = new Book("Nothing Lasts Forever", "Roderick Thorp", "Thriller", "3", "Available", "jakep@nypd.org", requestedBy, 3, copyCount);
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         book4.setRequestedBy("jakep@nypd.org");
 
@@ -65,9 +74,15 @@ public class SearchResultsActivityTest {
     @Test
     public void Refresh() {
 
+<<<<<<< HEAD
         Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Available", 4, "jakep@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book2 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Available", 4, "amys@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
         Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Requested", 4, "rosad@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
+=======
+        Book book1 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "jakep@nypd.org", requestedBy, 5, copyCount);
+        Book book2 = new Book("Brooklyn 99 2 - Book Edition", "Daniel Goor", "Comedy", "2", "Available", "amys@nypd.org", requestedBy, 4, copyCount);
+        Book book3 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Requested", "rosad@nypd.org", requestedBy, 5, copyCount);
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         ArrayList<Book> book_results = new ArrayList<Book>();
 
@@ -77,7 +92,11 @@ public class SearchResultsActivityTest {
 
         assertEquals(book_results.size(), 3);
 
+<<<<<<< HEAD
         Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "1234567891234", "Accepted", 4, "charlesb@nypd.org", "0 0 0 0 0 0 0 0 0 0 0 0 0 0", "testRequester@gmail.com");
+=======
+        Book book4 = new Book("Brooklyn 99 - Book Edition", "Daniel Goor", "Comedy", "1", "Available", "ginal@nypd.org", requestedBy, 5, copyCount);
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
         book_results.add(book4);
 

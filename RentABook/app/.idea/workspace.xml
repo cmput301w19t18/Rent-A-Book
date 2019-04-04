@@ -12,12 +12,33 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="c39abf39-913f-4ca4-a903-94cba90858c0" name="Default Changelist" comment="">
+=======
+    <list default="true" id="c6bbd0c5-152b-4897-ae1b-5b1e9ecd32ae" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/selected_circle_7dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/drawable/unselected_circle_7dp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
 =======
+<<<<<<< HEAD
     <list default="true" id="c39abf39-913f-4ca4-a903-94cba90858c0" name="Default Changelist" comment="" />
 >>>>>>> working_home_activity
+=======
+    <list default="true" id="afa2b626-558a-4518-8c95-948ddc03171b" name="Default" comment="" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +85,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
@@ -127,41 +149,95 @@
 =======
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HorizontalRecyclerViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="323">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
+=======
+            <state relative-caret-position="210">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+=======
+    <leaf>
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state />
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
->>>>>>> working_home_activity
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
             </state>
           </provider>
         </entry>
       </file>
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
+<<<<<<< HEAD
+            <state relative-caret-position="15">
 >>>>>>> working_home_activity
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+=======
+            <state relative-caret-position="375">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+=======
+      <file leaf-file-name="Recommendations.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/Recommendations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2047#2048#0" expanded="true" />
+                <element signature="e#2081#2082#0" expanded="true" />
+              </folding>
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+=======
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="130">
+>>>>>>> working_home_activity
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+=======
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+=======
+      <file leaf-file-name="ProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/ProfileActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../build.gradle">
@@ -170,15 +246,29 @@
       </file>
 =======
 >>>>>>> working_home_activity
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/Recommendations.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="90">
 <<<<<<< HEAD
               <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
 =======
               <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
 >>>>>>> working_home_activity
+=======
+            <state relative-caret-position="810">
+              <caret line="54" column="55" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="55" />
+=======
+      <file leaf-file-name="RegisterActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/RegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1021">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
             </state>
           </provider>
         </entry>
@@ -2509,14 +2599,39 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab3.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/PickGenrePreference.java" />
+        <option value="$PROJECT_DIR$/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/app_bar.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_pick_genre_pref2.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_pick_genre_pref3.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_pick_genre_pref.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/custom_genre_pick_tab.xml" />
+=======
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/Recommendations.java" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="678" />
     <option name="y" value="23" />
     <option name="width" value="762" />
+=======
+    <option name="x" value="727" />
+    <option name="y" value="23" />
+    <option name="width" value="713" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
     <option name="height" value="836" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -2525,11 +2640,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
       <pane id="PackagesPane" />
 >>>>>>> working_home_activity
+=======
+=======
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2542,25 +2665,70 @@
             </path>
             <path>
               <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+<<<<<<< HEAD
 >>>>>>> working_home_activity
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+=======
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="rent_a_book" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+<<<<<<< HEAD
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="RentABook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+=======
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+=======
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+=======
+      <pane id="Scope" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="android.project.structure.last.selected" value="app" />
-    <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="Pixel_XL_API_28" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1551404770440" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2664,19 +2832,52 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="c39abf39-913f-4ca4-a903-94cba90858c0" name="Default Changelist" comment="" />
       <created>1551404758236</created>
+=======
+      <changelist id="afa2b626-558a-4518-8c95-948ddc03171b" name="Default" comment="" />
+      <created>1551066400192</created>
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1551404758236</updated>
+      <updated>1551066400192</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="678" y="25" width="762" height="836" extended-state="0" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+=======
+    <frame x="727" y="23" width="713" height="836" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Android Profiler" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info id="Build Variants" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info id="Captures" order="2" weight="0.25" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.29754204" />
+      <window_info active="true" anchor="bottom" id="Build" visible="true" weight="0.32882273" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32882273" />
+      <window_info anchor="right" id="Gradle" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
 <<<<<<< HEAD
       <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
@@ -2692,6 +2893,7 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2711,15 +2913,43 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
       <window_info anchor="right" id="Gradle" order="5" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
+=======
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Preview" order="8" />
+=======
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/BookRequest.java">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/MainActivity.java">
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -2733,34 +2963,86 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/RegisterActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-273">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/BookRequest.java">
+=======
+    <entry file="file://$PROJECT_DIR$/../settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/GenreTab1.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="75">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="-244">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+=======
+        <state relative-caret-position="60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="180">
           <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="268">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/HomeVerticalRecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1305">
           <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="30">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+=======
+        <state relative-caret-position="-1021">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cmput301w19t18/rent_a_book/Recommendations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2047#2048#0" expanded="true" />
+            <element signature="e#2081#2082#0" expanded="true" />
+          </folding>
+>>>>>>> 8ddce845a56fbe954bf6ff19ea3d62907ac7fd7b
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         </state>
       </provider>
     </entry>

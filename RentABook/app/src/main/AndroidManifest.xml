@@ -85,16 +85,21 @@
             </intent-filter>
 
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".SearchResultsActivity"
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
+=======
+        <activity android:name=".SearchResultsActivity"></activity>
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
         <activity android:name=".RegisterActivity" />
         <activity android:name=".BookDetails" />
 
         <activity android:name=".ProfileActivity" />
+<<<<<<< HEAD
         <activity
             android:name=".PickGenrePreference"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -108,6 +113,9 @@
         <activity android:name="SuccessfulSignupActivity" />
         <activity android:name=".Inbox"/>
 
+=======
+        <activity android:name=".NewBookActivity"></activity>
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
     </application>
 
 </manifest>

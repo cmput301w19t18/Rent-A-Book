@@ -29,6 +29,13 @@ import com.example.cmput301w19t18.rent_a_book.databinding.CustomGenrePickTabBind
 import java.util.List;
 
 public class PickGenrePreference extends AppCompatActivity {
+<<<<<<< HEAD
+=======
+    static final int numPages = 3;
+    private int[] preferenceList = new int [18];
+    private int selectedNum = 0;
+    //private int tabIcon = R.drawable.circle_unselected_gray_5dp;
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 
     /**
      * PickGenrePreference

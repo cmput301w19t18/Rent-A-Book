@@ -19,7 +19,6 @@
     <string name="RegisterPassword">Password</string>
     <string name="RegisterSignUp">Sign Up</string>
     <string name="Cancel">Cancel</string>
-    <string name="Next">Next</string>
 
     <string name="scan">Scan</string>
     <string name="fetch">Fetch</string>
@@ -27,6 +26,7 @@
     <string name="Author">Author</string>
     <string name="Title">Title</string>
     <string name="ISBN">ISBN</string>
+<<<<<<< HEAD
 
     <string name="ChooseGenre">Choose three genres</string>
     <string name="BookPhoto">Book Photo</string>
@@ -77,4 +77,6 @@
     <string name="author">Author</string>
     <string name="requestedby">RequestedBy</string>
 
+=======
+>>>>>>> c157c3a2ee4076250f4c6db129d797e8f1a0d38f
 </resources>
