@@ -92,6 +92,7 @@ public class HomeActivity extends AppCompatActivity {
         databaseReference_user = FirebaseDatabase.getInstance().getReference("Users").child(bAuth.getUid()).child("prefList"); //gets the preference list
         getGenreList(databaseReference_user);
         genreList = databaseReference_user.toString();
+
         //Toast.makeText(getApplicationContext(), "2" + genreList, Toast.LENGTH_LONG).show();
 
         // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
@@ -301,4 +302,3 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 }
-

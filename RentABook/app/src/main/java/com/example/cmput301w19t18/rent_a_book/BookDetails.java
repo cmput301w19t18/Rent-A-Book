@@ -138,116 +138,15 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
             request.setClickable(false);
             //request.setText("Request Unavailable");
         }
-
-        database = FirebaseDatabase.getInstance().getReference();
-
-        database.child("Books").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List books = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Book b = snapshot.getValue(Book.class);
-                    if (b.getBtitle().equals(title.getText())) {
-                        books.add(b.getRequestedBy());
-                        if (b.getBstatus().equals("Borrowed")) {
-                            mode = true;
-                        }
-                    }
-                }
-                //Toast.makeText(getApplicationContext(), books.toString(), Toast.LENGTH_LONG).show();
-                // if current user is requesting; set button to cancel else set to request
-                if (books.contains(mAuth.getCurrentUser().getEmail())){
-                    request.setText("Cancel");
-                    //removeRequest();
-
-                } else if (!books.contains(mAuth.getCurrentUser().getEmail()) && mode == false){
-                    request.setText("Request");
-                    //addRequest();
-                }
-                else if (mode == true) {
-                    request.setText("Borrowed");
-                    request.setClickable(false);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
     }
 
     @Override
     public void onClick(View v) {
-        database = FirebaseDatabase.getInstance().getReference();
-
-        database.child("Books").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List books = new ArrayList<>();
-                Book currBook = new Book();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Book b = snapshot.getValue(Book.class);
-                    if (b.getBtitle().equals(title.getText())) {
-                        books.add(b.getRequestedBy());
-                        //books.add(b);
-                        currBook = b;
-                        if (currBook.getBstatus().equals("Borrowed")) {
-                            mode = true;
-                        }
-                    }
-                }
-                //Toast.makeText(getApplicationContext(), books.toString(), Toast.LENGTH_LONG).show();
-                // split requestedBy string into list
-                List<String> reqs = Arrays.asList(currBook.getRequestedBy().split("\\s*,\\s*"));
-
-
-                // if current user is requesting; set button to cancel else set to request
-                if (currBook.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
-                    request.setText("Cancel");
-                    addRequest();
-                    /*
-                    reqs.remove(mAuth.getCurrentUser().getEmail());
-                    // check if reqs is empty
-                    if (reqs.isEmpty()) {
-                        // set status to available and set requestedBy to ""
-                        currBook.setBstatus("Available");
-                        currBook.setRequestedBy("");
-                    } else {
-                        currBook.setRequestedBy(reqs.toString());
-                    }
-                    */
-                    //database.child("Books").setValue(currBook);
-
-                } else if (!books.contains(mAuth.getCurrentUser().getEmail()) && mode == false){
-                    request.setText("Request");
-                    removeRequest();
-                    /*reqs.add(mAuth.getCurrentUser().getEmail());
-                    currBook.setRequestedBy(reqs.toString());
-                    currBook.setBstatus("Requested");
-                    database.child("Books").setValue(currBook);
-                    */
-                }
-                else if (mode == true) {
-                    request.setText("Borrowed");
-                    request.setClickable(false);
-                }
-                // if status is available; set button to request and if selected change status to requested
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
     }
 
-public void addRequest() {
+public void addRequest(Book currBook, List<String> reqs) {
     Toast.makeText(getApplicationContext(), "Added request!", Toast.LENGTH_LONG).show();
+    //database = FirebaseDatabase.getInstance().getReference();
 }
 
 public void removeRequest() {
