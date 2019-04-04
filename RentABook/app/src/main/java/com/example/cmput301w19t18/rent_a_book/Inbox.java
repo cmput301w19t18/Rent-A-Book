@@ -46,14 +46,12 @@ public class Inbox extends AppCompatActivity {
     private TextView noDataView;
     private InboxAdapter mAdapter;
     private ArrayList<Book> bookRequests = new ArrayList<Book>();
-    //private Book bookRequested;
     private ArrayList<String> usersRequesting = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO credit https://tips.androidhive.info/2013/10/android-make-activity-as-fullscreen-removing-title-bar-or-action-bar/#disqus_thread
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -121,7 +119,7 @@ public class Inbox extends AppCompatActivity {
                             for (int i = 0; i < r.length; i++) {
                                 // add new book with each requester?
                                 //Toast.makeText(Inbox.this,r[i], Toast.LENGTH_SHORT).show();
-                                Book newBook = new Book(b.getBtitle(), b.getAuthor(), b.getISBN(), b.getBstatus(), b.getRating(), b.getbOwner(), b.getGenre(), r[i], "");
+                                Book newBook = new Book(b.getBtitle(), b.getAuthor(), b.getISBN(), b.getBstatus(), b.getRating(), b.getbOwner(), b.getGenre(), r[i], "", b.getDescription());
                                 //b.setRequestedBy(r[i]);
                                 bookRequests.add(newBook);
                                 usersRequesting.add(r[i]);

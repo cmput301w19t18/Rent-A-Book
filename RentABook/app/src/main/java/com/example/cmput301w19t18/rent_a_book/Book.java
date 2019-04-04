@@ -25,6 +25,7 @@ public class Book implements Serializable{
     private List<String> requestedList = new ArrayList<String>();
     private boolean requested = false;
     private String borrowedBy;
+    private String description;
 
 
     /**
@@ -39,7 +40,7 @@ public class Book implements Serializable{
      * @param genre       the genre
      * @param requestedBy the requested by
      */
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String borrowedBy) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String requestedBy, String borrowedBy, String description) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -49,10 +50,11 @@ public class Book implements Serializable{
         this.genre = genre;
         this.requestedBy = requestedBy;
         this.borrowedBy = borrowedBy;
+        this.description = description;
 
     }
 
-    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre) {
+    public Book(String btitle, String author, String ISBN, String bstatus, float rating, String bOwner, String genre, String description) {
         this.btitle = btitle;
         this.author = author;
         this.ISBN = ISBN;
@@ -60,13 +62,14 @@ public class Book implements Serializable{
         this.rating = rating;
         this.bOwner = bOwner;
         this.genre = genre;
+        this.description = description;
 
     }
 
     /**
      * Instantiates a new Book.
      */
-    public Book() {};
+    public Book() {}
 
     /**
      * Gets btitle.
@@ -270,5 +273,13 @@ public class Book implements Serializable{
 
     public void setBorrowedBy(String borrowedBy) {
         this.borrowedBy = borrowedBy;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

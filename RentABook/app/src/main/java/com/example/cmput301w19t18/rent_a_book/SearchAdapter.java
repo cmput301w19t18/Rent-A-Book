@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -93,35 +94,31 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
         Context context = searchViewHolder.itemView.getContext();
         final Book currentItem = mSearchBookList.get(i);
-        final String fake_description = "This is a description test. " +
-                "I realized we need to add the description in the book class, but for some reason is not there, " +
-                "so we have to add that as an attribute. I can't believe the project is due in like a week, " +
-                "like woah where did the time go. I am really tired, but honestly that's okay. This is definitely " +
-                "not an accurate description of the current book.";
+
 
         final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
         Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
-//         searchViewHolder.mOwnerPicture.setImageResource(currentItem.getbPhoto());
+
         searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
         searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
         searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
         searchViewHolder.mStatus.setText(currentItem.getBstatus());
+
         searchViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),BookDetails.class );
-                intent.putExtra("title", currentItem.getBtitle());
-                intent.putExtra("owner", currentItem.getbOwner());
-                intent.putExtra("author",currentItem.getAuthor());
-                intent.putExtra("photo", bookCover);
-                intent.putExtra("owner2", currentItem.getbOwner());
-                intent.putExtra("bdescription2",fake_description);
+                Intent intent = new Intent(v.getContext(), BookDetails.class);
+                Bundle bundle = new Bundle();
+                bundle.putFloat("rating", currentItem.getRating());
+                bundle.putString("title", currentItem.getBtitle());
+                bundle.putString("bookphoto","http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg");
+                bundle.putString("status",currentItem.getBstatus());
+                bundle.putString("owner",currentItem.getbOwner());
+                bundle.putString("description",currentItem.getDescription());
+                bundle.putString("author",currentItem.getAuthor());
+                bundle.putString("ISBN", currentItem.getISBN());
 
-
-                intent.putExtra("mode","1");
-                Activity search =  (Activity)v.getContext();
-
-
+                intent.putExtras(bundle);
                 v.getContext().startActivity(intent);
             }
         });

@@ -99,7 +99,8 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(0) == 0 && selected < 3) {
                     //genreList.add("Comedy");
-                    removeGenre(0,"Comedy unselected!", "Comedy");
+                    addGenre(0, "Picked comedy!", "Comedy");
+
                     //model.getCurrPickedGenres().setValue(genreList);
                     //genreText.setText(genreList.toString());
                     // update preference list
@@ -110,7 +111,6 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 else if (preferenceList.get(0) == 1){
                     //genreList.remove("Comedy");
                     removeGenre(0,"Comedy unselected!", "Comedy");
-                    addGenre(0, "Picked comedy!", "Comedy");
                     // update preference list
                     //preferenceList.set(0,0);
                     model.getCurrPickedGenres().setValue(genreList);
@@ -158,11 +158,11 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
                 // check to see if this button is already selected and that less than 3 genres have been selected
                 if (preferenceList.get(3) == 0 && selected < 3) {
                     //genreList.add("Comics");
-                    addGenre(4, "Picked comics!", "Comics");
+                    addGenre(3, "Picked comics!", "Comics");
                 }
                 else if (preferenceList.get(3) == 1){
                     //genreList.remove("Comics");
-                    removeGenre(4, "Comics unselected!", "Comics");
+                    removeGenre(3, "Comics unselected!", "Comics");
                 }
                 else if (selected >= 3) {
                     Toast.makeText(this.getContext(),"Too many genres selected!",Toast.LENGTH_SHORT).show();
@@ -244,3 +244,4 @@ public class GenreTabforBooks1 extends Fragment implements View.OnClickListener 
         Toast.makeText(this.getContext(),s,Toast.LENGTH_SHORT).show();
     }
 }
+
