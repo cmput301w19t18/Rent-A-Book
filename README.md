@@ -1,6 +1,8 @@
 # CMPUT 301: Rent a Read
 
-![appicon](./app_icon.png)
+<p align="center"> 
+<img src="./app_icon.png?style=centerme">
+</p>
 
 Team 18 Members:
 ```
