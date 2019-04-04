@@ -219,13 +219,13 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         author.setText(getIntent().getStringExtra("author"));
         bookCover = getIntent().getStringExtra("photo");
         Picasso.get().load(bookCover).into(bookimage);
-        final String bdescription2 = getIntent().getStringExtra("bdescription2");
+        final String bdescription2 = getIntent().getStringExtra("bdescription");
 
 
 
 
 
-        Query query = mDatabase.orderByChild("btitle");
+        Query query = mDatabase.orderByChild("title");
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -266,7 +266,16 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
         if (v == req_button){
             DatabaseReference req_ref = FirebaseDatabase.getInstance().getReference("Books").child(key).child("bstatus");
             DatabaseReference req_by = FirebaseDatabase.getInstance().getReference("Books").child(key).child("requestedBy");
-            if (!req) {
+            String r = req_by.toString();
+            if (req_by.toString().contains(", ")) {
+                //r = req_by.toString().split(", ");
+
+            }
+            else {
+                //r = new String[] {req_by.toString()};
+            }
+
+            if (!req ) {//&& r.contains(mAuth.getCurrentUser().getEmail())) {
                 req_ref.setValue("Requested");
                 status.setText(getString(R.string.requested));
 
@@ -297,7 +306,7 @@ public class BookDetails extends AppCompatActivity  implements View.OnClickListe
                 req_by.setValue(requesters);
 
                 status.setText("Available");
-                req_button.setText("Request");
+                req_button.setText("Requet");
                 req = false;
             }
         }

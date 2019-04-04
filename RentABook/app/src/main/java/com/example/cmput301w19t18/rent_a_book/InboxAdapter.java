@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHolder> {
@@ -85,12 +86,14 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                 Toast.makeText(context,requesters.get(position) + " borrowed " + booksRequestedList.get(position).getBtitle(),Toast.LENGTH_LONG).show();
                 //booksRequestedList.clear();
                 // update firebase
+                // TODO maybe make each item clickable and take ot new page to handle reject and accept? or on swipe lol
                 mDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                             Book b = snapshot.getValue(Book.class);
                             if (b.getBtitle().contains(booksRequestedList.get(position).getBtitle())) {
+                                //booksRequestedList.clear();
                                 String key = snapshot.getKey();
 
                                 DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(key);
@@ -98,11 +101,13 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
                                 book_ref.child("borrowedBy").setValue(requesters.get(position));
                                 book_ref.child("bstatus").setValue("Borrowed");
                                 book_ref.child("requestedBy").setValue("");
+                                //booksRequestedList.clear();
                                 // when implemented; take user to maps to set location
                                 // clear all other requests for this particular book
                                 notifyDataSetChanged();
                             }
                         }
+                        notifyDataSetChanged();
                     }
 
                     @Override
@@ -117,10 +122,47 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.InboxViewHol
             @Override
             public void onClick(View v) {
 
+                Toast.makeText(context,"Denied " + requesters.get(position) + " from borrowing " + booksRequestedList.get(position).getBtitle(),Toast.LENGTH_LONG).show();
+
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                            Book b = snapshot.getValue(Book.class);
+                            if (b.getBtitle().contains(booksRequestedList.get(position).getBtitle())) {
+                                String key = snapshot.getKey();
+
+                                DatabaseReference book_ref = FirebaseDatabase.getInstance().getReference("Books").child(key);
+                                // get requestedby list
+                                String r = book_ref.child("requestedBy").toString();
+                                List<String> reqs = new ArrayList<String>();
+
+                                if (r.contains(", ")) {
+                                    reqs = Arrays.asList(r.split("\\s*,\\s*"));
+                                    book_ref.child("requestedBy").setValue(reqs.remove(booksRequestedList.get(position).getRequestedBy()));
+                                } else {
+                                    reqs.add(r);
+                                    book_ref.child("requestedBy").setValue("");
+                                    book_ref.child("bstatus").setValue("Available");
+                                }
+
+
+                                //book_ref.child("requestedBy").setValue(reqs.remove(booksRequestedList.get(position).getRequestedBy()));
+
+                                // when implemented; take user to maps to set location
+                                // clear all other requests for this particular book
+                                notifyDataSetChanged();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
-
-
     }
 
     @Override

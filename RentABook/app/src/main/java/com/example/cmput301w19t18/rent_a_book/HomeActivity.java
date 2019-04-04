@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
     category2;
     private ArrayList<Book> arrayListHorizontal_myBooks, arrayListHorizontal_myBooks2, arrayListHorizontal_myGenreBooks;
     private ArrayList<Book> bookList;
-    private String genreList;
+    private String genreList = null;
     private String[] genres = new String[3];
     private ObservableInt mObsInt;
 
@@ -235,9 +235,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-                    String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children"};
+                    String[] strGenres = {"Comedy", "Drama", "Romance", "Comics", "Fantasy", "Horror", "Mystery", "Science Fiction", "Western", "Biography", "Historical Fiction", "Adventure", "Non-Fiction", "Young Adult", "Thriller", "Tragedy", "Poetry", "Children",};
 
-                    String[] gList = genreList.split(" ");
+                    String[] gList = genreList.split(", ");
                     int b = 0;
                     for (int a=0; a<gList.length; a++) {
                         if (gList[a].equals("1")) {
@@ -275,12 +275,11 @@ public class HomeActivity extends AppCompatActivity {
 
 
         String genreList = FirebaseDatabase.getInstance().getReference("Users").child("prefList").toString();
-        String[] gList = genreList.split(" ");
+        String[] gList = genreList.split(", ");
         int j = 0;
         for (int i = 0; i < gList.length; i++) {
             if (gList[i].equals("1")) {
                 genres[j] = strGenres[i];
-                j++;
             }
 
         }
