@@ -16,27 +16,42 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * The type Book details.
  * Allows user to click a book image and view the details of the book.
  */
 public class BookDetails extends AppCompatActivity implements View.OnClickListener {
-    ImageView cover;
-    RatingBar rating;
-    TextView title;
-    TextView description;
-    TextView author;
-    TextView ISBN;
-    TextView owner;
-    TextView status;
-    Button request;
+    private ImageView cover;
+    private RatingBar rating;
+    private TextView title;
+    private TextView description;
+    private TextView author;
+    private TextView ISBN;
+    private TextView owner;
+    private TextView status;
+    private Button request;
+
+    // Firebase stuff
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase fd;
+    private DatabaseReference database;
+    private DatabaseReference book_ref;
+    private String key;
+    private Boolean mode = false;
 
 
     @Override
@@ -89,6 +104,12 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
                     }
                 });
 
+        mAuth = FirebaseAuth.getInstance();
+        fd = FirebaseDatabase.getInstance();
+        key = fd.getReference("Books").push().getKey();
+        book_ref = fd.getReference("Books");;//.child("requestedBy");
+        Query query = book_ref.orderByChild("btitle");
+
         cover = (ImageView) findViewById(R.id.bookimage);
         rating = (RatingBar) findViewById(R.id.bookRating_view);
         title = (TextView) findViewById(R.id.title_textView);
@@ -108,18 +129,129 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
         owner.setText(this.getIntent().getExtras().getString("owner"));
         status.setText(this.getIntent().getExtras().getString("status"));
 
+
         if (status.getText().equals("Available") || status.getText().equals("Requested")) {
             request.setClickable(true);
-            Toast.makeText(this,"clickable",Toast.LENGTH_SHORT).show();
-        }
-        else if (status.getText().equals("Borrowed")) {
+            request.setOnClickListener(this);
+
+        } else if (status.getText().equals("Borrowed")) {
             request.setClickable(false);
-            Toast.makeText(this,"unclickable",Toast.LENGTH_SHORT).show();
+            //request.setText("Request Unavailable");
         }
 
+        database = FirebaseDatabase.getInstance().getReference();
+
+        database.child("Books").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List books = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Book b = snapshot.getValue(Book.class);
+                    if (b.getBtitle().equals(title.getText())) {
+                        books.add(b.getRequestedBy());
+                        if (b.getBstatus().equals("Borrowed")) {
+                            mode = true;
+                        }
+                    }
+                }
+                //Toast.makeText(getApplicationContext(), books.toString(), Toast.LENGTH_LONG).show();
+                // if current user is requesting; set button to cancel else set to request
+                if (books.contains(mAuth.getCurrentUser().getEmail())){
+                    request.setText("Cancel");
+                    //removeRequest();
+
+                } else if (!books.contains(mAuth.getCurrentUser().getEmail()) && mode == false){
+                    request.setText("Request");
+                    //addRequest();
+                }
+                else if (mode == true) {
+                    request.setText("Borrowed");
+                    request.setClickable(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
+
     @Override
     public void onClick(View v) {
+        database = FirebaseDatabase.getInstance().getReference();
+
+        database.child("Books").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List books = new ArrayList<>();
+                Book currBook = new Book();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Book b = snapshot.getValue(Book.class);
+                    if (b.getBtitle().equals(title.getText())) {
+                        books.add(b.getRequestedBy());
+                        //books.add(b);
+                        currBook = b;
+                        if (currBook.getBstatus().equals("Borrowed")) {
+                            mode = true;
+                        }
+                    }
+                }
+                //Toast.makeText(getApplicationContext(), books.toString(), Toast.LENGTH_LONG).show();
+                // split requestedBy string into list
+                List<String> reqs = Arrays.asList(currBook.getRequestedBy().split("\\s*,\\s*"));
+
+
+                // if current user is requesting; set button to cancel else set to request
+                if (currBook.getRequestedBy().contains(mAuth.getCurrentUser().getEmail())){
+                    request.setText("Cancel");
+                    addRequest();
+                    /*
+                    reqs.remove(mAuth.getCurrentUser().getEmail());
+                    // check if reqs is empty
+                    if (reqs.isEmpty()) {
+                        // set status to available and set requestedBy to ""
+                        currBook.setBstatus("Available");
+                        currBook.setRequestedBy("");
+                    } else {
+                        currBook.setRequestedBy(reqs.toString());
+                    }
+                    */
+                    //database.child("Books").setValue(currBook);
+
+                } else if (!books.contains(mAuth.getCurrentUser().getEmail()) && mode == false){
+                    request.setText("Request");
+                    removeRequest();
+                    /*reqs.add(mAuth.getCurrentUser().getEmail());
+                    currBook.setRequestedBy(reqs.toString());
+                    currBook.setBstatus("Requested");
+                    database.child("Books").setValue(currBook);
+                    */
+                }
+                else if (mode == true) {
+                    request.setText("Borrowed");
+                    request.setClickable(false);
+                }
+                // if status is available; set button to request and if selected change status to requested
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
+
+public void addRequest() {
+    Toast.makeText(getApplicationContext(), "Added request!", Toast.LENGTH_LONG).show();
+}
+
+public void removeRequest() {
+    Toast.makeText(getApplicationContext(), "Removed request!", Toast.LENGTH_LONG).show();
+}
+
 }

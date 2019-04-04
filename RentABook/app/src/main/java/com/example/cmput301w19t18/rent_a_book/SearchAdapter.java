@@ -93,30 +93,30 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder searchViewHolder, int i) {
         Context context = searchViewHolder.itemView.getContext();
-        final Book currentItem = mSearchBookList.get(i);
+        final Book currentBook = mSearchBookList.get(i);
 
 
-        final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg";
+        final String bookCover = "http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg";
         Picasso.get().load(bookCover).into(searchViewHolder.mOwnerPicture);
 
-        searchViewHolder.mBookTitle.setText(currentItem.getBtitle());
-        searchViewHolder.mBookAuthor.setText(currentItem.getAuthor());
-        searchViewHolder.mOwnerName.setText(currentItem.getbOwner());
-        searchViewHolder.mStatus.setText(currentItem.getBstatus());
+        searchViewHolder.mBookTitle.setText(currentBook.getBtitle());
+        searchViewHolder.mBookAuthor.setText(currentBook.getAuthor());
+        searchViewHolder.mOwnerName.setText(currentBook.getbOwner());
+        searchViewHolder.mStatus.setText(currentBook.getBstatus());
 
         searchViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), BookDetails.class);
                 Bundle bundle = new Bundle();
-                bundle.putFloat("rating", currentItem.getRating());
-                bundle.putString("title", currentItem.getBtitle());
-                bundle.putString("bookphoto","http://covers.openlibrary.org/b/isbn/" + currentItem.getISBN() + "-M.jpg");
-                bundle.putString("status",currentItem.getBstatus());
-                bundle.putString("owner",currentItem.getbOwner());
-                bundle.putString("description",currentItem.getDescription());
-                bundle.putString("author",currentItem.getAuthor());
-                bundle.putString("ISBN", currentItem.getISBN());
+                bundle.putFloat("rating", currentBook.getRating());
+                bundle.putString("title", currentBook.getBtitle());
+                bundle.putString("bookphoto","http://covers.openlibrary.org/b/isbn/" + currentBook.getISBN() + "-M.jpg");
+                bundle.putString("status",currentBook.getBstatus());
+                bundle.putString("owner",currentBook.getbOwner());
+                bundle.putString("description",currentBook.getDescription());
+                bundle.putString("author",currentBook.getAuthor());
+                bundle.putString("ISBN", currentBook.getISBN());
 
                 intent.putExtras(bundle);
                 v.getContext().startActivity(intent);
